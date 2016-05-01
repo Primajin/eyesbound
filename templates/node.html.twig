@@ -1,0 +1,45 @@
+{# The 'node' class is required for contextual edit links. #}
+<article{{ attributes.addClass('node') }}>
+
+  {% if title_prefix or title_suffix or display_submitted or unpublished or page is empty and label %}
+    <header>
+      {{ title_prefix }}
+      {% if not page and label %}
+        <h2{{ title_attributes }}>
+          <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h2>
+      {% endif %}
+      {{ title_suffix }}
+
+      {% if display_submitted %}
+        <div class="submitted">
+          {{ author_picture }}
+          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+          {{ metadata }}
+        </div>
+      {% endif %}
+
+      {% if not node.published %}
+        <p class="node--unpublished">{{ 'Unpublished'|t }}</p>
+      {% endif %}
+    </header>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('content') }}>
+    {{ content|without('links') }}
+  </div><!-- /.content -->
+
+  {% if content.links.terms %}
+    <div class="terms">
+      {{ content.links.terms }}
+      }
+    </div><!-- /.terms -->
+  {% endif %}
+
+  {% if content.links %}
+    <div class="links">
+      {{ content.links }}
+    </div><!-- /.links -->
+  {% endif %}
+
+</article><!-- /.node -->
