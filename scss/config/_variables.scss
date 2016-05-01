@@ -27,7 +27,7 @@ $base-line-height: 1.5;
 $heading-line-height: 1.3;
 
 // Letter spacing.
-$base-letter-spacing: 0.03em;
+$base-letter-spacing: .03em;
 
 // Other Sizes.
 $base-border-radius: 2px;
@@ -36,6 +36,8 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors.
+$white: #fff; //scss-lint ;_;
+$black: #000; //scss-lint ;_;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
@@ -57,12 +59,12 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors.
-$base-background-color: #fff;
+$base-background-color: $white;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Forms.
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+$form-box-shadow: inset 0 1px 3px rgba($black, .06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -.3);
 
 // Animations.
 $base-duration: 150ms;
