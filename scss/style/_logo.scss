@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'mixins';
+
+.site-name a {
+  color: $black;
+  position: absolute;
+  text-decoration: none;
+  z-index: $z-index-logo;
+}

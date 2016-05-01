@@ -1,6 +1,8 @@
 @CHARSET "utf-8";
-@import 'variables';
+@import 'reset';
+@import 'global';
 
-body {
-  color: $black;
-}
+
+//Components
+@import 'logo';
+@import 'slideshow';

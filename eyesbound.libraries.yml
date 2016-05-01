@@ -1,8 +1,8 @@
 global:
   version: VERSION
   css:
-  base:
-       css/style/style.css: {}
+    base:
+      css/style/style.css: {}
   #  base:
   #    css/base/base.css: {}
   #  layout:

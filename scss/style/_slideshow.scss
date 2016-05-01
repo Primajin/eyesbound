@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.cycle {
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  //scss-lint:disable ImportantRule
+  position: fixed !important;
+  //scss-lint:enable all
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: $z-index-slideshow;
+}
