@@ -7,21 +7,25 @@ html {
 }
 
 .breadcrumb li {
-  list-style-type: none;
   display: inline-block;
+  list-style-type: none;
 }
 
 #navigation li {
-  list-style-type: none;
   display: inline-block;
+  list-style-type: none;
 }
 
 .site-name {
   font-size: 2.2em;
-  line-height: 1.3em;
   font-weight: 300;
-  padding: 0 0 0.5em;
+  line-height: 1.3em;
   margin: 0;
+  padding: 0 0 .5em;
+}
+
+.feed-icon {
+  display: none;
 }
 
 /*# sourceMappingURL=components.css.map */

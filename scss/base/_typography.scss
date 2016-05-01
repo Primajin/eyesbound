@@ -3,8 +3,8 @@ body {
   color: $base-font-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  line-height: $base-line-height;
   letter-spacing: $base-letter-spacing;
+  line-height: $base-line-height;
 }
 
 h1,
@@ -71,10 +71,10 @@ pre, code, tt {
 
 pre {
   background-color: #efefef;
-  display: block;
-  padding: 5px;
-  margin: 5px 0;
   border: 1px solid #aaaaaa;
+  display: block;
+  margin: 5px 0;
+  padding: 5px;
 }
 
 // Abbreviation.

@@ -1,3 +1,11 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
 * {
   background-color: transparent;
 }
@@ -24,12 +32,11 @@
 }
 
 a:hover, a:active, a:link, a:visited {
-  color: black;
+  color: #000;
 }
 
-#content a:link:after, #content a:visited:after {
-  content: " (" attr(href) ") ";
-  font-size: 0.8em;
+#content a:link::after, #content a:visited::after {
+  font-size: .8em;
   font-weight: normal;
 }
 

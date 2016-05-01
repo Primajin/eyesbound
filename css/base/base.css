@@ -34,7 +34,7 @@ button:hover, button:focus, input[type="button"]:hover, input[type="button"]:foc
 
 button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: .5;
 }
 
 button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
@@ -152,8 +152,8 @@ dl dd {
 
 picture,
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
   vertical-align: top;
 }
 
@@ -186,8 +186,8 @@ body {
   color: #333;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 16px;
-  line-height: 1.5;
   letter-spacing: 0.03em;
+  line-height: 1.5;
 }
 
 h1,
@@ -251,10 +251,10 @@ pre, code, tt {
 
 pre {
   background-color: #efefef;
-  display: block;
-  padding: 5px;
-  margin: 5px 0;
   border: 1px solid #aaaaaa;
+  display: block;
+  margin: 5px 0;
+  padding: 5px;
 }
 
 abbr {

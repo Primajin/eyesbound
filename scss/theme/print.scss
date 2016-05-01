@@ -1,3 +1,4 @@
+@import '../config/config';
 // Use this stylesheet for print styles only.
 * {
   background-color: transparent;
@@ -29,16 +30,16 @@ a {
   &:active,
   &:link,
   &:visited {
-    color: black;
+    color: $black;
   }
 }
 
 // CSS2 selector to add visible href after links.
 #content a {
-  &:link:after,
-  &:visited:after {
-    content: " (" attr(href) ") ";
-    font-size: 0.8em;
+  &:link::after,
+  &:visited::after {
+    //content: ' (' attr(href) ') ';
+    font-size: .8em;
     font-weight: normal;
   }
 }

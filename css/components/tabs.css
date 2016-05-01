@@ -7,9 +7,9 @@ html {
 }
 
 ul.tabs {
-  width: 100%;
-  margin: 0 0 5px;
   border-bottom: 1px solid #ddd;
+  margin: 0 0 5px;
+  width: 100%;
 }
 
 ul.tabs li {
@@ -17,10 +17,10 @@ ul.tabs li {
 }
 
 ul.tabs a {
-  display: block;
   border: 1px solid #ddd;
   border-bottom: 0;
   border-radius: 3px 3px 0 0;
+  display: block;
 }
 
 /*# sourceMappingURL=tabs.css.map */
