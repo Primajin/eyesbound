@@ -130,5 +130,5 @@ module.exports = function(grunt) {
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   // Note: if you'd like to run and of the tasks individually you can do so by typing 'grunt mytaskname' alternatively
   // you can type 'grunt watch' to automatically track your files for changes.
-  grunt.registerTask('default', ['browserSync','watch']);
+  grunt.registerTask('default', ['browserSync','uglify', 'imagemin', 'svgmin', 'sass', 'watch']);
 };
