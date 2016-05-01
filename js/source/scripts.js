@@ -21,6 +21,8 @@
       $(document).ready(function () {
         // Execute code once the DOM is ready.
           $('.cycle').fadeSlideShow({
+              width: false,
+              height: false,
               PlayPauseElement: false,
               NextElementText: '»',
               PrevElementText: '«',
