@@ -29,4 +29,5 @@ install.php
 update.php
 xmlrpc.php
 /node_modules
+/npm-debug.log
 .idea/
