@@ -12,25 +12,25 @@ module.exports = function(grunt) {
         files: ['js/source/{,*/}*.js'],
         tasks: ['uglify'],
         options: {
-          spawn: false,
-        },
+          spawn: false
+        }
       },
       images: {
         files: ['images/source/{,*/}*.{png,jpg,gif}'],
         tasks: ['imagemin'],
         options: {
-          spawn: false,
+          spawn: false
         }
       },
       vector: {
         files: ['images/source/{,*/}*.svg'],
         tasks: ['svgmin'],
         options: {
-          spawn: false,
+          spawn: false
         }
       },
       css: {
-        files: ['sass/{,*/}*.{scss,sass}'],
+        files: ['scss/{,*/}*.{scss,sass}'],
         tasks: ['sass']
       }
     },
@@ -88,13 +88,13 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/base/base.css': 'sass/base/base.sass',
-          'css/components/components.css': 'sass/components/components.sass',
-          'css/components/tabs.css': 'sass/components/tabs.sass',
-          'css/components/messages.css': 'sass/components/messages.sass',
-          'css/layout/layout.css': 'sass/layout/layout.sass',
-          'css/theme/theme.css': 'sass/theme/theme.sass',
-          'css/theme/print.css': 'sass/theme/print.sass'
+          'css/base/base.css': 'scss/base/base.scss',
+          'css/components/components.css': 'scss/components/components.scss',
+          'css/components/tabs.css': 'scss/components/tabs.scss',
+          'css/components/messages.css': 'scss/components/messages.scss',
+          'css/layout/layout.css': 'scss/layout/layout.scss',
+          'css/theme/theme.css': 'scss/theme/theme.scss',
+          'css/theme/print.css': 'scss/theme/print.scss'
         }
       }
     },
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
           injectChanges: false
         }
       }
-    },
+    }
   });
   // This is where we tell Grunt we plan to use this plug-in.
   grunt.loadNpmTasks('grunt-contrib-uglify');
