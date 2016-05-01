@@ -31,3 +31,5 @@ xmlrpc.php
 /node_modules
 /npm-debug.log
 .idea/
+/css
+/js/build
