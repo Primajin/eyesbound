@@ -20,6 +20,12 @@
 
       $(document).ready(function () {
         // Execute code once the DOM is ready.
+          $('.cycle').fadeSlideShow({
+              PlayPauseElement: false,
+              NextElementText: '»',
+              PrevElementText: '«',
+              ListElement: false
+          });
         //$cycle = $('.cycle').hide();
         //$cycleImg = $cycle.find('img').hide();
       });

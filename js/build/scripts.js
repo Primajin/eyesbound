@@ -1,2 +1,0 @@
-!function($,Drupal,window,document){Drupal.behaviors.eyesbound={attach:function(context,settings){$(document).ready(function(){}),$(window).load(function(){}),$(window).resize(function(){}),$(window).scroll(function(){})}}}(jQuery,Drupal,this,this.document);
-//# sourceMappingURL=scripts.js.map

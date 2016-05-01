@@ -88,13 +88,14 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/base/base.css': 'scss/base/base.scss',
-          'css/components/components.css': 'scss/components/components.scss',
+          //'css/base/base.css': 'scss/base/base.scss',
+          //'css/components/components.css': 'scss/components/components.scss',
           'css/components/tabs.css': 'scss/components/tabs.scss',
           'css/components/messages.css': 'scss/components/messages.scss',
-          'css/layout/layout.css': 'scss/layout/layout.scss',
-          'css/theme/theme.css': 'scss/theme/theme.scss',
-          'css/theme/print.css': 'scss/theme/print.scss'
+          //'css/layout/layout.css': 'scss/layout/layout.scss',
+          //'css/theme/theme.css': 'scss/theme/theme.scss',
+          //'css/theme/print.css': 'scss/theme/print.scss'
+          'css/style/style.css': 'scss/style/style.scss'
         }
       }
     },

@@ -1,15 +1,17 @@
 global:
   version: VERSION
   css:
-    base:
-      css/base/base.css: {}
-    layout:
-      css/layout/layout.css: {}
-    component:
-      css/components/components.css: {}
-    theme:
-      css/theme/theme.css: {}
-      css/theme/print.css: { media: print }
+  base:
+       css/style/style.css: {}
+  #  base:
+  #    css/base/base.css: {}
+  #  layout:
+  #    css/layout/layout.css: {}
+  #  component:
+  #    css/components/components.css: {}
+  #  theme:
+  #    css/theme/theme.css: {}
+  #    css/theme/print.css: { media: print }
   js:
     js/modernizr.js: {}
     js/build/fadeSlideShow.js: {}
