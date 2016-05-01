@@ -12,6 +12,7 @@ global:
       css/theme/print.css: { media: print }
   js:
     js/modernizr.js: {}
+    js/build/fadeSlideShow.js: {}
     js/build/scripts.js: {}
   # dependencies:
   #   - core/drupal

@@ -17,7 +17,12 @@
   },
   "description": "=========================== How to Use Grunt with Eyesbound ===========================",
   "main": "Gruntfile.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "napa": "^2.3.0"
+  },
+  "scripts": {
+    "install": "napa pascalbajorat/simplefadeslideshow"
+  },
   "author": "",
   "license": "MIT"
 }
