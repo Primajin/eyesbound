@@ -30,54 +30,48 @@
   <!-- ______________________ MAIN _______________________ -->
 
   <div id="main">
-    <div class="container">
-      <section id="content">
+    <section id="content">
+      <div id="content-header">
+        {{ page.breadcrumb }}
 
-        <div id="content-header">
+        {% if page.highlighted|render %}
+          <div id="highlighted">{{ page.highlighted }}</div>
+        {% endif %}
 
-          {{ page.breadcrumb }}
+        {{ title_prefix }}
 
-          {% if page.highlighted|render %}
-            <div id="highlighted">{{ page.highlighted }}</div>
-          {% endif %}
+        {% if title %}
+          <h1 class="title">{{ title }}</h1>
+        {% endif %}
 
-          {{ title_prefix }}
+        {{ title_suffix }}
+        {{ page.help }}
 
-          {% if title %}
-            <h1 class="title">{{ title }}</h1>
-          {% endif %}
+        {% if tabs %}
+          <div class="tabs">{{ tabs }}</div>
+        {% endif %}
 
-          {{ title_suffix }}
-          {{ page.help }}
+        {% if action_links %}
+          <ul class="action-links">{{ action_links }}</ul>
+        {% endif %}
 
-          {% if tabs %}
-            <div class="tabs">{{ tabs }}</div>
-          {% endif %}
+      </div><!-- /#content-header -->
 
-          {% if action_links %}
-            <ul class="action-links">{{ action_links }}</ul>
-          {% endif %}
+      <div id="content-area">
+        {{ page.content }}
+      </div>
+    </section><!-- /#content -->
+    {% if page.sidebar_first|render %}
+      <aside id="sidebar-first" class="column sidebar first">
+        {{ page.sidebar_first }}
+      </aside><!-- /#sidebar-first -->
+    {% endif %}
 
-        </div><!-- /#content-header -->
-
-        <div id="content-area">
-          {{ page.content }}
-        </div>
-
-      </section><!-- /#content -->
-
-      {% if page.sidebar_first|render %}
-        <aside id="sidebar-first" class="column sidebar first">
-          {{ page.sidebar_first }}
-        </aside><!-- /#sidebar-first -->
-      {% endif %}
-
-      {% if page.sidebar_second|render %}
-        <aside id="sidebar-second" class="column sidebar second">
-          {{ page.sidebar_second }}
-        </aside><!-- /#sidebar-second -->
-      {% endif %}
-    </div><!-- /.container -->
+    {% if page.sidebar_second|render %}
+      <aside id="sidebar-second" class="column sidebar second">
+        {{ page.sidebar_second }}
+      </aside><!-- /#sidebar-second -->
+    {% endif %}
   </div><!-- /#main -->
 
   <!-- ______________________ FOOTER _______________________ -->
