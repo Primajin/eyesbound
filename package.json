@@ -18,6 +18,7 @@
   "description": "=========================== How to Use Grunt with Eyesbound ===========================",
   "main": "Gruntfile.js",
   "devDependencies": {
+    "grunt-autoprefixer": "^3.0.4",
     "napa": "^2.3.0"
   },
   "scripts": {

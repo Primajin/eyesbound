@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['scss/{,*/}*.{scss,sass}'],
-        tasks: ['sass']
+        tasks: ['sass', 'autoprefixer']
       }
     },
     uglify: {
@@ -75,6 +75,17 @@ module.exports = function(grunt) {
           src: ['{,*/}*.svg' ],
           dest: 'images/optimized/'
         }]
+      }
+    },
+    autoprefixer:{
+      options: {
+        map: true,
+        browsers: ['last 2 versions', '> 5% in DE']
+      },
+      dist:{
+        files:{
+          'css/style/style.css':'css/style/style.css'
+        }
       }
     },
     sass: {
@@ -125,6 +136,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   // Now that we've loaded the package.json and the node_modules we set the base path
   // for the actual execution of the tasks
   // grunt.file.setBase('/')
