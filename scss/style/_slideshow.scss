@@ -13,3 +13,30 @@
   width: 100vw;
   z-index: $z-index-slideshow;
 }
+
+//scss-lint:disable IdSelector SelectorFormat
+#fssPrev,
+#fssNext {
+  background: $white;
+  color: $black;
+  display: block;
+  height: $controls-height;
+  line-height: $controls-height;
+  margin-top: ($controls-height / 2) * -1;
+  position: fixed;
+  text-align: center;
+  text-decoration: none;
+  top: 50%;
+  width: $controls-width;
+  z-index: $z-index-controls;
+}
+
+#fssPrev {
+  left: 0;
+}
+
+#fssNext {
+  right: 0;
+}
+
+//scss-lint:enable all
