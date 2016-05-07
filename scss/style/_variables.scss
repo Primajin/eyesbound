@@ -27,3 +27,8 @@ $screen-sm-min: map-get($grid-breakpoints, sm);
 $screen-md-min: map-get($grid-breakpoints, md);
 $screen-lg-min: map-get($grid-breakpoints, lg);
 $screen-xl-min: map-get($grid-breakpoints, xl);
+
+//logo
+$logo-font-size: 37px;
+$logo-width: 400px;
+$logo-height: 100px;

@@ -1,9 +1,21 @@
 @import 'variables';
 @import 'mixins';
 
-.site-name a {
-  color: $black;
-  position: absolute;
-  text-decoration: none;
+.site-name {
+  background: $white;
+  height: $logo-height;
+  line-height: $logo-height;
+  position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  width: $logo-width;
   z-index: $z-index-logo;
+
+  a {
+    color: $black;
+    font-size: $logo-font-size;
+    font-weight: 700;
+    text-decoration: none;
+    vertical-align: middle;
+  }
 }
