@@ -1,0 +1,15 @@
+@import 'variables';
+
+.menu {
+  background: $black;
+  display: block;
+  left: 0;
+  position: fixed;
+  top: $logo-height;
+  z-index: $z-index-menu;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
