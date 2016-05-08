@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'mixins';
+
+[class*="page-category"] {
+  .layout-container {
+    margin: 0 auto;
+
+    @each $breakpoint, $value in $grid-breakpoints {
+      @if ($value > 0) {
+        @include breakpoint($breakpoint) {
+          max-width: $value - 50px;
+        }
+      }
+    }
+  }
+}
