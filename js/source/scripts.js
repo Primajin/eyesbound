@@ -22,47 +22,53 @@
       $(document).ready(function() {
         // Execute code once the DOM is ready.
         $cycle = $('.cycle');
-        $cycleImg = $cycle.find('img');
+        if ($cycle.length) {
+          $cycleImg = $cycle.find('img');
 
-        var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
-        $('<footer id="footer" class="hidden"><h1>' + title + '</h1></footer>').appendTo('#block-eyesbound-content > div');
+          var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
+          $('<footer id="footer" class="hidden"><h1>' + title + '</h1></footer>').appendTo('#block-eyesbound-content > div');
 
-        $pacman = $('.pacman');
+          $pacman = $('.pacman');
 
-        var addTitle = function() {
-          var index = $('#fssList').find('.fssActive').index();
-          var newTitle = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
-          $('#footer').find('h1').text(newTitle);
-        };
+          var addTitle = function() {
+            var index = $('#fssList').find('.fssActive').index();
+            var newTitle = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
+            $('#footer').find('h1').text(newTitle);
+          };
 
-        $cycle.fadeSlideShow({
-          width: false,
-          height: false,
-          PlayPauseElement: false,
-          NextElementText: '»',
-          PrevElementText: '«',
-          ListElement: 'fssList',
-          addListToId: 'footer',
-          afterSlide: addTitle
-        });
+          $cycle.fadeSlideShow({
+            width: false,
+            height: false,
+            PlayPauseElement: false,
+            NextElementText: '»',
+            PrevElementText: '«',
+            ListElement: 'fssList',
+            addListToId: 'footer',
+            afterSlide: addTitle
+          });
+        }
       });
 
       $(window).load(function() {
         // Execute code once the window is fully loaded.
-        $cycleImg.each(function(index) {
-          $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
-          $('#fssList').find('li').eq($cycleImg.length - (index + 1)).find('a').attr('title', this.getAttribute('alt')).html('<img src="' + this.currentSrc + '" />');
-        });
-        $pacman.hide();
-        $cycle.removeClass('hidden');
-        $('#footer').removeClass('hidden');
+        if ($cycle.length) {
+          $cycleImg.each(function(index) {
+            $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+            $('#fssList').find('li').eq($cycleImg.length - (index + 1)).find('a').attr('title', this.getAttribute('alt')).html('<img src="' + this.currentSrc + '" />');
+          });
+          $pacman.hide();
+          $cycle.removeClass('hidden');
+          $('#footer').removeClass('hidden');
+        }
       });
 
       $(window).resize(function() {
         // Execute code when the window is resized.
-        $cycleImg.each(function() {
-          $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
-        });
+        if ($cycle.length) {
+          $cycleImg.each(function() {
+            $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+          });
+        }
       });
 
       $(window).scroll(function() {
