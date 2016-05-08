@@ -15,13 +15,21 @@
   // To understand behaviors, see https://drupal.org/node/756722#behaviors
   Drupal.behaviors.eyesbound = {
     attach: function(context, settings) {
-      //var $cycle = $('.cycle').hide();
-      //var $cycleImg = $cycle.find('img').hide();
+      var $cycle = $('.cycle');
+      var $cycleImg = $cycle.find('img');
+      var $pacman = $('.pacman');
 
       $(document).ready(function() {
         // Execute code once the DOM is ready.
-        $('<footer id="footer"/>').appendTo('#block-eyesbound-content > div');
-        $('.cycle').fadeSlideShow({
+        $('<footer id="footer" class="hidden"/>').appendTo('#block-eyesbound-content > div');
+
+        $cycle = $('.cycle');
+
+        $pacman = $('.pacman');
+
+        $cycleImg = $cycle.find('img');
+
+        $cycle.fadeSlideShow({
           width: false,
           height: false,
           PlayPauseElement: false,
@@ -32,23 +40,23 @@
           beforeSlide: function() {console.log("go")},
           afterSlide: function() {console.log("done")}
         });
-        //$cycle = $('.cycle').hide();
-        //$cycleImg = $cycle.find('img').hide();
       });
 
       $(window).load(function() {
         // Execute code once the window is fully loaded.
-        /*$cycleImg.each(function(){
-         $(this).parent().css('background-image', 'url('+this.currentSrc+')');
-         });
-         $cycle.show();*/
+        $cycleImg.each(function() {
+          $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+        });
+        $pacman.hide();
+        $cycle.removeClass('hidden');
+        $('#footer').removeClass('hidden');
       });
 
       $(window).resize(function() {
         // Execute code when the window is resized.
-        /*$cycleImg.each(function(){
-         $(this).parent().css('background-image', 'url('+this.currentSrc+')');
-         });*/
+        $cycleImg.each(function() {
+          $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+        });
       });
 
       $(window).scroll(function() {
