@@ -1,15 +1,30 @@
 @import 'variables';
 
 .menu {
-  background: $black;
+  background: $white;
   display: block;
   left: 0;
+  padding: 20px;
   position: fixed;
+  text-transform: uppercase;
   top: $logo-height;
+  width: $menu-width;
   z-index: $z-index-menu;
 
   a {
-    color: $white;
+    color: $black;
+    font-weight: 700;
     text-decoration: none;
+
+    //shuttered --> »SHUTTERED«
+    &[data-drupal-link-system-path="taxonomy/term/5"] {
+      &::before {
+        content: '»';
+      }
+
+      &::after {
+        content: '«';
+      }
+    }
   }
 }
