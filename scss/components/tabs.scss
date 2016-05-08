@@ -11,9 +11,12 @@ ul.tabs {
   }
 
   a {
+    background: $white;
     border: 1px solid $light-gray;
     border-bottom: 0;
     border-radius: 3px 3px 0 0;
+    color: $black;
     display: block;
+    padding: 0 5px;
   }
 }
