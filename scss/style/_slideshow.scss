@@ -38,8 +38,12 @@
   text-align: center;
   text-decoration: none;
   top: 50%;
-  width: $controls-width;
+  width: $controls-width * 2;
   z-index: $z-index-controls;
+
+  @include breakpoint(lg) {
+    width: $controls-width;
+  }
 }
 
 #fssPrev {
