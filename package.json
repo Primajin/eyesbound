@@ -23,7 +23,7 @@
     "napa": "^2.3.0"
   },
   "scripts": {
-    "install": "napa pascalbajorat/simplefadeslideshow"
+    "install": "napa Primajin/simplefadeslideshow"
   },
   "author": "",
   "license": "MIT"
