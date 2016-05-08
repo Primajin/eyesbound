@@ -9,16 +9,49 @@
   position: fixed;
   width: 100vw;
 
+  > * {
+    height: $footer-height;
+    line-height: $footer-height;
+  }
+
   li {
     display: inline-block;
     margin-left: 5px;
+    width: 50px;
+
+    img {
+      border: 2px solid transparent;
+      vertical-align: middle;
+    }
+
+    &.fssActive img {
+      border-color: $black;
+    }
 
     &:first-child {
       margin-left: 0;
     }
   }
 
-  a {
-    color: $black;
+  h1 {
+    padding-right: $controls-width;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    text-transform: uppercase;
+    top: 0;
+  }
+}
+
+#fssList {
+  display: none;
+  left: 50%;
+  margin-left: (270px / 2) * -1;
+  position: absolute;
+  top: 0;
+  width: 270px;
+
+  @include breakpoint(lg) {
+    display: block;
   }
 }

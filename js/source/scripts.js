@@ -19,15 +19,6 @@
       var $cycleImg = $cycle.find('img');
       var $pacman = $('.pacman');
 
-      var addTitle = function() {
-        var $thumbnailsList = $('#fssList');
-        var index = $thumbnailsList.find('.fssActive').index();
-        var $cycle = $('.cycle');
-        var $cycleImg = $cycle.find('img');
-        var title = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
-        $('#footer').find('h1').text(title);
-      };
-
       $(document).ready(function() {
         // Execute code once the DOM is ready.
         $cycle = $('.cycle');
@@ -37,6 +28,12 @@
         $('<footer id="footer" class="hidden"><h1>' + title + '</h1></footer>').appendTo('#block-eyesbound-content > div');
 
         $pacman = $('.pacman');
+
+        var addTitle = function() {
+          var index = $('#fssList').find('.fssActive').index();
+          var newTitle = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
+          $('#footer').find('h1').text(newTitle);
+        };
 
         $cycle.fadeSlideShow({
           width: false,
@@ -52,8 +49,9 @@
 
       $(window).load(function() {
         // Execute code once the window is fully loaded.
-        $cycleImg.each(function() {
+        $cycleImg.each(function(index) {
           $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+          $('#fssList').find('li').eq($cycleImg.length - (index + 1)).find('a').attr('title', this.getAttribute('alt')).html('<img src="' + this.currentSrc + '" />');
         });
         $pacman.hide();
         $cycle.removeClass('hidden');
