@@ -19,15 +19,24 @@
       var $cycleImg = $cycle.find('img');
       var $pacman = $('.pacman');
 
+      var addTitle = function() {
+        var $thumbnailsList = $('#fssList');
+        var index = $thumbnailsList.find('.fssActive').index();
+        var $cycle = $('.cycle');
+        var $cycleImg = $cycle.find('img');
+        var title = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
+        $('#footer').find('h1').text(title);
+      };
+
       $(document).ready(function() {
         // Execute code once the DOM is ready.
-        $('<footer id="footer" class="hidden"/>').appendTo('#block-eyesbound-content > div');
-
         $cycle = $('.cycle');
+        $cycleImg = $cycle.find('img');
+
+        var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
+        $('<footer id="footer" class="hidden"><h1>' + title + '</h1></footer>').appendTo('#block-eyesbound-content > div');
 
         $pacman = $('.pacman');
-
-        $cycleImg = $cycle.find('img');
 
         $cycle.fadeSlideShow({
           width: false,
@@ -37,8 +46,7 @@
           PrevElementText: '«',
           ListElement: 'fssList',
           addListToId: 'footer',
-          beforeSlide: function() {console.log("go")},
-          afterSlide: function() {console.log("done")}
+          afterSlide: addTitle
         });
       });
 
