@@ -1,0 +1,11 @@
+.views-view-grid {
+  > div > div {
+    float: left;
+  }
+}
+
+[class*="page-category"] {
+  main {
+    margin-top: $logo-height;
+  }
+}
