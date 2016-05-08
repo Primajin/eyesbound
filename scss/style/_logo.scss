@@ -4,10 +4,12 @@
 .site-name {
   background: $white;
   height: $logo-height;
+  left: 0;
   line-height: $logo-height;
   position: fixed;
   text-align: center;
   text-transform: uppercase;
+  top: 0;
   width: $logo-width;
   z-index: $z-index-logo;
 

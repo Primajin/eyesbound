@@ -49,7 +49,7 @@ html {
 /* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
 img,
 object,
-embed {max-width: 100%;}
+embed {max-width: 100%;  height: auto;}
 
 /*
    Note: keeping IMG here will cause problems if you're using foreground images as sprites.
