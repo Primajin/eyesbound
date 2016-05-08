@@ -34,12 +34,16 @@
   }
 
   h1 {
-    padding-right: $controls-width;
+    padding-right: $controls-width * 2;
     position: absolute;
     right: 0;
     text-align: right;
     text-transform: uppercase;
     top: 0;
+
+    @include breakpoint(lg) {
+      padding-right: $controls-width;
+    }
   }
 }
 
