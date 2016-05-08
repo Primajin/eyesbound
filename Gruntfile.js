@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['scss/{,*/}*.{scss,sass}'],
-        tasks: ['sass', 'autoprefixer']
+        tasks: ['sass', 'cmq', 'autoprefixer']
       }
     },
     uglify: {
@@ -88,6 +88,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    cmq: {
+      options: {
+        log: false
+      },
+      dist: {
+        files: {
+          'css/style/style.css':'css/style/style.css'
+        }
+      }
+    },
     sass: {
       // This will compile all of our sass files
       // Additional configuration options can be found at https://github.com/sindresorhus/grunt-sass
@@ -137,6 +147,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-combine-media-queries');
   // Now that we've loaded the package.json and the node_modules we set the base path
   // for the actual execution of the tasks
   // grunt.file.setBase('/')
