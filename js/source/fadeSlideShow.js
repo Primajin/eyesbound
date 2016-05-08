@@ -113,7 +113,6 @@ jQuery.fn.fadeSlideShow = function(options) {
 			}else if(newIndex <= ActSlide){
 				jQuery('> *:gt('+newIndex+')', fssThis).fadeOut(settings.speed);
 			}
-			settings.afterSlide();
 
 			// set the active slide
 			ActSlide = newIndex;
@@ -123,6 +122,7 @@ jQuery.fn.fadeSlideShow = function(options) {
 				jQuery('#'+settings.ListElement+' li').removeClass(settings.ListLiActive);
 				jQuery('#'+settings.ListElement+' li').eq((Slides-newIndex)).addClass(settings.ListLiActive);
 			}
+			settings.afterSlide();
 		};
 
 		// if list is on render it
