@@ -1,19 +1,24 @@
 .views-view-grid {
-  > div > div {
-    float: left;
+  > div {
+    clear: both;
 
-    @include breakpoint(sm) {
-      padding: 0 5px;
-    }
+    > div {
+      float: left;
 
-    @include breakpoint(md) {
-      padding: 0 10px;
+      @include breakpoint(sm) {
+        padding: 0 5px;
+      }
+
+      @include breakpoint(md) {
+        padding: 0 10px;
+      }
     }
   }
 }
 
-[class*="page-category"] {
+[class*="page-tags"] {
   main {
     margin-top: $logo-height;
+    padding-bottom: $logo-height;
   }
 }
