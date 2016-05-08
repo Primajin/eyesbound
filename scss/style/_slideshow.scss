@@ -12,6 +12,17 @@
   top: 0;
   width: 100vw;
   z-index: $z-index-slideshow;
+
+  img {
+    display: none;
+  }
+
+  li {
+    background: transparent center center no-repeat;
+    background-size: cover;
+    height: calc(100vh - #{$footer-height});
+    width: 100vw;
+  }
 }
 
 //scss-lint:disable IdSelector SelectorFormat
