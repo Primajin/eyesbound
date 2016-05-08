@@ -20,13 +20,15 @@
 
       $(document).ready(function() {
         // Execute code once the DOM is ready.
+        $('<footer id="footer"/>').appendTo('#block-eyesbound-content > div');
         $('.cycle').fadeSlideShow({
           width: false,
           height: false,
           PlayPauseElement: false,
           NextElementText: '»',
           PrevElementText: '«',
-          ListElement: false,
+          ListElement: 'fssList',
+          addListToId: 'footer',
           beforeSlide: function() {console.log("go")},
           afterSlide: function() {console.log("done")}
         });
