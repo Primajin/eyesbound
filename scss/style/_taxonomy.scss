@@ -1,6 +1,17 @@
 .views-view-grid {
   > div > div {
     float: left;
+
+    $local-padding: 0;
+    @each $breakpoint, $value in $grid-breakpoints {
+      @if ($value > 0) {
+        $local-padding: $local-padding + 5px;
+
+        @include breakpoint($breakpoint) {
+          padding: 0 $local-padding;
+        }
+      }
+    }
   }
 }
 
