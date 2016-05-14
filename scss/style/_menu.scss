@@ -15,6 +15,11 @@
     color: $black;
     font-weight: 700;
     text-decoration: none;
+    transition: color $transition-standard;
+
+    &:hover {
+      color: lighten($black, 40);
+    }
 
     //shuttered --> »SHUTTERED«
     &[data-drupal-link-system-path="taxonomy/term/5"] {
