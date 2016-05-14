@@ -22,7 +22,7 @@
       $(document).ready(function() {
         // Execute code once the DOM is ready.
         $cycle = $('.cycle');
-        if ($cycle.length) {
+        if ($cycle.length && $cycle.children().length > 1) {
           $cycleImg = $cycle.find('img');
 
           var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
