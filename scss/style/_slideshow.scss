@@ -38,11 +38,16 @@
   text-align: center;
   text-decoration: none;
   top: 50%;
+  transition: color $transition-standard;
   width: $controls-width * 2;
   z-index: $z-index-controls;
 
   @include breakpoint(lg) {
     width: $controls-width;
+  }
+
+  &:hover {
+    color: lighten($black, 40);
   }
 }
 
