@@ -10,8 +10,12 @@
   text-align: center;
   text-transform: uppercase;
   top: 0;
-  width: $logo-width;
+  width: 100%;
   z-index: $z-index-logo;
+
+  @include breakpoint($logo-width) {
+    width: $logo-width;
+  }
 
   a {
     color: $black;
