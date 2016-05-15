@@ -61,6 +61,7 @@
   {% set sidebar_first = page.sidebar_first|render %}
   {% set sidebar_second = page.sidebar_second|render %}
   <body{{ attributes.addClass(classes,
+    is_front ? 'homepage',
     not is_front ? 'with-subnav',
     sidebar_first ? 'sidebar-first',
     sidebar_second ? 'sidebar-second',

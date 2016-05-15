@@ -51,7 +51,7 @@
             });
         }
 
-        if (($('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
+        if (($body.hasClass('homepage') || $('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
           if (screenfull.enabled) {
             $body.addClass('fullscreen-supported'); //avoid double binding
             $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
@@ -99,7 +99,7 @@
 
           var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
             $('<footer id="footer" class="hidden">' +
-            '<div class="social-icons">' +
+            '<div class="soc-icons">' +
             '<a class="icon-facebook-circled" href="https://www.facebook.com/eyesbound" target="_blank">Facebook</a>' +
             '<a class="icon-gplus-circled" href="https://plus.google.com/+Eyesbound" target="_blank">Google+</a>' +
             '<a class="icon-twitter-circled" href="https://twitter.com/helljannis" target="_blank">Twitter</a>' +
