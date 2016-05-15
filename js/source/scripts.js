@@ -18,12 +18,18 @@
       var $cycle = $('.cycle');
       var $cycleImg = $cycle.find('img');
       var $pacman = $('.pacman');
+      var $document = $(document);
+      var $body = $(document.body);
 
       $(document).ready(function() {
         // Execute code once the DOM is ready.
 
-        var $document = $(document);
-        var $body = $(document.body);
+        var $mainMenu = $('#block-eyesbound-main-menu');
+        $mainMenu.addClass('visible');
+        $('<a class="menu-toggle">Menu</a>').on('click', function (e) {
+          e.preventDefault();
+          $mainMenu.toggleClass('expanded');
+        }).appendTo($mainMenu);
 
         if (screenfull.enabled) {
           $document
@@ -44,7 +50,6 @@
               }
             });
         }
-
 
         if (($('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
           if (screenfull.enabled) {
@@ -124,9 +129,9 @@
         }
       });
 
-      $(window).scroll(function() {
+      //$(window).scroll(function() {
         // Execute code when the window scrolls.
-      });
+      //});
     }
   };
 
