@@ -60,12 +60,27 @@
           }
         }
 
-        if ($('body[class*="page-image"]').length && !$body.hasClass('fullscreen-supported')) {
-          if (screenfull.enabled) {
-            $body.addClass('fullscreen-supported'); //avoid double binding
-            $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
-              screenfull.toggle(document.querySelector('.content img'));
-            }).appendTo($body);
+        if ($('body[class*="page-image"]').length && !$body.hasClass('content-run')) {
+          $body.addClass('content-run'); //avoid double binding
+          var $grabDate = $('[property="schema:dateCreated"]');
+          var date = new Date(Date.parse($grabDate.attr('content')));
+          date = date.toISOString().slice(0, 10);
+
+          var $date = $('#date');
+          var $flexItems = $('.flex-item');
+
+          $date.find('div').prependTo($flexItems.last());
+          $date.append('<span>Captured: </span><span>' + date + '</span>');
+
+          $flexItems.last().prepend('<span>Location: </span>');
+
+          if (!$body.hasClass('fullscreen-supported')) {
+            if (screenfull.enabled) {
+              $body.addClass('fullscreen-supported'); //avoid double binding
+              $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
+                screenfull.toggle(document.querySelector('.content img'));
+              }).appendTo($body);
+            }
           }
         }
 
