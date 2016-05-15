@@ -1,13 +1,18 @@
 @import 'variables';
 
-.social-icons {
+.soc-icons {
   position: relative;
   text-align: center;
   top: $footer-height;
 
   @include breakpoint(565px) {
+    padding-left: $controls-width * 2;
     position: static;
     text-align: left;
+  }
+
+  @include breakpoint(lg) {
+    padding-left: $controls-width;
   }
 
   a {
@@ -26,16 +31,6 @@
       display: inline-block;
       margin-top: 1px;
       vertical-align: top;
-    }
-
-    &:first-child {
-      @include breakpoint(565px) {
-        margin-left: $controls-width * 2;
-      }
-
-      @include breakpoint(lg) {
-        margin-left: $controls-width;
-      }
     }
 
     &:hover {
