@@ -1,0 +1,16 @@
+@import 'variables';
+
+.page-contact {
+  margin: 50px auto;
+
+  .licence-icons [class*="icon-"] {
+    display: inline-block;
+    font-size: 1.65rem;
+    height: 27px;
+    margin-right: 5px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 27px;
+  }
+}
