@@ -2,7 +2,13 @@
 @import 'mixins';
 
 [class*="page-tags"],
-[class*="page-contact"] {
+[class*="page-image"],
+.page-contact {
+  main {
+    margin-top: $logo-height + $controls-width * 3;
+    padding-bottom: $logo-height;
+  }
+
   .layout-container {
     margin: 0 auto;
 
