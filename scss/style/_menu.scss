@@ -1,15 +1,9 @@
 @import 'variables';
 
 .menu {
-  background: $white;
   display: block;
-  left: 0;
-  padding: 20px;
-  position: fixed;
-  text-transform: uppercase;
-  top: $logo-height;
-  width: $menu-width;
-  z-index: $z-index-menu;
+  line-height: 2rem;
+  width: 100%;
 
   a {
     color: $black;
@@ -22,7 +16,7 @@
     }
 
     //shuttered --> »SHUTTERED«
-    &[data-drupal-link-system-path="taxonomy/term/5"] {
+    &[href*="series/"] {
       &::before {
         content: '»';
       }
@@ -33,3 +27,56 @@
     }
   }
 }
+
+.menu-toggle.menu-toggle {
+  background: $black;
+  bottom: 0;
+  color: $white;
+  cursor: pointer;
+  height: $controls-width * 2;
+  left: 0;
+  line-height: $controls-width * 2;
+  position: absolute;
+  text-align: center;
+  transition: background-color $transition-standard, color $transition-standard;
+  width: 100%;
+
+  @include breakpoint(lg) {
+    height: $controls-width;
+    line-height: $controls-width;
+  }
+
+  &:hover {
+    background: $white;
+    color: $black;
+  }
+}
+
+//scss-lint:disable IdSelector
+#block-eyesbound-main-menu {
+  background: $white;
+  height: $menu-height;
+  left: 0;
+  opacity: 0;
+  padding: 20px;
+  position: fixed;
+  text-transform: uppercase;
+  top: ($menu-height - $logo-height - ($controls-width * 2)) * -1;
+  transition: top $transition-standard, opacity $transition-standard;
+  width: $menu-width;
+  z-index: $z-index-menu;
+
+  @include breakpoint(lg) {
+    top: ($menu-height - $logo-height - $controls-width) * -1;
+  }
+
+  &.expanded {
+    top: $logo-height;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+//scss-lint:enable all
