@@ -63,4 +63,34 @@
   right: 0;
 }
 
+#toggle-fullscreen {
+  background-color: $white;
+  color: $black;
+  cursor: pointer;
+  font-size: 1.6rem;
+  height: 40px;
+  line-height: 40px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 40px;
+
+  i {
+    vertical-align: middle;
+  }
+}
+
+.fullscreen {
+  .site-name,
+  #navigation,
+  #fssPrev,
+  #fssNext {
+    opacity: .5;
+  }
+
+  .icon-resize-full::before {
+    content: 'q';
+  }
+}
 //scss-lint:enable all

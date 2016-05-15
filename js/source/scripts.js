@@ -21,6 +21,60 @@
 
       $(document).ready(function() {
         // Execute code once the DOM is ready.
+
+        var $document = $(document);
+        var $body = $(document.body);
+
+        if (($('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
+          if (screenfull.enabled) {
+            $document
+              .on(screenfull.raw.fullscreenchange, function () {
+                if (screenfull.isFullscreen) {
+                  $body.addClass('fullscreen');
+                } else {
+                  $body.removeClass('fullscreen');
+                }
+              })
+              .on(screenfull.raw.fullscreenerror, function (e) {
+                if ($body.hasClass('fullscreen-error')) {
+                  $('#toggle-fullscreen').remove();
+                } else {
+                  $body.addClass('fullscreen-error');
+                }
+              });
+
+            $body.addClass('fullscreen-supported');
+            $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
+              screenfull.toggle();
+            }).appendTo($body);
+          }
+        }
+
+        if ($('body[class*="page-image"]').length && !$body.hasClass('fullscreen-supported')) {
+          if (screenfull.enabled) {
+            $document
+              .on(screenfull.raw.fullscreenchange, function () {
+                if (screenfull.isFullscreen) {
+                  $body.addClass('fullscreen');
+                } else {
+                  $body.removeClass('fullscreen');
+                }
+              })
+              .on(screenfull.raw.fullscreenerror, function (e) {
+                if ($body.hasClass('fullscreen-error')) {
+                  $('#toggle-fullscreen').remove();
+                } else {
+                  $body.addClass('fullscreen-error');
+                }
+              });
+
+            $body.addClass('fullscreen-supported');
+            $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
+              screenfull.toggle(document.querySelector('.content img'));
+            }).appendTo($body);
+          }
+        }
+
         $cycle = $('.cycle');
         if ($cycle.length && $cycle.children().length > 1) {
           $cycleImg = $cycle.find('img');

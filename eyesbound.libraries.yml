@@ -15,6 +15,7 @@ global:
   js:
     js/modernizr.js: {}
     js/build/fadeSlideShow.js: {}
+    js/build/screenfull.js: {}
     js/build/scripts.js: {}
   # dependencies:
   #   - core/drupal
