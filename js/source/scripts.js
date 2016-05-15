@@ -25,25 +25,30 @@
         var $document = $(document);
         var $body = $(document.body);
 
+        if (screenfull.enabled) {
+          $document
+            .on(screenfull.raw.fullscreenchange, function () {
+              if (screenfull.isFullscreen) {
+                $body.addClass('fullscreen');
+              } else {
+                $body.removeClass('fullscreen');
+              }
+            })
+            .on(screenfull.raw.fullscreenerror, function () {
+              if ($body.hasClass('fullscreen-error')) {
+                //fullscreen already failed once, lets disable it then.
+                $('#toggle-fullscreen').remove();
+              } else {
+                //hmm fullscreen didn't work for the first time, lets flag body to check if this happens again next time
+                $body.addClass('fullscreen-error');
+              }
+            });
+        }
+
+
         if (($('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
           if (screenfull.enabled) {
-            $document
-              .on(screenfull.raw.fullscreenchange, function () {
-                if (screenfull.isFullscreen) {
-                  $body.addClass('fullscreen');
-                } else {
-                  $body.removeClass('fullscreen');
-                }
-              })
-              .on(screenfull.raw.fullscreenerror, function (e) {
-                if ($body.hasClass('fullscreen-error')) {
-                  $('#toggle-fullscreen').remove();
-                } else {
-                  $body.addClass('fullscreen-error');
-                }
-              });
-
-            $body.addClass('fullscreen-supported');
+            $body.addClass('fullscreen-supported'); //avoid double binding
             $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
               screenfull.toggle();
             }).appendTo($body);
@@ -52,23 +57,7 @@
 
         if ($('body[class*="page-image"]').length && !$body.hasClass('fullscreen-supported')) {
           if (screenfull.enabled) {
-            $document
-              .on(screenfull.raw.fullscreenchange, function () {
-                if (screenfull.isFullscreen) {
-                  $body.addClass('fullscreen');
-                } else {
-                  $body.removeClass('fullscreen');
-                }
-              })
-              .on(screenfull.raw.fullscreenerror, function (e) {
-                if ($body.hasClass('fullscreen-error')) {
-                  $('#toggle-fullscreen').remove();
-                } else {
-                  $body.addClass('fullscreen-error');
-                }
-              });
-
-            $body.addClass('fullscreen-supported');
+            $body.addClass('fullscreen-supported'); //avoid double binding
             $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
               screenfull.toggle(document.querySelector('.content img'));
             }).appendTo($body);
