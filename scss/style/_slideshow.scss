@@ -18,13 +18,19 @@
   }
 
   li {
-    background: transparent center center no-repeat;
-    background-size: cover;
     height: calc(100vh - #{$footer-height * 2});
     width: 100vw;
 
     @include breakpoint(565px) {
       height: calc(100vh - #{$footer-height});
+    }
+
+    a {
+      background: transparent center center no-repeat;
+      background-size: cover;
+      display: block;
+      height: 100%;
+      width: 100%;
     }
   }
 }
