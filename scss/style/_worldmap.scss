@@ -1,0 +1,23 @@
+@import 'variables';
+
+#maps-common {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  &,
+  a {
+    color: $black;
+  }
+
+  .geolocation-common-map-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .geolocation-common-map-locations {
+    display: none;
+  }
+}

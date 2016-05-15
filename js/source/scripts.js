@@ -69,6 +69,15 @@
           }
         }
 
+        if ($('body[class*="page-worldmap"]').length && !$body.hasClass('fullscreen-supported')) {
+          if (screenfull.enabled) {
+            $body.addClass('fullscreen-supported'); //avoid double binding
+            $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
+              screenfull.toggle(document.querySelector('#maps-common'));
+            }).appendTo($body);
+          }
+        }
+
         $cycle = $('.cycle');
         if ($cycle.length && $cycle.children().length > 1) {
           $cycleImg = $cycle.find('img');

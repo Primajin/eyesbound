@@ -17,6 +17,10 @@ a {
 
 p {
   margin-bottom: 1.5rem;
+
+  &:empty {
+    display: none;
+  }
 }
 
 h1,
