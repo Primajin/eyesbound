@@ -52,6 +52,31 @@
     <link href="https://fontastic.s3.amazonaws.com/dfSAf8pTeJ9jzj7nS5P2wP/icons.css" rel="stylesheet" type="text/css" media="all">
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Android -->
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" sizes="192x192" href="/android.png">
+
+    <!-- Windows Tile -->
+    <meta name='application-name' content='EYESBOUND'>
+    <meta name='msapplication-TileColor' content='#000000'>
+    <meta name='msapplication-TileImage' content='/metro-tile.png'>
+    <meta name='msapplication-starturl' content='http://eyesbound.com'>
+
+    <meta name="msapplication-square70x70logo" content="/tiny_70x70.png"/>
+    <meta name="msapplication-square150x150logo" content="/square_150x150.png"/>
+    <meta name="msapplication-wide310x150logo" content="/wide_310x150.png"/>
+    <meta name="msapplication-square310x310logo" content="/large_310x310.png"/>
+
+    <!-- Apple Stuff-->
+    <link rel="apple-touch-icon" href="/apple-touch-icon_57x57.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon_76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon_120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon_152x152.png">
   </head>
   {% set classes = [] %}
   {% for role in user.roles %}
