@@ -71,6 +71,9 @@
 
 #toggle-fullscreen {
   background-color: $white;
+  border: 1px solid rgba($black, .2);
+  border-right: 0;
+  border-top: 0;
   color: $black;
   cursor: pointer;
   font-size: 1.6rem;
@@ -81,6 +84,11 @@
   text-align: center;
   top: 0;
   width: 40px;
+  z-index: $z-index-fullscreen-toggle;
+
+  @include breakpoint(440px) {
+    border: 0;
+  }
 
   i {
     vertical-align: middle;
