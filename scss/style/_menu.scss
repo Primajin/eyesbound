@@ -71,7 +71,7 @@
   }
 
   &.expanded {
-    top: $logo-height;
+    top: $logo-height - 1;
   }
 
   &.visible {
