@@ -23,81 +23,83 @@
 
       $(document).ready(function() {
         // Execute code once the DOM is ready.
+        if (!$body.hasClass('run')) {
+          $body.addClass('run'); //sometimes ready seems to fire twice, wtf?
 
-        var $mainMenu = $('#block-eyesbound-main-menu');
-        $mainMenu.addClass('visible');
-        $('<a class="menu-toggle">Menu</a>').on('click', function (e) {
-          e.preventDefault();
-          $mainMenu.toggleClass('expanded');
-        }).appendTo($mainMenu);
+          var $mainMenu = $('#block-eyesbound-main-menu');
+          $mainMenu.addClass('visible');
+          $('<a class="menu-toggle">Menu</a>').on('click', function (e) {
+            e.preventDefault();
+            $mainMenu.toggleClass('expanded');
+          }).appendTo($mainMenu);
 
-        if (screenfull.enabled) {
-          $document
-            .on(screenfull.raw.fullscreenchange, function () {
-              if (screenfull.isFullscreen) {
-                $body.addClass('fullscreen');
-              } else {
-                $body.removeClass('fullscreen');
-              }
-            })
-            .on(screenfull.raw.fullscreenerror, function () {
-              if ($body.hasClass('fullscreen-error')) {
-                //fullscreen already failed once, lets disable it then.
-                $('#toggle-fullscreen').remove();
-              } else {
-                //hmm fullscreen didn't work for the first time, lets flag body to check if this happens again next time
-                $body.addClass('fullscreen-error');
-              }
-            });
-        }
-
-        if (($body.hasClass('homepage') || $('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
           if (screenfull.enabled) {
-            $body.addClass('fullscreen-supported'); //avoid double binding
-            $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
-              screenfull.toggle();
-            }).appendTo($body);
+            $document
+              .on(screenfull.raw.fullscreenchange, function () {
+                if (screenfull.isFullscreen) {
+                  $body.addClass('fullscreen');
+                } else {
+                  $body.removeClass('fullscreen');
+                }
+              })
+              .on(screenfull.raw.fullscreenerror, function () {
+                if ($body.hasClass('fullscreen-error')) {
+                  //fullscreen already failed once, lets disable it then.
+                  $('#toggle-fullscreen').remove();
+                } else {
+                  //hmm fullscreen didn't work for the first time, lets flag body to check if this happens again next time
+                  $body.addClass('fullscreen-error');
+                }
+              });
           }
-        }
 
-        if ($('body[class*="page-image"]').length && !$body.hasClass('content-run')) {
-          $body.addClass('content-run'); //avoid double binding
-          var $grabDate = $('[property="schema:dateCreated"]');
-          var date = new Date(Date.parse($grabDate.attr('content')));
-          date = date.toISOString().slice(0, 10);
-
-          var $date = $('#date');
-          var $flexItems = $('.flex-item');
-
-          $date.find('div').prependTo($flexItems.last());
-          $date.append('<span>Captured: </span><span>' + date + '</span>');
-
-          $flexItems.last().prepend('<span>Location: </span>');
-
-          if (!$body.hasClass('fullscreen-supported')) {
+          if (($body.hasClass('homepage') || $('body[class*="page-category"]').length || $('body[class*="page-series"]').length) && !$body.hasClass('fullscreen-supported')) {
             if (screenfull.enabled) {
               $body.addClass('fullscreen-supported'); //avoid double binding
               $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
-                screenfull.toggle(document.querySelector('.content img'));
+                screenfull.toggle();
               }).appendTo($body);
             }
           }
-        }
 
-        if ($('body[class*="page-worldmap"]').length && !$body.hasClass('fullscreen-supported')) {
-          if (screenfull.enabled) {
-            $body.addClass('fullscreen-supported'); //avoid double binding
-            $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
-              screenfull.toggle(document.querySelector('#maps-common'));
-            }).appendTo($body);
+          if ($('body[class*="page-image"]').length && !$body.hasClass('content-run')) {
+            $body.addClass('content-run'); //avoid double binding
+            var $grabDate = $('[property="schema:dateCreated"]');
+            var date = new Date(Date.parse($grabDate.attr('content')));
+            date = date.toISOString().slice(0, 10);
+
+            var $date = $('#date');
+            var $flexItems = $('.flex-item');
+
+            $date.find('div').prependTo($flexItems.last());
+            $date.append('<span>Captured: </span><span>' + date + '</span>');
+
+            $flexItems.last().prepend('<span>Location: </span>');
+
+            if (!$body.hasClass('fullscreen-supported')) {
+              if (screenfull.enabled) {
+                $body.addClass('fullscreen-supported'); //avoid double binding
+                $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
+                  screenfull.toggle(document.querySelector('.content img'));
+                }).appendTo($body);
+              }
+            }
           }
-        }
 
-        $cycle = $('.cycle');
-        if ($cycle.length && $cycle.children().length > 1) {
-          $cycleImg = $cycle.find('img');
+          if ($('body[class*="page-worldmap"]').length && !$body.hasClass('fullscreen-supported')) {
+            if (screenfull.enabled) {
+              $body.addClass('fullscreen-supported'); //avoid double binding
+              $('<div id="toggle-fullscreen"><i class="icon-resize-full"></i></div>').on('click', function () {
+                screenfull.toggle(document.querySelector('#maps-common'));
+              }).appendTo($body);
+            }
+          }
 
-          var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
+          $cycle = $('.cycle');
+          if ($cycle.length && $cycle.children().length > 1) {
+            $cycleImg = $cycle.find('img');
+
+            var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
             $('<footer id="footer" class="hidden">' +
             '<div class="soc-icons">' +
             '<a class="icon-facebook-circled" href="https://www.facebook.com/eyesbound" target="_blank">Facebook</a>' +
@@ -110,24 +112,25 @@
             '<h1>' + title + '</h1>' +
             '</footer>').appendTo('#block-eyesbound-content > div');
 
-          $pacman = $('.pacman');
+            $pacman = $('.pacman');
 
-          var addTitle = function() {
-            var index = $('#fssList').find('.fssActive').index();
-            var newTitle = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
-            $('#footer').find('h1').text(newTitle);
-          };
+            var addTitle = function () {
+              var index = $('#fssList').find('.fssActive').index();
+              var newTitle = $cycleImg.eq($cycleImg.length - (index + 1)).attr('alt');
+              $('#footer').find('h1').text(newTitle);
+            };
 
-          $cycle.fadeSlideShow({
-            width: false,
-            height: false,
-            PlayPauseElement: false,
-            NextElementText: '»',
-            PrevElementText: '«',
-            ListElement: 'fssList',
-            addListToId: 'footer',
-            afterSlide: addTitle
-          });
+            $cycle.fadeSlideShow({
+              width: false,
+              height: false,
+              PlayPauseElement: false,
+              NextElementText: '»',
+              PrevElementText: '«',
+              ListElement: 'fssList',
+              addListToId: 'footer',
+              afterSlide: addTitle
+            });
+          }
         }
       });
 

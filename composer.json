@@ -18,5 +18,7 @@
   },
   "license": "",
   "minimum-stability": "dev",
-  "require": {}
+  "require": {
+    "jasny/twig-extensions": "^1.0"
+  }
 }
