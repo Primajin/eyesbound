@@ -102,12 +102,12 @@
             var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
             $('<footer id="footer" class="hidden">' +
             '<div class="soc-icons">' +
-            '<a class="icon-facebook-circled" href="https://www.facebook.com/eyesbound" target="_blank">Facebook</a>' +
-            '<a class="icon-gplus-circled" href="https://plus.google.com/+Eyesbound" target="_blank">Google+</a>' +
-            '<a class="icon-twitter-circled" href="https://twitter.com/helljannis" target="_blank">Twitter</a>' +
-            '<a class="icon-flickr-circled" href="https://www.flickr.com/photos/jannishell/" target="_blank">Flickr</a>' +
-            '<a class="icon-tumblr-circled" href="http://jannishell.tumblr.com/" target="_blank">Tumblr</a>' +
-            '<a class="icon-linkedin-circled" href="https://www.linkedin.com/in/jannishell" target="_blank">LinkedIn</a>' +
+            '<a rel="noopener" class="icon-facebook-circled" href="https://www.facebook.com/eyesbound" target="_blank">Facebook</a>' +
+            '<a rel="noopener" class="icon-gplus-circled" href="https://plus.google.com/+Eyesbound" target="_blank">Google+</a>' +
+            '<a rel="noopener" class="icon-twitter-circled" href="https://twitter.com/helljannis" target="_blank">Twitter</a>' +
+            '<a rel="noopener" class="icon-flickr-circled" href="https://www.flickr.com/photos/jannishell/" target="_blank">Flickr</a>' +
+            '<a rel="noopener" class="icon-tumblr-circled" href="http://jannishell.tumblr.com/" target="_blank">Tumblr</a>' +
+            '<a rel="noopener" class="icon-linkedin-circled" href="https://www.linkedin.com/in/jannishell" target="_blank">LinkedIn</a>' +
             '</div>' +
             '<h1>' + title + '</h1>' +
             '</footer>').appendTo('#block-eyesbound-content > div');
@@ -138,7 +138,7 @@
         // Execute code once the window is fully loaded.
         if ($cycle.length) {
           $cycleImg.each(function(index) {
-            $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+            $(this).parent().css('background-image', 'url(' + this.currentSrc + ')').attr('title', this.getAttribute('alt'));
             $('#fssList').find('li').eq($cycleImg.length - (index + 1)).find('a').attr('title', this.getAttribute('alt')).html('<img src="' + this.currentSrc + '" />');
           });
           $pacman.hide();
