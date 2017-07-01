@@ -1,6 +1,6 @@
 {
   "name": "eyesbound",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.4",
@@ -24,7 +24,7 @@
     "napa": "^2.3.0"
   },
   "scripts": {
-    "install": "napa Primajin/simplefadeslideshow"
+    "inst": "napa Primajin/simplefadeslideshow"
   },
   "author": "",
   "license": "MIT"
