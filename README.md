@@ -1,6 +1,4 @@
-=====================
-Introduction to Eyesbound
-=====================
+# Introduction to Eyesbound
 
 Eyesbound boasts a clean HTML5 structure with extensible CSS classes and IDs for
 unlimited theming possibilities as well as a top-down load order for improved
@@ -11,10 +9,7 @@ Eyesbound is based on Basic (https://www.drupal.org/project/basic).
 
 Less code spam, more ham.
 
-
-============
-Installation
-============
+## Installation
 
 Eyesbound utilizes SASS for adaptive grids and layouts and general structure of the
 site. It's recommended to use SASS for building out your theme. The following
@@ -23,9 +18,7 @@ packages are included via 'npm install'
   - Bourbon (http://bourbon.io/)
   - Bourbon Neat (http://neat.bourbon.io/)
 
-============================
-How to compile SASS in Eyesbound
-============================
+## How to compile SASS in Eyesbound
 
 To use SASS and automatically compile it within your theme, please refer to "How
 to Use Grunt with Eyesbound" in the documentation below.
@@ -44,9 +37,7 @@ Or simply compile the latest:
   node-sass sass -o css --output-style expanded --source-map true
 
 
-=======================
-What are the files for?
-=======================
+## What are the files for?
 
 - eyesbound.info.yml
   Provide informations about the theme, like regions and libraries.
@@ -65,9 +56,7 @@ What are the files for?
   Provides additional settings in the theme settings page.
 
 
-============
-In /sass
-============
+### In /sass
 
 - layout/layout.sass
   Defines the layout of the theme (compiles to css/layout/layout.css)
@@ -77,9 +66,7 @@ In /sass
   Styles for the admin tabs (compiles to css/components/tabs.css)
 
 
-============
-In /js
-============
+### In /js
 
 - modernizr.js
   Modernizr detects HTML and CSS features and applies classes to
@@ -97,9 +84,7 @@ In /js
   scripts.js file.
 
 
-===================
-Changing the Layout
-===================
+## Changing the Layout
 
 The layout used in Eyesbound is fairly similar to the Holy Grail method. It has been
 tested on all major browsers including IE (5 to >10), Opera, Firefox, Safari,
@@ -116,9 +101,7 @@ This is how the page template is buit in Eyesbound, and it works in fluid and fi
 layout. Refer to the notes in layout.sass to see how to modify the layout.
 
 
-===========================
-How to Use Grunt with Eyesbound
-===========================
+## How to Use Grunt with Eyesbound
 
 Grunt (http://gruntjs.com/) requires Node.JS to be installed on your machine.
 There are various package managers that can handle this for you.
@@ -147,9 +130,7 @@ line:
 This will initialize Grunt and start watching changes to your SASS files. Voilà!
 
 
-================
-Bugs & Questions
-================
+## Bugs & Questions
 
 Thanks for using Eyesbound, and remember to use the issue queue in drupal.org for
 any questions or bug reports:
@@ -157,7 +138,5 @@ any questions or bug reports:
 https://github.com/Primajin/eyesbound/issues
 
 
-====================
-Current maintainers:
-====================
+## Current maintainers:
 * Jannis Lennart Hell (Primajin)              - https://github.com/Primajin
