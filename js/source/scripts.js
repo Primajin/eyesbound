@@ -138,8 +138,9 @@
         // Execute code once the window is fully loaded.
         if ($cycle.length) {
           $cycleImg.each(function(index) {
-            $(this).parent().css('background-image', 'url(' + this.currentSrc + ')').attr('title', this.getAttribute('alt'));
-            $('#fssList').find('li').eq($cycleImg.length - (index + 1)).find('a').attr('title', this.getAttribute('alt')).html('<img src="' + this.currentSrc + '" />');
+            var src = this.currentSrc || this.getAttribute('src');
+            $(this).parent().css('background-image', 'url(' + src + ')').attr('title', this.getAttribute('alt'));
+            $('#fssList').find('li').eq($cycleImg.length - (index + 1)).find('a').attr('title', this.getAttribute('alt')).html('<img src="' + src + '" />');
           });
           $pacman.hide();
           $cycle.removeClass('hidden');
@@ -151,7 +152,8 @@
         // Execute code when the window is resized.
         if ($cycle.length) {
           $cycleImg.each(function() {
-            $(this).parent().css('background-image', 'url(' + this.currentSrc + ')');
+            var src = this.currentSrc || this.getAttribute('src');
+            $(this).parent().css('background-image', 'url(' + src + ')');
           });
         }
       });
