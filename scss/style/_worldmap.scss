@@ -1,6 +1,7 @@
 @import 'variables';
 
-#maps-common {
+#maps-common,
+.geolocation-common-map {
   height: 100vh;
   left: 0;
   position: fixed;
