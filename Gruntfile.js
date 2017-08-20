@@ -1,7 +1,7 @@
 /**
  * @file
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // This is where we configure each task that we'd like to run.
   grunt.initConfig({
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['scss/{,*/}*.{scss,sass}'],
-        tasks: ['sass', 'cmq', 'autoprefixer']
+        tasks: ['sass', 'cmq', 'autoprefixer', 'cssmin']
       }
     },
     uglify: {
@@ -41,50 +41,54 @@ module.exports = function(grunt) {
         mangle: false
       },
       my_target: {
-        files: [{
-          expand: true,
-          cwd: 'js/source',
-          src: '{,*/}*.js',
-          dest: 'js/build'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: 'js/source',
+            src: '{,*/}*.js',
+            dest: 'js/build'
+          }]
       }
     },
     imagemin: {
       // This will optimize all of our images for the web.
       dynamic: {
-        files: [{
-          expand: true,
-          cwd: 'images/source/',
-          src: ['{,*/}*.{png,jpg,gif}' ],
-          dest: 'images/optimized/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: 'images/source/',
+            src: ['{,*/}*.{png,jpg,gif}'],
+            dest: 'images/optimized/'
+          }]
       }
     },
     svgmin: {
       options: {
-        plugins: [{
-          removeViewBox: false
-        }, {
-          removeUselessStrokeAndFill: false
-        }]
+        plugins: [
+          {
+            removeViewBox: false
+          }, {
+            removeUselessStrokeAndFill: false
+          }]
       },
       dist: {
-        files: [{
-          expand: true,
-          cwd: 'images/source/',
-          src: ['{,*/}*.svg' ],
-          dest: 'images/optimized/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: 'images/source/',
+            src: ['{,*/}*.svg'],
+            dest: 'images/optimized/'
+          }]
       }
     },
-    autoprefixer:{
+    autoprefixer: {
       options: {
-        map: true,
+        map: false,
         browsers: ['last 2 versions', '> 5% in DE']
       },
-      dist:{
-        files:{
-          'css/style/style.css':'css/style/style.css'
+      dist: {
+        files: {
+          'css/style/style.css': 'css/style/style.css'
         }
       }
     },
@@ -94,7 +98,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/style/style.css':'css/style/style.css'
+          'css/style/style.css': 'css/style/style.css'
         }
       }
     },
@@ -104,26 +108,33 @@ module.exports = function(grunt) {
       options: {
         sourceMap: false,
         // This controls the compiled css and can be changed to nested, compact or compressed.
-        outputStyle: 'compressed',
+        outputStyle: 'compact',
         precision: 5
       },
       dist: {
         files: {
-          //'css/base/base.css': 'scss/base/base.scss',
-          //'css/components/components.css': 'scss/components/components.scss',
           'css/components/tabs.css': 'scss/components/tabs.scss',
           'css/components/messages.css': 'scss/components/messages.scss',
-          //'css/layout/layout.css': 'scss/layout/layout.scss',
-          //'css/theme/theme.css': 'scss/theme/theme.scss',
-          //'css/theme/print.css': 'scss/theme/print.scss'
           'css/style/style.css': 'scss/style/style.scss'
         }
+      }
+    },
+    cssmin: {
+      target: {
+        files: [
+          {
+            expand: true,
+            cwd: 'css/style',
+            src: ['*.css'],
+            dest: 'css/style',
+            ext: '.css'
+          }]
       }
     },
     browserSync: {
       dev: {
         bsFiles: {
-          src : [
+          src: [
             'css/{,*/}*.css',
             'templates/{,*/}*.twig',
             'images/optimized/{,*/}*.{png,jpg,gif,svg}',
@@ -148,11 +159,21 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-combine-media-queries');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   // Now that we've loaded the package.json and the node_modules we set the base path
   // for the actual execution of the tasks
   // grunt.file.setBase('/')
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   // Note: if you'd like to run and of the tasks individually you can do so by typing 'grunt mytaskname' alternatively
   // you can type 'grunt watch' to automatically track your files for changes.
-  grunt.registerTask('default', ['browserSync','uglify', 'imagemin', 'svgmin', 'sass', 'watch']);
+  grunt.registerTask('default', [
+    'browserSync',
+    'uglify',
+    'imagemin',
+    'svgmin',
+    'sass',
+    'cmq',
+    'autoprefixer',
+    'cssmin',
+    'watch']);
 };
