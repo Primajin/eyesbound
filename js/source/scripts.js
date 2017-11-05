@@ -21,7 +21,7 @@
       var $document = $(document);
       var $body = $(document.body);
 
-      $(document).ready(function() {
+      $(function() {
         // Execute code once the DOM is ready.
         if (!$body.hasClass('run')) {
           $body.addClass('run'); //sometimes ready seems to fire twice, wtf?
@@ -134,7 +134,7 @@
         }
       });
 
-      $(window).load(function() {
+      $(window).on('load', function (e) {
         // Execute code once the window is fully loaded.
         if ($cycle.length) {
           $cycleImg.each(function(index) {
@@ -148,7 +148,7 @@
         }
       });
 
-      $(window).resize(function() {
+      $(window).on('resize', function (e) {
         // Execute code when the window is resized.
         if ($cycle.length) {
           $cycleImg.each(function() {
@@ -158,7 +158,7 @@
         }
       });
 
-      //$(window).scroll(function() {
+      //$(window).on('scroll', function (e) {
         // Execute code when the window scrolls.
       //});
     }
