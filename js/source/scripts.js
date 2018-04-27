@@ -102,15 +102,14 @@
             var title = $cycleImg.eq($cycleImg.length - 1).attr('alt');
             $('<footer id="footer" class="hidden">' +
             '<div class="soc-icons">' +
-            '<a rel="noopener" class="icon-facebook-circled" href="https://www.facebook.com/eyesbound" target="_blank">Facebook</a>' +
             '<a rel="noopener" class="icon-gplus-circled" href="https://plus.google.com/+Eyesbound" target="_blank">Google+</a>' +
             '<a rel="noopener" class="icon-twitter-circled" href="https://twitter.com/helljannis" target="_blank">Twitter</a>' +
-            '<a rel="noopener" class="icon-flickr-circled" href="https://www.flickr.com/photos/jannishell/" target="_blank">Flickr</a>' +
             '<a rel="noopener" class="icon-tumblr-circled" href="http://jannishell.tumblr.com/" target="_blank">Tumblr</a>' +
             '<a rel="noopener" class="icon-linkedin-circled" href="https://www.linkedin.com/in/jannishell" target="_blank">LinkedIn</a>' +
             '</div>' +
             '<h1>' + title + '</h1>' +
             '</footer>').appendTo('#block-eyesbound-content > div');
+            // '<a rel="noopener" class="icon-facebook-circled" href="https://www.facebook.com/eyesbound" target="_blank">Facebook</a>' +
 
             $pacman = $('.pacman');
 
