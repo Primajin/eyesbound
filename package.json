@@ -24,7 +24,7 @@
   },
   "scripts": {
     "inst": "napa pascalbajorat/simplefadeslideshow",
-    "start": "PATH=$(npm bin):$PATH grunt"
+    "start": "grunt"
   },
   "author": "",
   "license": "MIT"
