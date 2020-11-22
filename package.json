@@ -1,32 +1,33 @@
 {
-  "name": "eyesbound",
-  "version": "0.2.0",
-  "dependencies": {
-    "grunt": "^1.0.4",
-    "grunt-autoprefixer": "^3.0.3",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-imagemin": "^3.1.0",
-    "grunt-contrib-uglify": "^4.0.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-notify": "^0.4.5",
-    "grunt-sass": "^3.1.0",
-    "grunt-svgmin": "^6.0.0",
-    "node-sass": "^4.13.0",
-    "screenfull": "^5.0.0"
-  },
-  "description": "=========================== How to Use Grunt with Eyesbound ===========================",
-  "main": "Gruntfile.js",
-  "devDependencies": {
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-combine-media-queries": "^1.0.20",
-    "grunt-contrib-cssmin": "^3.0.0",
-    "napa": "^3.0.0"
-  },
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "0BSD",
   "scripts": {
-    "inst": "napa pascalbajorat/simplefadeslideshow",
-    "start": "grunt"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "author": "",
-  "license": "MIT"
+  "dependencies": {
+    "gatsby": "^2.26.1",
+    "gatsby-source-prismic": "^3.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "prettier": "2.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
 }
