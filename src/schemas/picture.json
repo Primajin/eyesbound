@@ -1,0 +1,70 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID"
+      }
+    },
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title"
+      }
+    },
+    "series": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["series"],
+        "label": "Series"
+      }
+    },
+    "category": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["category"],
+        "label": "Category"
+      }
+    },
+    "tags": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "tag": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["tags"],
+              "label": "Tag"
+            }
+          }
+        },
+        "label": "Tags"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1500
+        },
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "datetime": {
+      "type": "Timestamp",
+      "config": {
+        "label": "Date and Time"
+      }
+    },
+    "coordinates": {
+      "type": "GeoPoint",
+      "config": {
+        "label": "Location"
+      }
+    }
+  }
+}
