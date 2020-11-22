@@ -1,142 +1,99 @@
-# Introduction to Eyesbound
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://www.gatsbyjs.com">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby's hello-world starter
+</h1>
 
-Eyesbound boasts a clean HTML5 structure with extensible CSS classes and IDs for
-unlimited theming possibilities as well as a top-down load order for improved
-SEO. It is fully responsive out-of-the-box and provides an adaptive, elegant,
-SASS-based grid system (Bourbon Neat).
+Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-Eyesbound is based on Basic (https://www.drupal.org/project/basic).
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
-Less code spam, more ham.
+## 🚀 Quick start
 
-## Installation
+1.  **Create a Gatsby site.**
 
-Eyesbound utilizes SASS for adaptive grids and layouts and general structure of the
-site. It's recommended to use SASS for building out your theme. The following
-packages are included via 'npm install'
-  - SASS (http://sass-lang.com/)
-  - Bourbon (http://bourbon.io/)
-  - Bourbon Neat (http://neat.bourbon.io/)
+    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
 
-## How to compile SASS in Eyesbound
+    ```shell
+    # create a new Gatsby site using the hello-world starter
+    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
+    ```
 
-To use SASS and automatically compile it within your theme, please refer to "How
-to Use Grunt with Eyesbound" in the documentation below.
+1.  **Start developing.**
 
-Install node-sass:
+    Navigate into your new site’s directory and start it up.
 
-  npm install node-sass -g
+    ```shell
+    cd my-hello-world-starter/
+    gatsby develop
+    ```
 
-If you don't like Grunt, or would just prefer to use SASS' internal watch
-functionality, simply cd into your theme directory and run:
+1.  **Open the source code and start editing!**
 
-  node-sass sass -o css --output-style expanded --source-map true --watch
+    Your site is now running at `http://localhost:8000`!
 
-Or simply compile the latest:
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-  node-sass sass -o css --output-style expanded --source-map true
+    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
+## 🧐 What's inside?
 
-## What are the files for?
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-- eyesbound.info.yml
-  Provide informations about the theme, like regions and libraries.
-- block.html.twig
-  Template to edit the blocks.
-- comment.html.twig
-  Template to edit the comments.
-- node.html.twig
-  Template to edit the nodes (in content).
-- page.html.twig
-  Template to edit the page.
-- eyesbound.theme
-  Used to modify Drupal's default behavior before outputting HTML through the
-  templates.
-- theme-settings.php
-  Provides additional settings in the theme settings page.
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
 
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-### In /sass
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-- layout/layout.sass
-  Defines the layout of the theme (compiles to css/layout/layout.css)
-- theme/print.sass
-  Defines the way the theme looks when printed (compiles to css/theme/print.css)
-- components/tabs.sass
-  Styles for the admin tabs (compiles to css/components/tabs.css)
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-### In /js
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-- modernizr.js
-  Modernizr detects HTML and CSS features and applies classes to
-  the <html> object you can then reference in your stylesheets. Use the URL at
-  the top of the modernizr.js file to customize the features you wish to detect.
-- selectivizr-min.js
-  This script will only be loaded for Internet Explorer 8
-  through the ie8 theme library. It will provide a JS fallback for CSS :nth-
-  child, an important part of the Bourbon Neat grid system, as it is not
-  supported in Internet Explorer 8.
-- build/scripts.js & source/scripts.js
-  When using Grunt, save files to the
-  source folder and a minified version will automatically be saved to the build
-  folder. See comments in eyesbound.libraries.yml file to enable the starter
-  scripts.js file.
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
 
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-## Changing the Layout
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-The layout used in Eyesbound is fairly similar to the Holy Grail method. It has been
-tested on all major browsers including IE (5 to >10), Opera, Firefox, Safari,
-and Chrome. The purpose of this method is to have a minimal markup for an ideal
-display. For accessibility and search engine optimization, the best order to
-display a page is the following:
+9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
 
-1. Header
-2. Content
-3. Sidebars
-4. Footer
+10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-This is how the page template is buit in Eyesbound, and it works in fluid and fixed
-layout. Refer to the notes in layout.sass to see how to modify the layout.
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
+12. **`README.md`**: A text file containing useful reference information about your project.
 
-## How to Use Grunt with Eyesbound
+## 🎓 Learning Gatsby
 
-Grunt (http://gruntjs.com/) requires Node.JS to be installed on your machine.
-There are various package managers that can handle this for you.
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
 
-https://nodejs.org/download/
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
-Once Node.JS is installed, go to the root folder of Eyesbound and install your Grunt
-packages:
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-  npm install
+## 💫 Deploy
 
-This will install the neccessary node_modules to run Grunt. In order for Grunt
-to work from the command line we are going to need the Grunt CLI. Open a new
-Terminal window and type:
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
 
-  npm install -g grunt-cli
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-hello-world)
 
-This will install the CLI globally. Restart terminal when that is complete and
-you will now be able to use Grunt commands.
-
-Once installed, cd to the root folder of Eyesbound and run Grunt via the command
-line:
-
-  grunt
-
-This will initialize Grunt and start watching changes to your SASS files. Voilà!
-
-
-## Bugs & Questions
-
-Thanks for using Eyesbound, and remember to use the issue queue in drupal.org for
-any questions or bug reports:
-
-https://github.com/Primajin/eyesbound/issues
-
-
-## Current maintainers:
-* Jannis Lennart Hell (Primajin)              - https://github.com/Primajin
+<!-- AUTO-GENERATED-CONTENT:END -->
