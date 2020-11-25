@@ -15,19 +15,29 @@ export const pageQuery = graphql`
     prismicPicture(uid: { eq: $uid }) {
       uid
       data {
-        title
+        category {
+          document {
+            ... on PrismicCategory {
+              data {
+                title
+              }
+            }
+          }
+        }
+        coordinates {
+          latitude
+          longitude
+        }
+        datetime
+        homepage
         image {
-          url
           alt
           dimensions {
             height
             width
           }
-        }
-        datetime
-        coordinates {
-          latitude
-          longitude
+          thumbnails
+          url
         }
         series {
           document {
@@ -38,15 +48,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        category {
-          document {
-            ... on PrismicCategory {
-              data {
-                title
-              }
-            }
-          }
-        }
+        title
         tags {
           tag {
             document {
