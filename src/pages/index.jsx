@@ -14,8 +14,8 @@ const Home = ({ data }) => {
 export default Home;
 
 export const pageQuery = graphql`
-  query Home {
-    allPrismicPicture(filter: { data: { homepage: { eq: true } } }) {
+  query Homepage {
+    allPrismicPicture(filter: { data: { homepage: { eq: true } } }, limit: 5) {
       edges {
         node {
           uid
