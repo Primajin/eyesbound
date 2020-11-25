@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createPage({
     path: `/`,
-    component: path.resolve('src/pages/index.jsx'),
+    component: path.resolve('src/templates/home.jsx'),
   });
 
   const pages = await graphql(`
