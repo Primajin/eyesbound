@@ -10,7 +10,7 @@ const Pictures = ({
 }) => {
   return (
     <>
-      <h2>Pictures</h2>
+      <h1>Pictures</h1>
       {edges.map(({ node: { data, id, uid } }) => (
         <a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
           <Picture data={data} />
