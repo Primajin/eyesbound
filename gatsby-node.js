@@ -3,6 +3,11 @@ const path = require('path');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  createPage({
+    path: `/`,
+    component: path.resolve('src/pages/index.jsx'),
+  });
+
   const pages = await graphql(`
     {
       allPrismicCategory {
