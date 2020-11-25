@@ -17,6 +17,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@react-google-maps/api": "^1.13.0",
     "gatsby": "^2.27.0",
     "gatsby-source-prismic": "^3.2.1",
     "react": "^17.0.1",
