@@ -12,6 +12,15 @@
         "label": "Title"
       }
     },
+    "homepage": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "no",
+        "placeholder_true": "yes",
+        "default_value": false,
+        "label": "Promote to Homepage"
+      }
+    },
     "series": {
       "type": "Link",
       "config": {
