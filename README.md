@@ -6,6 +6,7 @@ Create a `.env.development` file with the following content:
 
 ```dotenv
 API_KEY=Permanent Accesstoken from https://eyesbound.prismic.io/settings/apps/
+G_MAPS=localhost key from https://console.cloud.google.com/apis/credentials?project=valiant-broker-141207
 ```
 
 Then run
