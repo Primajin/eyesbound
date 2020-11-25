@@ -3,9 +3,16 @@ const path = require('path');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  // --- Home ---
   createPage({
     path: `/`,
     component: path.resolve('src/templates/home.jsx'),
+  });
+
+  // --- Worldmap ---
+  createPage({
+    path: `/worldmap`,
+    component: path.resolve('src/templates/map.jsx'),
   });
 
   const pages = await graphql(`
@@ -40,7 +47,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-
   // --- Pictures ---
   createPage({
     path: `/picture`,
