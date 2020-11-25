@@ -1,24 +1,30 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-const Category = ({
+import Map from '../components/map.jsx';
+
+const Worldmap = ({
   data: {
     allPrismicPicture: { edges },
   },
 }) => {
   return (
     <>
-      <h2>Map</h2>
+      <h1>Map</h1>
+      <pre>{process.env.G_MAPS}</pre>
       <pre>{JSON.stringify(edges, null, 2)}</pre>
+      <Map data={edges} />
+      <br />
+      <br />
     </>
   );
 };
 
-export default Category;
+export default Worldmap;
 
 export const pageQuery = graphql`
   query Map {
-    allPrismicPicture {
+    allPrismicPicture(filter: { data: { coordinates: { latitude: { ne: 0 }, longitude: { ne: 0 } } } }) {
       edges {
         node {
           data {
@@ -26,7 +32,10 @@ export const pageQuery = graphql`
               latitude
               longitude
             }
+            title
           }
+          id
+          uid
         }
       }
     }
