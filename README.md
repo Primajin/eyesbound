@@ -1,20 +1,25 @@
 # Eyesbound
 
 ## Development
+
 Create a `.env.development` file with the following content:
+
 ```dotenv
 API_KEY=Permanent Accesstoken from https://eyesbound.prismic.io/settings/apps/
 ```
 
 Then run
+
 ```shell script
 npm start
 ```
 
 You can now view eyesbound in the browser.
+
 ```
 http://localhost:8000/
 ```
+
 View GraphiQL, an in-browser IDE, to explore your site's data and schema
 
 ```⠀

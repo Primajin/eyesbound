@@ -8,11 +8,16 @@ const Pictures = ({
     allPrismicPicture: { edges },
   },
 }) => {
-  return edges.map(({ node: { data, id, uid } }) => (
-    <a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
-      <Picture data={data} />
-    </a>
-  ));
+  return (
+    <>
+      <h2>Pictures</h2>
+      {edges.map(({ node: { data, id, uid } }) => (
+        <a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
+          <Picture data={data} />
+        </a>
+      ))}
+    </>
+  );
 };
 
 export default Pictures;
