@@ -5,7 +5,7 @@ const Tag = ({ data: { prismicTags } }) => {
   const { data } = prismicTags;
   return (
     <>
-      <h1>{data.title}</h1>
+      <h1>Tag: {data.title}</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
   );

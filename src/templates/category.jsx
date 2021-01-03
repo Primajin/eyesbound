@@ -1,12 +1,20 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-const Category = ({ data: { prismicCategory } }) => {
-  const { data } = prismicCategory;
+import Picture from '../components/picture';
+
+const Category = ({ data: { prismicCategory, allPrismicPicture } }) => {
+  const { data: categoryData } = prismicCategory;
+  const { edges: pictureData } = allPrismicPicture;
   return (
     <>
-      <h1>{data.title}</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <h1>Category: {categoryData.title}</h1>
+      <pre>{JSON.stringify(categoryData, null, 2)}</pre>
+      {pictureData.map(({ node: { data, id, uid } }) => (
+        <a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
+          <Picture data={data} />
+        </a>
+      ))}
     </>
   );
 };
@@ -19,6 +27,20 @@ export const pageQuery = graphql`
       uid
       data {
         title
+      }
+    }
+    allPrismicPicture(filter: { data: { category: { uid: { eq: $uid } } } }) {
+      edges {
+        node {
+          data {
+            title
+            image {
+              url
+            }
+          }
+          uid
+          id
+        }
       }
     }
   }
