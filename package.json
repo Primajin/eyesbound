@@ -25,6 +25,10 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "gatsby-plugin-prettier-eslint": "^1.0.4",
     "prettier": "2.2.1"
   },
   "repository": {
