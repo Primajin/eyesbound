@@ -5,7 +5,7 @@ const Series = ({ data: { prismicSeries } }) => {
   const { data } = prismicSeries;
   return (
     <>
-      <h1>{data.title}</h1>
+      <h1>Series: {data.title}</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
   );
