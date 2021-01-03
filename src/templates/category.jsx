@@ -8,7 +8,9 @@ const Category = ({ data: { prismicCategory, allPrismicPicture } }) => {
   const { edges: pictureData } = allPrismicPicture;
   return (
     <>
-      <h1>Category: {categoryData.title}</h1>
+      <h1>
+        Category: {categoryData.title} ({pictureData.length})
+      </h1>
       <pre>{JSON.stringify(categoryData, null, 2)}</pre>
       {pictureData.map(({ node: { data, id, uid } }) => (
         <a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
