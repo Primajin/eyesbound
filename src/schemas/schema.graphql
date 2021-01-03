@@ -3062,7 +3062,7 @@ input ImgixUrlParamsInput {
   "Sets the relative vertical value for the focal point of an image. [See docs](https://docs.imgix.com/apis/url/focalpoint-crop/fp-y)."
   fpY: Int
   "Sets the relative zoom value for the focal point of an image. [See docs](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)."
-  fpZ: Int
+  fpZ: Float
   "Adjusts the gamma of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/gam)."
   gam: Int
   "Sets grid colors for the transparency checkerboard grid."

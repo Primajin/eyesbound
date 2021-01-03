@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Picture from '../components/picture';
+import NotFoundLink from '../components/404-link';
 
 const Pictures = ({
   data: {
@@ -10,7 +11,8 @@ const Pictures = ({
 }) => {
   return (
     <>
-      <h1>Pictures</h1>
+      <NotFoundLink />
+      <h1>Pictures ({edges.length})</h1>
       {edges.map(({ node: { data, id, uid } }) => (
         <a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
           <Picture data={data} />
