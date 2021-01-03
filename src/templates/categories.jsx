@@ -20,7 +20,7 @@ export default Category;
 
 export const pageQuery = graphql`
   query AllCategories {
-    allPrismicCategory {
+    allPrismicCategory(sort: { order: ASC, fields: data___title }) {
       edges {
         node {
           uid

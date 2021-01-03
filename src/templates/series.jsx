@@ -31,7 +31,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allPrismicPicture(filter: { data: { series: { uid: { eq: $uid } } } }) {
+    allPrismicPicture(
+      filter: { data: { series: { uid: { eq: $uid } } } }
+      sort: { fields: data___datetime, order: DESC }
+    ) {
       edges {
         node {
           data {

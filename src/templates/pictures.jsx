@@ -26,7 +26,7 @@ export default Pictures;
 
 export const pageQuery = graphql`
   query AllPictures {
-    allPrismicPicture {
+    allPrismicPicture(sort: { fields: data___datetime, order: DESC }) {
       edges {
         node {
           id
