@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import NotFoundLink from '../components/404-link';
 
 import Map from '../components/map.jsx';
 
@@ -10,10 +11,11 @@ const Worldmap = ({
 }) => {
   return (
     <>
+      <NotFoundLink />
       <h1>Map</h1>
       <pre>{process.env.G_MAPS}</pre>
       <pre>{JSON.stringify(edges, null, 2)}</pre>
-      <Map data={edges} />
+      {!!edges.length && <Map data={edges} />}
       <br />
       <br />
     </>
