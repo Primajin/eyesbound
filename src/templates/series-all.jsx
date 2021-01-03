@@ -20,7 +20,7 @@ export default Series;
 
 export const pageQuery = graphql`
   query AllSeries {
-    allPrismicSeries {
+    allPrismicSeries(sort: { order: ASC, fields: data___title }) {
       edges {
         node {
           uid
