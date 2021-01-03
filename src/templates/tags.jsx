@@ -20,7 +20,7 @@ export default Tag;
 
 export const pageQuery = graphql`
   query AllTags {
-    allPrismicTags {
+    allPrismicTags(sort: { order: ASC, fields: data___title }) {
       edges {
         node {
           uid
