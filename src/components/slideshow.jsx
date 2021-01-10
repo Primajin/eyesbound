@@ -19,6 +19,12 @@ const Slideshow = ({images}) => {
 
 	console.log('url', url);
 
+	const css = {
+		backgroundRepeat: 'no-repeat',
+		backgroundSize: 'cover',
+		height: 300
+	};
+
 	const properties = {
 		indicators: i => (
 			<li className="indicator">
@@ -33,16 +39,13 @@ const Slideshow = ({images}) => {
 	return (
 		<div className="slide-container">
 			<Fade {...properties}>
-				<figure key={id}>
-					<img src="https://placeimg.com/300/200" alt={`${alt} 1`} width="300" height="200"/>
+				<figure key={id} style={{...css, backgroundImage: 'url(https://placeimg.com/300/200)'}}>
 					<figcaption>{title} 1</figcaption>
 				</figure>
-				<figure key={id}>
-					<img src="https://placeimg.com/301/201" alt={`${alt} 2`} width="300" height="200"/>
+				<figure key={id} style={{...css, backgroundImage: 'url(https://placeimg.com/301/201)'}}>
 					<figcaption>{title} 2</figcaption>
 				</figure>
-				<figure key={id}>
-					<img src="https://placeimg.com/302/202" alt={`${alt} 3`} width="300" height="200"/>
+				<figure key={id} style={{...css, backgroundImage: 'url(https://placeimg.com/302/202)'}}>
 					<figcaption>{title} 3</figcaption>
 				</figure>
 			</Fade>
