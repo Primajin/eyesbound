@@ -1,8 +1,16 @@
-import {bool, object, arrayOf, string, array, shape, number} from 'prop-types';
+import {array, arrayOf, bool, exact, number, object, string} from 'prop-types';
 
 /* eslint-disable camelcase,capitalized-comments */
 
-const genericResponse = {edges: arrayOf(object), field: string, fieldValue: string, nodes: arrayOf(object), pageInfo: object, totalCount: number};
+const genericResponse = {
+	edges: arrayOf(object),
+	field: string,
+	fieldValue: string,
+	nodes: arrayOf(object),
+	pageInfo: object,
+	totalCount: number
+};
+
 const customResponse = {
 	_previewable: string,
 	alternate_languages: array,
@@ -10,7 +18,7 @@ const customResponse = {
 	data: object,
 	dataRaw: object,
 	dataString: string,
-	first_publication_date: shape({
+	first_publication_date: exact({
 		difference: string,
 		formatString: string,
 		fromNow: bool,
@@ -20,7 +28,7 @@ const customResponse = {
 	id: string,
 	internal: object,
 	lang: string,
-	last_publication_date: shape({
+	last_publication_date: exact({
 		difference: string,
 		formatString: string,
 		fromNow: bool,
@@ -36,16 +44,16 @@ const customResponse = {
 
 const Picture = {
 	category: object,
-	coordinates: shape({
+	coordinates: exact({
 		latitude: number,
 		longitude: number
 	}),
 	datetime: string,
 	homepage: bool,
-	image: shape({
+	image: exact({
 		alt: string,
 		copyright: string,
-		dimensions: shape({
+		dimensions: exact({
 			width: number,
 			height: number
 		}),
@@ -58,6 +66,16 @@ const Picture = {
 	series: object,
 	tags: arrayOf(object),
 	title: string
+};
+
+// Category / Tag / Series
+const OrderingRecord = {
+	uid: string,
+	data: exact({title: string})
+};
+
+export const OrderingRecordNode = {
+	node: exact(OrderingRecord)
 };
 
 const allDirectory = {...genericResponse};
@@ -73,7 +91,8 @@ const allSitePlugin = {...genericResponse};
 const directory = object;
 const file = object;
 const prismicCategory = {...customResponse};
-export const prismicPicture = {...customResponse, data: shape(Picture)};
+const prismicPicture = {...customResponse, data: exact(Picture)};
+export const prismicPictureNode = {node: exact(prismicPicture)};
 const prismicSeries = {...customResponse};
 const prismicTags = {...customResponse};
 /* Not needed for now
@@ -129,22 +148,22 @@ const sitePlugin = {
 */
 
 const Query = {
-	allDirectory,
-	allFile,
-	allPrismicCategory,
-	allPrismicPicture,
-	allPrismicSeries,
-	allPrismicTags,
-	allSite,
-	allSiteBuildMetadata,
-	allSitePage,
-	allSitePlugin,
-	directory,
-	file,
-	prismicCategory,
-	prismicPicture,
-	prismicSeries,
-	prismicTags
+	allDirectory: exact(allDirectory),
+	allFile: exact(allFile),
+	allPrismicCategory: exact(allPrismicCategory),
+	allPrismicPicture: exact(allPrismicPicture),
+	allPrismicSeries: exact(allPrismicSeries),
+	allPrismicTags: exact(allPrismicTags),
+	allSite: exact(allSite),
+	allSiteBuildMetadata: exact(allSiteBuildMetadata),
+	allSitePage: exact(allSitePage),
+	allSitePlugin: exact(allSitePlugin),
+	directory: exact(directory),
+	file: exact(file),
+	prismicCategory: exact(prismicCategory),
+	prismicPicture: exact(prismicPicture),
+	prismicSeries: exact(prismicSeries),
+	prismicTags: exact(prismicTags)
 	// site,
 	// siteBuildMetadata,
 	// sitePage,

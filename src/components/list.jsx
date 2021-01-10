@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Query from '../types/proptypes.js';
+import {OrderingRecordNode} from '../types/proptypes.js';
 
 const List = ({title, data, path}) => {
 	return (
@@ -24,7 +24,7 @@ const List = ({title, data, path}) => {
 
 List.propTypes = {
 	title: PropTypes.string,
-	data: PropTypes.shape(Query),
+	data: PropTypes.arrayOf(PropTypes.exact(OrderingRecordNode)),
 	path: PropTypes.string
 };
 
