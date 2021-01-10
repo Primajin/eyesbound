@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, {memo} from 'react';
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 
-import Query from '../types/proptypes.js';
+import {prismicPictureNode} from '../types/proptypes.js';
 
 const containerStyle = {
 	width: '100%',
@@ -29,7 +29,7 @@ const Map = ({data}) => {
 };
 
 Map.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode))
 };
 
 export default memo(Map);
