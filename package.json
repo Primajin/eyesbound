@@ -7,19 +7,24 @@
   "author": {
     "name": "Jannis Hell"
   },
+  "engines": {
+    "node": "14"
+  },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "develop": "gatsby develop",
+    "format": "xo --fix",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "test": "xo && echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "xo": "npm run format"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.0.2",
-    "gatsby": "^2.29.3",
+    "@react-google-maps/api": "^2.1.0",
+    "gatsby": "^2.30.1",
     "gatsby-source-prismic": "^3.3.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-slideshow-image": "^3.4.3"
@@ -27,13 +32,34 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.0",
-    "gatsby-plugin-prettier-eslint": "^1.0.4",
-    "prettier": "2.2.1"
+    "eslint-config-xo": "^0.34.0",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-ava": "^11.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-no-use-extend-native": "^0.5.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-unicorn": "^25.0.1",
+    "xo": "^0.37.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Primajin/eyesbound"
+  },
+  "xo": {
+    "extends": "xo-react"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "xo/esnext",
+      "xo-react",
+      "./node_modules/xo/config/plugins.js"
+    ]
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
 
-export default function Home() {
-  return <div>Hello world!</div>;
-}
+const Imprint = () => <div>Hello world!</div>;
+export default Imprint;

@@ -1,45 +1,51 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { graphql } from 'gatsby';
-import NotFoundLink from '../components/404-link';
+import {graphql} from 'gatsby';
 
 import Map from '../components/map.jsx';
+import NotFoundLink from '../components/404-link.jsx';
+import Query from '../types/proptypes.js';
 
 const Worldmap = ({
-  data: {
-    allPrismicPicture: { edges },
-  },
+	data: {
+		allPrismicPicture: {edges}
+	}
 }) => {
-  return (
-    <>
-      <NotFoundLink />
-      <h1>Map</h1>
-      <pre>{process.env.G_MAPS}</pre>
-      <pre>{JSON.stringify(edges, null, 2)}</pre>
-      {!!edges.length && <Map data={edges} />}
-      <br />
-      <br />
-    </>
-  );
+	return (
+		<>
+			<NotFoundLink/>
+			<h1>Map</h1>
+			<pre>{process.env.G_MAPS}</pre>
+			<pre>{JSON.stringify(edges, null, 2)}</pre>
+			{edges.length > 0 && <Map data={edges}/>}
+			<br/>
+			<br/>
+		</>
+	);
+};
+
+Worldmap.propTypes = {
+	data: PropTypes.shape(Query)
 };
 
 export default Worldmap;
 
 export const pageQuery = graphql`
-  query Map {
-    allPrismicPicture(filter: { data: { coordinates: { latitude: { ne: 0 }, longitude: { ne: 0 } } } }) {
-      edges {
-        node {
-          data {
-            coordinates {
-              latitude
-              longitude
-            }
-            title
-          }
-          id
-          uid
-        }
-      }
-    }
-  }
+	query Map {
+		allPrismicPicture(filter: {data: {coordinates: {latitude: {ne: 0}, longitude: {ne: 0}}}}) {
+			edges {
+				node {
+					data {
+						coordinates {
+							latitude
+							longitude
+						}
+						title
+					}
+					id
+					uid
+				}
+			}
+		}
+	}
 `;

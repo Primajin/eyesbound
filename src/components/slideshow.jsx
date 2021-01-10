@@ -1,47 +1,57 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { Fade } from 'react-slideshow-image';
+import {Fade} from 'react-slideshow-image';
+
 import 'react-slideshow-image/dist/styles.css';
 
-const Slideshow = ({ images }) => {
-  const {
-    node: {
-      id,
-      data: {
-        title,
-        image: { alt, url },
-      },
-    },
-  } = images[0];
+import {prismicPicture} from '../types/proptypes.js';
 
-  const properties = {
-    indicators: i => (
-      <li className="indicator">
-        <figure>
-          <img src={`https://placebear.com/${i + 300}/${i + 200}`} alt={`${alt} ${i + 1}`} width="25" height="25" />
-          <figcaption>{i + 1}</figcaption>
-        </figure>
-      </li>
-    ),
-  };
+const Slideshow = ({images}) => {
+	const {
+		node: {
+			id,
+			data: {
+				title,
+				image: {alt, url}
+			}
+		}
+	} = images[0];
 
-  return (
-    <div className="slide-container">
-      <Fade {...properties}>
-        <figure key={id}>
-          <img src="https://placebear.com/300/200" alt={`${alt} 1`} width="300" height="200" />
-          <figcaption>{title} 1</figcaption>
-        </figure>
-        <figure key={id}>
-          <img src="https://placebear.com/301/201" alt={`${alt} 2`} width="300" height="200" />
-          <figcaption>{title} 2</figcaption>
-        </figure>
-        <figure key={id}>
-          <img src="https://placebear.com/302/202" alt={`${alt} 3`} width="300" height="200" />
-          <figcaption>{title} 3</figcaption>
-        </figure>
-      </Fade>
-    </div>
-  );
+	console.log('url', url);
+
+	const properties = {
+		indicators: i => (
+			<li className="indicator">
+				<figure>
+					<img src={`https://placebear.com/${i + 300}/${i + 200}`} alt={`${alt} ${i + 1}`} width="25" height="25"/>
+					<figcaption>{i + 1}</figcaption>
+				</figure>
+			</li>
+		)
+	};
+
+	return (
+		<div className="slide-container">
+			<Fade {...properties}>
+				<figure key={id}>
+					<img src="https://placebear.com/300/200" alt={`${alt} 1`} width="300" height="200"/>
+					<figcaption>{title} 1</figcaption>
+				</figure>
+				<figure key={id}>
+					<img src="https://placebear.com/301/201" alt={`${alt} 2`} width="300" height="200"/>
+					<figcaption>{title} 2</figcaption>
+				</figure>
+				<figure key={id}>
+					<img src="https://placebear.com/302/202" alt={`${alt} 3`} width="300" height="200"/>
+					<figcaption>{title} 3</figcaption>
+				</figure>
+			</Fade>
+		</div>
+	);
+};
+
+Slideshow.propTypes = {
+	images: PropTypes.shape(prismicPicture)
 };
 
 export default Slideshow;
