@@ -5,13 +5,12 @@ import {Helmet} from 'react-helmet';
 
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
-import RootComponent from './root.jsx';
 
 const Category = ({data: {prismicCategory, allPrismicPicture}}) => {
 	const {data: categoryData} = prismicCategory;
 	const {edges: pictureData} = allPrismicPicture;
 	return (
-		<RootComponent>
+		<>
 			<Helmet><title>{categoryData.title} | EYESBOUND</title></Helmet>
 			<h1>
 				Category: {categoryData.title} ({pictureData.length})
@@ -22,7 +21,7 @@ const Category = ({data: {prismicCategory, allPrismicPicture}}) => {
 					<Picture data={data}/>
 				</a>
 			))}
-		</RootComponent>
+		</>
 	);
 };
 
