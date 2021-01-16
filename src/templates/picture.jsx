@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {graphql} from 'gatsby';
+import {Helmet} from 'react-helmet';
 
 import PictureComponent from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
+import RootComponent from './root.jsx';
 
 const Picture = ({data: {prismicPicture}}) => {
 	const {data} = prismicPicture;
-	return <PictureComponent data={data}/>;
+	return (
+		<RootComponent>
+			<Helmet><title>{data && data.title} | EYESBOUND</title></Helmet>
+			<PictureComponent data={data}/>
+		</RootComponent>
+	);
 };
 
 Picture.propTypes = {
