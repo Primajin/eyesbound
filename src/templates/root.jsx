@@ -26,7 +26,6 @@ const RootComponent = ({children}) => {
 				<meta name="HandheldFriendly" content="true"/>
 				<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
 				<title>EYESBOUND</title>
-				<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" media="all"/>
 				{/* Favicon */}
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 				<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
@@ -46,6 +45,7 @@ const RootComponent = ({children}) => {
 				<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon_76x76.png"/>
 				<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon_120x120.png"/>
 				<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon_152x152.png"/>
+				<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" media="all"/>
 			</Helmet>
 			{children}
 		</>
