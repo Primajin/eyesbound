@@ -1,21 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import {Global, css} from '@emotion/react';
-import {Helmet} from 'react-helmet';
+import PropTypes from 'prop-types';
 
-const RootComponent = ({children}) => {
+/* eslint-disable react/no-danger */
+const HTML = props => {
 	return (
-		<>
-			<Global
-				styles={css`
-					body {
-						background: #000;
-						color: #fff;
-						font-family: Montserrat, sans-serif;
-						}
-				`}
-			/>
-			<Helmet>
+		<html lang="en" dir="ltr" {...props.htmlAttributes}>
+			<head>
+				<title>EYESBOUND</title>
+				<meta charSet="utf-8"/>
+				<meta httpEquiv="x-ua-compatible" content="ie=edge"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 				<meta name="theme-color" content="#000000"/>
 				<link rel="shortlink" href="https://eyesbound.com/"/>
 				<link rel="canonical" href="https://eyesbound.com/"/>
@@ -25,7 +19,6 @@ const RootComponent = ({children}) => {
 				<meta name="MobileOptimized" content="width"/>
 				<meta name="HandheldFriendly" content="true"/>
 				<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
-				<title>EYESBOUND</title>
 				{/* Favicon */}
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 				<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
@@ -46,14 +39,25 @@ const RootComponent = ({children}) => {
 				<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon_120x120.png"/>
 				<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon_152x152.png"/>
 				<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" media="all"/>
-			</Helmet>
-			{children}
-		</>
+				{props.headComponents}
+			</head>
+			<body {...props.bodyAttributes}>
+				{props.preBodyComponents}
+				<div key="body" dangerouslySetInnerHTML={{__html: props.body}} id="___gatsby"/>
+				{props.postBodyComponents}
+			</body>
+		</html>
 	);
 };
+/* eslint-enable */
 
-RootComponent.propTypes = {
-	children: PropTypes.node.isRequired
+HTML.propTypes = {
+	htmlAttributes: PropTypes.object,
+	headComponents: PropTypes.array,
+	bodyAttributes: PropTypes.object,
+	preBodyComponents: PropTypes.array,
+	body: PropTypes.string,
+	postBodyComponents: PropTypes.array
 };
 
-export default RootComponent;
+export default HTML;

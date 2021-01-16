@@ -4,7 +4,6 @@ import {graphql} from 'gatsby';
 
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
-import RootComponent from './root.jsx';
 import Slideshow from '../components/slideshow.jsx';
 
 const Home = ({
@@ -13,7 +12,7 @@ const Home = ({
 	}
 }) => {
 	return (
-		<RootComponent>
+		<>
 			<h1>Home ({edges.length})</h1>
 			<p>Get only top 5 homepage=true pictures:</p>
 			{edges.map(({node: {data, id, uid}}) => (
@@ -23,7 +22,7 @@ const Home = ({
 			))}
 			<pre>{JSON.stringify(edges, null, 2)}</pre>
 			<Slideshow images={edges}/>
-		</RootComponent>
+		</>
 	);
 };
 
