@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {graphql} from 'gatsby';
+import {Helmet} from 'react-helmet';
 
 import NotFoundLink from '../components/404-link.jsx';
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
+import RootComponent from './root.jsx';
 
 const Pictures = ({
 	data: {
@@ -12,7 +14,8 @@ const Pictures = ({
 	}
 }) => {
 	return (
-		<>
+		<RootComponent>
+			<Helmet><title>Pictures | EYESBOUND</title></Helmet>
 			<NotFoundLink/>
 			<h1>Pictures ({edges.length})</h1>
 			{edges.map(({node: {data, id, uid}}) => (
@@ -20,7 +23,7 @@ const Pictures = ({
 					<Picture data={data}/>
 				</a>
 			))}
-		</>
+		</RootComponent>
 	);
 };
 
