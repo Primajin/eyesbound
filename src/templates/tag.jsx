@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {graphql} from 'gatsby';
+import {Helmet} from 'react-helmet';
 
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
+import RootComponent from './root.jsx';
 
 const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 	const {data: tagData} = prismicTags;
 	const {edges: pictureData} = allPrismicPicture;
 	return (
-		<>
+		<RootComponent>
+			<Helmet><title>{tagData.title} | EYESBOUND</title></Helmet>
 			<h1>
 				Tag: {tagData.title} ({pictureData.length})
 			</h1>
@@ -19,7 +22,7 @@ const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 					<Picture data={data}/>
 				</a>
 			))}
-		</>
+		</RootComponent>
 	);
 };
 

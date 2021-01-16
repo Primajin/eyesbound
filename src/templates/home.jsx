@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {graphql} from 'gatsby';
 
-import RootComponent from './root.jsx';
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
+import RootComponent from './root.jsx';
 import Slideshow from '../components/slideshow.jsx';
 
 const Home = ({
