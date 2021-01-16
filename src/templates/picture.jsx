@@ -5,15 +5,14 @@ import {Helmet} from 'react-helmet';
 
 import PictureComponent from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
-import RootComponent from './root.jsx';
 
 const Picture = ({data: {prismicPicture}}) => {
 	const {data} = prismicPicture;
 	return (
-		<RootComponent>
+		<>
 			<Helmet><title>{data && data.title} | EYESBOUND</title></Helmet>
 			<PictureComponent data={data}/>
-		</RootComponent>
+		</>
 	);
 };
 

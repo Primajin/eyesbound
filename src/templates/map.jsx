@@ -6,7 +6,6 @@ import {Helmet} from 'react-helmet';
 import Map from '../components/map.jsx';
 import NotFoundLink from '../components/404-link.jsx';
 import Query from '../types/proptypes.js';
-import RootComponent from './root.jsx';
 
 const Worldmap = ({
 	data: {
@@ -14,7 +13,7 @@ const Worldmap = ({
 	}
 }) => {
 	return (
-		<RootComponent>
+		<>
 			<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
 			<NotFoundLink/>
 			<h1>Map</h1>
@@ -23,7 +22,7 @@ const Worldmap = ({
 			{edges.length > 0 && <Map data={edges}/>}
 			<br/>
 			<br/>
-		</RootComponent>
+		</>
 	);
 };
 
