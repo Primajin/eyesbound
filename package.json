@@ -21,8 +21,11 @@
     "xo": "npm run format"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "@react-google-maps/api": "^2.1.0",
-    "gatsby": "^2.30.1",
+    "gatsby": "^2.30.2",
+    "gatsby-plugin-emotion": "^5.2.0",
     "gatsby-source-prismic": "^3.3.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -31,7 +34,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^7.17.0",
+    "eslint": "^7.18.0",
     "eslint-config-xo": "^0.34.0",
     "eslint-config-xo-react": "^0.23.0",
     "eslint-plugin-ava": "^11.0.0",
@@ -40,7 +43,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^25.0.1",
+    "eslint-plugin-unicorn": "^26.0.1",
     "xo": "^0.37.1"
   },
   "repository": {

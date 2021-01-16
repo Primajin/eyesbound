@@ -5,6 +5,9 @@ require('dotenv').config({
 module.exports = {
 	plugins: [
 		{
+			resolve: `gatsby-plugin-emotion`,
+		},
+		{
 			resolve: 'gatsby-source-prismic',
 			options: {
 				repositoryName: 'eyesbound',
