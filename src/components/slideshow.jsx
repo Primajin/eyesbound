@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import {css} from '@emotion/react';
 import {Fade} from 'react-slideshow-image';
 
 import 'react-slideshow-image/dist/styles.css';
@@ -19,11 +20,11 @@ const Slideshow = ({images}) => {
 
 	console.log('url', url);
 
-	const css = {
-		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'cover',
-		height: 300
-	};
+	const figure = css`
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 300px
+	`;
 
 	const properties = {
 		indicators: i => (
@@ -39,13 +40,13 @@ const Slideshow = ({images}) => {
 	return (
 		<div className="slide-container">
 			<Fade {...properties}>
-				<figure key={id} style={{...css, backgroundImage: 'url(https://placeimg.com/300/200)'}}>
+				<figure key={id} css={figure} style={{backgroundImage: 'url(https://placeimg.com/300/200)'}}>
 					<figcaption>{title} 1</figcaption>
 				</figure>
-				<figure key={id} style={{...css, backgroundImage: 'url(https://placeimg.com/301/201)'}}>
+				<figure key={id} css={figure} style={{backgroundImage: 'url(https://placeimg.com/301/201)'}}>
 					<figcaption>{title} 2</figcaption>
 				</figure>
-				<figure key={id} style={{...css, backgroundImage: 'url(https://placeimg.com/302/202)'}}>
+				<figure key={id} css={figure} style={{backgroundImage: 'url(https://placeimg.com/302/202)'}}>
 					<figcaption>{title} 3</figcaption>
 				</figure>
 			</Fade>
