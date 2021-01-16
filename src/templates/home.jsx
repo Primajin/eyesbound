@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {graphql} from 'gatsby';
 
+import RootComponent from './root.jsx';
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/slideshow.jsx';
@@ -12,7 +13,7 @@ const Home = ({
 	}
 }) => {
 	return (
-		<>
+		<RootComponent>
 			<h1>Home ({edges.length})</h1>
 			<p>Get only top 5 homepage=true pictures:</p>
 			{edges.map(({node: {data, id, uid}}) => (
@@ -22,7 +23,7 @@ const Home = ({
 			))}
 			<pre>{JSON.stringify(edges, null, 2)}</pre>
 			<Slideshow images={edges}/>
-		</>
+		</RootComponent>
 	);
 };
 
