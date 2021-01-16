@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {css} from '@emotion/react';
+import {Helmet} from 'react-helmet';
 
 import Query from '../types/proptypes.js';
 
@@ -11,6 +12,7 @@ const imageTemporary = css`
 const Picture = ({data}) => {
 	return (
 		<>
+			<Helmet><title>{data && data.title} | EYESBOUND</title></Helmet>
 			<h1>{data && data.title}</h1>
 			{data && data.image && <img css={imageTemporary} src={data.image.url} alt={data.image.alt} width="300"/>}
 			<pre>{JSON.stringify(data, null, 2)}</pre>
