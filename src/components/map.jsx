@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import React, {memo} from 'react';
-import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
+import React, {memo, useState} from 'react';
+import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
 
 import {prismicPictureNode} from '../types/proptypes.js';
 
@@ -15,13 +15,32 @@ const center = {
 };
 
 const Map = ({data}) => {
+	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
+	const [properties, setProperties] = useState({});
+
+	const toggleInfoWindow = properties => () => {
+		setInfoWindowOpen(true);
+		setProperties(properties);
+	};
+
+	const {image, position, title, uid} = properties;
+
 	return (
-		<LoadScript preventGoogleFontsLoading googleMapsApiKey={process.env.G_MAPS}>
+		<LoadScript googleMapsApiKey={process.env.G_MAPS}>
 			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={7}>
 				<>
-					{data.map(({node: {data: {coordinates: {latitude, longitude}, title}, id, uid}}) => (
-						<Marker key={id} label={title} title={uid} position={{lat: latitude, lng: longitude}}/>
-					))}
+					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
+						const position = {lat: latitude, lng: longitude};
+						const properties = {image, position, title, uid};
+						return <Marker key={id} position={position} title={title} onClick={toggleInfoWindow(properties)}/>;
+					})}
+					{infoWindowOpen && title && (
+						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
+							<a href={`/picture/${uid}`} className="map-marker-info-window">
+								<h1>{title}</h1>
+								<img alt={image.alt} src={image.url} width="200"/>
+							</a>
+						</InfoWindow>)}
 				</>
 			</GoogleMap>
 		</LoadScript>
