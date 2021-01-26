@@ -43,6 +43,10 @@ export const pageQuery = graphql`
 							longitude
 						}
 						title
+						image {
+							alt
+							url
+						}
 					}
 					id
 					uid
