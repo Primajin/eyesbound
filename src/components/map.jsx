@@ -3,6 +3,7 @@ import React, {memo, useState} from 'react';
 import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
 
 import {prismicPictureNode} from '../types/proptypes.js';
+import {userPrefersDark} from '../utils/theming.js';
 
 const containerStyle = {
 	width: '100%',
@@ -24,10 +25,11 @@ const Map = ({data}) => {
 	};
 
 	const {image, position, title, uid} = properties;
+	const mapId = userPrefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
 
 	return (
-		<LoadScript googleMapsApiKey={process.env.G_MAPS}>
-			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={7}>
+		<LoadScript googleMapsApiKey={process.env.G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
+			<GoogleMap center={center} mapContainerStyle={containerStyle} options={{mapId}} zoom={5}>
 				<>
 					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
 						const position = {lat: latitude, lng: longitude};
