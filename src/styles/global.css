@@ -1,6 +1,18 @@
+:root {
+	--background: #fff;
+	--foreground: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #000;
+		--foreground: #fff;
+	}
+}
+
 body {
-	background: #000;
-	color: #fff;
+	background: var(--background);
+	color: var(--foreground);
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,7 +22,7 @@ a {
 }
 
 input {
-	color: #000;
+	color: var(--background);
 }
 
 .feed-icon {
