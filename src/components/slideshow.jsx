@@ -3,52 +3,69 @@ import React from 'react';
 import {css} from '@emotion/react';
 import {Fade} from 'react-slideshow-image';
 
-import 'react-slideshow-image/dist/styles.css';
-
 import {prismicPictureNode} from '../types/proptypes.js';
 
+import 'react-slideshow-image/dist/styles.css';
+import '../styles/slideshow.css';
+
 const Slideshow = ({images}) => {
-	const {
-		node: {
-			id,
-			data: {
-				title,
-				image: {alt, url}
-			}
-		}
-	} = images[0];
-
-	console.log('url', url);
-
 	const figure = css`
 		background-repeat: no-repeat;
 		background-size: cover;
-		height: 300px
+		background-color: #cccccc;
+		height: 80vh;
+		display: flex;
+	`;
+
+	const figCaption = css`
+		align-self: flex-end;
+		color: #000;
+		text-align: center;
+		width: 100%;
+	`;
+
+	const indicator = css`
+		background-color: #cccccc;
+		border: 2px solid transparent;
+		cursor: pointer;
+		height: 50px !important;
+		transition: border-color .33s;
+		width: 50px !important;
+	`;
+
+	const indicatorFigCaption = css`
+		display: none;
 	`;
 
 	const properties = {
-		indicators: i => (
-			<li className="indicator">
-				<figure>
-					<img src={`https://placeimg.com/${i + 300}/${i + 200}`} alt={`${alt} ${i + 1}`} width="25" height="25"/>
-					<figcaption>{i + 1}</figcaption>
-				</figure>
-			</li>
-		)
+		indicators: i => {
+			const {
+				node: {
+					data: {
+						title,
+						image: {alt, url}
+					}
+				}
+			} = images[i];
+			return (
+				<li className="indicator" css={indicator} title={title}>
+					<figure>
+						<img src={url} alt={alt} width="25" height="25"/>
+						<figcaption css={indicatorFigCaption}>{title}</figcaption>
+					</figure>
+				</li>
+			);
+		}
 	};
 
 	return (
 		<div className="slide-container">
 			<Fade {...properties}>
-				<figure key={id} css={figure} style={{backgroundImage: 'url(https://placeimg.com/300/200)'}}>
-					<figcaption>{title} 1</figcaption>
-				</figure>
-				<figure key={id} css={figure} style={{backgroundImage: 'url(https://placeimg.com/301/201)'}}>
-					<figcaption>{title} 2</figcaption>
-				</figure>
-				<figure key={id} css={figure} style={{backgroundImage: 'url(https://placeimg.com/302/202)'}}>
-					<figcaption>{title} 3</figcaption>
-				</figure>
+				{images.map(({node: {data: {title, image: {alt, url}}, id, uid}}) => (
+					<figure key={id} title={title} css={figure} style={{backgroundImage: `url(${url})`}}>
+						<figcaption css={figCaption}>{uid} {alt}</figcaption>
+					</figure>
+				))}
 			</Fade>
 		</div>
 	);
