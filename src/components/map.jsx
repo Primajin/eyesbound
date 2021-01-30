@@ -7,12 +7,12 @@ import {userPrefersDark} from '../utils/theming.js';
 
 const containerStyle = {
 	width: '100%',
-	height: '400px'
+	height: 'calc(100vh - 51px)'
 };
 
-const center = {
-	lat: 52.123,
-	lng: 12.123
+const center = { // Of Germany
+	lat: 51.1642292,
+	lng: 10.4541194
 };
 
 const Map = ({data}) => {
