@@ -17,11 +17,7 @@ const Worldmap = ({
 			<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
 			<NotFoundLink/>
 			<h1>Map</h1>
-			<pre>{process.env.G_MAPS}</pre>
-			<pre>{JSON.stringify(edges, null, 2)}</pre>
 			{edges.length > 0 && <Map data={edges}/>}
-			<br/>
-			<br/>
 		</>
 	);
 };
