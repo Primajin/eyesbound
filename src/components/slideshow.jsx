@@ -1,42 +1,42 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {css} from '@emotion/react';
 import {Fade} from 'react-slideshow-image';
-
-import {prismicPictureNode} from '../types/proptypes.js';
+import {css} from '@emotion/react';
 
 import 'react-slideshow-image/dist/styles.css';
 import '../styles/slideshow.css';
 
+import {prismicPictureNode} from '../types/proptypes.js';
+
+const figure = css`
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #cccccc;
+	height: 80vh;
+	display: flex;
+`;
+
+const figCaption = css`
+	align-self: flex-end;
+	color: #000;
+	text-align: center;
+	width: 100%;
+`;
+
+const indicator = css`
+	background-color: #cccccc;
+	border: 2px solid transparent;
+	cursor: pointer;
+	height: 50px !important;
+	transition: border-color .33s;
+	width: 50px !important;
+`;
+
+const indicatorFigCaption = css`
+	display: none;
+`;
+
 const Slideshow = ({images}) => {
-	const figure = css`
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-color: #cccccc;
-		height: 80vh;
-		display: flex;
-	`;
-
-	const figCaption = css`
-		align-self: flex-end;
-		color: #000;
-		text-align: center;
-		width: 100%;
-	`;
-
-	const indicator = css`
-		background-color: #cccccc;
-		border: 2px solid transparent;
-		cursor: pointer;
-		height: 50px !important;
-		transition: border-color .33s;
-		width: 50px !important;
-	`;
-
-	const indicatorFigCaption = css`
-		display: none;
-	`;
-
 	const properties = {
 		indicators: i => {
 			const {

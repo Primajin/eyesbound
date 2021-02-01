@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {graphql} from 'gatsby';
 import {Helmet} from 'react-helmet';
+import {graphql} from 'gatsby';
 
+import Header from '../components/header.jsx';
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
 
@@ -12,6 +13,7 @@ const Category = ({data: {prismicCategory, allPrismicPicture}}) => {
 	return (
 		<>
 			<Helmet><title>{categoryData.title} | EYESBOUND</title></Helmet>
+			<Header/>
 			<h1>
 				Category: {categoryData.title} ({pictureData.length})
 			</h1>
