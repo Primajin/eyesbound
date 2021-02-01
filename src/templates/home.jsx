@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {graphql} from 'gatsby';
 
+import Header from '../components/header.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/slideshow.jsx';
 
@@ -12,6 +13,7 @@ const Home = ({
 }) => {
 	return (
 		<>
+			<Header/>
 			<h1>Home ({edges.length})</h1>
 			<Slideshow images={edges}/>
 		</>

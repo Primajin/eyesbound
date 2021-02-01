@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {graphql} from 'gatsby';
 import {Helmet} from 'react-helmet';
+import {graphql} from 'gatsby';
 
 import Picture from '../components/picture.jsx';
 import Query from '../types/proptypes.js';
