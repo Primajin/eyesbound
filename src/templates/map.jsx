@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {graphql} from 'gatsby';
 import {Helmet} from 'react-helmet';
+import {graphql} from 'gatsby';
 
 import Map from '../components/map.jsx';
 import NotFoundLink from '../components/404-link.jsx';
