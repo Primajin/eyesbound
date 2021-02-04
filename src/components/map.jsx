@@ -40,7 +40,7 @@ const Map = ({data}) => {
 						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
 							<a href={`/picture/${uid}`} className="map-marker-info-window">
 								<h1>{title}</h1>
-								<img alt={image.alt} src={image.url} width="200"/>
+								<img alt={image.alt || title} src={image.url} width="200"/>
 							</a>
 						</InfoWindow>)}
 				</>
