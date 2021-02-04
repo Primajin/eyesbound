@@ -17,6 +17,10 @@ const nav = css`
 
 	&:focus {
 		transform: translateY(0);
+
+		div {
+			cursor: default;
+		}
 	}
 
 	ul {
