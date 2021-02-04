@@ -50,7 +50,7 @@ const Slideshow = ({images}) => {
 			return (
 				<li className="indicator" css={indicator} title={title}>
 					<figure>
-						<img src={url} alt={alt} width="25" height="25"/>
+						<img src={url} alt={alt || title} width="25" height="25"/>
 						<figcaption css={indicatorFigCaption}>{title}</figcaption>
 					</figure>
 				</li>
@@ -63,7 +63,7 @@ const Slideshow = ({images}) => {
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image: {alt, url}}, id, uid}}) => (
 					<figure key={id} title={title} css={figure} style={{backgroundImage: `url(${url})`}}>
-						<figcaption css={figCaption}>{uid} {alt}</figcaption>
+						<figcaption css={figCaption}>{uid} {alt || title}</figcaption>
 					</figure>
 				))}
 			</Fade>

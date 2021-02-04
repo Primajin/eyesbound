@@ -42,7 +42,7 @@ const customResponse = {
 	url: string
 };
 
-const Picture = {
+export const Picture = {
 	category: object,
 	coordinates: exact({
 		latitude: number,
