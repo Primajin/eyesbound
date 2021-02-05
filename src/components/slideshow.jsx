@@ -3,37 +3,53 @@ import React from 'react';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
 
-import 'react-slideshow-image/dist/styles.css';
 import '../styles/slideshow.css';
 
 import {prismicPictureNode} from '../types/proptypes.js';
 
-const figure = css`
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-color: #cccccc;
-	height: 80vh;
+const wrapper = css`
+	height: calc(100vh - 52px);
 	display: flex;
 `;
 
-const figCaption = css`
-	align-self: flex-end;
-	color: #000;
-	text-align: center;
+const figure = css`
+	background: no-repeat center center fixed;
+	background-size: cover;
 	width: 100%;
 `;
 
+const imageDetails = css`
+	display: none;
+`;
+
+// Indicators css here: src/styles/slideshow.css:115
+
 const indicator = css`
-	background-color: #cccccc;
+	margin-left: 5px;
+	width: 50px;
+`;
+
+const image = css`
 	border: 2px solid transparent;
 	cursor: pointer;
-	height: 50px !important;
 	transition: border-color .33s;
-	width: 50px !important;
+	margin-bottom: -2px;
 `;
 
 const indicatorFigCaption = css`
-	display: none;
+	bottom: 17px;
+	color: var(--background);
+	font-weight: 700;
+	opacity: 0;
+	position: absolute;
+	right: 20px;
+	text-align: right;
+	text-transform: uppercase;
+	transition: opacity .33s;
+
+	.active & {
+		opacity: 1;
+	}
 `;
 
 const Slideshow = ({images}) => {
@@ -50,7 +66,7 @@ const Slideshow = ({images}) => {
 			return (
 				<li className="indicator" css={indicator} title={title}>
 					<figure>
-						<img src={url} alt={alt || title} width="25" height="25"/>
+						<img css={image} src={url} alt={alt || title}/>
 						<figcaption css={indicatorFigCaption}>{title}</figcaption>
 					</figure>
 				</li>
@@ -60,11 +76,14 @@ const Slideshow = ({images}) => {
 
 	return (
 		<div className="slide-container">
-			<Fade {...properties}>
+			<Fade {...properties} pauseOnHover={false}>
 				{images.map(({node: {data: {title, image: {alt, url}}, id, uid}}) => (
-					<figure key={id} title={title} css={figure} style={{backgroundImage: `url(${url})`}}>
-						<figcaption css={figCaption}>{uid} {alt || title}</figcaption>
-					</figure>
+					<a key={id} title={title} css={wrapper} href={`/picture/${uid}`}>
+						<figure css={figure} style={{backgroundImage: `url(${url})`}}>
+							<img css={imageDetails} src={url} alt={alt || title}/>
+							<figcaption css={imageDetails}>{alt || title}</figcaption>
+						</figure>
+					</a>
 				))}
 			</Fade>
 		</div>

@@ -1,3 +1,114 @@
-.indicator.active {
-	border-color: purple;
+.react-slideshow-container {
+	display: flex;
+	align-items: center;
+}
+
+.react-slideshow-container .nav {
+	z-index: 10;
+}
+
+.react-slideshow-container .default-nav {
+	height: 30px;
+	background: rgba(255, 255, 255, 0.6);
+	width: 30px;
+	border: none;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.react-slideshow-container .default-nav:hover,
+.react-slideshow-container .default-nav:focus {
+	background: #fff;
+	color: #666;
+	outline: none;
+}
+
+.react-slideshow-container .default-nav.disabled:hover {
+	cursor: not-allowed;
+}
+
+.react-slideshow-container .default-nav:first-of-type {
+	margin-right: -30px;
+	border-right: none;
+	border-top: none;
+}
+
+.react-slideshow-container .default-nav:last-of-type {
+	margin-left: -30px;
+}
+
+.react-slideshow-container + ul.indicators .each-slideshow-indicator {
+	border: none;
+	opacity: 0.25;
+	cursor: pointer;
+	background: transparent;
+	color: transparent;
+}
+
+.react-slideshow-container + ul.indicators .each-slideshow-indicator:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	content: '';
+	background: #000;
+	text-align: center;
+}
+
+.react-slideshow-container + ul.indicators .each-slideshow-indicator:hover,
+.react-slideshow-container + ul.indicators .each-slideshow-indicator.active,
+.react-slideshow-container + ul.indicators .each-slideshow-indicator:focus {
+	opacity: 0.75;
+	outline: none;
+}
+
+.react-slideshow-zoom-wrapper,
+.react-slideshow-wrapper.slide,
+.react-slideshow-fade-wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+
+.react-slideshow-zoom-wrapper .zoom-wrapper,
+.react-slideshow-wrapper .images-wrap,
+.react-slideshow-fade-wrapper .react-slideshow-fade-images-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.react-slideshow-fade-wrapper .react-slideshow-fade-images-wrap > div {
+	position: relative;
+	opacity: 0;
+}
+
+.react-slideshow-zoom-wrapper .zoom-wrapper {
+	overflow: hidden;
+}
+
+.react-slideshow-zoom-wrapper .zoom-wrapper > div {
+	position: relative;
+	display: flex;
+}
+
+/* CUSTOM */
+.indicators {
+	align-items: center;
+	background: var(--foreground);
+	border-top: 2px solid var(--background);
+	display: flex;
+	flex-wrap: wrap;
+	height: 50px;
+	justify-content: center;
+}
+
+.indicator.active img,
+.indicator:hover img{
+	border-color: var(--background);
 }

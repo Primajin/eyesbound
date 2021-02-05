@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
-import Header from '../components/header.jsx';
 import Fullscreen from '../components/fullscreen.jsx';
+import Header from '../components/header.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/slideshow.jsx';
 
@@ -14,6 +15,12 @@ const Home = ({
 }) => {
 	return (
 		<>
+			<Global styles={css`
+				body {
+					overflow: hidden;
+				}
+			`}
+			/>
 			<Header/>
 			<Fullscreen/>
 			<Slideshow images={edges}/>
