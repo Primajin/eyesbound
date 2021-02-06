@@ -3,8 +3,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import List from '../components/list.jsx';
-import NotFoundLink from '../components/404-link.jsx';
+import List from '../components/molecules/list.jsx';
+import NotFoundLink from '../components/atoms/404-link.jsx';
 import Query from '../types/proptypes.js';
 
 const Series = ({data: {allPrismicSeries}}) => {

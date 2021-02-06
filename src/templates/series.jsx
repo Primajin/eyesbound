@@ -3,7 +3,7 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import Picture from '../components/picture.jsx';
+import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 
 const Series = ({data: {prismicSeries, allPrismicPicture}}) => {

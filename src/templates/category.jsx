@@ -3,8 +3,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import Header from '../components/header.jsx';
-import Picture from '../components/picture.jsx';
+import Header from '../components/molecules/header.jsx';
+import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 
 const Category = ({data: {prismicCategory, allPrismicPicture}}) => {
