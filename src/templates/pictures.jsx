@@ -3,8 +3,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import NotFoundLink from '../components/404-link.jsx';
-import Picture from '../components/picture.jsx';
+import NotFoundLink from '../components/atoms/404-link.jsx';
+import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 
 const Pictures = ({
