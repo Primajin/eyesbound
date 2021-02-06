@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, {memo, useState} from 'react';
 import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
 
-import {prismicPictureNode} from '../types/proptypes.js';
-import {userPrefersDark} from '../utils/theming.js';
+import {prismicPictureNode} from '../../types/proptypes.js';
+import {userPrefersDark} from '../../utils/theming.js';
 
 const containerStyle = {
 	width: '100%',

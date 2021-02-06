@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {css} from '@emotion/react';
 
-import {Picture as PictureType} from '../types/proptypes.js';
+import {Picture as PictureType} from '../../types/proptypes.js';
 
 const imageTemporary = css`
 	background-color: grey;

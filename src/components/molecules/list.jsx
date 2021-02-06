@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {OrderingRecordNode} from '../types/proptypes.js';
+import {OrderingRecordNode} from '../../types/proptypes.js';
 
 const List = ({title, data, path}) => (
 	<>

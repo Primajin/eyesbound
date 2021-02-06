@@ -3,7 +3,7 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import PictureComponent from '../components/picture.jsx';
+import PictureComponent from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 
 const Picture = ({data: {prismicPicture}}) => {

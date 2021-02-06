@@ -3,9 +3,9 @@ import React from 'react';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
 
-import '../styles/slideshow.css';
+import '../../styles/slideshow.css';
 
-import {prismicPictureNode} from '../types/proptypes.js';
+import {prismicPictureNode} from '../../types/proptypes.js';
 
 const wrapper = css`
 	height: calc(100vh - 52px);

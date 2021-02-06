@@ -3,8 +3,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import Map from '../components/map.jsx';
-import NotFoundLink from '../components/404-link.jsx';
+import Map from '../components/molecules/map.jsx';
+import NotFoundLink from '../components/atoms/404-link.jsx';
 import Query from '../types/proptypes.js';
 
 const Worldmap = ({

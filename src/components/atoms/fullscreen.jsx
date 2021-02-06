@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react';
 import {css} from '@emotion/react';
 
-import {fullscreenElement, toggleFullscreen} from '../utils/fullscreen.js';
+import {fullscreenElement, toggleFullscreen} from '../../utils/fullscreen.js';
 
 const button = css`
 	background-color: var(--foreground);

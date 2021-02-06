@@ -3,10 +3,10 @@ import React from 'react';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
-import Fullscreen from '../components/fullscreen.jsx';
-import Header from '../components/header.jsx';
+import Fullscreen from '../components/atoms/fullscreen.jsx';
+import Header from '../components/molecules/header.jsx';
 import Query from '../types/proptypes.js';
-import Slideshow from '../components/slideshow.jsx';
+import Slideshow from '../components/organisms/slideshow.jsx';
 
 const Home = ({
 	data: {

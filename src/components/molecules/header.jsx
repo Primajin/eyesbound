@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Logo from './logo.jsx';
-import Navigation from './navigation.jsx';
+import Logo from '../atoms/logo.jsx';
+import Navigation from '../atoms/navigation.jsx';
 
 const Header = () => (
 	<header>
