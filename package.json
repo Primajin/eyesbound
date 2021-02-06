@@ -21,10 +21,10 @@
     "xo": "npm run format"
   },
   "dependencies": {
-    "@emotion/react": "^11.1.4",
-    "@emotion/styled": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
     "@react-google-maps/api": "^2.1.1",
-    "gatsby": "^2.32.2",
+    "gatsby": "^2.32.3",
     "gatsby-plugin-emotion": "^5.4.0",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-source-prismic": "^3.3.3",
