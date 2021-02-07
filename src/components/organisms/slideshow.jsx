@@ -40,6 +40,7 @@ const image = css`
 const indicatorFigCaption = css`
 	bottom: 17px;
 	color: var(--background);
+	display: none;
 	font-weight: 700;
 	opacity: 0;
 	position: absolute;
@@ -47,6 +48,10 @@ const indicatorFigCaption = css`
 	text-align: right;
 	text-transform: uppercase;
 	transition: opacity .333s;
+
+	${up('md')} {
+		display: block;
+	};
 
 	.active & {
 		opacity: 1;
