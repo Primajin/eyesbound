@@ -2,19 +2,22 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react';
 import {css} from '@emotion/react';
 
+import IconFullscreen from './icons/fullscreen.jsx';
+import IconFullscreenExit from './icons/fullscreen-exit.jsx';
+
 import {fullscreenElement, toggleFullscreen} from '../../utils/fullscreen.js';
 
 const button = css`
+	align-items: center;
 	background-color: var(--foreground);
 	color: var(--background);
 	cursor: pointer;
-	font-size: 25px;
-	font-weight: 700;
+	display: flex;
 	height: 50px;
-	line-height: 50px;
+	justify-content: center;
+	padding: 0;
 	position: fixed;
 	right: 0;
-	text-align: center;
 	top: 0;
 	transition: background-color .333s, color .333s;
 	width: 50px;
@@ -24,6 +27,12 @@ const button = css`
 	&:focus {
 		background: var(--background);
 		color: var(--foreground);
+	}
+
+	svg {
+		fill: currentColor;
+		height: 50px;
+		width: 50px;
 	}
 `;
 
@@ -44,7 +53,7 @@ const Fullscreen = ({selector}) => {
 		};
 	}, []);
 
-	return <a css={button} tabIndex="5" onClick={() => toggleFullscreen(selector)}>{fullScreen ? 'on' : 'off'}</a>;
+	return <button type="button" css={button} tabIndex="5" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
 };
 
 Fullscreen.propTypes = {
