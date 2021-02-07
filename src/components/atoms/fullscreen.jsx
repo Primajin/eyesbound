@@ -39,21 +39,23 @@ const button = css`
 const Fullscreen = ({selector}) => {
 	const [fullScreen, setFullScreen] = useState(false);
 
+	const setFullScreenState = () => {
+		document.fullscreenElement = fullscreenElement;
+		const isFullScreen = document.fullscreenElement !== null;
+		setFullScreen(isFullScreen);
+	};
+
 	useEffect(() => {
 		// Register eventListener once
-		document.addEventListener('fullscreenchange', () => {
-			document.fullscreenElement = fullscreenElement;
-			const isFullScreen = document.fullscreenElement !== null;
-			setFullScreen(isFullScreen);
-		});
+		document.addEventListener('fullscreenchange', setFullScreenState);
 
 		return () => {
 			// Unregister eventListener once
-			document.removeEventListener('fullscreenchange');
+			document.removeEventListener('fullscreenchange', setFullScreenState);
 		};
 	}, []);
 
-	return <button type="button" css={button} tabIndex="5" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
+	return <button type="button" css={button} tabIndex="13" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
 };
 
 Fullscreen.propTypes = {
