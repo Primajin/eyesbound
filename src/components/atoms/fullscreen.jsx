@@ -55,7 +55,7 @@ const Fullscreen = ({selector}) => {
 		};
 	}, []);
 
-	return <button type="button" css={button} tabIndex="13" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
+	return <button type="button" css={button} tabIndex="12" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
 };
 
 Fullscreen.propTypes = {

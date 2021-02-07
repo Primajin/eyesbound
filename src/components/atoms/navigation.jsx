@@ -69,12 +69,32 @@ const nav = css`
 `;
 
 const Navigation = () => {
-	const navigationElement = useRef(null);
+	const linkOverview = useRef(null);
+	const linkShuttered = useRef(null);
+	const linkArchitecture = useRef(null);
+	const linkEnvironment = useRef(null);
+	const linkFloral = useRef(null);
+	const linkLight = useRef(null);
+	const linkWorldmap = useRef(null);
+	const linkContact = useRef(null);
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const openMenu = () => {
-		if (document.activeElement === navigationElement.current) {
+		const links = [
+			linkOverview.current,
+			linkShuttered.current,
+			linkArchitecture.current,
+			linkEnvironment.current,
+			linkFloral.current,
+			linkLight.current,
+			linkWorldmap.current,
+			linkContact.current
+		];
+
+		if (links.includes(document.activeElement)) {
 			setMenuOpen(true);
+		} else {
+			setMenuOpen(false);
 		}
 	};
 
@@ -93,16 +113,16 @@ const Navigation = () => {
 	};
 
 	return (
-		<nav ref={navigationElement} css={nav} className={classnames({open: menuOpen})} tabIndex="2">
+		<nav css={nav} className={classnames({open: menuOpen})}>
 			<ul>
-				<li><a href="/picture" tabIndex="3">Overview</a></li>
-				<li><a href="/series/shuttered" tabIndex="4">»Shuttered«</a></li>
-				<li><a href="/category/architecture" tabIndex="5">Architecture</a></li>
-				<li><a href="/category/environment" tabIndex="6">Environment</a></li>
-				<li><a href="/category/floral" tabIndex="7">Floral</a></li>
-				<li><a href="/category/light" tabIndex="8">Light</a></li>
-				<li><a href="/worldmap" tabIndex="9">Worldmap</a></li>
-				<li><a href="/imprint" tabIndex="10">Contact</a></li>
+				<li><a ref={linkOverview} href="/picture" tabIndex="2">Overview</a></li>
+				<li><a ref={linkShuttered} href="/series/shuttered" tabIndex="3">»Shuttered«</a></li>
+				<li><a ref={linkArchitecture} href="/category/architecture" tabIndex="4">Architecture</a></li>
+				<li><a ref={linkEnvironment} href="/category/environment" tabIndex="5">Environment</a></li>
+				<li><a ref={linkFloral} href="/category/floral" tabIndex="6">Floral</a></li>
+				<li><a ref={linkLight} href="/category/light" tabIndex="7">Light</a></li>
+				<li><a ref={linkWorldmap} href="/worldmap" tabIndex="8">Worldmap</a></li>
+				<li><a ref={linkContact} href="/imprint" tabIndex="9">Contact</a></li>
 			</ul>
 			<div onClick={toggleMenu}>Menu</div>
 		</nav>
