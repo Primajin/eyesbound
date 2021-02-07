@@ -3,10 +3,6 @@
 	align-items: center;
 }
 
-.react-slideshow-container .nav {
-	z-index: 10;
-}
-
 .react-slideshow-container .default-nav {
 	height: 30px;
 	background: rgba(255, 255, 255, 0.6);
