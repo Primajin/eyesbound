@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, {useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
@@ -6,12 +7,13 @@ import {up} from '../../utils/theming.js';
 
 const nav = css`
 	line-height: 40px;
+	opacity: 1;
 	outline: 0;
 	position: fixed;
 	text-align: center;
 	top: 100px;
 	transform: translateY(calc(-100% + 40px));
-	transition: transform .333s;
+	transition: transform .333s, opacity .333s;
 	user-select: none;
 	width: 180px;
 	z-index: 9;
@@ -19,6 +21,10 @@ const nav = css`
 	${up('md')} {
 		transform: translateY(calc(-100% + 20px));
 	};
+
+	&.isFullscreen {
+		opacity: 0;
+	}
 
 	div {
 		transition: background-color .333s, color .333s;
@@ -68,7 +74,7 @@ const nav = css`
 	}
 `;
 
-const Navigation = () => {
+const Navigation = ({isFullscreen}) => {
 	const linkOverview = useRef(null);
 	const linkShuttered = useRef(null);
 	const linkArchitecture = useRef(null);
@@ -79,26 +85,26 @@ const Navigation = () => {
 	const linkContact = useRef(null);
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	const openMenu = () => {
-		const links = [
-			linkOverview.current,
-			linkShuttered.current,
-			linkArchitecture.current,
-			linkEnvironment.current,
-			linkFloral.current,
-			linkLight.current,
-			linkWorldmap.current,
-			linkContact.current
-		];
-
-		if (links.includes(document.activeElement)) {
-			setMenuOpen(true);
-		} else {
-			setMenuOpen(false);
-		}
-	};
-
 	useEffect(() => {
+		const openMenu = () => {
+			const links = [
+				linkOverview.current,
+				linkShuttered.current,
+				linkArchitecture.current,
+				linkEnvironment.current,
+				linkFloral.current,
+				linkLight.current,
+				linkWorldmap.current,
+				linkContact.current
+			];
+
+			if (links.includes(document.activeElement)) {
+				setMenuOpen(true);
+			} else {
+				setMenuOpen(false);
+			}
+		};
+
 		// Register eventListener once
 		document.addEventListener('focus', openMenu, true);
 
@@ -113,7 +119,7 @@ const Navigation = () => {
 	};
 
 	return (
-		<nav css={nav} className={classnames({open: menuOpen})}>
+		<nav css={nav} className={classnames({open: menuOpen, isFullscreen})}>
 			<ul>
 				<li><a ref={linkOverview} href="/picture" tabIndex="2">Overview</a></li>
 				<li><a ref={linkShuttered} href="/series/shuttered" tabIndex="3">»Shuttered«</a></li>
@@ -127,6 +133,10 @@ const Navigation = () => {
 			<div onClick={toggleMenu}>Menu</div>
 		</nav>
 	);
+};
+
+Navigation.propTypes = {
+	isFullscreen: PropTypes.bool
 };
 
 export default Navigation;
