@@ -25,10 +25,6 @@ input {
 	color: var(--background);
 }
 
-.feed-icon {
-	display: none;
-}
-
 p {
 	margin-bottom: 1.5rem;
 }
@@ -58,6 +54,14 @@ h3 {
 img {
 	height: auto;
 	width: 100%;
+}
+
+button {
+	border: 0;
+}
+
+button, input, textarea {
+	font: inherit;
 }
 
 /* Google Maps */

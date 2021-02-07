@@ -16,6 +16,6 @@ const logo = css`
 	z-index: 10;
 `;
 
-const Logo = () => <h1 css={logo}><a href="/" rel="home">EYESBOUND</a></h1>;
+const Logo = () => <h1 css={logo}><a href="/" rel="home" tabIndex="1">EYESBOUND</a></h1>;
 
 export default Logo;

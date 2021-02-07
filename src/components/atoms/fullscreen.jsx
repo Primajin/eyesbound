@@ -1,4 +1,3 @@
-/* global document */
 import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react';
 import {css} from '@emotion/react';
@@ -12,13 +11,20 @@ const button = css`
 	font-size: 25px;
 	font-weight: 700;
 	height: 50px;
-	right: 0;
 	line-height: 50px;
 	position: fixed;
+	right: 0;
 	text-align: center;
 	top: 0;
+	transition: background-color .333s, color .333s;
 	width: 50px;
 	z-index: 10;
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+	}
 `;
 
 const Fullscreen = ({selector}) => {
@@ -38,7 +44,7 @@ const Fullscreen = ({selector}) => {
 		};
 	}, []);
 
-	return <a css={button} onClick={() => toggleFullscreen(selector)}>{fullScreen ? 'on' : 'off'}</a>;
+	return <a css={button} tabIndex="5" onClick={() => toggleFullscreen(selector)}>{fullScreen ? 'on' : 'off'}</a>;
 };
 
 Fullscreen.propTypes = {
