@@ -101,9 +101,9 @@ const Slideshow = ({images}) => {
 				</li>
 			);
 		},
-		nextArrow: <button css={arrowButtons} tabIndex="4" type="button">»</button>,
+		nextArrow: <button css={arrowButtons} tabIndex="12" type="button">»</button>,
 		pauseOnHover: false,
-		prevArrow: <button css={arrowButtons} tabIndex="3" type="button">«</button>
+		prevArrow: <button css={arrowButtons} tabIndex="11" type="button">«</button>
 	};
 
 	return (
