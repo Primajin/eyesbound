@@ -1,4 +1,3 @@
-/* global document */
 export const fullscreenElement = document.fullscreenElement || document.mozFullscreenElement || document.msFullscreenElement || document.webkitFullscreenDocument;
 
 /**

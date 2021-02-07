@@ -1,25 +1,39 @@
+import React, {useRef} from 'react';
 import {css} from '@emotion/react';
-import React from 'react';
 
 const nav = css`
-	background-color: var(--background);
-	color: var(--foreground);
 	line-height: 40px;
 	outline: 0;
 	position: fixed;
 	text-align: center;
 	top: 100px;
 	transform: translateY(calc(-100% + 40px));
-	transition: transform .3s;
+	transition: transform .333s;
 	user-select: none;
 	width: 180px;
 	z-index: 9;
+
+	div {
+		transition: background-color .333s, color .333s;
+		background-color: var(--background);
+		color: var(--foreground);
+
+		&:hover {
+			background: var(--foreground);
+			color: var(--background);
+		}
+	}
 
 	&:focus {
 		transform: translateY(0);
 
 		div {
 			cursor: default;
+
+			&:hover {
+				background-color: var(--background);
+				color: var(--foreground);
+			}
 		}
 	}
 
@@ -29,7 +43,7 @@ const nav = css`
 	}
 
 	li {
-		transition: opacity .3s;
+		transition: opacity .333s;
 
 		&:hover {
 			opacity: 0.666;
@@ -44,20 +58,28 @@ const nav = css`
 `;
 
 const Navigation = () => {
+	const navigationElement = useRef(null);
+
+	const blur = () => {
+		if (document.activeElement === navigationElement.current) {
+			navigationElement.current.blur();
+		}
+	};
+
 	return (
-		<nav css={nav} tabIndex="1">
+		<nav ref={navigationElement} css={nav} tabIndex="2">
 			<ul>
-				<li>Hello</li>
-				<li>World</li>
-				<li>How</li>
-				<li>Are</li>
-				<li>You</li>
-				<li>I</li>
-				<li>am</li>
-				<li>Fine</li>
-				<li>Thanks</li>
+				<li><a href="/">Hello</a></li>
+				<li><a href="/">World</a></li>
+				<li><a href="/">How</a></li>
+				<li><a href="/">Are</a></li>
+				<li><a href="/">You</a></li>
+				<li><a href="/">I</a></li>
+				<li><a href="/">am</a></li>
+				<li><a href="/">Fine</a></li>
+				<li><a href="/">Thanks</a></li>
 			</ul>
-			<div>Menu</div>
+			<div onClick={blur}>Menu</div>
 		</nav>
 	);
 };
