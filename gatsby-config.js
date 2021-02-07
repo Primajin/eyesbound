@@ -4,11 +4,8 @@ require('dotenv').config({
 
 module.exports = {
 	plugins: [
-		{
-			resolve: `gatsby-plugin-emotion`,
-		},		{
-			resolve: `gatsby-plugin-react-helmet`,
-		},
+		{ resolve: `gatsby-plugin-emotion` },
+		{ resolve: `gatsby-plugin-react-helmet` },
 		{
 			resolve: 'gatsby-source-prismic',
 			options: {
