@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classnames from 'classnames';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
 
@@ -62,11 +63,12 @@ const arrowButtons = css`
 	background: var(--foreground);
 	color: var(--background);
 	height: 180px;
+	opacity: 1;
 	position: fixed;
 	text-align: center;
 	top: 50%;
 	transform: translateY(-50%);
-	transition: background-color .333s, color .333s;
+	transition: background-color .333s, color .333s, opacity .333s;
 	width: 40px;
 	z-index: 5;
 
@@ -81,12 +83,16 @@ const arrowButtons = css`
 		outline: 0;
 	}
 
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
 	&[data-type="next"] {
 		right: 0;
 	}
 `;
 
-const Slideshow = ({images}) => {
+const Slideshow = ({images, isFullscreen}) => {
 	const properties = {
 		indicators: i => {
 			const {
@@ -106,9 +112,9 @@ const Slideshow = ({images}) => {
 				</li>
 			);
 		},
-		nextArrow: <button css={arrowButtons} tabIndex="11" type="button">»</button>,
+		nextArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="11" type="button">»</button>,
 		pauseOnHover: false,
-		prevArrow: <button css={arrowButtons} tabIndex="10" type="button">«</button>
+		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="10" type="button">«</button>
 	};
 
 	return (
@@ -128,7 +134,8 @@ const Slideshow = ({images}) => {
 };
 
 Slideshow.propTypes = {
-	images: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode))
+	images: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,
+	isFullscreen: PropTypes.bool
 };
 
 export default Slideshow;

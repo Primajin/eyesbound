@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useState} from 'react';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
@@ -13,6 +13,12 @@ const Home = ({
 		allPrismicPicture: {edges}
 	}
 }) => {
+	const [fullScreen, setFullScreen] = useState(false);
+
+	const fullscreenCallback = isFullscreen => {
+		setFullScreen(isFullscreen);
+	};
+
 	return (
 		<>
 			<Global styles={css`
@@ -21,9 +27,9 @@ const Home = ({
 				}
 			`}
 			/>
-			<Header/>
-			<Fullscreen/>
-			<Slideshow images={edges}/>
+			<Header isFullscreen={fullScreen}/>
+			<Fullscreen callback={fullscreenCallback}/>
+			<Slideshow images={edges} isFullscreen={fullScreen}/>
 		</>
 	);
 };
