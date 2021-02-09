@@ -5,19 +5,15 @@ import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api'
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {userPrefersDark} from '../../utils/theming.js';
 
-const containerStyle = {
-	width: '100%',
-	height: 'calc(100vh - 51px)'
-};
-
-const center = { // Of Germany
+const centerOfGermany = {
 	lat: 51.1642292,
 	lng: 10.4541194
 };
 
-const Map = ({data}) => {
+const Map = ({center, data, height = 'calc(100vh - 51px)', zoom = 5}) => {
 	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
 	const [properties, setProperties] = useState({});
+	const mapCenter = {lat: center?.latitude || centerOfGermany.lat, lng: center?.longitude || centerOfGermany.lng};
 
 	const toggleInfoWindow = properties => () => {
 		setInfoWindowOpen(true);
@@ -29,7 +25,7 @@ const Map = ({data}) => {
 
 	return (
 		<LoadScript googleMapsApiKey={process.env.G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
-			<GoogleMap center={center} mapContainerStyle={containerStyle} options={{mapId}} zoom={5}>
+			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={{mapId}} zoom={zoom}>
 				<>
 					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
 						const position = {lat: latitude, lng: longitude};
@@ -50,7 +46,10 @@ const Map = ({data}) => {
 };
 
 Map.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode))
+	center: PropTypes.exact({latitude: PropTypes.number, longitude: PropTypes.number}),
+	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,
+	height: PropTypes.string,
+	zoom: PropTypes.number
 };
 
 export default memo(Map);
