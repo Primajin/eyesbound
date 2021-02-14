@@ -8,11 +8,7 @@ import Header from '../components/molecules/header.jsx';
 import Map from '../components/molecules/map.jsx';
 import Query from '../types/proptypes.js';
 
-const Worldmap = ({
-	data: {
-		allPrismicPicture: {edges}
-	}
-}) => (
+const Worldmap = ({data: {allPrismicPicture: {edges}}}) => (
 	<>
 		<Global styles={css` body { overflow: hidden; } `}/>
 		<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
