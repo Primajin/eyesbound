@@ -8,11 +8,7 @@ import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 import Thumbnails from '../components/molecules/thumbnails.jsx';
 
-const Pictures = ({
-	data: {
-		allPrismicPicture: {edges}
-	}
-}) => (
+const Pictures = ({data: {allPrismicPicture: {edges}}}) => (
 	<>
 		<Helmet><title>Pictures | EYESBOUND</title></Helmet>
 		<Header/>
