@@ -1,4 +1,4 @@
-import {array, arrayOf, bool, exact, number, object, string} from 'prop-types';
+import {array, arrayOf, bool, exact, node, number, object, oneOfType, string} from 'prop-types';
 
 /* eslint-disable camelcase,capitalized-comments */
 
@@ -172,3 +172,6 @@ const Query = {
 /* eslint-enable */
 
 export default Query;
+
+export const children = oneOfType([arrayOf(node), node]);
+export const childrenRequired = oneOfType([arrayOf(node), node]).isRequired;

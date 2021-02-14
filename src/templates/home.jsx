@@ -21,12 +21,7 @@ const Home = ({
 
 	return (
 		<>
-			<Global styles={css`
-				body {
-					overflow: hidden;
-				}
-			`}
-			/>
+			<Global styles={css` body { overflow: hidden; } `}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback}/>
 			<Slideshow images={edges} isFullscreen={fullScreen}/>
