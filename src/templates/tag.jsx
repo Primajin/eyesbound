@@ -5,8 +5,8 @@ import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
-import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
+import Thumbnails from '../components/molecules/thumbnails.jsx';
 
 const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 	const {data: tagData} = prismicTags;
@@ -16,14 +16,7 @@ const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 			<Helmet><title>{tagData.title} | EYESBOUND</title></Helmet>
 			<Header/>
 			<MainWrapper>
-				<h1>
-					Tag: {tagData.title} ({pictureData.length})
-				</h1>
-				{pictureData.map(({node: {data, id, uid}}) => (
-					<a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
-						<Picture data={data}/>
-					</a>
-				))}
+				<Thumbnails data={pictureData} title={tagData.title} type="Tag"/>
 			</MainWrapper>
 		</>
 	);

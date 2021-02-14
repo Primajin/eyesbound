@@ -5,29 +5,22 @@ import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
-import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
+import Thumbnails from '../components/molecules/thumbnails.jsx';
 
 const Pictures = ({
 	data: {
 		allPrismicPicture: {edges}
 	}
-}) => {
-	return (
-		<>
-			<Helmet><title>Pictures | EYESBOUND</title></Helmet>
-			<Header/>
-			<MainWrapper>
-				<h1>Pictures ({edges.length})</h1>
-				{edges.map(({node: {data, id, uid}}) => (
-					<a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
-						<Picture data={data}/>
-					</a>
-				))}
-			</MainWrapper>
-		</>
-	);
-};
+}) => (
+	<>
+		<Helmet><title>Pictures | EYESBOUND</title></Helmet>
+		<Header/>
+		<MainWrapper>
+			<Thumbnails data={edges} title="" type="Pictures"/>
+		</MainWrapper>
+	</>
+);
 
 Pictures.propTypes = {
 	data: PropTypes.shape(Query)

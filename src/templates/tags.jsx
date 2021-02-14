@@ -8,18 +8,15 @@ import List from '../components/molecules/list.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 
-const Tags = ({data: {allPrismicTags}}) => {
-	const {edges} = allPrismicTags;
-	return (
-		<>
-			<Helmet><title>Tags | EYESBOUND</title></Helmet>
-			<Header/>
-			<MainWrapper>
-				<List title="Tags" data={edges} path="tag"/>
-			</MainWrapper>
-		</>
-	);
-};
+const Tags = ({data: {allPrismicTags: {edges}}}) => (
+	<>
+		<Helmet><title>Tags | EYESBOUND</title></Helmet>
+		<Header/>
+		<MainWrapper>
+			<List title="Tags" data={edges} path="tag"/>
+		</MainWrapper>
+	</>
+);
 
 Tags.propTypes = {
 	data: PropTypes.shape(Query)
