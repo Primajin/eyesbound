@@ -13,11 +13,11 @@ import Query from '../types/proptypes.js';
 import TagLinks from '../components/atoms/tag-links.jsx';
 
 const details = css`
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	margin: 20px 0;
 
 	> div {
-		flex-basis: 33%;
 		padding: 10px;
 
 		&:not(:first-of-type) {
