@@ -5,7 +5,7 @@ import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
 import List from '../components/molecules/list.jsx';
-import NotFoundLink from '../components/atoms/404-link.jsx';
+import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 
 const Category = ({data: {allPrismicCategory}}) => {
@@ -14,10 +14,9 @@ const Category = ({data: {allPrismicCategory}}) => {
 		<>
 			<Helmet><title>Categories | EYESBOUND</title></Helmet>
 			<Header/>
-			<NotFoundLink/>
-			<List title="Categories" data={edges} path="category"/>
-			<h2>Raw Data:</h2>
-			<pre>{JSON.stringify(edges, null, 2)}</pre>
+			<MainWrapper>
+				<List title="Categories" data={edges} path="category"/>
+			</MainWrapper>
 		</>
 	);
 };

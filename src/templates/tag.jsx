@@ -3,6 +3,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
+import Header from '../components/molecules/header.jsx';
+import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 
@@ -12,15 +14,17 @@ const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 	return (
 		<>
 			<Helmet><title>{tagData.title} | EYESBOUND</title></Helmet>
-			<h1>
-				Tag: {tagData.title} ({pictureData.length})
-			</h1>
-			<pre>{JSON.stringify(tagData, null, 2)}</pre>
-			{pictureData.map(({node: {data, id, uid}}) => (
-				<a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
-					<Picture data={data}/>
-				</a>
-			))}
+			<Header/>
+			<MainWrapper>
+				<h1>
+					Tag: {tagData.title} ({pictureData.length})
+				</h1>
+				{pictureData.map(({node: {data, id, uid}}) => (
+					<a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
+						<Picture data={data}/>
+					</a>
+				))}
+			</MainWrapper>
 		</>
 	);
 };
