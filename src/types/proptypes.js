@@ -69,13 +69,24 @@ export const Picture = {
 };
 
 // Category / Tag / Series
-const OrderingRecord = {
-	uid: string,
-	data: exact({title: string})
+const ListData = {
+	data: exact({title: string}),
+	uid: string
 };
 
-export const OrderingRecordNode = {
-	node: exact(OrderingRecord)
+export const ListDataNode = {
+	node: exact(ListData)
+};
+
+// Pictures
+const ThumbnailData = {
+	data: exact(Picture),
+	id: string,
+	uid: string
+};
+
+export const ThumbnailDataNode = {
+	node: exact(ThumbnailData)
 };
 
 const allDirectory = {...genericResponse};

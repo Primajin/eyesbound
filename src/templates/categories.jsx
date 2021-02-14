@@ -8,18 +8,15 @@ import List from '../components/molecules/list.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 
-const Category = ({data: {allPrismicCategory}}) => {
-	const {edges} = allPrismicCategory;
-	return (
-		<>
-			<Helmet><title>Categories | EYESBOUND</title></Helmet>
-			<Header/>
-			<MainWrapper>
-				<List title="Categories" data={edges} path="category"/>
-			</MainWrapper>
-		</>
-	);
-};
+const Category = ({data: {allPrismicCategory: {edges}}}) => (
+	<>
+		<Helmet><title>Categories | EYESBOUND</title></Helmet>
+		<Header/>
+		<MainWrapper>
+			<List title="Categories" data={edges} path="category"/>
+		</MainWrapper>
+	</>
+);
 
 Category.propTypes = {
 	data: PropTypes.shape(Query)
