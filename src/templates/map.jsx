@@ -12,16 +12,14 @@ const Worldmap = ({
 	data: {
 		allPrismicPicture: {edges}
 	}
-}) => {
-	return (
-		<>
-			<Global styles={css` body { overflow: hidden; } `}/>
-			<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
-			<Header/>
-			{edges.length > 0 && <Map data={edges}/>}
-		</>
-	);
-};
+}) => (
+	<>
+		<Global styles={css` body { overflow: hidden; } `}/>
+		<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
+		<Header/>
+		{edges.length > 0 && <Map data={edges}/>}
+	</>
+);
 
 Worldmap.propTypes = {
 	data: PropTypes.shape(Query)

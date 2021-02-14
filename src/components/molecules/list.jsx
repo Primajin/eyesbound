@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {OrderingRecordNode} from '../../types/proptypes.js';
+import {ListDataNode} from '../../types/proptypes.js';
 
-const List = ({title, data, path}) => (
+const List = ({data, path, title}) => (
 	<>
 		<h1>
 			{title} ({data.length})
@@ -21,9 +21,9 @@ const List = ({title, data, path}) => (
 );
 
 List.propTypes = {
-	title: PropTypes.string,
-	data: PropTypes.arrayOf(PropTypes.exact(OrderingRecordNode)),
-	path: PropTypes.string
+	data: PropTypes.arrayOf(PropTypes.exact(ListDataNode)),
+	path: PropTypes.string,
+	title: PropTypes.string
 };
 
 export default List;
