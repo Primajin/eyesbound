@@ -42,6 +42,23 @@ const customResponse = {
 	url: string
 };
 
+const Image = {
+	alt: string,
+	copyright: string,
+	dimensions: exact({
+		width: number,
+		height: number
+	}),
+	fixed: exact({
+		src: string,
+		srcSet: string,
+		srcSetWebp: string
+	}),
+	fluid: object,
+	localFile: object,
+	url: string
+};
+
 export const Picture = {
 	category: object,
 	coordinates: exact({
@@ -51,17 +68,10 @@ export const Picture = {
 	datetime: string,
 	homepage: bool,
 	image: exact({
-		alt: string,
-		copyright: string,
-		dimensions: exact({
-			width: number,
-			height: number
-		}),
-		fixed: object,
-		fluid: object,
-		localFile: object,
-		thumbnails: object,
-		url: string
+		...Image,
+		thumbnails: exact({
+			thumbnail: exact(Image)
+		})
 	}),
 	series: object,
 	tags: arrayOf(object),

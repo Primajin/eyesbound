@@ -66,10 +66,14 @@ button, input, textarea {
 
 /* Google Maps */
 /* src/components/map.jsx */
-.map-marker-info-window {
+.gm-style-iw-d {
 	background: #fff;
 	color: #000;
 	font-family: 'Montserrat', sans-serif;
+}
+
+.gm-style-iw-d > div {
+	padding-left: 6px;
 }
 
 .gm-style-iw-a {

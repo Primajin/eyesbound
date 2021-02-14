@@ -92,15 +92,13 @@ export const pageQuery = graphql`
 					longitude
 				}
 				datetime
-				homepage
 				image {
 					alt
-					dimensions {
-						height
-						width
+					fixed(width: 1150, imgixParams: {q: 100}) {
+						src
+						srcSet
+						srcSetWebp
 					}
-					thumbnails
-					url
 				}
 				series {
 					document {
