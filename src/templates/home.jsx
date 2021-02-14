@@ -8,11 +8,7 @@ import Header from '../components/molecules/header.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/organisms/slideshow.jsx';
 
-const Home = ({
-	data: {
-		allPrismicPicture: {edges}
-	}
-}) => {
+const Home = ({data: {allPrismicPicture: {edges}}}) => {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
