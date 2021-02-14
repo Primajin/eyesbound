@@ -53,7 +53,7 @@ exports.createPages = async ({graphql, actions}) => {
 		component: path.resolve('src/templates/pictures.jsx')
 	});
 
-	pages.data.allPrismicPicture.edges.forEach(edge => {
+	for (const edge of pages.data.allPrismicPicture.edges) {
 		createPage({
 			path: `/picture/${edge.node.uid}`,
 			component: path.resolve('src/templates/picture.jsx'),
@@ -61,7 +61,7 @@ exports.createPages = async ({graphql, actions}) => {
 				uid: edge.node.uid
 			}
 		});
-	});
+	}
 
 	// --- Categories ---
 	createPage({
@@ -69,7 +69,7 @@ exports.createPages = async ({graphql, actions}) => {
 		component: path.resolve('src/templates/categories.jsx')
 	});
 
-	pages.data.allPrismicCategory.edges.forEach(edge => {
+	for (const edge of pages.data.allPrismicCategory.edges) {
 		createPage({
 			path: `/category/${edge.node.uid}`,
 			component: path.resolve('src/templates/category.jsx'),
@@ -77,7 +77,7 @@ exports.createPages = async ({graphql, actions}) => {
 				uid: edge.node.uid
 			}
 		});
-	});
+	}
 
 	// --- Series ---
 	createPage({
@@ -85,7 +85,7 @@ exports.createPages = async ({graphql, actions}) => {
 		component: path.resolve('src/templates/series-all.jsx')
 	});
 
-	pages.data.allPrismicSeries.edges.forEach(edge => {
+	for (const edge of pages.data.allPrismicSeries.edges) {
 		createPage({
 			path: `/series/${edge.node.uid}`,
 			component: path.resolve('src/templates/series.jsx'),
@@ -93,7 +93,7 @@ exports.createPages = async ({graphql, actions}) => {
 				uid: edge.node.uid
 			}
 		});
-	});
+	}
 
 	// --- Tags ---
 	createPage({
@@ -101,7 +101,7 @@ exports.createPages = async ({graphql, actions}) => {
 		component: path.resolve('src/templates/tags.jsx')
 	});
 
-	pages.data.allPrismicTags.edges.forEach(edge => {
+	for (const edge of pages.data.allPrismicTags.edges) {
 		createPage({
 			path: `/tag/${edge.node.uid}`,
 			component: path.resolve('src/templates/tag.jsx'),
@@ -109,5 +109,5 @@ exports.createPages = async ({graphql, actions}) => {
 				uid: edge.node.uid
 			}
 		});
-	});
+	}
 };

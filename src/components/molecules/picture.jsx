@@ -3,9 +3,28 @@ import React from 'react';
 
 import {Picture as PictureType} from '../../types/proptypes.js';
 
-const Picture = ({data: {title, image: {url, alt}}}) => (
-	<img src={url} alt={alt || title}/>
-);
+const Picture = ({data: {title, image}}) => {
+	let alt;
+	let src;
+	let srcSet;
+	let srcSetWebp;
+
+	if (Object.prototype.hasOwnProperty.call(image, 'thumbnails')) {
+		({thumbnails: {thumbnail: {fixed: {src, srcSet, srcSetWebp}}, alt}} = image);
+	}
+
+	if (Object.prototype.hasOwnProperty.call(image, 'fixed')) {
+		({fixed: {src, srcSet, srcSetWebp}, alt} = image);
+	}
+
+	return (
+		<picture>
+			{srcSetWebp && <source srcSet={srcSetWebp} type="image/webp"/>}
+			{srcSet && <source srcSet={srcSet} type="image/jpeg"/>}
+			<img src={src} alt={alt || title}/>
+		</picture>
+	);
+};
 
 Picture.propTypes = {
 	data: PropTypes.shape(PictureType)

@@ -25,7 +25,9 @@
       "type": "Link",
       "config": {
         "select": "document",
-        "customtypes": ["series"],
+        "customtypes": [
+          "series"
+        ],
         "label": "Series"
       }
     },
@@ -33,7 +35,9 @@
       "type": "Link",
       "config": {
         "select": "document",
-        "customtypes": ["category"],
+        "customtypes": [
+          "category"
+        ],
         "label": "Category"
       }
     },
@@ -45,7 +49,9 @@
             "type": "Link",
             "config": {
               "select": "document",
-              "customtypes": ["tags"],
+              "customtypes": [
+                "tags"
+              ],
               "label": "Tag"
             }
           }
@@ -59,7 +65,13 @@
         "constraint": {
           "width": 1500
         },
-        "thumbnails": [],
+        "thumbnails": [
+          {
+            "name": "thumbnail",
+            "width": 280,
+            "height": null
+          }
+        ],
         "label": "Image"
       }
     },

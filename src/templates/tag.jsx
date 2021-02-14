@@ -45,7 +45,16 @@ export const pageQuery = graphql`
 					data {
 						title
 						image {
-							url
+							alt
+							thumbnails {
+								thumbnail {
+									fixed(width: 280) {
+										src
+										srcSet
+										srcSetWebp
+									}
+								}
+							}
 						}
 					}
 					uid
