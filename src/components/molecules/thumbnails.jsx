@@ -1,15 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import {css} from '@emotion/react';
 
-import {ThumbnailDataNode} from '../../types/proptypes.js';
 import Picture from './picture.jsx';
+import {ThumbnailDataNode} from '../../types/proptypes.js';
+import {up} from '../../utils/theming.js';
+
+const thumbnailsWrapper = css`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	${up('sm')} {
+		gap: 10px;
+	};
+`;
 
 const Thumbnails = ({data, title, type}) => (
 	<>
 		<h1>
 			{type}: {title} ({data.length})
 		</h1>
-		<ul>
+		<ul css={thumbnailsWrapper}>
 			{data.map(({node: {data, id, uid}}) => (
 				<li key={id}>
 					<a href={`/picture/${uid}`} aria-label="link-to-picture">
