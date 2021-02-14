@@ -6,11 +6,11 @@ import {graphql} from 'gatsby';
 
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
+import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Map from '../components/molecules/map.jsx';
 import PictureComponent from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 import TagLinks from '../components/atoms/tag-links.jsx';
-import {up} from '../utils/theming.js';
 
 const details = css`
 	display: flex;
@@ -23,23 +23,6 @@ const details = css`
 		&:not(:first-of-type) {
 			border-left: 1px solid var(--foreground);
 		}
-	}
-`;
-
-const mainWrapper = css`
-	margin: 170px auto 100px;
-
-	${up('md')} {
-		max-width: 80%;
-	};
-
-	${up('xl')} {
-		max-width: 1150px;
-	};
-
-	h1, h3 {
-		font-weight: 400;
-		padding-bottom: 1em;
 	}
 `;
 
@@ -63,7 +46,7 @@ const Picture = ({data: {prismicPicture}}) => {
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
 			{Boolean(title) && <Helmet><title>{title} | EYESBOUND</title></Helmet>}
-			<main css={mainWrapper}>
+			<MainWrapper>
 				{Boolean(title) && <h1>{title}</h1>}
 				<section>
 					{Boolean(categoryTitle) && <h3>Category: <a href={`/category/${categoryUID}`}>{categoryTitle}</a></h3>}
@@ -78,7 +61,7 @@ const Picture = ({data: {prismicPicture}}) => {
 					</div>
 					{shortenedCoords.length > 0 && <Map center={coordinates} data={[{node: prismicPicture}]} height="500px" zoom={11}/>}
 				</section>
-			</main>
+			</MainWrapper>
 		</>
 	);
 };

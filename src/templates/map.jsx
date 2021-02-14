@@ -1,10 +1,11 @@
+import {css, Global} from '@emotion/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
+import Header from '../components/molecules/header.jsx';
 import Map from '../components/molecules/map.jsx';
-import NotFoundLink from '../components/atoms/404-link.jsx';
 import Query from '../types/proptypes.js';
 
 const Worldmap = ({
@@ -14,9 +15,9 @@ const Worldmap = ({
 }) => {
 	return (
 		<>
+			<Global styles={css` body { overflow: hidden; } `}/>
 			<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
-			<NotFoundLink/>
-			<h1>Map</h1>
+			<Header/>
 			{edges.length > 0 && <Map data={edges}/>}
 		</>
 	);

@@ -3,8 +3,9 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
+import Header from '../components/molecules/header.jsx';
 import List from '../components/molecules/list.jsx';
-import NotFoundLink from '../components/atoms/404-link.jsx';
+import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 
 const Series = ({data: {allPrismicSeries}}) => {
@@ -12,10 +13,10 @@ const Series = ({data: {allPrismicSeries}}) => {
 	return (
 		<>
 			<Helmet><title>Series | EYESBOUND</title></Helmet>
-			<NotFoundLink/>
-			<List title="Series" data={edges} path="series"/>
-			<h2>Raw Data:</h2>
-			<pre>{JSON.stringify(edges, null, 2)}</pre>
+			<Header/>
+			<MainWrapper>
+				<List title="Series" data={edges} path="series"/>
+			</MainWrapper>
 		</>
 	);
 };

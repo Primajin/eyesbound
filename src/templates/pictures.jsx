@@ -3,7 +3,8 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
-import NotFoundLink from '../components/atoms/404-link.jsx';
+import Header from '../components/molecules/header.jsx';
+import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Picture from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 
@@ -15,13 +16,15 @@ const Pictures = ({
 	return (
 		<>
 			<Helmet><title>Pictures | EYESBOUND</title></Helmet>
-			<NotFoundLink/>
-			<h1>Pictures ({edges.length})</h1>
-			{edges.map(({node: {data, id, uid}}) => (
-				<a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
-					<Picture data={data}/>
-				</a>
-			))}
+			<Header/>
+			<MainWrapper>
+				<h1>Pictures ({edges.length})</h1>
+				{edges.map(({node: {data, id, uid}}) => (
+					<a key={id} href={`/picture/${uid}`} aria-label="link-to-picture">
+						<Picture data={data}/>
+					</a>
+				))}
+			</MainWrapper>
 		</>
 	);
 };

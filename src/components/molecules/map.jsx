@@ -10,7 +10,7 @@ const centerOfGermany = {
 	lng: 10.4541194
 };
 
-const Map = ({center, data, height = 'calc(100vh - 51px)', zoom = 5}) => {
+const Map = ({center, data, height = '100vh', zoom = 5}) => {
 	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
 	const [properties, setProperties] = useState({});
 	const mapCenter = {lat: center?.latitude || centerOfGermany.lat, lng: center?.longitude || centerOfGermany.lng};
@@ -38,7 +38,8 @@ const Map = ({center, data, height = 'calc(100vh - 51px)', zoom = 5}) => {
 								<h1>{title}</h1>
 								<img alt={image.alt || title} src={image.url} width="200"/>
 							</a>
-						</InfoWindow>)}
+						</InfoWindow>
+					)}
 				</>
 			</GoogleMap>
 		</LoadScript>
