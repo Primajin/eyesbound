@@ -42,7 +42,9 @@ export const pageQuery = graphql`
 						title
 						image {
 							alt
-							url
+							fixed(width: 1150, imgixParams: {q: 100}) {
+								src
+							}
 						}
 					}
 				}

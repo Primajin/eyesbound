@@ -4,6 +4,7 @@ import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api'
 
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {userPrefersDark} from '../../utils/theming.js';
+import Picture from './picture.jsx';
 
 const centerOfGermany = {
 	lat: 51.1642292,
@@ -34,9 +35,9 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 					})}
 					{infoWindowOpen && title && (
 						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
-							<a href={`/picture/${uid}`} className="map-marker-info-window">
+							<a href={`/picture/${uid}`}>
 								<h1>{title}</h1>
-								<img alt={image.alt || title} src={image.url} width="200"/>
+								<Picture data={{title, image}}/>
 							</a>
 						</InfoWindow>
 					)}

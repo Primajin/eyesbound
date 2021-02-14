@@ -36,7 +36,15 @@ export const pageQuery = graphql`
 						title
 						image {
 							alt
-							url
+							thumbnails {
+								thumbnail {
+									fixed(width: 280) {
+										src
+										srcSet
+										srcSetWebp
+									}
+								}
+							}
 						}
 					}
 					id

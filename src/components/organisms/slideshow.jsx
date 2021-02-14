@@ -8,6 +8,7 @@ import '../../styles/slideshow.css';
 
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
+import Picture from '../molecules/picture.jsx';
 
 const wrapper = css`
 	height: calc(100vh - 52px);
@@ -18,10 +19,10 @@ const figure = css`
 	background: no-repeat center center fixed;
 	background-size: cover;
 	width: 100%;
-`;
 
-const imageDetails = css`
-	display: none;
+	> * {
+		display: none;
+	}
 `;
 
 // Indicators css here: src/styles/slideshow.css:115
@@ -99,14 +100,14 @@ const Slideshow = ({images, isFullscreen}) => {
 				node: {
 					data: {
 						title,
-						image: {alt, url}
+						image: {alt, fixed: {src}}
 					}
 				}
 			} = images[i];
 			return (
 				<li className="indicator" css={indicator} title={title}>
 					<figure>
-						<img alt={alt || title} css={image} src={url}/>
+						<img alt={alt || title} css={image} src={src}/>
 						<figcaption css={indicatorFigCaption}>{title}</figcaption>
 					</figure>
 				</li>
@@ -120,11 +121,11 @@ const Slideshow = ({images, isFullscreen}) => {
 	return (
 		<div className="slide-container">
 			<Fade {...properties}>
-				{images.map(({node: {data: {title, image: {alt, url}}, id, uid}}) => (
+				{images.map(({node: {data: {title, image}, id, uid}}) => (
 					<a key={id} title={title} css={wrapper} href={`/picture/${uid}`}>
-						<figure css={figure} style={{backgroundImage: `url(${url})`}}>
-							<img css={imageDetails} src={url} alt={alt || title}/>
-							<figcaption css={imageDetails}>{alt || title}</figcaption>
+						<figure css={figure} style={{backgroundImage: `url(${image.fixed.src})`}}>
+							<Picture data={{title, image}}/>
+							<figcaption>{title}</figcaption>
 						</figure>
 					</a>
 				))}
