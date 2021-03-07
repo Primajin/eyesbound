@@ -11,19 +11,23 @@ import Map from '../components/molecules/map.jsx';
 import PictureComponent from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 import TagLinks from '../components/atoms/tag-links.jsx';
+import {up} from '../utils/theming.js';
 
 const details = css`
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 	margin: 20px 0;
 
 	> div {
 		padding: 10px;
+	}
 
-		&:not(:first-of-type) {
+	${up('md')} {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		> div:not(:first-of-type) {
 			border-left: 1px solid var(--foreground);
 		}
-	}
+	};
 `;
 
 const Picture = ({data: {prismicPicture}}) => {
