@@ -1,3 +1,5 @@
+/* global document */
+// document may be used inside useEffects - they only run in a browser
 import PropTypes from 'prop-types';
 import React, {useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
