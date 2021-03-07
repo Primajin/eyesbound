@@ -2,7 +2,7 @@
  * Does user prefer dark mode UI in Operation System settings?
  * @type {boolean}
  */
-export const userPrefersDark = window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+export const userPrefersDark = typeof window !== 'undefined' && window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 const breakpoints = new Map([['sm', 576], ['md', 768], ['lg', 992], ['xl', 1200]]);
 /**
