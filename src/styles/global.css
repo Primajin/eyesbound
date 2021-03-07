@@ -54,7 +54,7 @@ h3 {
 img {
 	max-width: 100%;
 }
-img[width] {
+img[width]:not([src*="2x"]) {
 	width: auto;
 }
 img[width][height] {
