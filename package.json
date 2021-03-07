@@ -25,10 +25,10 @@
     "@emotion/styled": "^11.1.5",
     "@react-google-maps/api": "^2.1.1",
     "classnames": "^2.2.6",
-    "gatsby": "^2.32.3",
-    "gatsby-plugin-emotion": "^5.4.0",
-    "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-source-prismic": "^3.3.3",
+    "gatsby": "^3.0.3",
+    "gatsby-plugin-emotion": "^6.0.0",
+    "gatsby-plugin-react-helmet": "^4.0.0",
+    "gatsby-source-prismic": "^3.3.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -37,17 +37,17 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^7.20.0",
-    "eslint-config-xo": "^0.34.0",
-    "eslint-config-xo-react": "^0.23.0",
+    "eslint": "^7.21.0",
+    "eslint-config-xo": "^0.35.0",
+    "eslint-config-xo-react": "^0.24.0",
     "eslint-plugin-ava": "^11.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^28.0.0",
-    "xo": "^0.37.1"
+    "eslint-plugin-unicorn": "^28.0.2",
+    "xo": "^0.38.2"
   },
   "repository": {
     "type": "git",
@@ -57,9 +57,8 @@
     "extends": "xo-react"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
     "env": {
-      "browser": true,
+      "browser": false,
       "node": true,
       "es6": true
     },
