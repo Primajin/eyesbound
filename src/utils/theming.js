@@ -1,3 +1,5 @@
+/* global window */
+// window may be used only after it has been checked against being undefined
 /**
  * Does user prefer dark mode UI in Operation System settings?
  * @type {boolean}
