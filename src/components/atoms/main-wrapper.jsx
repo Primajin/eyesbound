@@ -2,18 +2,11 @@ import React from 'react';
 import {css} from '@emotion/react';
 
 import {children} from '../../types/proptypes.js';
-import {up} from '../../utils/theming.js';
 
 const mainWrapper = css`
+	width: clamp(16rem, 90vw, 70rem);
 	margin: 170px auto 100px;
-
-	${up('md')} {
-		max-width: 80%;
-	};
-
-	${up('xl')} {
-		max-width: 1150px;
-	};
+	padding: 0 1.5rem;
 
 	h1, h3 {
 		font-weight: 400;
