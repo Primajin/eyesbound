@@ -52,8 +52,18 @@ h3 {
 }
 
 img {
+	max-width: 100%;
+}
+img[width] {
+	width: auto;
+}
+img[width][height] {
 	height: auto;
+}
+img[src$=".svg"] {
 	width: 100%;
+	height: auto;
+	max-width: none;
 }
 
 button {
