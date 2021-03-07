@@ -1,4 +1,4 @@
-export const fullscreenElement = document.fullscreenElement || document.mozFullscreenElement || document.msFullscreenElement || document.webkitFullscreenDocument;
+export const fullscreenElement = typeof document !== 'undefined' && (document.fullscreenElement || document.mozFullscreenElement || document.msFullscreenElement || document.webkitFullscreenDocument);
 
 /**
  * Toggles the specified Element into fullscreen mode - otherwise whole document
