@@ -1,7 +1,7 @@
 # Eyesbound
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-![Image of Eyesbound Website with A Design Award](/docs/Eyesbound_Award.jpg)
+![Image of Eyesbound Website with A Design Award](docs/Eyesbound_Award.jpg)
 ## Development
 
 Create a `.env.development` file with the following content:
