@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
+import {Helmet} from 'react-helmet';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
+import EyesboundAward from '../../docs/Eyesbound_Award.jpg';
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
 import InstagramLink from '../components/atoms/instagram-link.jsx';
@@ -18,6 +20,17 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 
 	return (
 		<>
+			<Helmet>
+				<title>EYESBOUND</title>,
+				<meta name="title" content="EYESBOUND"/>,
+				<link rel="canonical" href="https://eyesbound.com"/>,
+				<meta property="og:image" content={EyesboundAward}/>,
+				<meta property="og:title" content="EYESBOUND"/>,
+				<meta property="og:url" content="https://eyesbound.com"/>,
+				<meta property="twitter:image" content={EyesboundAward}/>
+				<meta property="twitter:title" content="EYESBOUND"/>
+				<meta property="twitter:url" content="https://eyesbound.com"/>
+			</Helmet>
 			<Global styles={css` body { overflow: hidden; } `}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback}/>

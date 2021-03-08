@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
-import {Helmet} from 'react-helmet';
 import {css} from '@emotion/react';
 import {graphql} from 'gatsby';
 
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
+import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Map from '../components/molecules/map.jsx';
 import PictureComponent from '../components/molecules/picture.jsx';
@@ -44,14 +44,15 @@ const Picture = ({data: {prismicPicture}}) => {
 	const seriesTitle = series?.document?.data?.title;
 	const seriesUID = series?.document?.uid;
 	const shortenedCoords = Object.keys(coordinates).map(key => coordinates[key].toFixed(5));
+	const hasTitle = Boolean(title);
 
 	return (
 		<>
+			<HelmetMetaTags title={title} imageSource={data?.image?.fixed?.src} uid={prismicPicture?.uid} path="picture"/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
-			{Boolean(title) && <Helmet><title>{title} | EYESBOUND</title></Helmet>}
 			<MainWrapper>
-				{Boolean(title) && <h1>{title}</h1>}
+				{hasTitle && <h1>{title}</h1>}
 				<section>
 					{Boolean(categoryTitle) && <h3>Category: <a href={`/category/${categoryUID}`}>{categoryTitle}</a></h3>}
 					{Boolean(seriesTitle) && <h3>Series: <a href={`/series/${seriesUID}`}>{seriesTitle}</a></h3>}

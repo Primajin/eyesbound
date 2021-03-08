@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
+import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 import Thumbnails from '../components/molecules/thumbnails.jsx';
 
 const Pictures = ({data: {allPrismicPicture: {edges}}}) => (
 	<>
-		<Helmet><title>Pictures | EYESBOUND</title></Helmet>
+		<HelmetMetaTags title="Pictures" path="picture"/>
 		<Header/>
 		<MainWrapper>
 			<Thumbnails data={edges} title="" type="Pictures"/>
