@@ -5,6 +5,7 @@ import {graphql} from 'gatsby';
 
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
+import InstagramLink from '../components/atoms/instagram-link.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/organisms/slideshow.jsx';
 
@@ -21,6 +22,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback}/>
 			<Slideshow images={edges} isFullscreen={fullScreen}/>
+			<InstagramLink/>
 		</>
 	);
 };
