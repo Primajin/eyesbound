@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
+import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import List from '../components/molecules/list.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 
 const Series = ({data: {allPrismicSeries: {edges}}}) => (
 	<>
-		<Helmet><title>Series | EYESBOUND</title></Helmet>
+		<HelmetMetaTags title="Series" path="series"/>
 		<Header/>
 		<MainWrapper>
 			<List title="Series" data={edges} path="series"/>
