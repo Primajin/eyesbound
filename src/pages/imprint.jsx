@@ -1,11 +1,11 @@
 import React from 'react';
-import {Helmet} from 'react-helmet';
 import {css} from '@emotion/react';
 
 import ADesignAward from '../../static/a-design-award-winner-2016-silver-2x.png';
 import BY from '../../static/creative-commons/by.svg';
 import CC from '../../static/creative-commons/cc.svg';
 import Header from '../components/molecules/header.jsx';
+import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import NCEU from '../../static/creative-commons/nc-eu.svg';
 import SA from '../../static/creative-commons/sa.svg';
@@ -29,7 +29,7 @@ const icon = css`
 
 const Imprint = () => (
 	<>
-		<Helmet><title>Imprint | EYESBOUND</title></Helmet>
+		<HelmetMetaTags title="Imprint & Contact" path="imprint"/>
 		<Header/>
 		<MainWrapper>
 			<h1>Contact & Imprint</h1>

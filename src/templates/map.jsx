@@ -1,17 +1,17 @@
 import {css, Global} from '@emotion/react';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
+import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import Map from '../components/molecules/map.jsx';
 import Query from '../types/proptypes.js';
 
 const Worldmap = ({data: {allPrismicPicture: {edges}}}) => (
 	<>
+		<HelmetMetaTags title="Worldmap" path="worldmap"/>
 		<Global styles={css` body { overflow: hidden; } `}/>
-		<Helmet><title>Worldmap | EYESBOUND</title></Helmet>
 		<Header/>
 		{edges.length > 0 && <Map data={edges}/>}
 	</>

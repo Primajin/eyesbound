@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Helmet} from 'react-helmet';
 import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
+import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import Query from '../types/proptypes.js';
 import Thumbnails from '../components/molecules/thumbnails.jsx';
@@ -13,7 +13,7 @@ const Series = ({data: {prismicSeries, allPrismicPicture}}) => {
 	const {edges: pictureData} = allPrismicPicture;
 	return (
 		<>
-			<Helmet><title>{seriesData.title} | EYESBOUND</title></Helmet>
+			<HelmetMetaTags title={seriesData.title} path="series" uid={prismicSeries.uid}/>
 			<Header/>
 			<MainWrapper>
 				<Thumbnails data={pictureData} title={seriesData.title} type="Series"/>

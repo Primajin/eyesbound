@@ -1,33 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import EyesboundAward from '../docs/Eyesbound_Award.jpg';
-
 /* eslint-disable react/no-danger */
 const HTML = props => {
 	return (
 		<html lang="en" dir="ltr" {...props.htmlAttributes}>
 			<head>
 				<title>EYESBOUND</title>
-				<meta name="title" content="EYESBOUND"/>
 				<meta charSet="utf-8"/>
 				<meta httpEquiv="x-ua-compatible" content="ie=edge"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 				<meta name="theme-color" content="#000000"/>
-				<link rel="shortlink" href="https://eyesbound.com/"/>
-				<link rel="canonical" href="https://eyesbound.com/"/>
 				{/* Open Graph / Facebook */}
 				<meta property="og:type" content="website"/>
-				<meta property="og:url" content="https://eyesbound.com"/>
-				<meta property="og:title" content="EYESBOUND"/>
 				<meta property="og:description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
-				<meta property="og:image" content={EyesboundAward}/>
 				{/* Twitter */}
 				<meta property="twitter:card" content="summary_large_image"/>
-				<meta property="twitter:url" content="https://eyesbound.com"/>
-				<meta property="twitter:title" content="EYESBOUND"/>
 				<meta property="twitter:description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
-				<meta property="twitter:image" content={EyesboundAward}/>
 				{/* General */}
 				<meta name="description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
 				<meta name="abstract" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
