@@ -1,9 +1,31 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
+import {css} from '@emotion/react';
 
+import ADesignAward from '../../static/a-design-award-winner-2016-silver-2x.png';
+import BY from '../../static/creative-commons/by.svg';
+import CC from '../../static/creative-commons/cc.svg';
 import Header from '../components/molecules/header.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
-import ADesignAward from '../../static/a-design-award-winner-2016-silver-2x.png';
+import NCEU from '../../static/creative-commons/nc-eu.svg';
+import SA from '../../static/creative-commons/sa.svg';
+
+const icon = css`
+	background: transparent center center no-repeat;
+	display: inline-block;
+	height: 64px;
+	margin: 0 -5px;
+	overflow: hidden;
+	text-indent: -999em;
+	transform: scale(0.75);
+	vertical-align: middle;
+	width: 64px;
+
+	&.icon-cc { background-image: url("${CC}"); }
+	&.icon-cc-by { background-image: url("${BY}"); }
+	&.icon-cc-nc-eu { background-image: url("${NCEU}"); }
+	&.icon-cc-sa { background-image: url("${SA}"); }
+`;
 
 const Imprint = () => (
 	<>
@@ -12,11 +34,13 @@ const Imprint = () => (
 		<MainWrapper>
 			<h1>Contact & Imprint</h1>
 			<p>EYESBOUND<br/>Jannis Hell<br/>Friedrich-Wilhelm-Platz 2<br/>12161 Berlin<br/>Deutschland<br/>Phone: 84183026<br/>Email: admin@eyesbound.com<br/>Website: eyesbound.com</p>
-			<p className="licence-icons">
-				<i className="icon-cc" title="Creative Commons">Creative Commons</i>
-				<i className="icon-cc-by" title="Sie müssen den Namen bzw. die Bezeichnung des Lizenzgebers nennen.">Sie müssen den Namen bzw. die Bezeichnung des Lizenzgebers nennen.</i>
-				<i className="icon-cc-nc-eu" title="Der Lizenzgeber erlaubt die Vervielfältigung, Verbreitung und öffentliche Wiedergabe des Werkes. Zugleich dürfen die Lizenznehmer das Werk jedoch nicht für kommerzielle Zwecke verwenden – es sei denn, der Lizenzgeber stimmt separat zu.">Der Lizenzgeber erlaubt die Vervielfältigung, Verbreitung und öffentliche Wiedergabe des Werkes. Zugleich dürfen die Lizenznehmer das Werk jedoch nicht für kommerzielle Zwecke verwenden – es sei denn, der Lizenzgeber stimmt separat zu.</i>
-				<i className="icon-cc-sa" title="Der Lizenzgeber erlaubt die Verbreitung von Bearbeitungen nur unter Verwendung derselben Lizenz oder einer mit dieser kompatiblen Lizenz.">Der Lizenzgeber erlaubt die Verbreitung von Bearbeitungen nur unter Verwendung derselben Lizenz oder einer mit dieser kompatiblen Lizenz.</i>
+			<p>
+				<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noreferrer">
+					<i css={icon} className="icon-cc" title="Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</i>
+					<i css={icon} className="icon-cc-by" title="Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.">Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</i>
+					<i css={icon} className="icon-cc-nc-eu" title="NonCommercial — You may not use the material for commercial purposes.">NonCommercial — You may not use the material for commercial purposes.</i>
+					<i css={icon} className="icon-cc-sa" title="ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.">ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</i>
+				</a>
 			</p>
 			<h2>Design:</h2>
 			<p>Julia Hell<br/><a href="http://www.julia-hell.com" target="_blank" rel="noreferrer">http://www.julia-hell.com</a></p>
