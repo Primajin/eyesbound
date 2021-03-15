@@ -7,6 +7,8 @@ const HelmetMetaTags = ({imageSource, path, title, uid}) => {
 	const hasPath = Boolean(path);
 	const hasTitle = Boolean(title);
 
+	// TODO: ADD DESCRIPTION AS WELL AND USE IMAGE METADATA
+
 	return (
 		<Helmet>
 			{hasTitle && [
