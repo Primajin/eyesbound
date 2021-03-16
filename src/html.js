@@ -45,6 +45,8 @@ const HTML = props => {
 				<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon_152x152.png"/>
 				<link rel="preconnect" href="https://fonts.gstatic.com"/>
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+				<link href="/reset.css" rel="stylesheet"/>
+				<link href="/global.css" rel="stylesheet"/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
