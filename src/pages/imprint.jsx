@@ -33,7 +33,7 @@ const Imprint = () => (
 		<Header/>
 		<MainWrapper>
 			<h1>Contact & Imprint</h1>
-			<p>EYESBOUND<br/>Jannis Hell<br/>Friedrich-Wilhelm-Platz 2<br/>12161 Berlin<br/>Deutschland<br/>Phone: 84183026<br/>Email: admin@eyesbound.com<br/>Website: eyesbound.com</p>
+			<p><address>EYESBOUND<br/>Jannis Hell<br/>Friedrich-Wilhelm-Platz 2<br/>12161 Berlin<br/>Deutschland<br/>Phone: 84183026<br/>Email: admin@eyesbound.com<br/>Website: eyesbound.com</address></p>
 			<p>
 				<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noreferrer">
 					<i css={icon} className="icon-cc" title="Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</i>
