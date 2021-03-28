@@ -2,35 +2,40 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Helmet} from 'react-helmet';
 
-const HelmetMetaTags = ({imageSource, path, title, uid}) => {
+const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) => {
+	const hasCoords = coordinates?.length > 0;
+	const hasDateTime = Boolean(dateTime);
 	const hasImageSource = Boolean(imageSource);
 	const hasPath = Boolean(path);
 	const hasTitle = Boolean(title);
-
-	// TODO: ADD DESCRIPTION AS WELL AND USE IMAGE METADATA
 
 	return (
 		<Helmet>
 			{hasTitle && [
 				<title key={1}>{title} | EYESBOUND</title>,
-				<meta key={2} name="title" content={`${title} | EYESBOUND`}/>,
-				<meta key={3} property="og:title" content={`${title} | EYESBOUND`}/>,
-				<meta key={4} property="twitter:title" content={`${title} | EYESBOUND`}/>
+				<meta key={2} name="title" content={`${title} | EYESBOUND`}/>
 			]}
 			{hasImageSource && [
-				<meta key={5} property="og:image" content={imageSource}/>,
-				<meta key={6} property="twitter:image" content={imageSource}/>
+				<meta key={3} property="og:image" content={imageSource}/>
 			]}
 			{hasPath && [
-				<link key={7} rel="canonical" href={`https://eyesbound.com/${path}/${uid}`}/>,
-				<meta key={8} property="og:url" content={`https://eyesbound.com/${path}/${uid}`}/>,
-				<meta key={9} property="twitter:url" content={`https://eyesbound.com/${path}/${uid}`}/>
+				<link key={4} rel="canonical" href={`https://eyesbound.com/${path}/${uid}`}/>,
+				<meta key={5} property="og:url" content={`https://eyesbound.com/${path}/${uid}`}/>
+			]}
+			{hasCoords && [
+				<meta key={6} name="geo.position" content={coordinates.join(';')}/>,
+				<meta key={7} name="ICBM" content={coordinates.join(', ')}/>
+			]}
+			{hasDateTime && [
+				<meta key={8} name="date" content={dateTime}/>
 			]}
 		</Helmet>
 	);
 };
 
 HelmetMetaTags.propTypes = {
+	coordinates: PropTypes.array,
+	dateTime: PropTypes.string,
 	imageSource: PropTypes.string,
 	path: PropTypes.string,
 	title: PropTypes.string,
@@ -38,6 +43,8 @@ HelmetMetaTags.propTypes = {
 };
 
 HelmetMetaTags.defaultProps = {
+	coordinates: [],
+	dateTime: '',
 	imageSource: '',
 	path: '',
 	title: '',

@@ -39,16 +39,21 @@ const Picture = ({data: {prismicPicture}}) => {
 
 	const {data} = prismicPicture;
 	const {category, coordinates, datetime, series, title, tags} = data;
+
 	const categoryTitle = category?.document?.data?.title;
 	const categoryUID = category?.document?.uid;
 	const seriesTitle = series?.document?.data?.title;
 	const seriesUID = series?.document?.uid;
 	const shortenedCoords = Object.keys(coordinates).map(key => coordinates[key].toFixed(5));
+
+	const hasCoords = shortenedCoords?.length > 0;
+	const hasDateTime = datetime?.length > 0;
+	const hasTags = tags?.length > 0;
 	const hasTitle = Boolean(title);
 
 	return (
 		<>
-			<HelmetMetaTags title={title} imageSource={data?.image?.fixed?.src} uid={prismicPicture?.uid} path="picture"/>
+			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={data?.image?.fixed?.src} path="picture" title={title} uid={prismicPicture?.uid}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
 			<MainWrapper>
@@ -60,9 +65,9 @@ const Picture = ({data: {prismicPicture}}) => {
 						<PictureComponent data={data}/>
 					</figure>
 					<div css={details}>
-						{tags?.length > 0 && <div>Tags: <TagLinks tags={tags}/></div>}
-						{datetime?.length > 0 && <div>Captured: {new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</div>}
-						{shortenedCoords?.length > 0 && <div>Location: {shortenedCoords.join(' | ')}</div>}
+						{hasTags && <div>Tags: <TagLinks tags={tags}/></div>}
+						{hasDateTime && <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div>}
+						{hasCoords && <div>Location: {shortenedCoords.join(' | ')}</div>}
 					</div>
 					{shortenedCoords.length > 0 && <Map center={coordinates} data={[{node: prismicPicture}]} height="500px" zoom={11}/>}
 				</section>
