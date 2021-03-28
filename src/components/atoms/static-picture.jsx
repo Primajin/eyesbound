@@ -2,9 +2,10 @@ import {graphql, StaticQuery} from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-// TODO: WORK IN PROGRESS
+// Static picture should work better than dynamic queries for HELM etc.
+// but for now the dynamic seems to work good enough... ¯\_(ツ)_/¯
 
-const Picture = ({imgUID}) => {
+const StaticPicture = ({imgUID}) => {
 	return (
 		<StaticQuery
 			query={graphql`
@@ -74,8 +75,8 @@ const Picture = ({imgUID}) => {
 	);
 };
 
-Picture.propTypes = {
+StaticPicture.propTypes = {
 	imgUID: PropTypes.string.isRequired
 };
 
-export default Picture;
+export default StaticPicture;
