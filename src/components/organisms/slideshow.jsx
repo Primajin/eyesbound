@@ -6,9 +6,10 @@ import {css} from '@emotion/react';
 
 import '../../styles/slideshow.css';
 
+import AssetTypes from '../../constants/asset-types.js';
+import Picture from '../molecules/picture.jsx';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
-import Picture from '../molecules/picture.jsx';
 
 const wrapper = css`
 	height: calc(100vh - 52px);
@@ -117,12 +118,13 @@ const Slideshow = ({images, isFullscreen}) => {
 		pauseOnHover: false,
 		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="10" type="button">«</button>
 	};
+	const {PICTURE: {path}} = AssetTypes;
 
 	return (
 		<div className="slide-container">
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image}, id, uid}}) => (
-					<a key={id} title={title} css={wrapper} href={`/picture/${uid}`}>
+					<a key={id} title={title} css={wrapper} href={`/${path}/${uid}`}>
 						<figure css={figure} style={{backgroundImage: `url(${image.fixed.src})`}}>
 							<Picture data={{title, image}}/>
 							<figcaption>{title}</figcaption>
