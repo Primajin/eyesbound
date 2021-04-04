@@ -30,6 +30,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 				<meta property="twitter:image" content={EyesboundAward}/>
 				<meta property="twitter:title" content="EYESBOUND"/>
 				<meta property="twitter:url" content="https://eyesbound.com"/>
+				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
 			</Helmet>
 			<Global styles={css` body { overflow: hidden; } `}/>
 			<Header isFullscreen={fullScreen}/>
