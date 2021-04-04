@@ -3,11 +3,13 @@ import React from 'react';
 
 import Logo from '../atoms/logo.jsx';
 import Navigation from '../atoms/navigation.jsx';
+import ThemeSwitcher from '../atoms/theme-switcher.jsx';
 
 const Header = ({isFullscreen}) => (
 	<header>
 		<Logo isFullscreen={isFullscreen}/>
 		<Navigation isFullscreen={isFullscreen}/>
+		<ThemeSwitcher/>
 	</header>
 );
 
