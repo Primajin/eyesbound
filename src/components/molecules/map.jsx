@@ -25,7 +25,7 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 	const mapId = userPrefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
 
 	return (
-		<LoadScript googleMapsApiKey={process.env.G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
+		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
 			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={{mapId}} zoom={zoom}>
 				<>
 					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
