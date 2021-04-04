@@ -51,9 +51,6 @@ h3 {
 	font-size: 110%;
 }
 
-img {
-	max-width: 100%;
-}
 img[width]:not([src*="2x"]) {
 	width: auto;
 }
@@ -92,4 +89,8 @@ button, input, textarea {
 
 div[style*="rgb(229, 227, 223)"] {
 	background: var(--background) !important;
+}
+
+.gm-style img {
+	max-width: 100%;
 }
