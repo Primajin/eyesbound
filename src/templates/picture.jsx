@@ -29,6 +29,10 @@ const details = css`
 			border-left: 1px solid var(--foreground);
 		}
 	};
+
+	& ~ div {
+		content-visibility: auto;
+	}
 `;
 
 const Picture = ({data: {prismicPicture}}) => {

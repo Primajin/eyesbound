@@ -108,3 +108,8 @@
 .indicator:hover img{
 	border-color: var(--background);
 }
+
+/* https://web.dev/content-visibility/ */
+.react-slideshow-fade-images-wrap > div {
+	content-visibility: auto;
+}

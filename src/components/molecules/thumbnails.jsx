@@ -14,6 +14,10 @@ const thumbnailsWrapper = css`
 	${up('sm')} {
 		gap: 10px;
 	};
+
+	li {
+		content-visibility: auto;
+	}
 `;
 
 const Thumbnails = ({edges, title, type}) => (
