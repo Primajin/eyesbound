@@ -25,6 +25,7 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 	const mapId = userPrefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
 
 	console.log('process.env.G_MAPS', process.env.G_MAPS);
+	console.log('process.env.GATSBY_G_MAPS', process.env.GATSBY_G_MAPS);
 
 	return (
 		<LoadScript googleMapsApiKey={process.env.G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
