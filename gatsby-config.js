@@ -3,9 +3,12 @@ require('dotenv').config({
 });
 
 module.exports = {
+	siteMetadata: {
+		siteUrl: `https://eyesbound.com`
+	},
 	plugins: [
-		{ resolve: `gatsby-plugin-emotion` },
-		{ resolve: `gatsby-plugin-react-helmet` },
+		{resolve: `gatsby-plugin-emotion`},
+		{resolve: `gatsby-plugin-react-helmet`},
 		{
 			resolve: 'gatsby-source-prismic',
 			options: {
@@ -19,6 +22,7 @@ module.exports = {
 					tags: require('./src/schemas/tags.json')
 				}
 			}
-		}
+		},
+		{resolve: `gatsby-plugin-sitemap`}
 	]
 };
