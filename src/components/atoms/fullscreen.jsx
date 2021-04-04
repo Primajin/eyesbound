@@ -7,25 +7,12 @@ import {css} from '@emotion/react';
 
 import IconFullscreen from './icons/fullscreen.jsx';
 import IconFullscreenExit from './icons/fullscreen-exit.jsx';
-
+import buttonCSS from '../../styles/button.js';
 import {fullscreenElement, toggleFullscreen} from '../../utils/fullscreen.js';
 
 const button = css`
-	align-items: center;
-	background-color: var(--foreground);
-	color: var(--background);
-	cursor: pointer;
-	display: flex;
-	height: 50px;
-	justify-content: center;
-	opacity: 1;
-	padding: 0;
-	position: fixed;
+	${buttonCSS};
 	right: 0;
-	top: 0;
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 50px;
-	z-index: 8;
 
 	&:hover,
 	&:focus {
@@ -38,7 +25,6 @@ const button = css`
 	}
 
 	svg {
-		fill: currentColor;
 		height: 50px;
 		width: 50px;
 	}

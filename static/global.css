@@ -91,6 +91,6 @@ div[style*="rgb(229, 227, 223)"] {
 	background: var(--background) !important;
 }
 
-.gm-style img {
+.gm-style picture img {
 	max-width: 100%;
 }

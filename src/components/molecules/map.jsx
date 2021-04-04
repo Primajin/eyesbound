@@ -4,6 +4,7 @@ import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api'
 
 import AssetTypes from '../../constants/asset-types.js';
 import Picture from './picture.jsx';
+import {fromLocalStorage} from '../../utils/local-storage.js';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {userPrefersDark} from '../../utils/theming.js';
 
@@ -17,13 +18,16 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 	const [properties, setProperties] = useState({});
 	const mapCenter = {lat: center?.latitude || centerOfGermany.lat, lng: center?.longitude || centerOfGermany.lng};
 
+	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+	const prefersDark = storagePrefersDark ?? userPrefersDark;
+
 	const toggleInfoWindow = properties => () => {
 		setInfoWindowOpen(true);
 		setProperties(properties);
 	};
 
 	const {image, position, title, uid} = properties;
-	const mapId = userPrefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
+	const mapId = prefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
 
 	const {PICTURE: {path}} = AssetTypes;
 

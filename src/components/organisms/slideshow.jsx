@@ -12,7 +12,7 @@ import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
 
 const wrapper = css`
-	height: calc(100vh - 52px);
+	height: calc(100vh - 50px);
 	display: flex;
 `;
 
@@ -41,7 +41,7 @@ const image = css`
 `;
 
 const indicatorFigCaption = css`
-	bottom: 17px;
+	bottom: 15px;
 	color: var(--background);
 	display: none;
 	font-weight: 700;
