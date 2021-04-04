@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import React, {memo, useState} from 'react';
 import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
 
+import AssetTypes from '../../constants/asset-types.js';
+import Picture from './picture.jsx';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {userPrefersDark} from '../../utils/theming.js';
-import Picture from './picture.jsx';
 
 const centerOfGermany = {
 	lat: 51.1642292,
@@ -24,6 +25,8 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 	const {image, position, title, uid} = properties;
 	const mapId = userPrefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
 
+	const {PICTURE: {path}} = AssetTypes;
+
 	return (
 		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
 			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={{mapId}} zoom={zoom}>
@@ -35,7 +38,7 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 					})}
 					{infoWindowOpen && title && (
 						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
-							<a href={`/picture/${uid}`}>
+							<a href={`/${path}/${uid}`}>
 								<h1>{title}</h1>
 								<Picture data={{title, image}}/>
 							</a>

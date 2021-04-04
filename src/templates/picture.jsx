@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {css} from '@emotion/react';
 import {graphql} from 'gatsby';
 
+import AssetTypes from '../constants/asset-types.js';
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
 import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
@@ -51,16 +52,18 @@ const Picture = ({data: {prismicPicture}}) => {
 	const hasTags = tags?.length > 0;
 	const hasTitle = Boolean(title);
 
+	const {CATEGORY: {path: categoryPath}, PICTURE: {path: picturePath}, SERIES: {path: seriesPath}} = AssetTypes;
+
 	return (
 		<>
-			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={data?.image?.fixed?.src} path="picture" title={title} uid={prismicPicture?.uid}/>
+			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={data?.image?.fixed?.src} path={picturePath} title={title} uid={prismicPicture?.uid}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
 			<MainWrapper>
 				{hasTitle && <h1>{title}</h1>}
 				<section>
-					{Boolean(categoryTitle) && <h3>Category: <a href={`/category/${categoryUID}`}>{categoryTitle}</a></h3>}
-					{Boolean(seriesTitle) && <h3>Series: <a href={`/series/${seriesUID}`}>{seriesTitle}</a></h3>}
+					{Boolean(categoryTitle) && <h3>Category: <a href={`/${categoryPath}/${categoryUID}`}>{categoryTitle}</a></h3>}
+					{Boolean(seriesTitle) && <h3>Series: <a href={`/${seriesPath}/${seriesUID}`}>{seriesTitle}</a></h3>}
 					<figure>
 						<PictureComponent data={data}/>
 					</figure>

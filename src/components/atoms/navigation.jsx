@@ -5,6 +5,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
 
+import AssetTypes from '../../constants/asset-types.js';
 import {up} from '../../utils/theming.js';
 
 const nav = css`
@@ -120,15 +121,17 @@ const Navigation = ({isFullscreen}) => {
 		setMenuOpen(!menuOpen);
 	};
 
+	const {PICTURE, SERIES, CATEGORY} = AssetTypes;
+
 	return (
 		<nav css={nav} className={classnames({open: menuOpen, isFullscreen})}>
 			<ul>
-				<li><a ref={linkOverview} href="/picture" tabIndex="2">Overview</a></li>
-				<li><a ref={linkShuttered} href="/series/shuttered" tabIndex="3">»Shuttered«</a></li>
-				<li><a ref={linkArchitecture} href="/category/architecture" tabIndex="4">Architecture</a></li>
-				<li><a ref={linkEnvironment} href="/category/environment" tabIndex="5">Environment</a></li>
-				<li><a ref={linkFloral} href="/category/floral" tabIndex="6">Floral</a></li>
-				<li><a ref={linkLight} href="/category/light" tabIndex="7">Light</a></li>
+				<li><a ref={linkOverview} href={`/${PICTURE.path}`} tabIndex="2">Overview</a></li>
+				<li><a ref={linkShuttered} href={`/${SERIES.path}/shuttered`} tabIndex="3">»Shuttered«</a></li>
+				<li><a ref={linkArchitecture} href={`/${CATEGORY.path}/architecture`} tabIndex="4">Architecture</a></li>
+				<li><a ref={linkEnvironment} href={`/${CATEGORY.path}/environment`} tabIndex="5">Environment</a></li>
+				<li><a ref={linkFloral} href={`/${CATEGORY.path}/floral`} tabIndex="6">Floral</a></li>
+				<li><a ref={linkLight} href={`/${CATEGORY.path}/light`} tabIndex="7">Light</a></li>
 				<li><a ref={linkWorldmap} href="/worldmap" tabIndex="8">Worldmap</a></li>
 				<li><a ref={linkContact} href="/imprint" tabIndex="9">Contact</a></li>
 			</ul>
