@@ -7,8 +7,16 @@ module.exports = {
 		siteUrl: `https://eyesbound.com`
 	},
 	plugins: [
-		{resolve: `gatsby-plugin-emotion`},
-		{resolve: `gatsby-plugin-react-helmet`},
+		{
+			resolve: 'gatsby-plugin-gatsby-cloud',
+			options: {
+				allPageHeaders: [
+					"Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+				],
+			}
+		},
+		{resolve: 'gatsby-plugin-emotion'},
+		{resolve: 'gatsby-plugin-react-helmet'},
 		{
 			resolve: 'gatsby-source-prismic',
 			options: {
@@ -23,6 +31,6 @@ module.exports = {
 				}
 			}
 		},
-		{resolve: `gatsby-plugin-sitemap`}
+		{resolve: 'gatsby-plugin-sitemap'}
 	]
 };
