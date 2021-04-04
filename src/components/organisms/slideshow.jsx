@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
 
-import '../../styles/slideshow.css';
+import '../../../static/slideshow.css';
 
 import AssetTypes from '../../constants/asset-types.js';
 import Picture from '../molecules/picture.jsx';
