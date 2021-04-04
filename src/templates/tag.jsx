@@ -3,26 +3,15 @@ import React from 'react';
 import {graphql} from 'gatsby';
 
 import AssetTypes from '../constants/asset-types.js';
-import Header from '../components/molecules/header.jsx';
-import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
-import MainWrapper from '../components/atoms/main-wrapper.jsx';
+import Member from '../components/molecules/member.jsx';
 import Query from '../types/proptypes.js';
-import Thumbnails from '../components/molecules/thumbnails.jsx';
 
 const {TAG: {name, path}} = AssetTypes;
 
 const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 	const {data: tagData} = prismicTags;
-	const {edges: pictureData} = allPrismicPicture;
-	return (
-		<>
-			<HelmetMetaTags title={tagData.title} path={path} uid={prismicTags.uid}/>
-			<Header/>
-			<MainWrapper>
-				<Thumbnails data={pictureData} title={tagData.title} type={name}/>
-			</MainWrapper>
-		</>
-	);
+	const {edges} = allPrismicPicture;
+	return <Member edges={edges} name={name} path={path} uid={prismicTags.uid} title={tagData.title}/>;
 };
 
 Tag.propTypes = {

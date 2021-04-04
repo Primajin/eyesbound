@@ -16,13 +16,13 @@ const thumbnailsWrapper = css`
 	};
 `;
 
-const Thumbnails = ({data, title, type}) => (
+const Thumbnails = ({edges, title, type}) => (
 	<>
 		<h1>
-			{type}: {title} ({data.length})
+			{type}: {title} ({edges.length})
 		</h1>
 		<ul css={thumbnailsWrapper}>
-			{data.map(({node: {data, id, uid}}) => (
+			{edges.map(({node: {data, id, uid}}) => (
 				<li key={id}>
 					<a href={`/picture/${uid}`} aria-label="link-to-picture">
 						<Picture data={data}/>
@@ -34,7 +34,7 @@ const Thumbnails = ({data, title, type}) => (
 );
 
 Thumbnails.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)),
+	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)),
 	title: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired
 };
