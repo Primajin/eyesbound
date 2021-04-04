@@ -36,3 +36,20 @@ This will update the `schema.graphql` file and offer better code completion when
 `gatsby-node.js` allows for generating routes / pages based on queries. Use the templates in `src/templates` for generation.
 
 Furthermore, reusable components are stored in `src/components` in an atomic design structure.
+
+## Structure
+```
+src
+├───components      All HTML components go here
+│   ├───atoms       All tiny / non dividable components
+│   │   └───icons   SVG icons that need to be rendered as <svg> (not as image)
+│   ├───molecules   All medium complex components
+│   └───organisms   All complex and high order components
+├───constants       Constants (You don't say!)
+├───pages           Single static pages
+├───schemas         GraphQL definitions and schemas
+├───styles          emotion CSS in JS files (normal .css files live in /static)
+├───templates       Top level templates that get rendered via Gatsby using GraphQL
+├───types           TS style proptypes
+└───utils           Often used helper functions
+```
