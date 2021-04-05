@@ -50,7 +50,7 @@ const Fullscreen = ({callback, selector}) => {
 		};
 	}, [callback]);
 
-	return <button type="button" css={button} className={classnames({fullScreen})} tabIndex="12" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
+	return <button aria-label="Toggle fullscreen" type="button" css={button} className={classnames({fullScreen})} tabIndex="12" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
 };
 
 Fullscreen.propTypes = {
