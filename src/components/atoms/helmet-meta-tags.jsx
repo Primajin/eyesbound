@@ -29,7 +29,7 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 			{hasDateTime && [
 				<meta key={8} name="date" content={dateTime}/>
 			]}
-			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 		</Helmet>
 	);
 };

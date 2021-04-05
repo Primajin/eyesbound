@@ -19,7 +19,7 @@ const ThemeSwitcher = () => {
 	};
 
 	return (
-		<button css={button} type="button" onClick={switchTheme}>
+		<button aria-label="Switch theme" css={button} type="button" onClick={switchTheme}>
 			{prefersDark && (
 				<>
 					<BulbOff/>
