@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Global, css} from '@emotion/react';
+import {Helmet} from 'react-helmet';
 
 import BulbOff from './icons/bulb-off.jsx';
 import BulbOn from './icons/bulb-on.jsx';
@@ -23,12 +24,14 @@ const ThemeSwitcher = () => {
 				<>
 					<BulbOff/>
 					<Global styles={css`:root { --background: #000; --foreground: #fff;}`}/>
+					<Helmet><meta name="theme-color" content="#000000"/></Helmet>
 				</>
 			)}
 			{!prefersDark && (
 				<>
 					<BulbOn/>
 					<Global styles={css`:root { --background: #fff; --foreground: #000;}`}/>
+					<Helmet><meta name="theme-color" content="#ffffff"/></Helmet>
 				</>
 			)}
 		</button>
