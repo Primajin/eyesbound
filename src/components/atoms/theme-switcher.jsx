@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';
 
-import BulbOff from './icons/bulb-off.jsx';
-import BulbOn from './icons/bulb-on.jsx';
 import button from '../../styles/button.js';
 import {fromLocalStorage} from '../../utils/local-storage.js';
 import {userPrefersDark} from '../../utils/theming.js';
+import BulbOn from './icons/bulb-on.jsx';
+import BulbOff from './icons/bulb-off.jsx';
 
 const ThemeSwitcher = () => {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));

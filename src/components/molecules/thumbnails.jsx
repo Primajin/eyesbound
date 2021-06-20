@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {css} from '@emotion/react';
 
-import Picture from './picture.jsx';
 import {ThumbnailDataNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
+import Picture from './picture.jsx';
 
 const thumbnailsWrapper = css`
 	display: grid;

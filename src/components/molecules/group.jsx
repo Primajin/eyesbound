@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Header from './header.jsx';
 import HelmetMetaTags from '../atoms/helmet-meta-tags.jsx';
-import List from './list.jsx';
 import MainWrapper from '../atoms/main-wrapper.jsx';
 import {ListDataNode} from '../../types/proptypes.js';
+import List from './list.jsx';
+import Header from './header.jsx';
 
 const Group = ({edges, path, plural}) => (
 	<>
