@@ -67,7 +67,7 @@ module.exports = {
 					"connect-src": "'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:*",
 					"font-src": "'self' fonts.gstatic.com",
 					"img-src": "'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io",
-					"prefetch-src": "fonts.googleapis.com fonts.gstatic.com",
+					"prefetch-src": "'self' fonts.googleapis.com fonts.gstatic.com",
 					"script-src": "'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com",
 					"style-src": "'self' 'unsafe-inline' fonts.googleapis.com"
 				}
