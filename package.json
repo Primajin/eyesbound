@@ -8,7 +8,7 @@
     "name": "Jannis Hell"
   },
   "engines": {
-    "node": "14"
+    "node": ">=16"
   },
   "scripts": {
     "prebuild": "xo",
@@ -22,37 +22,37 @@
     "xo": "xo --fix"
   },
   "dependencies": {
-    "@emotion/react": "^11.1.5",
-    "@emotion/styled": "^11.1.5",
-    "@react-google-maps/api": "^2.1.1",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@react-google-maps/api": "^2.2.0",
     "classnames": "^2.3.1",
-    "gatsby": "^3.2.1",
-    "gatsby-plugin-emotion": "^6.2.0",
-    "gatsby-plugin-gatsby-cloud": "^2.2.0",
-    "gatsby-plugin-manifest": "^3.2.0",
-    "gatsby-plugin-offline": "^4.2.0",
-    "gatsby-plugin-react-helmet": "^4.2.0",
-    "gatsby-plugin-sitemap": "^3.2.0",
-    "gatsby-source-prismic": "^3.3.4",
+    "gatsby": "^3.7.2",
+    "gatsby-plugin-emotion": "^6.7.1",
+    "gatsby-plugin-gatsby-cloud": "^2.7.1",
+    "gatsby-plugin-manifest": "^3.7.1",
+    "gatsby-plugin-offline": "^4.7.1",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-sitemap": "^4.3.1",
+    "gatsby-source-prismic": "^3.3.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-slideshow-image": "^3.4.5"
+    "react-slideshow-image": "^3.4.7"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "eslint": "^7.23.0",
-    "eslint-config-xo": "^0.35.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-xo": "^0.37.0",
     "eslint-config-xo-react": "^0.25.0",
     "eslint-plugin-ava": "^12.0.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^29.0.0",
-    "xo": "^0.38.2"
+    "eslint-plugin-unicorn": "^33.0.1",
+    "xo": "^0.40.2"
   },
   "repository": {
     "type": "git",
