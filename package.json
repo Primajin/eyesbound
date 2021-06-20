@@ -71,5 +71,6 @@
       "xo-react",
       "./node_modules/xo/config/plugins.js"
     ]
-  }
+  },
+  "eslintIgnore": ["gatsby-config.js", "gatsby-node.js"]
 }

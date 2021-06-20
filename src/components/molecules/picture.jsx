@@ -8,15 +8,20 @@ const Picture = ({data: {title, image}, size = {}}) => {
 	let src;
 	let srcSet;
 	let srcSetWebp;
-	const {height, width} = size;
+	let cmsHeight;
+	let cmsWidth;
+	const {height: propsHeight, width: propsWidth} = size;
 
 	if (Object.prototype.hasOwnProperty.call(image, 'thumbnails')) {
-		({thumbnails: {thumbnail: {fixed: {src, srcSet, srcSetWebp}}, alt}} = image);
+		({thumbnails: {thumbnail: {fixed: {height: cmsHeight, src, srcSet, srcSetWebp, width: cmsWidth}}, alt}} = image);
 	}
 
 	if (Object.prototype.hasOwnProperty.call(image, 'fixed')) {
-		({fixed: {src, srcSet, srcSetWebp}, alt} = image);
+		({fixed: {height: cmsHeight, src, srcSet, srcSetWebp, width: cmsWidth}, alt} = image);
 	}
+
+	const height = cmsHeight ?? propsHeight;
+	const width = cmsWidth ?? propsWidth;
 
 	return (
 		<picture>

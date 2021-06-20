@@ -1,5 +1,7 @@
 import {array, arrayOf, bool, exact, node, number, object, oneOfType, string} from 'prop-types';
 
+/* eslint-disable camelcase,capitalized-comments */
+
 const genericResponse = {
 	edges: arrayOf(object),
 	field: string,
@@ -48,9 +50,11 @@ const Image = {
 		height: number
 	}),
 	fixed: exact({
+		height: number,
 		src: string,
 		srcSet: string,
-		srcSetWebp: string
+		srcSetWebp: string,
+		width: number
 	}),
 	fluid: object,
 	localFile: object,
@@ -100,7 +104,7 @@ export const ThumbnailDataNode = {
 export const Size = {
 	height: number,
 	width: number
-}
+};
 
 const allDirectory = {...genericResponse};
 const allFile = {...genericResponse};
@@ -193,6 +197,7 @@ const Query = {
 	// sitePage,
 	// sitePlugin
 };
+/* eslint-enable */
 
 export default Query;
 

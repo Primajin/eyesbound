@@ -112,9 +112,11 @@ export const pageQuery = graphql`
 				image {
 					alt
 					fixed(width: 1072, imgixParams: {q: 100}) {
+						height
 						src
 						srcSet
 						srcSetWebp
+						width
 					}
 				}
 				series {

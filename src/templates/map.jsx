@@ -39,9 +39,11 @@ export const pageQuery = graphql`
 							thumbnails {
 								thumbnail {
 									fixed(width: 164) {
+										height
 										src
 										srcSet
 										srcSetWebp
+										width
 									}
 								}
 							}
