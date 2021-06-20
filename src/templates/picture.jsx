@@ -69,7 +69,7 @@ const Picture = ({data: {prismicPicture}}) => {
 					{Boolean(categoryTitle) && <h3>Category: <a href={`/${categoryPath}/${categoryUID}`}>{categoryTitle}</a></h3>}
 					{Boolean(seriesTitle) && <h3>Series: <a href={`/${seriesPath}/${seriesUID}`}>{seriesTitle}</a></h3>}
 					<figure>
-						<PictureComponent data={data}/>
+						<PictureComponent data={data} size={{height: 715, width: 1072}}/>
 					</figure>
 					<div css={details}>
 						{hasTags && <div>Tags: <TagLinks tags={tags}/></div>}
@@ -111,10 +111,12 @@ export const pageQuery = graphql`
 				datetime
 				image {
 					alt
-					fixed(width: 1150, imgixParams: {q: 100}) {
+					fixed(width: 1072, imgixParams: {q: 100}) {
+						height
 						src
 						srcSet
 						srcSetWebp
+						width
 					}
 				}
 				series {

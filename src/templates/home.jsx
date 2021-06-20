@@ -18,18 +18,20 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 		setFullScreen(isFullscreen);
 	};
 
+	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+
 	return (
 		<>
 			<Helmet>
-				<title>EYESBOUND</title>,
-				<meta name="title" content="EYESBOUND"/>,
-				<link rel="canonical" href="https://eyesbound.com"/>,
-				<meta property="og:image" content={EyesboundAward}/>,
-				<meta property="og:title" content="EYESBOUND"/>,
-				<meta property="og:url" content="https://eyesbound.com"/>,
-				<meta property="twitter:image" content={EyesboundAward}/>
-				<meta property="twitter:title" content="EYESBOUND"/>
-				<meta property="twitter:url" content="https://eyesbound.com"/>
+				<title>{SITE_NAME}</title>,
+				<meta name="title" content={SITE_NAME}/>,
+				<link rel="canonical" href={SERVER_URL}/>,
+				<meta property="og:image" content={`${SERVER_URL}${EyesboundAward}`}/>,
+				<meta property="og:title" content={SITE_NAME}/>,
+				<meta property="og:url" content={SERVER_URL}/>,
+				<meta property="twitter:image" content={`${SERVER_URL}${EyesboundAward}`}/>,
+				<meta property="twitter:title" content={SITE_NAME}/>
+				<meta property="twitter:url" content={SERVER_URL}/>
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 			</Helmet>
 			<Global styles={css` body { overflow: hidden; } `}/>
@@ -58,8 +60,10 @@ export const pageQuery = graphql`
 						title
 						image {
 							alt
-							fixed(width: 1150, imgixParams: {q: 100}) {
+							fixed(width: 1280, imgixParams: {q: 100}) {
+								height
 								src
+								width
 							}
 						}
 					}

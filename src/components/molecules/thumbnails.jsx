@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {css} from '@emotion/react';
 
-import Picture from './picture.jsx';
 import {ThumbnailDataNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
+import Picture from './picture.jsx';
 
 const thumbnailsWrapper = css`
 	display: grid;
@@ -29,7 +29,7 @@ const Thumbnails = ({edges, title, type}) => (
 			{edges.map(({node: {data, id, uid}}) => (
 				<li key={id}>
 					<a href={`/picture/${uid}`} aria-label="link-to-picture">
-						<Picture data={data}/>
+						<Picture data={data} size={{height: 174, width: 261}}/>
 					</a>
 				</li>
 			))}

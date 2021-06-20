@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import AssetTypes from '../../constants/asset-types.js';
-import Header from './header.jsx';
 import HelmetMetaTags from '../atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../atoms/main-wrapper.jsx';
-import Thumbnails from './thumbnails.jsx';
 import {ThumbnailDataNode} from '../../types/proptypes.js';
+import Thumbnails from './thumbnails.jsx';
+import Header from './header.jsx';
 
 const {PICTURE: {plural}} = AssetTypes;
 

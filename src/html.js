@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+
 /* eslint-disable react/no-danger */
 const HTML = props => {
 	return (
 		<html lang="en" dir="ltr" {...props.htmlAttributes}>
 			<head>
-				<title>EYESBOUND</title>
+				<title>{SITE_NAME}</title>
 				<meta charSet="utf-8"/>
 				<meta httpEquiv="x-ua-compatible" content="ie=edge"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -31,10 +33,10 @@ const HTML = props => {
 				{/* Android */}
 				<link rel="icon" sizes="192x192" href="/android.png"/>
 				{/* Windows Tile */}
-				<meta name="application-name" content="EYESBOUND"/>
+				<meta name="application-name" content={SITE_NAME}/>
 				<meta name="msapplication-TileColor" content="#000000"/>
 				<meta name="msapplication-TileImage" content="/metro-tile.png"/>
-				<meta name="msapplication-starturl" content="https://eyesbound.com"/>
+				<meta name="msapplication-starturl" content={SERVER_URL}/>
 				<meta name="msapplication-square70x70logo" content="/tiny_70x70.png"/>
 				<meta name="msapplication-square150x150logo" content="/square_150x150.png"/>
 				<meta name="msapplication-wide310x150logo" content="/wide_310x150.png"/>

@@ -8,19 +8,20 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 	const hasImageSource = Boolean(imageSource);
 	const hasPath = Boolean(path);
 	const hasTitle = Boolean(title);
+	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
 
 	return (
 		<Helmet>
 			{hasTitle && [
-				<title key={1}>{title} | EYESBOUND</title>,
-				<meta key={2} name="title" content={`${title} | EYESBOUND`}/>
+				<title key={1}>{title} | {SITE_NAME}</title>,
+				<meta key={2} name="title" content={`${title} | ${SITE_NAME}`}/>
 			]}
 			{hasImageSource && [
 				<meta key={3} property="og:image" content={imageSource}/>
 			]}
 			{hasPath && [
-				<link key={4} rel="canonical" href={`https://eyesbound.com/${path}/${uid}`}/>,
-				<meta key={5} property="og:url" content={`https://eyesbound.com/${path}/${uid}`}/>
+				<link key={4} rel="canonical" href={`${SERVER_URL}/${path}/${uid}`}/>,
+				<meta key={5} property="og:url" content={`${SERVER_URL}/${path}/${uid}`}/>
 			]}
 			{hasCoords && [
 				<meta key={6} name="geo.position" content={coordinates.join(';')}/>,

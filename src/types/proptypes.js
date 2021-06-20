@@ -50,9 +50,11 @@ const Image = {
 		height: number
 	}),
 	fixed: exact({
+		height: number,
 		src: string,
 		srcSet: string,
-		srcSetWebp: string
+		srcSetWebp: string,
+		width: number
 	}),
 	fluid: object,
 	localFile: object,
@@ -97,6 +99,11 @@ const ThumbnailData = {
 
 export const ThumbnailDataNode = {
 	node: exact(ThumbnailData)
+};
+
+export const Size = {
+	height: number,
+	width: number
 };
 
 const allDirectory = {...genericResponse};
