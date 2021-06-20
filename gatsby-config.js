@@ -55,6 +55,22 @@ module.exports = {
 					globPatterns: ['**/static*']
 				}
 			}
+		},
+		{
+			resolve: `gatsby-plugin-csp`,
+			options: {
+				disableOnDev: false,
+				mergeScriptHashes: true,
+				mergeStyleHashes: true,
+				mergeDefaultDirectives: true,
+				directives: {
+					"connect-src": "'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:*",
+					"font-src": "'self' fonts.gstatic.com",
+					"img-src": "'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io",
+					"script-src": "'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com",
+					"style-src": "'self' 'unsafe-inline' fonts.googleapis.com"
+				}
+			}
 		}
 	]
 };
