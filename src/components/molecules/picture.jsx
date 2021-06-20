@@ -21,7 +21,7 @@ const Picture = ({data: {title, image}}) => {
 		<picture>
 			{srcSetWebp && <source srcSet={srcSetWebp} type="image/webp"/>}
 			{srcSet && <source srcSet={srcSet} type="image/jpeg"/>}
-			<img src={src} alt={alt || title}/>
+			<img alt={alt || title} src={src}/>
 		</picture>
 	);
 };

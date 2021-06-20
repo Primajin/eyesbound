@@ -108,7 +108,7 @@ const Slideshow = ({images, isFullscreen}) => {
 			return (
 				<li className="indicator" css={indicator} title={title}>
 					<figure>
-						<img alt={alt || title} css={image} src={src}/>
+						<img alt={alt || title} css={image} height={31} src={src} width={46}/>
 						<figcaption css={indicatorFigCaption}>{title}</figcaption>
 					</figure>
 				</li>
