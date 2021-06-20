@@ -1,5 +1,10 @@
 # Eyesbound
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
+[![Lighthouse Performance 73%](docs/lighthouse/lighthouse_performance.svg)](https://web.dev/performance-scoring/)
+[![Lighthouse Accessibility 94%](docs/lighthouse/lighthouse_accessibility.svg)](https://developers.google.com/web/fundamentals/accessibility)
+![Lighthouse Best Practices 100%](docs/lighthouse/lighthouse_best-practices.svg)
+[![Lighthouse SEO 100%](docs/lighthouse/lighthouse_seo.svg)](https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelines)
+[![Lighthouse Progressive Web App 100%](docs/lighthouse/lighthouse_pwa.svg)](https://web.dev/pwa-checklist/)
 
 ![Image of Eyesbound Website with A Design Award](docs/Eyesbound_Award.jpg)
 ## Development
@@ -53,3 +58,5 @@ src
 ├───types           TS style proptypes
 └───utils           Often used helper functions
 ```
+
+[]: https://web.dev/performance-scoring/
