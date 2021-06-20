@@ -126,7 +126,7 @@ const Slideshow = ({images, isFullscreen}) => {
 				{images.map(({node: {data: {title, image}, id, uid}}) => (
 					<a key={id} title={title} css={wrapper} href={`/${path}/${uid}`}>
 						<figure css={figure} style={{backgroundImage: `url(${image.fixed.src})`}}>
-							<Picture data={{title, image}}/>
+							<Picture data={{title, image}} size={{height: 854, width: 1280}}/>
 							<figcaption>{title}</figcaption>
 						</figure>
 					</a>

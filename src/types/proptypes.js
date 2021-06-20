@@ -97,6 +97,11 @@ export const ThumbnailDataNode = {
 	node: exact(ThumbnailData)
 };
 
+export const Size = {
+	height: number,
+	width: number
+}
+
 const allDirectory = {...genericResponse};
 const allFile = {...genericResponse};
 const allPrismicCategory = {...genericResponse};
