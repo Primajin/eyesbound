@@ -3,14 +3,14 @@ import React, {memo, useState} from 'react';
 import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
 
 import AssetTypes from '../../constants/asset-types.js';
-import Picture from './picture.jsx';
 import {fromLocalStorage} from '../../utils/local-storage.js';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {userPrefersDark} from '../../utils/theming.js';
+import Picture from './picture.jsx';
 
 const centerOfGermany = {
-	lat: 51.1642292,
-	lng: 10.4541194
+	lat: 51.164_229_2,
+	lng: 10.454_119_4
 };
 
 const Map = ({center, data, height = '100vh', zoom = 5}) => {
@@ -44,7 +44,7 @@ const Map = ({center, data, height = '100vh', zoom = 5}) => {
 						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
 							<a href={`/${path}/${uid}`}>
 								<h1>{title}</h1>
-								<Picture data={{title, image}}/>
+								<Picture data={{title, image}} size={{height: 110, width: 164}}/>
 							</a>
 						</InfoWindow>
 					)}

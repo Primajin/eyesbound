@@ -5,10 +5,10 @@ import React, {useEffect, useState} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
 
-import IconFullscreen from './icons/fullscreen.jsx';
-import IconFullscreenExit from './icons/fullscreen-exit.jsx';
 import buttonCSS from '../../styles/button.js';
 import {fullscreenElement, toggleFullscreen} from '../../utils/fullscreen.js';
+import IconFullscreen from './icons/fullscreen.jsx';
+import IconFullscreenExit from './icons/fullscreen-exit.jsx';
 
 const button = css`
 	${buttonCSS};
