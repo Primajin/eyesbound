@@ -58,5 +58,3 @@ src
 ├───types           TS style proptypes
 └───utils           Often used helper functions
 ```
-
-[]: https://web.dev/performance-scoring/
