@@ -60,7 +60,7 @@ export const pageQuery = graphql`
 						title
 						image {
 							alt
-							fixed(width: 1280, imgixParams: {q: 100}) {
+							fixed(width: 1280, imgixParams: {q: 100, fm: "pjpg"}) {
 								height
 								src
 								width
