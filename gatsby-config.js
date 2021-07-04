@@ -64,7 +64,7 @@ module.exports = {
 				mergeStyleHashes: false,
 				mergeDefaultDirectives: true,
 				directives: {
-					"connect-src": "'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:*",
+					"connect-src": "'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:*",
 					"font-src": "'self' fonts.gstatic.com",
 					"img-src": "'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io",
 					"prefetch-src": "'self' fonts.googleapis.com fonts.gstatic.com",
