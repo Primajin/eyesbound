@@ -32,7 +32,7 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 			]}
 			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 			<link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
-			GATSBY_IS_PREVIEW && <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=eyesbound"/>
+			{GATSBY_IS_PREVIEW && <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=eyesbound"/>}
 		</Helmet>
 	);
 };
