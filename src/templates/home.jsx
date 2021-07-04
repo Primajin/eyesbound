@@ -20,6 +20,12 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 
 	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
 
+	if (GATSBY_IS_PREVIEW) {
+		console.info('PREVIEW MODE');
+		console.log(process.env)
+	}
+	console.log(process.env)
+
 	return (
 		<>
 			<Helmet>

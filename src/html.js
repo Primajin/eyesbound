@@ -3,11 +3,6 @@ import React from 'react';
 
 const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND', GATSBY_IS_PREVIEW = false} = process.env;
 
-if (GATSBY_IS_PREVIEW) {
-	console.info('PREVIEW MODE');
-	console.log(process.env)
-}
-
 /* eslint-disable react/no-danger */
 const HTML = props => {
 	return (
