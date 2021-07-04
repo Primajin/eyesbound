@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND', GATSBY_IS_PREVIEW = false} = process.env;
 
 /* eslint-disable react/no-danger */
 const HTML = props => {
@@ -51,6 +51,7 @@ const HTML = props => {
 				{props.preBodyComponents}
 				<div key="body" dangerouslySetInnerHTML={{__html: props.body}} id="___gatsby"/>
 				{props.postBodyComponents}
+				{GATSBY_IS_PREVIEW && <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=eyesbound"/>}
 			</body>
 		</html>
 	);
