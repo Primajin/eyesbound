@@ -8,7 +8,7 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 	const hasImageSource = Boolean(imageSource);
 	const hasPath = Boolean(path);
 	const hasTitle = Boolean(title);
-	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND', GATSBY_IS_PREVIEW = false} = process.env;
 
 	return (
 		<Helmet>
@@ -31,6 +31,8 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 				<meta key={8} name="date" content={dateTime}/>
 			]}
 			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
+			<link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
+			GATSBY_IS_PREVIEW && <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=eyesbound"/>
 		</Helmet>
 	);
 };
