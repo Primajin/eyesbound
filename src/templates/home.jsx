@@ -18,13 +18,13 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 		setFullScreen(isFullscreen);
 	};
 
-	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND', GATSBY_IS_PREVIEW = false} = process.env;
 
 	if (GATSBY_IS_PREVIEW) {
 		typeof window !== 'undefined' && window && window.console.info('PREVIEW MODE');
-		typeof window !== 'undefined' && window && window.console.log(process.env)
+		typeof window !== 'undefined' && window && window.console.log(process.env);
 	}
-	typeof window !== 'undefined' && window && window.console.log(process.env)
+	typeof window !== 'undefined' && window && window.console.log(process.env);
 
 	return (
 		<>
