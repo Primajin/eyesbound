@@ -43,7 +43,6 @@ const HTML = props => {
 				<meta name="msapplication-square310x310logo" content="/large_310x310.png"/>
 				<link rel="preconnect" href="https://fonts.gstatic.com"/>
 				<link href="/reset.css" rel="stylesheet"/>
-				{/* <link href="/global.css" rel="stylesheet"/> */}
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
