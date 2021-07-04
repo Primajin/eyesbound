@@ -18,7 +18,8 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 		setFullScreen(isFullscreen);
 	};
 
-	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND', GATSBY_IS_PREVIEW = false} = process.env;
+	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+	const GATSBY_IS_PREVIEW = process.env.GATSBY_IS_PREVIEW ?? window?.location?.hostname?.includes('preview') ?? false;
 
 	return (
 		<>
