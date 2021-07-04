@@ -68,7 +68,6 @@ module.exports = {
 				directives: {
 					"connect-src": "'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:*",
 					"font-src": "'self' fonts.gstatic.com",
-					"frame-src": "eyesbound.prismic.io",
 					"img-src": "'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io",
 					"prefetch-src": "'self' fonts.googleapis.com fonts.gstatic.com",
 					"script-src": "'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com static.cdn.prismic.io",
