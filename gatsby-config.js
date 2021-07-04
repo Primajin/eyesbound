@@ -2,9 +2,11 @@ require('dotenv').config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
+const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+
 module.exports = {
 	siteMetadata: {
-		siteUrl: `https://eyesbound.com`
+		siteUrl: SERVER_URL
 	},
 	plugins: [
 		{
@@ -35,8 +37,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `Eyesbound`,
-				short_name: `Eyesbound`,
+				name: SITE_NAME,
+				short_name: SITE_NAME,
 				description: `Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.`,
 				start_url: `/`,
 				background_color: `#fff`,

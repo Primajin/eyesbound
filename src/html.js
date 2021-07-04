@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND', GATSBY_IS_PREVIEW = false} = process.env;
+const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
 
 /* eslint-disable react/no-danger */
 const HTML = props => {
@@ -43,15 +43,13 @@ const HTML = props => {
 				<meta name="msapplication-square310x310logo" content="/large_310x310.png"/>
 				<link rel="preconnect" href="https://fonts.gstatic.com"/>
 				<link href="/reset.css" rel="stylesheet"/>
-				<link href="/global.css" rel="stylesheet"/>
-				{/* <link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/> */}
+				{/* <link href="/global.css" rel="stylesheet"/> */}
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
 				{props.preBodyComponents}
 				<div key="body" dangerouslySetInnerHTML={{__html: props.body}} id="___gatsby"/>
 				{props.postBodyComponents}
-				{GATSBY_IS_PREVIEW && <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=eyesbound"/>}
 			</body>
 		</html>
 	);
