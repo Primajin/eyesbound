@@ -1,2 +1,3 @@
 name: Update dependencies
+on: workflow_dispatch
 uses: tjololo/npm-package-update-sync@v1.0.2
