@@ -1,0 +1,24 @@
+name: "Update dependencies"
+on: workflow_dispatch
+jobs:
+  npm_update_sync:
+    runs-on: ubuntu-latest
+    name: Update npm packages and sync package.json
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: Update package.json
+        id: update
+        uses: tjololo/npm-package-update-sync@v1.0.3
+        with:
+          comment-updated: true
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Updated npm dependencies"
+          body: ${{ steps.update.outputs.body }}
+          labels: dependencies
+          delete-branch: true
+          branch: updates/bump-versions
