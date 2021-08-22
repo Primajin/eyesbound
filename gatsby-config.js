@@ -24,8 +24,7 @@ module.exports = {
 			options: {
 				repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
 				accessToken: process.env.GATSBY_API_KEY,
-				// linkResolver: doc => `/${doc.id}`,
-				linkResolver: require('./link-resolver.js').linkResolver,
+				linkResolver: doc => `/${doc.id}`,
 				schemas: {
 					category: require('./src/schemas/category.json'),
 					picture: require('./src/schemas/picture.json'),
@@ -33,12 +32,6 @@ module.exports = {
 					tags: require('./src/schemas/tags.json')
 				}
 			}
-		},
-		{
-			resolve: 'gatsby-plugin-prismic-previews',
-			options: {
-				repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-			},
 		},
 		{resolve: 'gatsby-plugin-sitemap'},
 		{resolve: 'gatsby-plugin-image'},
