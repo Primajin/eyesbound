@@ -15,7 +15,7 @@ const Category = ({data: {prismicCategory, allPrismicPicture}}) => {
 };
 
 Category.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Category;

@@ -15,7 +15,7 @@ const Series = ({data: {prismicSeries, allPrismicPicture}}) => {
 };
 
 Series.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Series;

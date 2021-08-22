@@ -2,11 +2,11 @@ require('dotenv').config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
-const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 module.exports = {
 	siteMetadata: {
-		siteUrl: SERVER_URL
+		siteUrl: GATSBY_SERVER_URL
 	},
 	plugins: [
 		{
@@ -22,9 +22,10 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-prismic',
 			options: {
-				repositoryName: 'eyesbound',
-				accessToken: `${process.env.API_KEY}`,
-				linkResolver: ({node, key, value}) => post => `/${post.uid}`,
+				repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+				accessToken: process.env.GATSBY_API_KEY,
+				// linkResolver: doc => `/${doc.id}`,
+				linkResolver: require('./link-resolver.js').linkResolver,
 				schemas: {
 					category: require('./src/schemas/category.json'),
 					picture: require('./src/schemas/picture.json'),
@@ -33,12 +34,19 @@ module.exports = {
 				}
 			}
 		},
+		{
+			resolve: 'gatsby-plugin-prismic-previews',
+			options: {
+				repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+			},
+		},
 		{resolve: 'gatsby-plugin-sitemap'},
+		{resolve: 'gatsby-plugin-image'},
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: SITE_NAME,
-				short_name: SITE_NAME,
+				name: GATSBY_SITE_NAME,
+				short_name: GATSBY_SITE_NAME,
 				description: `Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.`,
 				start_url: `/`,
 				background_color: `#fff`,
@@ -68,6 +76,7 @@ module.exports = {
 				directives: {
 					"connect-src": "'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:*",
 					"font-src": "'self' fonts.gstatic.com",
+					"frame-src": "'self' eyesbound.prismic.io",
 					"img-src": "'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io",
 					"prefetch-src": "'self' fonts.googleapis.com fonts.gstatic.com",
 					"script-src": "'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com static.cdn.prismic.io",

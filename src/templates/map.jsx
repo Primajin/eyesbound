@@ -18,7 +18,7 @@ const Worldmap = ({data: {allPrismicPicture: {edges}}}) => (
 );
 
 Worldmap.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Worldmap;

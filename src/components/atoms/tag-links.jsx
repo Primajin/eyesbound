@@ -16,7 +16,7 @@ const TagLinks = ({tags}) => tags.map((tag, index) => {
 });
 
 TagLinks.propTypes = {
-	tags: PropTypes.array.isRequired
+	tags: PropTypes.array.isRequired,
 };
 
 export default TagLinks;

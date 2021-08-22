@@ -11,7 +11,7 @@ const {CATEGORY: {path, plural}} = AssetTypes;
 const Category = ({data: {allPrismicCategory: {edges}}}) => <Group edges={edges} path={path} plural={plural}/>;
 
 Category.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Category;

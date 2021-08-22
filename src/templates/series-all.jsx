@@ -11,7 +11,7 @@ const {SERIES: {path, plural}} = AssetTypes;
 const Series = ({data: {allPrismicSeries: {edges}}}) => <Group edges={edges} path={path} plural={plural}/>;
 
 Series.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Series;

@@ -98,7 +98,7 @@ const Navigation = ({isFullscreen}) => {
 				linkFloral.current,
 				linkLight.current,
 				linkWorldmap.current,
-				linkContact.current
+				linkContact.current,
 			];
 
 			if (links.includes(document.activeElement)) {
@@ -141,7 +141,7 @@ const Navigation = ({isFullscreen}) => {
 };
 
 Navigation.propTypes = {
-	isFullscreen: PropTypes.bool
+	isFullscreen: PropTypes.bool,
 };
 
 export default Navigation;

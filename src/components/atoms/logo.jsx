@@ -31,12 +31,12 @@ const logo = css`
 	};
 `;
 
-const {SITE_NAME = 'EYESBOUND'} = process.env;
+const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
-const Logo = ({isFullscreen}) => <h1 css={logo} className={classnames({isFullscreen})}><a href="/" rel="home" tabIndex="1">{SITE_NAME}</a></h1>;
+const Logo = ({isFullscreen}) => <h1 css={logo} className={classnames({isFullscreen})}><a href="/" rel="home" tabIndex="1">{GATSBY_SITE_NAME}</a></h1>;
 
 Logo.propTypes = {
-	isFullscreen: PropTypes.bool
+	isFullscreen: PropTypes.bool,
 };
 
 export default Logo;

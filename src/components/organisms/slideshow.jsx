@@ -101,9 +101,9 @@ const Slideshow = ({images, isFullscreen}) => {
 				node: {
 					data: {
 						title,
-						image: {alt, fixed: {src}}
-					}
-				}
+						image: {alt, fixed: {src}},
+					},
+				},
 			} = images[i];
 			return (
 				<li className="indicator" css={indicator} title={title}>
@@ -116,7 +116,7 @@ const Slideshow = ({images, isFullscreen}) => {
 		},
 		nextArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="11" type="button">»</button>,
 		pauseOnHover: false,
-		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="10" type="button">«</button>
+		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="10" type="button">«</button>,
 	};
 	const {PICTURE: {path}} = AssetTypes;
 
@@ -138,7 +138,7 @@ const Slideshow = ({images, isFullscreen}) => {
 
 Slideshow.propTypes = {
 	images: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,
-	isFullscreen: PropTypes.bool
+	isFullscreen: PropTypes.bool,
 };
 
 export default Slideshow;

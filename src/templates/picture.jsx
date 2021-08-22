@@ -84,7 +84,7 @@ const Picture = ({data: {prismicPicture}}) => {
 };
 
 Picture.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Picture;

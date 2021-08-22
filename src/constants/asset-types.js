@@ -2,23 +2,23 @@ const AssetTypes = {
 	CATEGORY: {
 		name: 'Category',
 		path: 'category',
-		plural: 'Categories'
+		plural: 'Categories',
 	},
 	PICTURE: {
 		name: 'Picture',
 		path: 'picture',
-		plural: 'Pictures'
+		plural: 'Pictures',
 	},
 	SERIES: {
 		name: 'Series',
 		path: 'series',
-		plural: 'Series'
+		plural: 'Series',
 	},
 	TAG: {
 		name: 'Tag',
 		path: 'tag',
-		plural: 'Tags'
-	}
+		plural: 'Tags',
+	},
 };
 
 export default AssetTypes;

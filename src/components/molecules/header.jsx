@@ -14,7 +14,7 @@ const Header = ({isFullscreen}) => (
 );
 
 Header.propTypes = {
-	isFullscreen: PropTypes.bool
+	isFullscreen: PropTypes.bool,
 };
 
 export default Header;

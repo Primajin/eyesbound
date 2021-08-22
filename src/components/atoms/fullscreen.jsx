@@ -55,7 +55,7 @@ const Fullscreen = ({callback, selector}) => {
 
 Fullscreen.propTypes = {
 	callback: PropTypes.func,
-	selector: PropTypes.string
+	selector: PropTypes.string,
 };
 
 export default Fullscreen;
