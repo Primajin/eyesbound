@@ -40,7 +40,7 @@ const Thumbnails = ({edges, title, type}) => (
 Thumbnails.propTypes = {
 	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)),
 	title: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired
+	type: PropTypes.string.isRequired,
 };
 
 export default Thumbnails;

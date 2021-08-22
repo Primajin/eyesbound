@@ -25,7 +25,7 @@ Member.propTypes = {
 	name: PropTypes.string.isRequired,
 	path: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
-	uid: PropTypes.string
+	uid: PropTypes.string,
 };
 
 export default Member;

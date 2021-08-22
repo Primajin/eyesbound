@@ -5,10 +5,9 @@ import React from 'react';
 // Static picture should work better than dynamic queries for HELM etc.
 // but for now the dynamic seems to work good enough... ¯\_(ツ)_/¯
 
-const StaticPicture = ({imgUID}) => {
-	return (
-		<StaticQuery
-			query={graphql`
+const StaticPicture = ({imgUID}) => (
+	<StaticQuery
+		query={graphql`
 				query {
 					allPrismicPicture {
 						nodes {
@@ -66,17 +65,16 @@ const StaticPicture = ({imgUID}) => {
 					}
 				}
 			`}
-			render={data => {
-				const image = data?.allPrismicPicture?.nodes?.find(edge => edge.uid === imgUID);
-				console.log('image', image);
-				return image ? <img src={image} alt=""/> : null;
-			}}
-		/>
-	);
-};
+		render={data => {
+			const image = data?.allPrismicPicture?.nodes?.find(edge => edge.uid === imgUID);
+			console.log('image', image);
+			return image ? <img src={image} alt=""/> : null;
+		}}
+	/>
+);
 
 StaticPicture.propTypes = {
-	imgUID: PropTypes.string.isRequired
+	imgUID: PropTypes.string.isRequired,
 };
 
 export default StaticPicture;

@@ -17,7 +17,7 @@ const mainWrapper = css`
 const MainWrapper = ({children}) => <main css={mainWrapper}>{children}</main>;
 
 MainWrapper.propTypes = {
-	children
+	children,
 };
 
 export default MainWrapper;

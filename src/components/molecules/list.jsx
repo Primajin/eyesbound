@@ -23,7 +23,7 @@ const List = ({data, path, title}) => (
 List.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.exact(ListDataNode)),
 	path: PropTypes.string,
-	title: PropTypes.string
+	title: PropTypes.string,
 };
 
 export default List;

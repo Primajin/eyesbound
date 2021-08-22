@@ -18,20 +18,20 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 		setFullScreen(isFullscreen);
 	};
 
-	const {SERVER_URL = 'https://eyesbound.com', SITE_NAME = 'EYESBOUND'} = process.env;
+	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 	return (
 		<>
 			<Helmet>
-				<title>{SITE_NAME}</title>,
-				<meta name="title" content={SITE_NAME}/>,
-				<link rel="canonical" href={SERVER_URL}/>,
-				<meta property="og:image" content={`${SERVER_URL}${EyesboundAward}`}/>,
-				<meta property="og:title" content={SITE_NAME}/>,
-				<meta property="og:url" content={SERVER_URL}/>,
-				<meta property="twitter:image" content={`${SERVER_URL}${EyesboundAward}`}/>,
-				<meta property="twitter:title" content={SITE_NAME}/>
-				<meta property="twitter:url" content={SERVER_URL}/>
+				<title>{GATSBY_SITE_NAME}</title>,
+				<meta name="title" content={GATSBY_SITE_NAME}/>,
+				<link rel="canonical" href={GATSBY_SERVER_URL}/>,
+				<meta property="og:image" content={`${GATSBY_SERVER_URL}${EyesboundAward}`}/>,
+				<meta property="og:title" content={GATSBY_SITE_NAME}/>,
+				<meta property="og:url" content={GATSBY_SERVER_URL}/>,
+				<meta property="twitter:image" content={`${GATSBY_SERVER_URL}${EyesboundAward}`}/>,
+				<meta property="twitter:title" content={GATSBY_SITE_NAME}/>
+				<meta property="twitter:url" content={GATSBY_SERVER_URL}/>
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 				<link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 			</Helmet>
@@ -45,7 +45,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 };
 
 Home.propTypes = {
-	data: PropTypes.shape(Query)
+	data: PropTypes.shape(Query),
 };
 
 export default Home;

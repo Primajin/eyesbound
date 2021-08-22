@@ -34,7 +34,7 @@ const Picture = ({data: {title, image}, size = {}}) => {
 
 Picture.propTypes = {
 	data: PropTypes.shape(PictureType).isRequired,
-	size: PropTypes.shape(SizeType)
+	size: PropTypes.shape(SizeType),
 };
 
 export default Picture;

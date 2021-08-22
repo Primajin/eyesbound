@@ -10,7 +10,7 @@ import Picture from './picture.jsx';
 
 const centerOfGermany = {
 	lat: 51.164_229_2,
-	lng: 10.454_119_4
+	lng: 10.454_119_4,
 };
 
 const Map = ({center, data, height = '100vh', zoom = 5}) => {
@@ -58,7 +58,7 @@ Map.propTypes = {
 	center: PropTypes.exact({latitude: PropTypes.number, longitude: PropTypes.number}),
 	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,
 	height: PropTypes.string,
-	zoom: PropTypes.number
+	zoom: PropTypes.number,
 };
 
 export default memo(Map);

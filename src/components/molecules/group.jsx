@@ -20,7 +20,7 @@ const Group = ({edges, path, plural}) => (
 Group.propTypes = {
 	edges: PropTypes.arrayOf(PropTypes.exact(ListDataNode)).isRequired,
 	path: PropTypes.string.isRequired,
-	plural: PropTypes.string.isRequired
+	plural: PropTypes.string.isRequired,
 };
 
 export default Group;

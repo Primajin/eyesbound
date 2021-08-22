@@ -8,7 +8,7 @@ const genericResponse = {
 	fieldValue: string,
 	nodes: arrayOf(object),
 	pageInfo: object,
-	totalCount: number
+	totalCount: number,
 };
 
 const customResponse = {
@@ -22,7 +22,7 @@ const customResponse = {
 		difference: string,
 		formatString: string,
 		fromNow: bool,
-		locale: string
+		locale: string,
 	}),
 	href: string,
 	id: string,
@@ -32,14 +32,14 @@ const customResponse = {
 		difference: string,
 		formatString: string,
 		fromNow: bool,
-		locale: string
+		locale: string,
 	}),
 	parent: object,
 	prismicId: string,
 	tags: arrayOf(string),
 	type: string,
 	uid: string,
-	url: string
+	url: string,
 };
 
 const Image = {
@@ -47,63 +47,63 @@ const Image = {
 	copyright: string,
 	dimensions: exact({
 		width: number,
-		height: number
+		height: number,
 	}),
 	fixed: exact({
 		height: number,
 		src: string,
 		srcSet: string,
 		srcSetWebp: string,
-		width: number
+		width: number,
 	}),
 	fluid: object,
 	localFile: object,
-	url: string
+	url: string,
 };
 
 export const Picture = {
 	category: object,
 	coordinates: exact({
 		latitude: number,
-		longitude: number
+		longitude: number,
 	}),
 	datetime: string,
 	homepage: bool,
 	image: exact({
 		...Image,
 		thumbnails: exact({
-			thumbnail: exact(Image)
-		})
+			thumbnail: exact(Image),
+		}),
 	}),
 	series: object,
 	tags: arrayOf(object),
-	title: string
+	title: string,
 };
 
 // Category / Tag / Series
 const ListData = {
 	data: exact({title: string}),
-	uid: string
+	uid: string,
 };
 
 export const ListDataNode = {
-	node: exact(ListData)
+	node: exact(ListData),
 };
 
 // Pictures
 const ThumbnailData = {
 	data: exact(Picture),
 	id: string,
-	uid: string
+	uid: string,
 };
 
 export const ThumbnailDataNode = {
-	node: exact(ThumbnailData)
+	node: exact(ThumbnailData),
 };
 
 export const Size = {
 	height: number,
-	width: number
+	width: number,
 };
 
 const allDirectory = {...genericResponse};
@@ -191,7 +191,7 @@ const Query = {
 	prismicCategory: exact(prismicCategory),
 	prismicPicture: exact(prismicPicture),
 	prismicSeries: exact(prismicSeries),
-	prismicTags: exact(prismicTags)
+	prismicTags: exact(prismicTags),
 	// site,
 	// siteBuildMetadata,
 	// sitePage,
