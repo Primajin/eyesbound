@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
+
       - name: Update package.json
         id: update
         uses: tjololo/npm-package-update-sync@v1
@@ -23,6 +24,7 @@ jobs:
         with:
           body: ${{ steps.update.outputs.body }}
           branch: updates/bump-versions
+          commit-message: ":books: updated npm dependencies"
           delete-branch: true
           labels: dependencies
           title: ":books: updated npm dependencies"
