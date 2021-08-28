@@ -25,4 +25,4 @@ jobs:
           branch: updates/bump-versions
           delete-branch: true
           labels: dependencies
-          title: "Updated npm dependencies"
+          title: ":books: updated npm dependencies"
