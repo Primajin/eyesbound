@@ -19,7 +19,8 @@
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "xo && echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "xo": "xo --fix"
+    "xo": "xo --fix",
+    "xo:watch": "npx nodemon -x npm run xo --ext js,jsx,json"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
