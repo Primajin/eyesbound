@@ -32,8 +32,6 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 				<meta property="twitter:image" content={`${GATSBY_SERVER_URL}${EyesboundAward}`}/>,
 				<meta property="twitter:title" content={GATSBY_SITE_NAME}/>
 				<meta property="twitter:url" content={GATSBY_SERVER_URL}/>
-				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
-				<link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 			</Helmet>
 			<Global styles={css` body { overflow: hidden; } `}/>
 			<Header isFullscreen={fullScreen}/>
