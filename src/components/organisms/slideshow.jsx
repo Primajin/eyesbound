@@ -4,12 +4,12 @@ import classnames from 'classnames';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
 
-import '../../../static/slideshow.css';
-
 import AssetTypes from '../../constants/asset-types.js';
 import Picture from '../molecules/picture.jsx';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
+
+import '../../../static/slideshow.css';
 
 const wrapper = css`
 	height: calc(100vh - 50px);
@@ -33,7 +33,7 @@ const indicator = css`
 	width: 50px;
 `;
 
-const image = css`
+const imageClass = css`
 	border: 2px solid transparent;
 	cursor: pointer;
 	transition: border-color .333s;
@@ -97,19 +97,12 @@ const arrowButtons = css`
 const Slideshow = ({images, isFullscreen}) => {
 	const properties = {
 		indicators: i => {
-			const {
-				node: {
-					data: {
-						title,
-						image: {alt, fixed: {src}},
-					},
-				},
-			} = images[i];
+			const {node: {data}} = images[i];
 			return (
-				<li className="indicator" css={indicator} title={title}>
+				<li className="indicator" css={indicator} title={data.title}>
 					<figure>
-						<img alt={alt || title} css={image} height={31} src={src} width={46}/>
-						<figcaption css={indicatorFigCaption}>{title}</figcaption>
+						<Picture preferThumbnails data={data} css={imageClass} size={{height: 31, width: 46}}/>
+						<figcaption css={indicatorFigCaption}>{data.title}</figcaption>
 					</figure>
 				</li>
 			);
@@ -125,7 +118,7 @@ const Slideshow = ({images, isFullscreen}) => {
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image}, id, uid}}) => (
 					<a key={id} title={title} css={wrapper} href={`/${path}/${uid}`}>
-						<figure css={figure} style={{backgroundImage: `url(${image.fixed.src})`}}>
+						<figure css={figure} style={{backgroundImage: `url(${image.gatsbyImageData.images.fallback.src})`}}>
 							<Picture data={{title, image}} size={{height: 854, width: 1280}}/>
 							<figcaption>{title}</figcaption>
 						</figure>

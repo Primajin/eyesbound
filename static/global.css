@@ -51,18 +51,6 @@ h3 {
 	font-size: 110%;
 }
 
-img[width]:not([src*="2x"]) {
-	width: auto;
-}
-img[width][height] {
-	height: auto;
-}
-img[src$=".svg"] {
-	width: 100%;
-	height: auto;
-	max-width: none;
-}
-
 button {
 	border: 0;
 }

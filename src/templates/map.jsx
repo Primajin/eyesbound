@@ -38,13 +38,7 @@ export const pageQuery = graphql`
 							alt
 							thumbnails {
 								thumbnail {
-									fixed(width: 164) {
-										height
-										src
-										srcSet
-										srcSetWebp
-										width
-									}
+									gatsbyImageData(width: 164)
 								}
 							}
 						}

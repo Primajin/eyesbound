@@ -35,21 +35,22 @@ const details = css`
 	}
 `;
 
-const Picture = ({data: {prismicPicture}}) => {
+const Picture = ({data: {prismicPicture = {}}}) => {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
 		setFullScreen(isFullscreen);
 	};
 
-	const {data} = prismicPicture;
-	const {category, coordinates, datetime, series, title, tags} = data;
+	const {data = {}} = prismicPicture;
+	const {category, coordinates, datetime, image, series, title, tags} = data;
 
 	const categoryTitle = category?.document?.data?.title;
 	const categoryUID = category?.document?.uid;
+	const imageSource = image?.gatsbyImageData?.images.fallback.src ?? image?.thumbnails?.thumbnail.gatsbyImageData?.images.fallback.src;
 	const seriesTitle = series?.document?.data?.title;
 	const seriesUID = series?.document?.uid;
-	const shortenedCoords = Object.keys(coordinates).map(key => coordinates[key].toFixed(5));
+	const shortenedCoords = coordinates && Object.keys(coordinates).map(key => coordinates[key].toFixed(5));
 
 	const hasCoords = shortenedCoords?.length > 0;
 	const hasDateTime = datetime?.length > 0;
@@ -60,7 +61,7 @@ const Picture = ({data: {prismicPicture}}) => {
 
 	return (
 		<>
-			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={data?.image?.fixed?.src} path={picturePath} title={title} uid={prismicPicture?.uid}/>
+			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={imageSource} path={picturePath} title={title} uid={prismicPicture.uid}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
 			<MainWrapper>
@@ -111,12 +112,11 @@ export const pageQuery = graphql`
 				datetime
 				image {
 					alt
-					fixed(width: 1072, imgixParams: {q: 100}) {
-						height
-						src
-						srcSet
-						srcSetWebp
-						width
+					gatsbyImageData(imgixParams: {q: 100}, width: 1072)
+					thumbnails {
+						thumbnail {
+							gatsbyImageData(width: 164)
+						}
 					}
 				}
 				series {
