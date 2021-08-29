@@ -28,7 +28,10 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		allPrismicPicture(filter: {data: {category: {uid: {eq: $uid}}}}, sort: {fields: data___datetime, order: DESC}) {
+		allPrismicPicture(
+			filter: {data: {category: {uid: {eq: $uid}}}}
+			sort: {fields: data___datetime, order: DESC}
+		) {
 			edges {
 				node {
 					data {
@@ -37,13 +40,7 @@ export const pageQuery = graphql`
 							alt
 							thumbnails {
 								thumbnail {
-									fixed(width: 261) {
-										height
-										src
-										srcSet
-										srcSetWebp
-										width
-									}
+									gatsbyImageData(width: 261)
 								}
 							}
 						}

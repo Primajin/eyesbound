@@ -49,14 +49,7 @@ const Image = {
 		width: number,
 		height: number,
 	}),
-	fixed: exact({
-		height: number,
-		src: string,
-		srcSet: string,
-		srcSetWebp: string,
-		width: number,
-	}),
-	fluid: object,
+	gatsbyImageData: object,
 	localFile: object,
 	url: string,
 };
