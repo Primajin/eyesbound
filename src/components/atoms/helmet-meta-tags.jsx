@@ -12,24 +12,11 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 
 	return (
 		<Helmet>
-			{hasTitle && [
-				<title key={1}>{title} | {GATSBY_SITE_NAME}</title>,
-				<meta key={2} name="title" content={`${title} | ${GATSBY_SITE_NAME}`}/>,
-			]}
-			{hasImageSource && [
-				<meta key={3} property="og:image" content={imageSource}/>,
-			]}
-			{hasPath && [
-				<link key={4} rel="canonical" href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>,
-				<meta key={5} property="og:url" content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>,
-			]}
-			{hasCoords && [
-				<meta key={6} name="geo.position" content={coordinates.join(';')}/>,
-				<meta key={7} name="ICBM" content={coordinates.join(', ')}/>,
-			]}
-			{hasDateTime && [
-				<meta key={8} name="date" content={dateTime}/>,
-			]}
+			{hasTitle && <><title>{title} | {GATSBY_SITE_NAME}</title><meta name="title" content={`${title} | ${GATSBY_SITE_NAME}`}/></>}
+			{hasImageSource && <meta property="og:image" content={imageSource}/>}
+			{hasPath && <><link rel="canonical" href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/><meta property="og:url" content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/></>}
+			{hasCoords && <><meta name="geo.position" content={coordinates.join(';')}/><meta name="ICBM" content={coordinates.join(', ')}/></>}
+			{hasDateTime && <meta name="date" content={dateTime}/>}
 			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 			<link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 		</Helmet>
