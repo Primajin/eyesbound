@@ -12,10 +12,13 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 
 	return (
 		<Helmet>
-			{hasTitle && <><title>{title} | {GATSBY_SITE_NAME}</title><meta name="title" content={`${title} | ${GATSBY_SITE_NAME}`}/></>}
+			{hasTitle && <title>{title} | {GATSBY_SITE_NAME}</title>}
+			{hasTitle && <meta name="title" content={`${title} | ${GATSBY_SITE_NAME}`}/>}
 			{hasImageSource && <meta property="og:image" content={imageSource}/>}
-			{hasPath && <><link rel="canonical" href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/><meta property="og:url" content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/></>}
-			{hasCoords && <><meta name="geo.position" content={coordinates.join(';')}/><meta name="ICBM" content={coordinates.join(', ')}/></>}
+			{hasPath && <link rel="canonical" href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>}
+			{hasPath && <meta property="og:url" content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>}
+			{hasCoords && <meta name="geo.position" content={coordinates.join(';')}/>}
+			{hasCoords && <meta name="ICBM" content={coordinates.join(', ')}/>}
 			{hasDateTime && <meta name="date" content={dateTime}/>}
 		</Helmet>
 	);
