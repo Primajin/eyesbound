@@ -17,8 +17,6 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) 
 			{hasPath && <><link rel="canonical" href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/><meta property="og:url" content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/></>}
 			{hasCoords && <><meta name="geo.position" content={coordinates.join(';')}/><meta name="ICBM" content={coordinates.join(', ')}/></>}
 			{hasDateTime && <meta name="date" content={dateTime}/>}
-			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
-			<link href="/global.css" rel="stylesheet" media="none" onLoad="if(media!='all')media='all'"/>
 		</Helmet>
 	);
 };
