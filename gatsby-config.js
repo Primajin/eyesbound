@@ -67,7 +67,7 @@ module.exports = {
 				mergeStyleHashes: false,
 				mergeDefaultDirectives: true,
 				directives: {
-					'connect-src': `'self' ws: localhost:* eyesbound.com:* dev.eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:*`,
+					'connect-src': `'self' ws: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:*`,
 					'font-src': `'self' fonts.gstatic.com`,
 					'frame-src': `'self' ${process.env.GATSBY_PRISMIC_REPO_NAME}.prismic.io`,
 					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
