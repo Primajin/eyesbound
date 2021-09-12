@@ -4,7 +4,7 @@ import {Helmet} from 'react-helmet';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
-import EyesboundAward from '../../docs/Eyesbound_Award.jpg';
+import EyesboundAward from '../../docs/eyesbound-award.png';
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
 import InstagramLink from '../components/atoms/instagram-link.jsx';

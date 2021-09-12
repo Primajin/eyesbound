@@ -1,7 +1,7 @@
 import React from 'react';
 import {css} from '@emotion/react';
 
-import ADesignAward from '../../static/a-design-award-winner-2016-silver-2x.png';
+import ADesignAwardBadge from '../../static/a-design-award-winner-2016-silver-2x.png';
 import BY from '../../static/creative-commons/by.svg';
 import CC from '../../static/creative-commons/cc.svg';
 import Header from '../components/molecules/header.jsx';
@@ -48,7 +48,7 @@ const Imprint = () => (
 			<p>Julia Hell<br/><a href="http://www.julia-hell.com" target="_blank" rel="noreferrer">http://www.julia-hell.com</a></p>
 			<p>
 				<a href="https://competition.adesignaward.com/design.php?ID=45698" target="_blank" rel="noreferrer">
-					<img alt="A Design Award 2016 - Silver" height="237" src={ADesignAward} width="150"/>
+					<img alt="A Design Award 2016 - Silver" height="237" src={ADesignAwardBadge} width="150"/>
 				</a>
 			</p>
 			<h4>Privacy Policy</h4>
