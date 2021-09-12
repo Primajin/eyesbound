@@ -6,7 +6,7 @@
 [![Lighthouse SEO 100%](docs/lighthouse/lighthouse_seo.svg)](https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelines)
 [![Lighthouse Progressive Web App 100%](docs/lighthouse/lighthouse_pwa.svg)](https://web.dev/pwa-checklist/)
 
-![Image of Eyesbound Website with A Design Award](docs/Eyesbound_Award.jpg)
+![Image of Eyesbound Website with A Design Award](docs/eyesbound-award.png)
 ## Development
 
 Create a `.env.development` file with the following content:
