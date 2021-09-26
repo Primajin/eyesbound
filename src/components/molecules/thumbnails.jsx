@@ -29,7 +29,7 @@ const Thumbnails = ({edges, title, type}) => (
 			{edges.map(({node: {data, id, uid}}) => (
 				<li key={id}>
 					<a href={`/picture/${uid}`} aria-label="link-to-picture">
-						<Picture data={data} size={{height: 174, width: 261}}/>
+						<Picture preferThumbnails data={data} size={{height: 174, width: 261}}/>
 					</a>
 				</li>
 			))}

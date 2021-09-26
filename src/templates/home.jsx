@@ -23,13 +23,13 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 	return (
 		<>
 			<Helmet>
-				<title>{GATSBY_SITE_NAME}</title>,
-				<meta name="title" content={GATSBY_SITE_NAME}/>,
-				<link rel="canonical" href={GATSBY_SERVER_URL}/>,
-				<meta property="og:image" content={SocialImage}/>,
-				<meta property="og:title" content={GATSBY_SITE_NAME}/>,
-				<meta property="og:url" content={GATSBY_SERVER_URL}/>,
-				<meta name="twitter:image" content={SocialImage}/>,
+				<title>{GATSBY_SITE_NAME}</title>
+				<meta name="title" content={GATSBY_SITE_NAME}/>
+				<link rel="canonical" href={GATSBY_SERVER_URL}/>
+				<meta property="og:image" content={SocialImage}/>
+				<meta property="og:title" content={GATSBY_SITE_NAME}/>
+				<meta property="og:url" content={GATSBY_SERVER_URL}/>
+				<meta name="twitter:image" content={SocialImage}/>
 				<meta name="twitter:title" content={GATSBY_SITE_NAME}/>
 				<meta name="twitter:url" content={GATSBY_SERVER_URL}/>
 			</Helmet>

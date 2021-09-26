@@ -38,14 +38,16 @@ const Picture = ({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails
 
 	const normal = css`
 	height: ${height}px;
-	width: ${width}px;
+	width: 100%;
 `;
+
+	const cssClass = layout === 'FULL_WIDTH' ? fullSize : normal;
 
 	gatsbyImageData.layout = layout;
 
 	return (
 		<picture>
-			<GatsbyImage css={layout === 'FULL_WIDTH' ? fullSize : normal} alt={alt} height={height} image={gatsbyImageData} width={width}/>
+			<GatsbyImage css={cssClass} alt={alt} height={height} image={gatsbyImageData} width={width}/>
 		</picture>
 	);
 };
