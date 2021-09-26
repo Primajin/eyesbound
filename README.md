@@ -1,7 +1,7 @@
 # Eyesbound
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
-[![Lighthouse Performance 73%](docs/lighthouse/lighthouse_performance.svg)](https://web.dev/performance-scoring/)
-[![Lighthouse Accessibility 94%](docs/lighthouse/lighthouse_accessibility.svg)](https://developers.google.com/web/fundamentals/accessibility)
+[![Lighthouse Performance 99%](docs/lighthouse/lighthouse_performance.svg)](https://web.dev/performance-scoring/)
+[![Lighthouse Accessibility 97%](docs/lighthouse/lighthouse_accessibility.svg)](https://developers.google.com/web/fundamentals/accessibility)
 ![Lighthouse Best Practices 100%](docs/lighthouse/lighthouse_best-practices.svg)
 [![Lighthouse SEO 100%](docs/lighthouse/lighthouse_seo.svg)](https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelines)
 [![Lighthouse Progressive Web App 100%](docs/lighthouse/lighthouse_pwa.svg)](https://web.dev/pwa-checklist/)
