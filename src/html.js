@@ -10,7 +10,7 @@ const HTML = props => (
 			<title>{GATSBY_SITE_NAME}</title>
 			<meta charSet="utf-8"/>
 			<meta httpEquiv="x-ua-compatible" content="ie=edge"/>
-			<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com"/>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			{/* Open Graph / Facebook */}
