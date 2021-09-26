@@ -61,7 +61,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 
 	return (
 		<>
-			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={imageSource} path={picturePath} title={title} uid={prismicPicture.uid}/>
+			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={imageSource} path={picturePath} tags={tags} title={title} uid={prismicPicture.uid}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
 			<MainWrapper>

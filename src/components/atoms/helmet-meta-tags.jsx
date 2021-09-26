@@ -1,20 +1,31 @@
-import PropTypes from 'prop-types';
+import PropTypes, {object} from 'prop-types';
 import React from 'react';
 import {Helmet} from 'react-helmet';
 
-const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, title, uid}) => {
+const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, tags, title, uid}) => {
 	const hasCoords = coordinates?.length > 0;
 	const hasDateTime = Boolean(dateTime);
 	const hasImageSource = Boolean(imageSource);
 	const hasPath = Boolean(path);
+	const hasTags = tags?.length > 0;
 	const hasTitle = Boolean(title);
 	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
+
+	let tagTitles;
+	if (hasTags) {
+		tagTitles = tags.map(tag => tag?.tag?.document?.data?.title);
+	}
 
 	return (
 		<Helmet>
 			{hasTitle && <title>{title} | {GATSBY_SITE_NAME}</title>}
 			{hasTitle && <meta name="title" content={`${title} | ${GATSBY_SITE_NAME}`}/>}
+			{hasTitle && <meta property="og:title" content={`${title} | ${GATSBY_SITE_NAME}`}/>}
+			{hasTitle && <meta name="twitter:title" content={`${title} | ${GATSBY_SITE_NAME}`}/>}
+			{hasTags && <meta property="og:description" content={tagTitles.join(' ')}/>}
+			{hasTags && <meta name="twitter:description" content={tagTitles.join(' ')}/>}
 			{hasImageSource && <meta property="og:image" content={imageSource}/>}
+			{hasImageSource && <meta name="twitter:image" content={imageSource}/>}
 			{hasPath && <link rel="canonical" href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>}
 			{hasPath && <meta property="og:url" content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>}
 			{hasCoords && <meta name="geo.position" content={coordinates.join(';')}/>}
@@ -29,6 +40,7 @@ HelmetMetaTags.propTypes = {
 	dateTime: PropTypes.string,
 	imageSource: PropTypes.string,
 	path: PropTypes.string,
+	tags: PropTypes.arrayOf(object),
 	title: PropTypes.string,
 	uid: PropTypes.string,
 };
