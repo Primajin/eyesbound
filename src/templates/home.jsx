@@ -33,7 +33,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 				<meta property="twitter:title" content={GATSBY_SITE_NAME}/>
 				<meta property="twitter:url" content={GATSBY_SERVER_URL}/>
 			</Helmet>
-			<Global styles={css` body { overflow: hidden; } `}/>
+			<Global styles={css` body { height: 100vh; overflow: hidden; width: 100vw; } `}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback}/>
 			<Slideshow images={edges} isFullscreen={fullScreen}/>
