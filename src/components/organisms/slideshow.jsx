@@ -16,14 +16,8 @@ const wrapper = css`
 	display: flex;
 `;
 
-const figure = css`
-	background: no-repeat center center fixed;
-	background-size: cover;
-	width: 100%;
-
-	> * {
+const figCaption = css`
 		display: none;
-	}
 `;
 
 // Indicators css here: src/styles/slideshow.css:115
@@ -118,9 +112,9 @@ const Slideshow = ({images, isFullscreen}) => {
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image}, id, uid}}) => (
 					<a key={id} title={title} css={wrapper} href={`/${path}/${uid}`}>
-						<figure css={figure} style={{backgroundImage: `url(${image.gatsbyImageData.images.fallback.src})`}}>
-							<Picture data={{title, image}} size={{height: 854, width: 1280}}/>
-							<figcaption>{title}</figcaption>
+						<figure>
+							<Picture data={{title, image}} layout="FULL_WIDTH"/>
+							<figcaption css={figCaption}>{title}</figcaption>
 						</figure>
 					</a>
 				))}
