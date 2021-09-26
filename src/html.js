@@ -15,7 +15,6 @@ const HTML = props => (
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			{/* Open Graph / Facebook */}
 			<meta property="og:type" content="website"/>
-			<meta property="og:description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
 			{/* Twitter */}
 			<meta name="twitter:card" content="summary_large_image"/>
 			<meta name="twitter:site" content="@helljannis"/>

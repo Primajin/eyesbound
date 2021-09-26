@@ -57,11 +57,18 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 	const hasTags = tags?.length > 0;
 	const hasTitle = Boolean(title);
 
+	let tagTitles;
+	if (hasTags) {
+		tagTitles = tags.map(tag => tag?.tag?.document?.data?.title);
+	}
+
+	const description = hasTags ? `Tags: ${tagTitles.join(' ')}` : undefined;
+
 	const {CATEGORY: {path: categoryPath}, PICTURE: {path: picturePath}, SERIES: {path: seriesPath}} = AssetTypes;
 
 	return (
 		<>
-			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} imageSource={imageSource} path={picturePath} tags={tags} title={title} uid={prismicPicture.uid}/>
+			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} description={description} imageSource={imageSource} path={picturePath} title={title} uid={prismicPicture.uid}/>
 			<Header isFullscreen={fullScreen}/>
 			<Fullscreen callback={fullscreenCallback} selector="img"/>
 			<MainWrapper>
