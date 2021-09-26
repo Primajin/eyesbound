@@ -104,6 +104,13 @@
 	justify-content: center;
 }
 
+.indicator img {
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: opacity .25s, border-color .25s !important;
+	margin-bottom: -2px;
+}
+
 .indicator.active img,
 .indicator:hover img{
 	border-color: var(--background);
