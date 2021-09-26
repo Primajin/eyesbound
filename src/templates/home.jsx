@@ -4,7 +4,7 @@ import {Helmet} from 'react-helmet';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
-import EyesboundAward from '../../docs/eyesbound-award.png';
+import SocialImage from '../../static/social-image.png';
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
 import InstagramLink from '../components/atoms/instagram-link.jsx';
@@ -26,12 +26,12 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 				<title>{GATSBY_SITE_NAME}</title>,
 				<meta name="title" content={GATSBY_SITE_NAME}/>,
 				<link rel="canonical" href={GATSBY_SERVER_URL}/>,
-				<meta property="og:image" content={`${GATSBY_SERVER_URL}${EyesboundAward}`}/>,
+				<meta property="og:image" content={SocialImage}/>,
 				<meta property="og:title" content={GATSBY_SITE_NAME}/>,
 				<meta property="og:url" content={GATSBY_SERVER_URL}/>,
-				<meta property="twitter:image" content={`${GATSBY_SERVER_URL}${EyesboundAward}`}/>,
-				<meta property="twitter:title" content={GATSBY_SITE_NAME}/>
-				<meta property="twitter:url" content={GATSBY_SERVER_URL}/>
+				<meta name="twitter:image" content={SocialImage}/>,
+				<meta name="twitter:title" content={GATSBY_SITE_NAME}/>
+				<meta name="twitter:url" content={GATSBY_SERVER_URL}/>
 			</Helmet>
 			<Global styles={css` body { height: 100vh; overflow: hidden; width: 100vw; } `}/>
 			<Header isFullscreen={fullScreen}/>
