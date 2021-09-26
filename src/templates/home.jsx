@@ -59,7 +59,7 @@ export const pageQuery = graphql`
 						title
 						image {
 							alt
-							gatsbyImageData(width: 1280, imgixParams: {q: 100, fm: "pjpg"})
+							gatsbyImageData(width: 1280, imgixParams: {q: 100})
 							thumbnails {
 								thumbnail {
 									gatsbyImageData(width: 50)
