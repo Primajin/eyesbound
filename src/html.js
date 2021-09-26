@@ -17,13 +17,13 @@ const HTML = props => (
 			<meta property="og:type" content="website"/>
 			<meta property="og:description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
 			{/* Twitter */}
-			<meta property="twitter:card" content="summary_large_image"/>
-			<meta property="twitter:site" content="@helljannis"/>
-			<meta property="twitter:creator" content="@helljannis"/>
+			<meta name="twitter:card" content="summary_large_image"/>
+			<meta name="twitter:site" content="@helljannis"/>
+			<meta name="twitter:creator" content="@helljannis"/>
 			{/* General */}
 			<meta name="description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
 			<meta name="abstract" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
-			<meta name="keywords" content="eyesbound, photography, berlin, photos, fotograf, jannis, hell"/>
+			<meta name="keywords" content="eyesbound, photography, berlin, photos, fotograf, photographer, jannis, hell"/>
 			<meta name="author" content="Jannis Hell"/>
 			<meta name="MobileOptimized" content="width"/>
 			<meta name="HandheldFriendly" content="true"/>
