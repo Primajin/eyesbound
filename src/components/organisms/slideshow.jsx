@@ -17,7 +17,7 @@ const wrapper = css`
 `;
 
 const figCaption = css`
-		display: none;
+	display: none;
 `;
 
 // Indicators css here: src/styles/slideshow.css:115
@@ -25,13 +25,6 @@ const figCaption = css`
 const indicator = css`
 	margin-left: 5px;
 	width: 50px;
-`;
-
-const imageClass = css`
-	border: 2px solid transparent;
-	cursor: pointer;
-	transition: border-color .333s;
-	margin-bottom: -2px;
 `;
 
 const indicatorFigCaption = css`
@@ -48,7 +41,7 @@ const indicatorFigCaption = css`
 
 	${up('md')} {
 		display: block;
-	};
+	}
 
 	.active & {
 		opacity: 1;
@@ -70,7 +63,7 @@ const arrowButtons = css`
 
 	${up('md')} {
 		width: 20px;
-	};
+	}
 
 	&:hover,
 	&:focus {
@@ -95,7 +88,7 @@ const Slideshow = ({images, isFullscreen}) => {
 			return (
 				<li className="indicator" css={indicator} title={data.title}>
 					<figure>
-						<Picture preferThumbnails data={data} css={imageClass} size={{height: 31, width: 46}}/>
+						<Picture preferThumbnails data={data} size={{height: 31, width: 46}}/>
 						<figcaption css={indicatorFigCaption}>{data.title}</figcaption>
 					</figure>
 				</li>
