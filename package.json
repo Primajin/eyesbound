@@ -23,7 +23,7 @@
     "xo:watch": "npx nodemon -x npm run xo --ext js,jsx,json"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
+    "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@react-google-maps/api": "^2.5.0",
     "classnames": "^2.3.1",
