@@ -8,7 +8,7 @@
     "name": "Jannis Hell"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=17"
   },
   "scripts": {
     "prebuild": "xo",
