@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import {Helmet} from 'react-helmet';
 
 const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, description, title, uid}) => {

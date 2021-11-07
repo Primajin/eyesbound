@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 

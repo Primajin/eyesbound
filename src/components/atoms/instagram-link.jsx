@@ -1,4 +1,3 @@
-import React from 'react';
 import {css} from '@emotion/react';
 
 import IconInstagram from './icons/instagram.jsx';
