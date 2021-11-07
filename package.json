@@ -59,7 +59,8 @@
       "xo-react"
     ],
     "rules": {
-      "node/prefer-global/process": "off"
+      "node/prefer-global/process": "off",
+      "react/react-in-jsx-scope": "off"
     }
   },
   "eslintConfig": {
