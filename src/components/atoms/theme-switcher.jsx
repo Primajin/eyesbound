@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';
 

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import {graphql} from 'gatsby';
 
 import AssetTypes from '../constants/asset-types.js';
