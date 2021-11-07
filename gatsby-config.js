@@ -5,6 +5,8 @@ require('dotenv').config({
 const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 module.exports = {
+	jsxRuntime: 'automatic',
+	jsxImportSource: '@emotion/react',
 	siteMetadata: {
 		siteUrl: GATSBY_SERVER_URL
 	},
