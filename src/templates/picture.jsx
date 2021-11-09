@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {css} from '@emotion/react';
 import {graphql} from 'gatsby';
 

@@ -1,5 +1,6 @@
 import {css, Global} from '@emotion/react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
