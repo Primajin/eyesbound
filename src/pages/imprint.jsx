@@ -1,3 +1,4 @@
+import React from 'react';
 import {css} from '@emotion/react';
 
 import ADesignAwardBadge from '../../static/a-design-award-winner-2016-silver-2x.png';
