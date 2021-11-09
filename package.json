@@ -56,8 +56,7 @@
   "xo": {
     "extends": [
       "xo",
-      "xo-react",
-      "plugin:react/jsx-runtime"
+      "xo-react"
     ],
     "rules": {
       "node/prefer-global/process": "off"
