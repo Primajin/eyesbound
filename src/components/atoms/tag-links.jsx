@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Fragment} from 'react';
+import React, {Fragment} from 'react';
 
 import AssetTypes from '../../constants/asset-types.js';
 

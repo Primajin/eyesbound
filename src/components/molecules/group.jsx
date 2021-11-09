@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import HelmetMetaTags from '../atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../atoms/main-wrapper.jsx';

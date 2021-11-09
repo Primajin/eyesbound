@@ -1,7 +1,7 @@
 /* global document */
 // document may be used inside useEffects - they only run in a browser
 import PropTypes from 'prop-types';
-import {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
 
