@@ -56,11 +56,11 @@
   "xo": {
     "extends": [
       "xo",
-      "xo-react"
+      "xo-react",
+      "plugin:react/jsx-runtime"
     ],
     "rules": {
-      "node/prefer-global/process": "off",
-      "react/react-in-jsx-scope": "off"
+      "node/prefer-global/process": "off"
     }
   },
   "eslintConfig": {
