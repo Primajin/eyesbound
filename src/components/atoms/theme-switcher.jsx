@@ -1,14 +1,16 @@
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';
 
-import button from '../../styles/button.js';
+import buttonCSS from '../../styles/button.js';
 import {fromLocalStorage} from '../../utils/local-storage.js';
 import {userPrefersDark} from '../../utils/theming.js';
 import BulbOn from './icons/bulb-on.jsx';
 import BulbOff from './icons/bulb-off.jsx';
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({isFullscreen: fullScreen}) => {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [prefersDark, setPrefersDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -19,7 +21,7 @@ const ThemeSwitcher = () => {
 	};
 
 	return (
-		<button aria-label="Switch theme" css={button} type="button" onClick={switchTheme}>
+		<button aria-label="Switch theme" css={buttonCSS} className={classnames({fullScreen})} type="button" onClick={switchTheme}>
 			{prefersDark && (
 				<>
 					<BulbOff/>
@@ -36,6 +38,10 @@ const ThemeSwitcher = () => {
 			)}
 		</button>
 	);
+};
+
+ThemeSwitcher.propTypes = {
+	isFullscreen: PropTypes.bool,
 };
 
 export default ThemeSwitcher;
