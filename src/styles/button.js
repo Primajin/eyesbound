@@ -22,6 +22,10 @@ const button = css`
 		color: var(--foreground);
 	}
 
+	&.fullScreen {
+		opacity: 0.65;
+	}
+
 	svg {
 		fill: currentColor;
 		height: 40px;

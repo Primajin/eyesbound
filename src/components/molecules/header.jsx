@@ -9,7 +9,7 @@ const Header = ({isFullscreen}) => (
 	<header>
 		<Logo isFullscreen={isFullscreen}/>
 		<Navigation isFullscreen={isFullscreen}/>
-		<ThemeSwitcher/>
+		<ThemeSwitcher isFullscreen={isFullscreen}/>
 	</header>
 );
 

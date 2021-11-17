@@ -10,19 +10,9 @@ import {fullscreenElement, toggleFullscreen} from '../../utils/fullscreen.js';
 import IconFullscreen from './icons/fullscreen.jsx';
 import IconFullscreenExit from './icons/fullscreen-exit.jsx';
 
-const button = css`
+const buttonClass = css`
 	${buttonCSS};
 	right: 0;
-
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-	}
-
-	&.fullScreen {
-		opacity: 0.65;
-	}
 
 	svg {
 		height: 50px;
@@ -50,7 +40,7 @@ const Fullscreen = ({callback, selector}) => {
 		};
 	}, [callback]);
 
-	return <button aria-label="Toggle fullscreen" type="button" css={button} className={classnames({fullScreen})} tabIndex="12" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
+	return <button aria-label="Toggle fullscreen" type="button" css={buttonClass} className={classnames({fullScreen})} tabIndex="12" onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
 };
 
 Fullscreen.propTypes = {
