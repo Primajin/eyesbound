@@ -13,3 +13,11 @@ const breakpoints = new Map([['sm', 576], ['md', 768], ['lg', 992], ['xl', 1200]
  * @returns {('576px'|'768px'|'992px'|'1200px')} The media query with min-width going UP
  */
 export const up = breakpoint => `@media (min-width: ${breakpoints.get(breakpoint)}px)`;
+
+const deviceSpecs = new Map([['touchscreen', ['none', 'coarse']], ['stylus', ['none', 'fine']], ['motion-sense', ['hover', 'coarse']], ['mouse', ['hover', 'fine']]]);
+/**
+ * Gets media query for given device
+ * @param {('touchscreen'|'stylus'|'motion-sense'|'mouse')} breakpoint The name of the breakpoint
+ * @returns {('none, coarse'|'none, fine'|'hover, coarse'|'hover, fine')} The media query with corresponding device specs
+ */
+export const forDevice = breakpoint => `@media (hover: ${deviceSpecs.get(breakpoint)[0]}) and (pointer: ${deviceSpecs.get(breakpoint)[1]})`;

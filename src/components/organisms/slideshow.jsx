@@ -11,21 +11,11 @@ import {up} from '../../utils/theming.js';
 
 import '../../../static/slideshow.css';
 
-const wrapper = css`
-	height: calc(100vh - 50px);
-	display: flex;
-`;
-
 const figCaption = css`
 	display: none;
 `;
 
-// Indicators css here: src/styles/slideshow.css:115
-
-const indicator = css`
-	margin-left: 5px;
-	width: 50px;
-`;
+// Indicators css here: static/slideshow.css:97
 
 const indicatorFigCaption = css`
 	bottom: 15px;
@@ -86,7 +76,7 @@ const Slideshow = ({images, isFullscreen}) => {
 		indicators: i => {
 			const {node: {data}} = images[i];
 			return (
-				<li className="indicator" css={indicator} title={data.title}>
+				<li className="indicator" title={data.title}>
 					<figure>
 						<Picture preferThumbnails data={data} size={{height: 31, width: 46}}/>
 						<figcaption css={indicatorFigCaption}>{data.title}</figcaption>
@@ -104,7 +94,7 @@ const Slideshow = ({images, isFullscreen}) => {
 		<div className="slide-container">
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image}, id, uid}}) => (
-					<a key={id} title={title} css={wrapper} href={`/${path}/${uid}`}>
+					<a key={id} title={title} href={`/${path}/${uid}`}>
 						<figure>
 							<Picture data={{title, image}} layout="FULL_WIDTH"/>
 							<figcaption css={figCaption}>{title}</figcaption>
