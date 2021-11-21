@@ -11,6 +11,7 @@ const instagramIcon = css`
 	overflow: hidden;
 	position: absolute;
 	width: 24px;
+	z-index: 2;
 
 	svg {
 		fill: var(--background);

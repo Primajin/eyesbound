@@ -98,10 +98,20 @@
 	align-items: center;
 	background: var(--foreground);
 	border-top: 2px solid var(--background);
+	bottom: 0;
 	display: flex;
 	flex-wrap: wrap;
 	height: 50px;
 	justify-content: center;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.indicator {
+	margin-left: 5px;
+	width: 50px;
 }
 
 .indicator img {
