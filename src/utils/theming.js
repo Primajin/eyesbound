@@ -6,7 +6,7 @@
  */
 export const userPrefersDark = typeof window !== 'undefined' && window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-const breakpoints = new Map([['sm', 576], ['md', 768], ['lg', 992], ['xl', 1200]]);
+export const breakpoints = new Map([['sm', 576], ['md', 768], ['lg', 992], ['xl', 1200]]);
 /**
  * Gets media query for given breakpoint
  * @param {('sm'|'md'|'lg'|'xl')} breakpoint The name of the breakpoint
@@ -14,7 +14,7 @@ const breakpoints = new Map([['sm', 576], ['md', 768], ['lg', 992], ['xl', 1200]
  */
 export const up = breakpoint => `@media (min-width: ${breakpoints.get(breakpoint)}px)`;
 
-const deviceSpecs = new Map([['touchscreen', ['none', 'coarse']], ['stylus', ['none', 'fine']], ['motion-sense', ['hover', 'coarse']], ['mouse', ['hover', 'fine']]]);
+export const deviceSpecs = new Map([['touchscreen', ['none', 'coarse']], ['stylus', ['none', 'fine']], ['motion-sense', ['hover', 'coarse']], ['mouse', ['hover', 'fine']]]);
 /**
  * Gets media query for given device
  * @param {('touchscreen'|'stylus'|'motion-sense'|'mouse')} breakpoint The name of the breakpoint
