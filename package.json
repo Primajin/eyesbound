@@ -16,6 +16,7 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop -S",
     "format": "npm run xo",
+    "lint": "xo",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "start:lan": "npm run develop -- -o -H 0.0.0.0 -p 8000",
