@@ -1,4 +1,4 @@
-name: "Lint"
+name: "Test"
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Make sure the code adheres to the XO coding standard.
+    name: Make sure the the unit tests pass.
     steps:
       - name: checkout code
         uses: actions/checkout@v2
@@ -18,4 +18,4 @@ jobs:
           node-version: '17'
           cache: 'npm'
       - run: npm install --legacy-peer-deps
-      - run: npm run lint
+      - run: npm test
