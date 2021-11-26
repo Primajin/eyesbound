@@ -19,7 +19,8 @@
     "serve": "gatsby serve",
     "start": "npm run develop",
     "start:lan": "npm run develop -- -o -H 0.0.0.0 -p 8000",
-    "test": "xo",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "xo": "xo --fix",
     "xo:watch": "npx nodemon -x npm run xo --ext js,jsx,json"
   },
@@ -45,9 +46,15 @@
     "react-slideshow-image": "^3.6.0"
   },
   "devDependencies": {
+    "babel-jest": "^27.3.1",
+    "babel-preset-gatsby": "^2.2.0",
     "dotenv": "^10.0.0",
     "eslint-config-xo": "^0.39.0",
     "eslint-config-xo-react": "^0.25.0",
+    "eslint-plugin-jest": "^25.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
+    "react-test-renderer": "^17.0.2",
     "xo": "^0.47.0"
   },
   "repository": {
@@ -59,6 +66,18 @@
       "xo",
       "xo-react"
     ],
+    "overrides": [
+      {
+        "files": "src/**/__tests__/*",
+        "plugins": [
+          "jest"
+        ],
+        "extends": [
+          "plugin:jest/recommended",
+          "plugin:jest/style"
+        ]
+      }
+    ],
     "rules": {
       "node/prefer-global/process": "off"
     }
@@ -66,12 +85,18 @@
   "eslintConfig": {
     "env": {
       "browser": false,
-      "node": true,
-      "es6": true
+      "es6": true,
+      "jest/globals": true,
+      "node": true
     }
   },
   "eslintIgnore": [
+    "__mocks__",
+    "__snapshots__",
     "gatsby-config.js",
-    "gatsby-node.js"
+    "gatsby-node.js",
+    "jest-preprocess.js",
+    "jest.config.js",
+    "loadershim.js"
   ]
 }
