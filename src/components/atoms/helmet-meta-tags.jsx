@@ -43,6 +43,7 @@ HelmetMetaTags.propTypes = {
 HelmetMetaTags.defaultProps = {
 	coordinates: [],
 	dateTime: '',
+	description: '',
 	imageSource: '',
 	path: '',
 	title: '',
