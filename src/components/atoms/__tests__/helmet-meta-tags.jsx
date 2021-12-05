@@ -1,6 +1,6 @@
 import {inspect} from 'node:util';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import {create} from 'react-test-renderer';
 
 import HelmetMetaTags from '../helmet-meta-tags.jsx';
 
@@ -11,8 +11,8 @@ describe('HelmetMetaTags', () => {
 	};
 
 	it('renders correctly without any props given', () => {
-		const tree = inspect(renderer.create(<HelmetMetaTags/>).toTree(), options);
-		expect(tree).toMatchSnapshot();
+		const component = inspect(create(<HelmetMetaTags/>).toTree(), options);
+		expect(component).toMatchSnapshot();
 	});
 
 	it('renders correctly with props given', () => {
@@ -23,7 +23,7 @@ describe('HelmetMetaTags', () => {
 		const path = 'picture';
 		const title = 'Libeskind';
 		const uid = 'libeskind';
-		const tree = inspect(renderer.create(
+		const component = inspect(create(
 			<HelmetMetaTags
 				coordinates={coordinates}
 				dateTime={dateTime}
@@ -34,6 +34,6 @@ describe('HelmetMetaTags', () => {
 				uid={uid}
 			/>,
 		).toTree(), options);
-		expect(tree).toMatchSnapshot();
+		expect(component).toMatchSnapshot();
 	});
 });
