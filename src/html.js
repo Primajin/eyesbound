@@ -64,4 +64,13 @@ HTML.propTypes = {
 	postBodyComponents: PropTypes.array,
 };
 
+HTML.defaultProps = {
+	htmlAttributes: {},
+	headComponents: [],
+	bodyAttributes: {},
+	preBodyComponents: [],
+	body: '',
+	postBodyComponents: [],
+};
+
 export default HTML;

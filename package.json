@@ -80,7 +80,8 @@
       }
     ],
     "rules": {
-      "node/prefer-global/process": "off"
+      "node/prefer-global/process": "off",
+      "react/require-default-props": [2, { "forbidDefaultForRequired": true }]
     }
   },
   "eslintConfig": {
