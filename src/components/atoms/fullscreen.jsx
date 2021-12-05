@@ -27,7 +27,7 @@ const Fullscreen = ({callback, selector}) => {
 		const setFullScreenState = () => {
 			document.fullscreenElement = fullscreenElement;
 			const isFullScreen = document.fullscreenElement !== null;
-			callback?.(isFullScreen);
+			callback(isFullScreen);
 			setFullScreen(isFullScreen);
 		};
 
@@ -46,6 +46,11 @@ const Fullscreen = ({callback, selector}) => {
 Fullscreen.propTypes = {
 	callback: PropTypes.func,
 	selector: PropTypes.string,
+};
+
+Fullscreen.defaultProps = {
+	callback: () => {},
+	selector: '',
 };
 
 export default Fullscreen;
