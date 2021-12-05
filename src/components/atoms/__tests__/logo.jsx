@@ -1,16 +1,16 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import {create} from 'react-test-renderer';
 
 import Logo from '../logo.jsx';
 
 describe('Logo', () => {
 	it('renders correctly', () => {
-		const tree = renderer.create(<Logo/>).toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = create(<Logo/>).toJSON();
+		expect(component).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
-		const tree = renderer.create(<Logo isFullscreen/>).toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = create(<Logo isFullscreen/>).toJSON();
+		expect(component).toMatchSnapshot();
 	});
 });
