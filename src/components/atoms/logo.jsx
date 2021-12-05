@@ -39,4 +39,8 @@ Logo.propTypes = {
 	isFullscreen: PropTypes.bool,
 };
 
+Logo.defaultProps = {
+	isFullscreen: false,
+};
+
 export default Logo;
