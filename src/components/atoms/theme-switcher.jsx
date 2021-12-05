@@ -44,4 +44,8 @@ ThemeSwitcher.propTypes = {
 	isFullscreen: PropTypes.bool,
 };
 
+ThemeSwitcher.defaultProps = {
+	isFullscreen: false,
+};
+
 export default ThemeSwitcher;
