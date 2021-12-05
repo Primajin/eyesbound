@@ -144,4 +144,8 @@ Navigation.propTypes = {
 	isFullscreen: PropTypes.bool,
 };
 
+Navigation.defaultProps = {
+	isFullscreen: false,
+};
+
 export default Navigation;
