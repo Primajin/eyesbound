@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagLinks renders correctly with empty list 1`] = `null`;
+
+exports[`TagLinks renders correctly with tag list of more 1`] = `
+Array [
+  <a
+    href="/tag/1234-5678-90"
+  >
+    Hello
+  </a>,
+  " | ",
+  <a
+    href="/tag/9876-5432-10"
+  >
+    There
+  </a>,
+]
+`;
+
+exports[`TagLinks renders correctly with tag list of one 1`] = `
+<a
+  href="/tag/1234-5678-90"
+>
+  Hello
+</a>
+`;
