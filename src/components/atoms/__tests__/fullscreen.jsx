@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Fullscreen from '../fullscreen.jsx';
 
-describe('fullscreen', () => {
+describe('Fullscreen', () => {
 	it('renders correctly', () => {
 		const callback = jest.fn();
 		const selector = '';
