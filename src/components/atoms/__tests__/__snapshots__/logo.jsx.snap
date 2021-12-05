@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo renders correctly 1`] = `
+<h1
+  className=""
+  css={
+    Object {
+      "map": undefined,
+      "name": "1vze745",
+      "next": undefined,
+      "styles": "
+	background-color: var(--foreground);
+	color: var(--background);
+	font-size: 27px;
+	font-weight: 700;
+	height: 100px;
+	left: 0;
+	line-height: 100px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	transition: opacity .333s;
+	top: 0;
+	width: 250px;
+	z-index: 10;
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	@media (min-width: 576px) {
+		font-size: 37px;
+		width: 400px;
+	};
+",
+      "toString": [Function],
+    }
+  }
+>
+  <a
+    href="/"
+    rel="home"
+    tabIndex="1"
+  >
+    EYESBOUND
+  </a>
+</h1>
+`;
+
+exports[`Logo renders correctly with props 1`] = `
+<h1
+  className="isFullscreen"
+  css={
+    Object {
+      "map": undefined,
+      "name": "1vze745",
+      "next": undefined,
+      "styles": "
+	background-color: var(--foreground);
+	color: var(--background);
+	font-size: 27px;
+	font-weight: 700;
+	height: 100px;
+	left: 0;
+	line-height: 100px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	transition: opacity .333s;
+	top: 0;
+	width: 250px;
+	z-index: 10;
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	@media (min-width: 576px) {
+		font-size: 37px;
+		width: 400px;
+	};
+",
+      "toString": [Function],
+    }
+  }
+>
+  <a
+    href="/"
+    rel="home"
+    tabIndex="1"
+  >
+    EYESBOUND
+  </a>
+</h1>
+`;
