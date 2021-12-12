@@ -17,4 +17,8 @@ Header.propTypes = {
 	isFullscreen: PropTypes.bool,
 };
 
+Header.defaultProps = {
+	isFullscreen: false,
+};
+
 export default Header;
