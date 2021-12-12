@@ -14,6 +14,7 @@
     "prebuild": "xo",
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "coverage": "jest --ci --coverage && codecov",
     "develop": "gatsby develop -S",
     "format": "npm run xo",
     "lint": "xo",
@@ -49,6 +50,7 @@
   "devDependencies": {
     "babel-jest": "^27.3.1",
     "babel-preset-gatsby": "^2.2.0",
+    "codecov": "^3.8.3",
     "dotenv": "^10.0.0",
     "eslint-config-xo": "^0.39.0",
     "eslint-config-xo-react": "^0.25.0",
@@ -81,7 +83,12 @@
     ],
     "rules": {
       "node/prefer-global/process": "off",
-      "react/require-default-props": [2, { "forbidDefaultForRequired": true }]
+      "react/require-default-props": [
+        2,
+        {
+          "forbidDefaultForRequired": true
+        }
+      ]
     }
   },
   "eslintConfig": {
