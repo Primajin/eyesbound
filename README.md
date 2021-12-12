@@ -5,6 +5,7 @@
 ![Lighthouse Best Practices 100%](docs/lighthouse/lighthouse_best-practices.svg)
 [![Lighthouse SEO 100%](docs/lighthouse/lighthouse_seo.svg)](https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelines)
 [![Lighthouse Progressive Web App 100%](docs/lighthouse/lighthouse_pwa.svg)](https://web.dev/pwa-checklist/)
+[![codecov](https://codecov.io/gh/Primajin/eyesbound/branch/main/graph/badge.svg?token=1NEMX7LLFG)](https://codecov.io/gh/Primajin/eyesbound)
 
 ![Image of Eyesbound Website with A Design Award](docs/eyesbound-award.png)
 ## Development
