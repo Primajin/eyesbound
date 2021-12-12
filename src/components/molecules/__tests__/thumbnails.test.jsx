@@ -1,7 +1,7 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
 
-import Thumbnails from '../Thumbnails.jsx';
+import Thumbnails from '../thumbnails.jsx';
 
 describe('Thumbnails', () => {
 	it('renders correctly with list of zero', () => {
