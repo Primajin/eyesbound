@@ -9,14 +9,14 @@ import {userPrefersDark} from '../../utils/theming.js';
 import Picture from './picture.jsx';
 
 const centerOfGermany = {
-	lat: 51.164_229_2,
-	lng: 10.454_119_4,
+	latitude: 51.164_229_2,
+	longitude: 10.454_119_4,
 };
 
-const Map = ({center, data, height = '100vh', zoom = 5}) => {
+const Map = ({center, data, height, zoom}) => {
 	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
 	const [properties, setProperties] = useState({});
-	const mapCenter = {lat: center?.latitude || centerOfGermany.lat, lng: center?.longitude || centerOfGermany.lng};
+	const mapCenter = {lat: center.latitude, lng: center.longitude};
 
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const prefersDark = storagePrefersDark ?? userPrefersDark;
@@ -59,6 +59,12 @@ Map.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,
 	height: PropTypes.string,
 	zoom: PropTypes.number,
+};
+
+Map.defaultProps = {
+	center: centerOfGermany,
+	height: '100vh',
+	zoom: 5,
 };
 
 export default memo(Map);
