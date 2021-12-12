@@ -2,6 +2,35 @@
 
 exports[`Group renders correctly with list of more 1`] = `
 Array [
+  <div
+    className="mock-helmet"
+  >
+    <title>
+      plural
+       | 
+      EYESBOUND
+    </title>
+    <meta
+      content="plural | EYESBOUND"
+      name="title"
+    />
+    <meta
+      content="plural | EYESBOUND"
+      property="og:title"
+    />
+    <meta
+      content="plural | EYESBOUND"
+      name="twitter:title"
+    />
+    <link
+      href="https://eyesbound.com/path/"
+      rel="canonical"
+    />
+    <meta
+      content="https://eyesbound.com/path/"
+      property="og:url"
+    />
+  </div>,
   <header>
     <h1
       className=""
@@ -256,6 +285,14 @@ Array [
           d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
         />
       </svg>
+      <div
+        className="mock-helmet"
+      >
+        <meta
+          content="#ffffff"
+          name="theme-color"
+        />
+      </div>
     </button>
   </header>,
   <main
@@ -308,6 +345,35 @@ Array [
 
 exports[`Group renders correctly with list of one 1`] = `
 Array [
+  <div
+    className="mock-helmet"
+  >
+    <title>
+      plural
+       | 
+      EYESBOUND
+    </title>
+    <meta
+      content="plural | EYESBOUND"
+      name="title"
+    />
+    <meta
+      content="plural | EYESBOUND"
+      property="og:title"
+    />
+    <meta
+      content="plural | EYESBOUND"
+      name="twitter:title"
+    />
+    <link
+      href="https://eyesbound.com/path/"
+      rel="canonical"
+    />
+    <meta
+      content="https://eyesbound.com/path/"
+      property="og:url"
+    />
+  </div>,
   <header>
     <h1
       className=""
@@ -562,6 +628,14 @@ Array [
           d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
         />
       </svg>
+      <div
+        className="mock-helmet"
+      >
+        <meta
+          content="#ffffff"
+          name="theme-color"
+        />
+      </div>
     </button>
   </header>,
   <main
@@ -606,6 +680,35 @@ Array [
 
 exports[`Group renders correctly with list of zero 1`] = `
 Array [
+  <div
+    className="mock-helmet"
+  >
+    <title>
+      plural
+       | 
+      EYESBOUND
+    </title>
+    <meta
+      content="plural | EYESBOUND"
+      name="title"
+    />
+    <meta
+      content="plural | EYESBOUND"
+      property="og:title"
+    />
+    <meta
+      content="plural | EYESBOUND"
+      name="twitter:title"
+    />
+    <link
+      href="https://eyesbound.com/path/"
+      rel="canonical"
+    />
+    <meta
+      content="https://eyesbound.com/path/"
+      property="og:url"
+    />
+  </div>,
   <header>
     <h1
       className=""
@@ -860,6 +963,14 @@ Array [
           d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
         />
       </svg>
+      <div
+        className="mock-helmet"
+      >
+        <meta
+          content="#ffffff"
+          name="theme-color"
+        />
+      </div>
     </button>
   </header>,
   <main
