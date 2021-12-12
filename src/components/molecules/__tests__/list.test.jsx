@@ -8,7 +8,7 @@ describe('List', () => {
 		const data = [];
 		const path = 'path';
 		const title = 'title';
-		const component = create(<List title={title} path={path} data={data}/>).toJSON();
+		const component = create(<List data={data} title={title} path={path}/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 
@@ -18,7 +18,7 @@ describe('List', () => {
 		const data = [listDataNode];
 		const path = 'path';
 		const title = 'title';
-		const component = create(<List title={title} path={path} data={data}/>).toJSON();
+		const component = create(<List data={data} title={title} path={path}/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 
@@ -30,7 +30,7 @@ describe('List', () => {
 		const data = [listDataNode1, listDataNode2];
 		const path = 'path';
 		const title = 'title';
-		const component = create(<List title={title} path={path} data={data}/>).toJSON();
+		const component = create(<List data={data} title={title} path={path}/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 });
