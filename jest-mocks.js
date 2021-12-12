@@ -1,3 +1,5 @@
+/* global jest */
+/* eslint-disable unicorn/prefer-module */
 jest.mock('gatsby-plugin-image', () => {
 	const React = require('react');
 	const plugin = jest.requireActual('gatsby-plugin-image');

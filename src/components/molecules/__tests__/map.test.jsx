@@ -46,4 +46,5 @@ describe('Map', () => {
 		expect(component).toMatchSnapshot();
 	});
 	 */
+	/* eslint-enable */
 });

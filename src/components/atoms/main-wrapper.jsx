@@ -20,4 +20,8 @@ MainWrapper.propTypes = {
 	children,
 };
 
+MainWrapper.defaultProps = {
+	children: undefined,
+};
+
 export default MainWrapper;

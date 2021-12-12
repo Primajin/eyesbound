@@ -44,7 +44,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 };
 
 Home.propTypes = {
-	data: PropTypes.shape(Query),
+	data: PropTypes.shape(Query).isRequired,
 };
 
 export default Home;
