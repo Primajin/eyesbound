@@ -17,6 +17,7 @@ describe('Fullscreen', () => {
 	});
 
 	it('calls back the callback', () => {
+		/* global document */
 		document.addEventListener = jest.fn((_, callback) => {
 			callback();
 		});

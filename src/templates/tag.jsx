@@ -15,7 +15,7 @@ const Tag = ({data: {prismicTags, allPrismicPicture}}) => {
 };
 
 Tag.propTypes = {
-	data: PropTypes.shape(Query),
+	data: PropTypes.shape(Query).isRequired,
 };
 
 export default Tag;

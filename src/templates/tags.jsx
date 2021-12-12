@@ -11,7 +11,7 @@ const {TAG: {path, plural}} = AssetTypes;
 const Tags = ({data: {allPrismicTags: {edges}}}) => <Group edges={edges} path={path} plural={plural}/>;
 
 Tags.propTypes = {
-	data: PropTypes.shape(Query),
+	data: PropTypes.shape(Query).isRequired,
 };
 
 export default Tags;
