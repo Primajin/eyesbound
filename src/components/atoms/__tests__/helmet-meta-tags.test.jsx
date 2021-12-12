@@ -1,17 +1,11 @@
-import {inspect} from 'node:util';
 import React from 'react';
 import {create} from 'react-test-renderer';
 
 import HelmetMetaTags from '../helmet-meta-tags.jsx';
 
 describe('HelmetMetaTags', () => {
-	const options = {
-		depth: 6,
-		sorted: true,
-	};
-
 	it('renders correctly without props', () => {
-		const component = inspect(create(<HelmetMetaTags/>).toTree(), options);
+		const component = create(<HelmetMetaTags/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 
@@ -23,7 +17,7 @@ describe('HelmetMetaTags', () => {
 		const path = 'picture';
 		const title = 'Libeskind';
 		const uid = 'libeskind';
-		const component = inspect(create(
+		const component = create(
 			<HelmetMetaTags
 				coordinates={coordinates}
 				dateTime={dateTime}
@@ -33,7 +27,7 @@ describe('HelmetMetaTags', () => {
 				title={title}
 				uid={uid}
 			/>,
-		).toTree(), options);
+		).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 });
