@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map renders correctly with list of zero 1`] = `
+Array [
+  <div />,
+  <div>
+    Loading...
+  </div>,
+]
+`;
