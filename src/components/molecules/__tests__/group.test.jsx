@@ -8,7 +8,7 @@ describe('Group', () => {
 		const edges = [];
 		const path = 'path';
 		const plural = 'plural';
-		const component = create(<Group plural={plural} path={path} edges={edges}/>).toJSON();
+		const component = create(<Group edges={edges} plural={plural} path={path}/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 
@@ -18,7 +18,7 @@ describe('Group', () => {
 		const edges = [listDataNode];
 		const path = 'path';
 		const plural = 'plural';
-		const component = create(<Group plural={plural} path={path} edges={edges}/>).toJSON();
+		const component = create(<Group edges={edges} plural={plural} path={path}/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 
@@ -30,7 +30,7 @@ describe('Group', () => {
 		const edges = [listDataNode1, listDataNode2];
 		const path = 'path';
 		const plural = 'plural';
-		const component = create(<Group plural={plural} path={path} edges={edges}/>).toJSON();
+		const component = create(<Group edges={edges} plural={plural} path={path}/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});
 });
