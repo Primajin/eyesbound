@@ -1,0 +1,779 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slideshow renders correctly with list of more 1`] = `
+<div
+  className="slide-container"
+>
+  <div
+    aria-roledescription="carousel"
+    dir="ltr"
+  >
+    <div
+      className="react-slideshow-container"
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    >
+      <button
+        aria-label="Previous Slide"
+        className="isFullscreen nav "
+        css={
+          Object {
+            "map": undefined,
+            "name": "13ys6af",
+            "next": undefined,
+            "styles": "
+	background: var(--foreground);
+	color: var(--background);
+	height: 180px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 40px;
+	z-index: 5;
+
+	@media (min-width: 768px) {
+		width: 20px;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+		outline: 0;
+	}
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	&[data-type=\\"next\\"] {
+		right: 0;
+	}
+",
+            "toString": [Function],
+          }
+        }
+        data-type="prev"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex="10"
+        type="button"
+      >
+        «
+      </button>
+      <div
+        className="react-slideshow-fade-wrapper "
+      >
+        <div
+          className="react-slideshow-fade-images-wrap"
+        >
+          <div
+            aria-hidden="false"
+            aria-roledescription="slide"
+            data-index={0}
+            style={
+              Object {
+                "opacity": "1",
+                "zIndex": "1",
+              }
+            }
+          >
+            <a
+              href="/picture/uid-1"
+              title="title1"
+            >
+              <figure>
+                <picture>
+                  <img
+                    alt="title1"
+                    css={
+                      Object {
+                        "map": undefined,
+                        "name": "724za4",
+                        "next": undefined,
+                        "styles": "
+	height: calc(100vh - 50px);
+	width: 100vw;
+",
+                        "toString": [Function],
+                      }
+                    }
+                    image={
+                      Object {
+                        "layout": "FULL_WIDTH",
+                      }
+                    }
+                  />
+                </picture>
+                <figcaption
+                  css={
+                    Object {
+                      "map": undefined,
+                      "name": "t2dtan",
+                      "next": undefined,
+                      "styles": "
+	display: none;
+",
+                      "toString": [Function],
+                    }
+                  }
+                >
+                  title1
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div
+            aria-hidden="true"
+            aria-roledescription="slide"
+            data-index={1}
+            style={
+              Object {
+                "opacity": "0",
+                "zIndex": "0",
+              }
+            }
+          >
+            <a
+              href="/picture/uid-2"
+              title="title2"
+            >
+              <figure>
+                <picture>
+                  <img
+                    alt="title2"
+                    css={
+                      Object {
+                        "map": undefined,
+                        "name": "724za4",
+                        "next": undefined,
+                        "styles": "
+	height: calc(100vh - 50px);
+	width: 100vw;
+",
+                        "toString": [Function],
+                      }
+                    }
+                    image={
+                      Object {
+                        "layout": "FULL_WIDTH",
+                      }
+                    }
+                  />
+                </picture>
+                <figcaption
+                  css={
+                    Object {
+                      "map": undefined,
+                      "name": "t2dtan",
+                      "next": undefined,
+                      "styles": "
+	display: none;
+",
+                      "toString": [Function],
+                    }
+                  }
+                >
+                  title2
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="Next Slide"
+        className="isFullscreen nav "
+        css={
+          Object {
+            "map": undefined,
+            "name": "13ys6af",
+            "next": undefined,
+            "styles": "
+	background: var(--foreground);
+	color: var(--background);
+	height: 180px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 40px;
+	z-index: 5;
+
+	@media (min-width: 768px) {
+		width: 20px;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+		outline: 0;
+	}
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	&[data-type=\\"next\\"] {
+		right: 0;
+	}
+",
+            "toString": [Function],
+          }
+        }
+        data-type="next"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex="11"
+        type="button"
+      >
+        »
+      </button>
+    </div>
+    <ul
+      className="indicators"
+    >
+      <li
+        aria-label="Go to slide 1"
+        className="indicator active"
+        data-key={0}
+        onClick={[Function]}
+        title="title1"
+      >
+        <figure>
+          <picture>
+            <img
+              alt="title1"
+              css={
+                Object {
+                  "map": undefined,
+                  "name": "1hgrnzr",
+                  "next": undefined,
+                  "styles": "
+	height: 31px;
+	width: 100%;
+",
+                  "toString": [Function],
+                }
+              }
+              height={31}
+              image={
+                Object {
+                  "layout": "CONSTRAINED",
+                }
+              }
+              width={46}
+            />
+          </picture>
+          <figcaption
+            css={
+              Object {
+                "map": undefined,
+                "name": "1052cht",
+                "next": undefined,
+                "styles": "
+	bottom: 15px;
+	color: var(--background);
+	display: none;
+	font-weight: 700;
+	opacity: 0;
+	position: absolute;
+	right: 20px;
+	text-align: right;
+	text-transform: uppercase;
+	transition: opacity .333s;
+
+	@media (min-width: 768px) {
+		display: block;
+	}
+
+	.active & {
+		opacity: 1;
+	}
+",
+                "toString": [Function],
+              }
+            }
+          >
+            title1
+          </figcaption>
+        </figure>
+      </li>
+      <li
+        aria-label="Go to slide 2"
+        className="indicator "
+        data-key={1}
+        onClick={[Function]}
+        title="title2"
+      >
+        <figure>
+          <picture>
+            <img
+              alt="title2"
+              css={
+                Object {
+                  "map": undefined,
+                  "name": "1hgrnzr",
+                  "next": undefined,
+                  "styles": "
+	height: 31px;
+	width: 100%;
+",
+                  "toString": [Function],
+                }
+              }
+              height={31}
+              image={
+                Object {
+                  "layout": "CONSTRAINED",
+                }
+              }
+              width={46}
+            />
+          </picture>
+          <figcaption
+            css={
+              Object {
+                "map": undefined,
+                "name": "1052cht",
+                "next": undefined,
+                "styles": "
+	bottom: 15px;
+	color: var(--background);
+	display: none;
+	font-weight: 700;
+	opacity: 0;
+	position: absolute;
+	right: 20px;
+	text-align: right;
+	text-transform: uppercase;
+	transition: opacity .333s;
+
+	@media (min-width: 768px) {
+		display: block;
+	}
+
+	.active & {
+		opacity: 1;
+	}
+",
+                "toString": [Function],
+              }
+            }
+          >
+            title2
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Slideshow renders correctly with list of one 1`] = `
+<div
+  className="slide-container"
+>
+  <div
+    aria-roledescription="carousel"
+    dir="ltr"
+  >
+    <div
+      className="react-slideshow-container"
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    >
+      <button
+        aria-label="Previous Slide"
+        className="isFullscreen nav "
+        css={
+          Object {
+            "map": undefined,
+            "name": "13ys6af",
+            "next": undefined,
+            "styles": "
+	background: var(--foreground);
+	color: var(--background);
+	height: 180px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 40px;
+	z-index: 5;
+
+	@media (min-width: 768px) {
+		width: 20px;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+		outline: 0;
+	}
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	&[data-type=\\"next\\"] {
+		right: 0;
+	}
+",
+            "toString": [Function],
+          }
+        }
+        data-type="prev"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex="10"
+        type="button"
+      >
+        «
+      </button>
+      <div
+        className="react-slideshow-fade-wrapper "
+      >
+        <div
+          className="react-slideshow-fade-images-wrap"
+        >
+          <div
+            aria-hidden="false"
+            aria-roledescription="slide"
+            data-index={0}
+            style={
+              Object {
+                "opacity": "1",
+                "zIndex": "1",
+              }
+            }
+          >
+            <a
+              href="/picture/uid-bar"
+              title="title1"
+            >
+              <figure>
+                <picture>
+                  <img
+                    alt="title1"
+                    css={
+                      Object {
+                        "map": undefined,
+                        "name": "724za4",
+                        "next": undefined,
+                        "styles": "
+	height: calc(100vh - 50px);
+	width: 100vw;
+",
+                        "toString": [Function],
+                      }
+                    }
+                    image={
+                      Object {
+                        "layout": "FULL_WIDTH",
+                      }
+                    }
+                  />
+                </picture>
+                <figcaption
+                  css={
+                    Object {
+                      "map": undefined,
+                      "name": "t2dtan",
+                      "next": undefined,
+                      "styles": "
+	display: none;
+",
+                      "toString": [Function],
+                    }
+                  }
+                >
+                  title1
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="Next Slide"
+        className="isFullscreen nav "
+        css={
+          Object {
+            "map": undefined,
+            "name": "13ys6af",
+            "next": undefined,
+            "styles": "
+	background: var(--foreground);
+	color: var(--background);
+	height: 180px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 40px;
+	z-index: 5;
+
+	@media (min-width: 768px) {
+		width: 20px;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+		outline: 0;
+	}
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	&[data-type=\\"next\\"] {
+		right: 0;
+	}
+",
+            "toString": [Function],
+          }
+        }
+        data-type="next"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex="11"
+        type="button"
+      >
+        »
+      </button>
+    </div>
+    <ul
+      className="indicators"
+    >
+      <li
+        aria-label="Go to slide 1"
+        className="indicator active"
+        data-key={0}
+        onClick={[Function]}
+        title="title1"
+      >
+        <figure>
+          <picture>
+            <img
+              alt="title1"
+              css={
+                Object {
+                  "map": undefined,
+                  "name": "1hgrnzr",
+                  "next": undefined,
+                  "styles": "
+	height: 31px;
+	width: 100%;
+",
+                  "toString": [Function],
+                }
+              }
+              height={31}
+              image={
+                Object {
+                  "layout": "CONSTRAINED",
+                }
+              }
+              width={46}
+            />
+          </picture>
+          <figcaption
+            css={
+              Object {
+                "map": undefined,
+                "name": "1052cht",
+                "next": undefined,
+                "styles": "
+	bottom: 15px;
+	color: var(--background);
+	display: none;
+	font-weight: 700;
+	opacity: 0;
+	position: absolute;
+	right: 20px;
+	text-align: right;
+	text-transform: uppercase;
+	transition: opacity .333s;
+
+	@media (min-width: 768px) {
+		display: block;
+	}
+
+	.active & {
+		opacity: 1;
+	}
+",
+                "toString": [Function],
+              }
+            }
+          >
+            title1
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Slideshow renders correctly with list of zero 1`] = `
+<div
+  className="slide-container"
+>
+  <div
+    aria-roledescription="carousel"
+    dir="ltr"
+  >
+    <div
+      className="react-slideshow-container"
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    >
+      <button
+        aria-label="Previous Slide"
+        className=" nav "
+        css={
+          Object {
+            "map": undefined,
+            "name": "13ys6af",
+            "next": undefined,
+            "styles": "
+	background: var(--foreground);
+	color: var(--background);
+	height: 180px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 40px;
+	z-index: 5;
+
+	@media (min-width: 768px) {
+		width: 20px;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+		outline: 0;
+	}
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	&[data-type=\\"next\\"] {
+		right: 0;
+	}
+",
+            "toString": [Function],
+          }
+        }
+        data-type="prev"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex="10"
+        type="button"
+      >
+        «
+      </button>
+      <div
+        className="react-slideshow-fade-wrapper "
+      >
+        <div
+          className="react-slideshow-fade-images-wrap"
+        />
+      </div>
+      <button
+        aria-label="Next Slide"
+        className=" nav "
+        css={
+          Object {
+            "map": undefined,
+            "name": "13ys6af",
+            "next": undefined,
+            "styles": "
+	background: var(--foreground);
+	color: var(--background);
+	height: 180px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 40px;
+	z-index: 5;
+
+	@media (min-width: 768px) {
+		width: 20px;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--background);
+		color: var(--foreground);
+		outline: 0;
+	}
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	&[data-type=\\"next\\"] {
+		right: 0;
+	}
+",
+            "toString": [Function],
+          }
+        }
+        data-type="next"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex="11"
+        type="button"
+      >
+        »
+      </button>
+    </div>
+    <ul
+      className="indicators"
+    />
+  </div>
+</div>
+`;

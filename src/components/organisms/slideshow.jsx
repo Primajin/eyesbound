@@ -111,4 +111,8 @@ Slideshow.propTypes = {
 	isFullscreen: PropTypes.bool,
 };
 
+Slideshow.defaultProps = {
+	isFullscreen: false,
+};
+
 export default Slideshow;
