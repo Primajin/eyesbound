@@ -23,9 +23,14 @@ const Member = ({edges, name, path, title, uid}) => (
 Member.propTypes = {
 	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)).isRequired,
 	name: PropTypes.string.isRequired,
-	path: PropTypes.string.isRequired,
+	path: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	uid: PropTypes.string,
+};
+
+Member.defaultProps = {
+	path: '',
+	uid: '',
 };
 
 export default Member;

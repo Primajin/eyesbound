@@ -5,8 +5,8 @@ import {css} from '@emotion/react';
 
 import {Picture as PictureType, Size as SizeType} from '../../types/proptypes.js';
 
-const Picture = ({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails = false, size = {}}) => {
-	let gatsbyImageData;
+const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
+	let gatsbyImageData = {};
 	const alt = image.alt ?? title;
 	const {height: propsHeight, width: propsWidth} = size;
 
@@ -57,6 +57,12 @@ Picture.propTypes = {
 	layout: PropTypes.oneOf(['CONSTRAINED', 'FIXED', 'FULL_WIDTH']),
 	preferThumbnails: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 	size: PropTypes.shape(SizeType),
+};
+
+Picture.defaultProps = {
+	layout: 'CONSTRAINED',
+	preferThumbnails: false,
+	size: {},
 };
 
 export default Picture;

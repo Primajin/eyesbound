@@ -38,7 +38,7 @@ const Thumbnails = ({edges, title, type}) => (
 );
 
 Thumbnails.propTypes = {
-	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)),
+	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)).isRequired,
 	title: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 };

@@ -13,5 +13,5 @@ module.exports = {
 	},
 	testEnvironment: 'jsdom',
 	testURL: 'http://localhost',
-	setupFiles: ['<rootDir>/loadershim.js'],
+	setupFiles: ['<rootDir>/loadershim.js', '<rootDir>/jest-mocks.js'],
 };
