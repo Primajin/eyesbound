@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picture renders correctly with props 1`] = `
+<picture>
+  <img
+    alt="title"
+    css={
+      Object {
+        "map": undefined,
+        "name": "29p3uw",
+        "next": undefined,
+        "styles": "
+	height: 123px;
+	width: 100%;
+",
+        "toString": [Function],
+      }
+    }
+    height={123}
+    image={
+      Object {
+        "layout": "FIXED",
+      }
+    }
+    width={456}
+  />
+</picture>
+`;
+
+exports[`Picture renders correctly without extra props 1`] = `
+<picture>
+  <img
+    alt="title"
+    css={
+      Object {
+        "map": undefined,
+        "name": "117sghq",
+        "next": undefined,
+        "styles": "
+	height: px;
+	width: 100%;
+",
+        "toString": [Function],
+      }
+    }
+    image={
+      Object {
+        "layout": "CONSTRAINED",
+      }
+    }
+  />
+</picture>
+`;

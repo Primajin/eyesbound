@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Thumbnails renders correctly with list of more 1`] = `
+Array [
+  <h1>
+    type
+    : 
+    title
+     (
+    2
+    )
+  </h1>,
+  <ul
+    css={
+      Object {
+        "map": undefined,
+        "name": "148b9zh",
+        "next": undefined,
+        "styles": "
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	@media (min-width: 576px) {
+		gap: 10px;
+	};
+
+	li {
+		content-visibility: auto;
+	}
+",
+        "toString": [Function],
+      }
+    }
+  >
+    <li>
+      <a
+        aria-label="link-to-picture"
+        href="/picture/uid-1"
+      >
+        <picture>
+          <img
+            alt="title1"
+            css={
+              Object {
+                "map": undefined,
+                "name": "1w62pol",
+                "next": undefined,
+                "styles": "
+	height: 174px;
+	width: 100%;
+",
+                "toString": [Function],
+              }
+            }
+            height={174}
+            image={
+              Object {
+                "layout": "CONSTRAINED",
+              }
+            }
+            width={261}
+          />
+        </picture>
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="link-to-picture"
+        href="/picture/uid-2"
+      >
+        <picture>
+          <img
+            alt="title2"
+            css={
+              Object {
+                "map": undefined,
+                "name": "1w62pol",
+                "next": undefined,
+                "styles": "
+	height: 174px;
+	width: 100%;
+",
+                "toString": [Function],
+              }
+            }
+            height={174}
+            image={
+              Object {
+                "layout": "CONSTRAINED",
+              }
+            }
+            width={261}
+          />
+        </picture>
+      </a>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`Thumbnails renders correctly with list of one 1`] = `
+Array [
+  <h1>
+    type
+    : 
+    title
+     (
+    1
+    )
+  </h1>,
+  <ul
+    css={
+      Object {
+        "map": undefined,
+        "name": "148b9zh",
+        "next": undefined,
+        "styles": "
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	@media (min-width: 576px) {
+		gap: 10px;
+	};
+
+	li {
+		content-visibility: auto;
+	}
+",
+        "toString": [Function],
+      }
+    }
+  >
+    <li>
+      <a
+        aria-label="link-to-picture"
+        href="/picture/uid-bar"
+      >
+        <picture>
+          <img
+            alt="title1"
+            css={
+              Object {
+                "map": undefined,
+                "name": "1w62pol",
+                "next": undefined,
+                "styles": "
+	height: 174px;
+	width: 100%;
+",
+                "toString": [Function],
+              }
+            }
+            height={174}
+            image={
+              Object {
+                "layout": "CONSTRAINED",
+              }
+            }
+            width={261}
+          />
+        </picture>
+      </a>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`Thumbnails renders correctly with list of zero 1`] = `
+Array [
+  <h1>
+    type
+    : 
+    title
+     (
+    0
+    )
+  </h1>,
+  <ul
+    css={
+      Object {
+        "map": undefined,
+        "name": "148b9zh",
+        "next": undefined,
+        "styles": "
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	@media (min-width: 576px) {
+		gap: 10px;
+	};
+
+	li {
+		content-visibility: auto;
+	}
+",
+        "toString": [Function],
+      }
+    }
+  />,
+]
+`;
