@@ -46,8 +46,8 @@ const Image = {
 	alt: string,
 	copyright: string,
 	dimensions: exact({
-		width: number,
 		height: number,
+		width: number,
 	}),
 	gatsbyImageData: object,
 	localFile: object,

@@ -1,0 +1,1122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member renders correctly with list of more 1`] = `
+Array [
+  <div
+    className="mock-helmet"
+  >
+    <title>
+      title
+       | 
+      EYESBOUND
+    </title>
+    <meta
+      content="title | EYESBOUND"
+      name="title"
+    />
+    <meta
+      content="title | EYESBOUND"
+      property="og:title"
+    />
+    <meta
+      content="title | EYESBOUND"
+      name="twitter:title"
+    />
+  </div>,
+  <header>
+    <h1
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "1vze745",
+          "next": undefined,
+          "styles": "
+	background-color: var(--foreground);
+	color: var(--background);
+	font-size: 27px;
+	font-weight: 700;
+	height: 100px;
+	left: 0;
+	line-height: 100px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	transition: opacity .333s;
+	top: 0;
+	width: 250px;
+	z-index: 10;
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	@media (min-width: 576px) {
+		font-size: 37px;
+		width: 400px;
+	};
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <a
+        href="/"
+        rel="home"
+        tabIndex="1"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "1ghowhq",
+          "next": undefined,
+          "styles": "
+	line-height: 40px;
+	opacity: 1;
+	outline: 0;
+	position: fixed;
+	text-align: center;
+	top: 100px;
+	transform: translateY(calc(-100% + 40px));
+	transition: transform .333s, opacity .333s;
+	user-select: none;
+	width: 180px;
+	z-index: 9;
+
+	@media (min-width: 768px) {
+		transform: translateY(calc(-100% + 20px));
+	};
+
+	&.isFullscreen {
+		opacity: 0;
+	}
+
+	div {
+		transition: background-color .333s, color .333s;
+		background-color: var(--background);
+		color: var(--foreground);
+
+		@media (min-width: 768px) {
+			line-height: 20px;
+		};
+
+		&:hover {
+			background: var(--foreground);
+			color: var(--background);
+		}
+	}
+
+	&.open {
+		transform: translateY(0);
+
+		div {
+			cursor: default;
+
+			&:hover {
+				background-color: var(--background);
+				color: var(--foreground);
+			}
+		}
+	}
+
+	ul {
+		background-color: var(--foreground);
+		color: var(--background);
+	}
+
+	li {
+		transition: opacity .333s;
+
+		&:hover {
+			opacity: 0.666;
+		}
+	}
+
+	div, li {
+		cursor: pointer;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <ul>
+        <li>
+          <a
+            href="/picture"
+            tabIndex="2"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+            tabIndex="3"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+            tabIndex="4"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+            tabIndex="5"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+            tabIndex="6"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+            tabIndex="7"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+            tabIndex="8"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+            tabIndex="9"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div
+        onClick={[Function]}
+      >
+        Menu
+      </div>
+    </nav>
+    <button
+      aria-label="Switch theme"
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "jwavk5",
+          "next": undefined,
+          "styles": "
+	align-items: center;
+	background-color: var(--foreground);
+	color: var(--background);
+	cursor: pointer;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	opacity: 1;
+	padding: 0;
+	position: fixed;
+	right: 50px;
+	top: 0;
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 50px;
+	z-index: 8;
+
+	&:hover {
+		background: var(--background);
+		color: var(--foreground);
+	}
+
+	&.fullScreen {
+		opacity: 0.65;
+	}
+
+	svg {
+		fill: currentColor;
+		height: 40px;
+		width: 40px;
+	}
+",
+          "toString": [Function],
+        }
+      }
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+        />
+      </svg>
+      <div
+        className="mock-helmet"
+      >
+        <meta
+          content="#ffffff"
+          name="theme-color"
+        />
+      </div>
+    </button>
+  </header>,
+  <main
+    css={
+      Object {
+        "map": undefined,
+        "name": "14akp75",
+        "next": undefined,
+        "styles": "
+	width: clamp(16rem, 90vw, 70rem);
+	margin: 170px auto 100px;
+	padding: 0 1.5rem;
+
+	h1, h3 {
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+",
+        "toString": [Function],
+      }
+    }
+  >
+    <h1>
+      name
+      : 
+      title
+       (
+      2
+      )
+    </h1>
+    <ul
+      css={
+        Object {
+          "map": undefined,
+          "name": "148b9zh",
+          "next": undefined,
+          "styles": "
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	@media (min-width: 576px) {
+		gap: 10px;
+	};
+
+	li {
+		content-visibility: auto;
+	}
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <li>
+        <a
+          aria-label="link-to-picture"
+          href="/picture/uid-1"
+        >
+          <picture>
+            <img
+              alt="title1"
+              css={
+                Object {
+                  "map": undefined,
+                  "name": "1w62pol",
+                  "next": undefined,
+                  "styles": "
+	height: 174px;
+	width: 100%;
+",
+                  "toString": [Function],
+                }
+              }
+              height={174}
+              image={
+                Object {
+                  "layout": "CONSTRAINED",
+                }
+              }
+              width={261}
+            />
+          </picture>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="link-to-picture"
+          href="/picture/uid-2"
+        >
+          <picture>
+            <img
+              alt="title2"
+              css={
+                Object {
+                  "map": undefined,
+                  "name": "1w62pol",
+                  "next": undefined,
+                  "styles": "
+	height: 174px;
+	width: 100%;
+",
+                  "toString": [Function],
+                }
+              }
+              height={174}
+              image={
+                Object {
+                  "layout": "CONSTRAINED",
+                }
+              }
+              width={261}
+            />
+          </picture>
+        </a>
+      </li>
+    </ul>
+  </main>,
+]
+`;
+
+exports[`Member renders correctly with list of one 1`] = `
+Array [
+  <div
+    className="mock-helmet"
+  >
+    <title>
+      title
+       | 
+      EYESBOUND
+    </title>
+    <meta
+      content="title | EYESBOUND"
+      name="title"
+    />
+    <meta
+      content="title | EYESBOUND"
+      property="og:title"
+    />
+    <meta
+      content="title | EYESBOUND"
+      name="twitter:title"
+    />
+  </div>,
+  <header>
+    <h1
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "1vze745",
+          "next": undefined,
+          "styles": "
+	background-color: var(--foreground);
+	color: var(--background);
+	font-size: 27px;
+	font-weight: 700;
+	height: 100px;
+	left: 0;
+	line-height: 100px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	transition: opacity .333s;
+	top: 0;
+	width: 250px;
+	z-index: 10;
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	@media (min-width: 576px) {
+		font-size: 37px;
+		width: 400px;
+	};
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <a
+        href="/"
+        rel="home"
+        tabIndex="1"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "1ghowhq",
+          "next": undefined,
+          "styles": "
+	line-height: 40px;
+	opacity: 1;
+	outline: 0;
+	position: fixed;
+	text-align: center;
+	top: 100px;
+	transform: translateY(calc(-100% + 40px));
+	transition: transform .333s, opacity .333s;
+	user-select: none;
+	width: 180px;
+	z-index: 9;
+
+	@media (min-width: 768px) {
+		transform: translateY(calc(-100% + 20px));
+	};
+
+	&.isFullscreen {
+		opacity: 0;
+	}
+
+	div {
+		transition: background-color .333s, color .333s;
+		background-color: var(--background);
+		color: var(--foreground);
+
+		@media (min-width: 768px) {
+			line-height: 20px;
+		};
+
+		&:hover {
+			background: var(--foreground);
+			color: var(--background);
+		}
+	}
+
+	&.open {
+		transform: translateY(0);
+
+		div {
+			cursor: default;
+
+			&:hover {
+				background-color: var(--background);
+				color: var(--foreground);
+			}
+		}
+	}
+
+	ul {
+		background-color: var(--foreground);
+		color: var(--background);
+	}
+
+	li {
+		transition: opacity .333s;
+
+		&:hover {
+			opacity: 0.666;
+		}
+	}
+
+	div, li {
+		cursor: pointer;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <ul>
+        <li>
+          <a
+            href="/picture"
+            tabIndex="2"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+            tabIndex="3"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+            tabIndex="4"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+            tabIndex="5"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+            tabIndex="6"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+            tabIndex="7"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+            tabIndex="8"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+            tabIndex="9"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div
+        onClick={[Function]}
+      >
+        Menu
+      </div>
+    </nav>
+    <button
+      aria-label="Switch theme"
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "jwavk5",
+          "next": undefined,
+          "styles": "
+	align-items: center;
+	background-color: var(--foreground);
+	color: var(--background);
+	cursor: pointer;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	opacity: 1;
+	padding: 0;
+	position: fixed;
+	right: 50px;
+	top: 0;
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 50px;
+	z-index: 8;
+
+	&:hover {
+		background: var(--background);
+		color: var(--foreground);
+	}
+
+	&.fullScreen {
+		opacity: 0.65;
+	}
+
+	svg {
+		fill: currentColor;
+		height: 40px;
+		width: 40px;
+	}
+",
+          "toString": [Function],
+        }
+      }
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+        />
+      </svg>
+      <div
+        className="mock-helmet"
+      >
+        <meta
+          content="#ffffff"
+          name="theme-color"
+        />
+      </div>
+    </button>
+  </header>,
+  <main
+    css={
+      Object {
+        "map": undefined,
+        "name": "14akp75",
+        "next": undefined,
+        "styles": "
+	width: clamp(16rem, 90vw, 70rem);
+	margin: 170px auto 100px;
+	padding: 0 1.5rem;
+
+	h1, h3 {
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+",
+        "toString": [Function],
+      }
+    }
+  >
+    <h1>
+      name
+      : 
+      title
+       (
+      1
+      )
+    </h1>
+    <ul
+      css={
+        Object {
+          "map": undefined,
+          "name": "148b9zh",
+          "next": undefined,
+          "styles": "
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	@media (min-width: 576px) {
+		gap: 10px;
+	};
+
+	li {
+		content-visibility: auto;
+	}
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <li>
+        <a
+          aria-label="link-to-picture"
+          href="/picture/uid-bar"
+        >
+          <picture>
+            <img
+              alt="title1"
+              css={
+                Object {
+                  "map": undefined,
+                  "name": "1w62pol",
+                  "next": undefined,
+                  "styles": "
+	height: 174px;
+	width: 100%;
+",
+                  "toString": [Function],
+                }
+              }
+              height={174}
+              image={
+                Object {
+                  "layout": "CONSTRAINED",
+                }
+              }
+              width={261}
+            />
+          </picture>
+        </a>
+      </li>
+    </ul>
+  </main>,
+]
+`;
+
+exports[`Member renders correctly with list of zero 1`] = `
+Array [
+  <div
+    className="mock-helmet"
+  >
+    <title>
+      title
+       | 
+      EYESBOUND
+    </title>
+    <meta
+      content="title | EYESBOUND"
+      name="title"
+    />
+    <meta
+      content="title | EYESBOUND"
+      property="og:title"
+    />
+    <meta
+      content="title | EYESBOUND"
+      name="twitter:title"
+    />
+  </div>,
+  <header>
+    <h1
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "1vze745",
+          "next": undefined,
+          "styles": "
+	background-color: var(--foreground);
+	color: var(--background);
+	font-size: 27px;
+	font-weight: 700;
+	height: 100px;
+	left: 0;
+	line-height: 100px;
+	opacity: 1;
+	position: fixed;
+	text-align: center;
+	transition: opacity .333s;
+	top: 0;
+	width: 250px;
+	z-index: 10;
+
+	&.isFullscreen {
+		opacity: 0.65;
+	}
+
+	@media (min-width: 576px) {
+		font-size: 37px;
+		width: 400px;
+	};
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <a
+        href="/"
+        rel="home"
+        tabIndex="1"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "1ghowhq",
+          "next": undefined,
+          "styles": "
+	line-height: 40px;
+	opacity: 1;
+	outline: 0;
+	position: fixed;
+	text-align: center;
+	top: 100px;
+	transform: translateY(calc(-100% + 40px));
+	transition: transform .333s, opacity .333s;
+	user-select: none;
+	width: 180px;
+	z-index: 9;
+
+	@media (min-width: 768px) {
+		transform: translateY(calc(-100% + 20px));
+	};
+
+	&.isFullscreen {
+		opacity: 0;
+	}
+
+	div {
+		transition: background-color .333s, color .333s;
+		background-color: var(--background);
+		color: var(--foreground);
+
+		@media (min-width: 768px) {
+			line-height: 20px;
+		};
+
+		&:hover {
+			background: var(--foreground);
+			color: var(--background);
+		}
+	}
+
+	&.open {
+		transform: translateY(0);
+
+		div {
+			cursor: default;
+
+			&:hover {
+				background-color: var(--background);
+				color: var(--foreground);
+			}
+		}
+	}
+
+	ul {
+		background-color: var(--foreground);
+		color: var(--background);
+	}
+
+	li {
+		transition: opacity .333s;
+
+		&:hover {
+			opacity: 0.666;
+		}
+	}
+
+	div, li {
+		cursor: pointer;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+",
+          "toString": [Function],
+        }
+      }
+    >
+      <ul>
+        <li>
+          <a
+            href="/picture"
+            tabIndex="2"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+            tabIndex="3"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+            tabIndex="4"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+            tabIndex="5"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+            tabIndex="6"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+            tabIndex="7"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+            tabIndex="8"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+            tabIndex="9"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div
+        onClick={[Function]}
+      >
+        Menu
+      </div>
+    </nav>
+    <button
+      aria-label="Switch theme"
+      className=""
+      css={
+        Object {
+          "map": undefined,
+          "name": "jwavk5",
+          "next": undefined,
+          "styles": "
+	align-items: center;
+	background-color: var(--foreground);
+	color: var(--background);
+	cursor: pointer;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	opacity: 1;
+	padding: 0;
+	position: fixed;
+	right: 50px;
+	top: 0;
+	transition: background-color .333s, color .333s, opacity .333s;
+	width: 50px;
+	z-index: 8;
+
+	&:hover {
+		background: var(--background);
+		color: var(--foreground);
+	}
+
+	&.fullScreen {
+		opacity: 0.65;
+	}
+
+	svg {
+		fill: currentColor;
+		height: 40px;
+		width: 40px;
+	}
+",
+          "toString": [Function],
+        }
+      }
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+        />
+      </svg>
+      <div
+        className="mock-helmet"
+      >
+        <meta
+          content="#ffffff"
+          name="theme-color"
+        />
+      </div>
+    </button>
+  </header>,
+  <main
+    css={
+      Object {
+        "map": undefined,
+        "name": "14akp75",
+        "next": undefined,
+        "styles": "
+	width: clamp(16rem, 90vw, 70rem);
+	margin: 170px auto 100px;
+	padding: 0 1.5rem;
+
+	h1, h3 {
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+",
+        "toString": [Function],
+      }
+    }
+  >
+    <h1>
+      name
+      : 
+      title
+       (
+      0
+      )
+    </h1>
+    <ul
+      css={
+        Object {
+          "map": undefined,
+          "name": "148b9zh",
+          "next": undefined,
+          "styles": "
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 5px;
+
+	@media (min-width: 576px) {
+		gap: 10px;
+	};
+
+	li {
+		content-visibility: auto;
+	}
+",
+          "toString": [Function],
+        }
+      }
+    />
+  </main>,
+]
+`;
