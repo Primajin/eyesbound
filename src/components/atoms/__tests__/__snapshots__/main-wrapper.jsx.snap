@@ -1,28 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainWrapper renders correctly 1`] = `
-<main
-  css={
-    Object {
-      "map": undefined,
-      "name": "14akp75",
-      "next": undefined,
-      "styles": "
-	width: clamp(16rem, 90vw, 70rem);
-	margin: 170px auto 100px;
-	padding: 0 1.5rem;
-
-	h1, h3 {
-		font-weight: 400;
-		padding-bottom: 1em;
-	}
-",
-      "toString": [Function],
-    }
-  }
-/>
-`;
-
 exports[`MainWrapper renders correctly with props 1`] = `
 <main
   css={
@@ -48,4 +25,27 @@ exports[`MainWrapper renders correctly with props 1`] = `
     Hello there!
   </h1>
 </main>
+`;
+
+exports[`MainWrapper renders correctly without props 1`] = `
+<main
+  css={
+    Object {
+      "map": undefined,
+      "name": "14akp75",
+      "next": undefined,
+      "styles": "
+	width: clamp(16rem, 90vw, 70rem);
+	margin: 170px auto 100px;
+	padding: 0 1.5rem;
+
+	h1, h3 {
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+",
+      "toString": [Function],
+    }
+  }
+/>
 `;

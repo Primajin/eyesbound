@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation renders correctly 1`] = `
+exports[`Navigation renders correctly with props 1`] = `
 <nav
-  className=""
+  className="isFullscreen"
   css={
     Object {
       "map": undefined,
@@ -154,9 +154,9 @@ exports[`Navigation renders correctly 1`] = `
 </nav>
 `;
 
-exports[`Navigation renders correctly with props 1`] = `
+exports[`Navigation renders correctly without props 1`] = `
 <nav
-  className="isFullscreen"
+  className=""
   css={
     Object {
       "map": undefined,

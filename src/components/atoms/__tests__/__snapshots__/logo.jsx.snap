@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logo renders correctly 1`] = `
+exports[`Logo renders correctly with props 1`] = `
 <h1
-  className=""
+  className="isFullscreen"
   css={
     Object {
       "map": undefined,
@@ -47,9 +47,9 @@ exports[`Logo renders correctly 1`] = `
 </h1>
 `;
 
-exports[`Logo renders correctly with props 1`] = `
+exports[`Logo renders correctly without props 1`] = `
 <h1
-  className="isFullscreen"
+  className=""
   css={
     Object {
       "map": undefined,

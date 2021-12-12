@@ -71,7 +71,7 @@ exports[`Fullscreen renders correctly with props 1`] = `
 </button>
 `;
 
-exports[`Fullscreen renders correctly without any props given 1`] = `
+exports[`Fullscreen renders correctly without props 1`] = `
 <button
   aria-label="Toggle fullscreen"
   className=""
