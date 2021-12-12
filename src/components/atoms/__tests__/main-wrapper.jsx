@@ -4,7 +4,7 @@ import {create} from 'react-test-renderer';
 import MainWrapper from '../main-wrapper.jsx';
 
 describe('MainWrapper', () => {
-	it('renders correctly', () => {
+	it('renders correctly without props', () => {
 		const component = create(<MainWrapper/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});

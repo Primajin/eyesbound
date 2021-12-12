@@ -10,12 +10,12 @@ describe('HelmetMetaTags', () => {
 		sorted: true,
 	};
 
-	it('renders correctly without any props given', () => {
+	it('renders correctly without props', () => {
 		const component = inspect(create(<HelmetMetaTags/>).toTree(), options);
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with props given', () => {
+	it('renders correctly with props', () => {
 		const coordinates = [52.473_092, 13.327_628];
 		const dateTime = '1986-03-14T11:25:00+0000';
 		const description = 'Anyone can hold the helm when the sea is calm';

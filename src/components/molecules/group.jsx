@@ -7,12 +7,12 @@ import {ListDataNode} from '../../types/proptypes.js';
 import List from './list.jsx';
 import Header from './header.jsx';
 
-const Group = ({edges, path, plural}) => (
+const Group = ({edges: data, path, plural}) => (
 	<>
 		<HelmetMetaTags title={plural} path={path}/>
 		<Header/>
 		<MainWrapper>
-			<List title={plural} data={edges} path={path}/>
+			<List title={plural} data={data} path={path}/>
 		</MainWrapper>
 	</>
 );

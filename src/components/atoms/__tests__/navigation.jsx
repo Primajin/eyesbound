@@ -4,7 +4,7 @@ import {create} from 'react-test-renderer';
 import Navigation from '../navigation.jsx';
 
 describe('Navigation', () => {
-	it('renders correctly', () => {
+	it('renders correctly without props', () => {
 		const component = create(<Navigation/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});

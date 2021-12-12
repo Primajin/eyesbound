@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders correctly with list of more 1`] = `
+Array [
+  <h1>
+    title
+     (
+    2
+    )
+  </h1>,
+  <ul>
+    <li>
+      <a
+        aria-label="link-to-path"
+        href="/path/1234-5678-90"
+      >
+        List Data Title 1
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="link-to-path"
+        href="/path/9876-5432-10"
+      >
+        List Data Title 2
+      </a>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`List renders correctly with list of one 1`] = `
+Array [
+  <h1>
+    title
+     (
+    1
+    )
+  </h1>,
+  <ul>
+    <li>
+      <a
+        aria-label="link-to-path"
+        href="/path/1234-5678-90"
+      >
+        List Data Title
+      </a>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`List renders correctly with list of zero 1`] = `
+Array [
+  <h1>
+    title
+     (
+    0
+    )
+  </h1>,
+  <ul />,
+]
+`;

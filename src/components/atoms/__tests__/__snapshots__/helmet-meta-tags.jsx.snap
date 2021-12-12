@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelmetMetaTags renders correctly with props given 1`] = `
+exports[`HelmetMetaTags renders correctly with props 1`] = `
 "{
   instance: null,
   nodeType: 'component',
@@ -3853,7 +3853,7 @@ exports[`HelmetMetaTags renders correctly with props given 1`] = `
 }"
 `;
 
-exports[`HelmetMetaTags renders correctly without any props given 1`] = `
+exports[`HelmetMetaTags renders correctly without props 1`] = `
 "{
   instance: null,
   nodeType: 'component',
