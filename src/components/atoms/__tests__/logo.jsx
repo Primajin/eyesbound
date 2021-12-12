@@ -4,7 +4,7 @@ import {create} from 'react-test-renderer';
 import Logo from '../logo.jsx';
 
 describe('Logo', () => {
-	it('renders correctly', () => {
+	it('renders correctly without props', () => {
 		const component = create(<Logo/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});

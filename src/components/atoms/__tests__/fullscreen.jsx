@@ -4,7 +4,7 @@ import {create} from 'react-test-renderer';
 import Fullscreen from '../fullscreen.jsx';
 
 describe('Fullscreen', () => {
-	it('renders correctly without any props given', () => {
+	it('renders correctly without props', () => {
 		const component = create(<Fullscreen/>).toJSON();
 		expect(component).toMatchSnapshot();
 	});

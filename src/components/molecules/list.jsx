@@ -21,9 +21,9 @@ const List = ({data, path, title}) => (
 );
 
 List.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.exact(ListDataNode)),
-	path: PropTypes.string,
-	title: PropTypes.string,
+	data: PropTypes.arrayOf(PropTypes.exact(ListDataNode)).isRequired,
+	path: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export default List;

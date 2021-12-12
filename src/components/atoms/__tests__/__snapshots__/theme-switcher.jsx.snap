@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ThemeSwitcher renders correctly 1`] = `
+exports[`ThemeSwitcher renders correctly with props 1`] = `
 <button
   aria-label="Switch theme"
-  className=""
+  className="fullScreen"
   css={
     Object {
       "map": undefined,
@@ -62,10 +62,10 @@ exports[`ThemeSwitcher renders correctly 1`] = `
 </button>
 `;
 
-exports[`ThemeSwitcher renders correctly in Fullscreen mode 1`] = `
+exports[`ThemeSwitcher renders correctly without props 1`] = `
 <button
   aria-label="Switch theme"
-  className="fullScreen"
+  className=""
   css={
     Object {
       "map": undefined,
