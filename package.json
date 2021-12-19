@@ -95,7 +95,6 @@
     "env": {
       "browser": false,
       "es6": true,
-      "jest/globals": true,
       "node": true
     }
   },
