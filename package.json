@@ -48,6 +48,7 @@
     "react-slideshow-image": "^3.6.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
     "babel-jest": "^27.4.5",
     "babel-preset-gatsby": "^2.4.0",
     "codecov": "^3.8.3",
