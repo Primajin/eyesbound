@@ -1,5 +1,5 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {act, create} from 'react-test-renderer';
 
 import Fullscreen from '../fullscreen.jsx';
 
@@ -24,7 +24,9 @@ describe('Fullscreen', () => {
 		const callback = jest.fn();
 		const selector = '';
 		const component = create(<Fullscreen callback={callback} selector={selector}/>);
-		component.root.findByType('button').props.onClick();
+		act(() => {
+			component.root.findByType('button').props.onClick();
+		});
 		expect(callback).toHaveBeenCalledTimes(1);
 	});
 });
