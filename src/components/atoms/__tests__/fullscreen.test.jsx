@@ -21,13 +21,10 @@ describe('Fullscreen', () => {
 		document.addEventListener = jest.fn((_, callback) => {
 			callback();
 		});
-		document.removeEventListener = jest.fn((_, callback) => {
-			callback();
-		});
 		const callback = jest.fn();
 		const selector = '';
 		const component = create(<Fullscreen callback={callback} selector={selector}/>);
 		component.root.findByType('button').props.onClick();
-		expect(callback).toHaveBeenCalled();
+		expect(callback).toHaveBeenCalledTimes(1);
 	});
 });
