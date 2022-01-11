@@ -26,12 +26,6 @@ const HTML = props => (
 			<meta name="author" content="Jannis Hell"/>
 			<meta name="MobileOptimized" content="width"/>
 			<meta name="HandheldFriendly" content="true"/>
-			<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
-			{/* Favicon */}
-			<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-			<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-			{/* Android */}
-			<link rel="icon" sizes="192x192" href="/android.png"/>
 			{/* Windows Tile */}
 			<meta name="application-name" content={GATSBY_SITE_NAME}/>
 			<meta name="msapplication-TileColor" content="#000000"/>
