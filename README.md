@@ -6,6 +6,7 @@
 [![Lighthouse SEO 100%](docs/lighthouse/lighthouse_seo.svg)](https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelines)
 [![Lighthouse Progressive Web App 100%](docs/lighthouse/lighthouse_pwa.svg)](https://web.dev/pwa-checklist/)
 [![codecov](https://codecov.io/gh/Primajin/eyesbound/branch/main/graph/badge.svg?token=1NEMX7LLFG)](https://codecov.io/gh/Primajin/eyesbound)
+[![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ![Image of Eyesbound Website with A Design Award](docs/eyesbound-award.png)
 ## Development
