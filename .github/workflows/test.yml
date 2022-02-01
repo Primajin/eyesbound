@@ -17,5 +17,5 @@ jobs:
         with:
           node-version: '17'
           cache: 'npm'
-      - run: npm install --legacy-peer-deps
+      - run: npm install
       - run: npm run coverage
