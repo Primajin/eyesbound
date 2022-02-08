@@ -48,7 +48,7 @@
     "react-slideshow-image": "^3.7.0"
   },
   "devDependencies": {
-    "babel-jest": "^27.4.6",
+    "babel-jest": "^27.5.1",
     "babel-preset-gatsby": "^2.6.0",
     "codecov": "^3.8.3",
     "dotenv": "^16.0.0",
