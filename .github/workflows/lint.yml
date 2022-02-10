@@ -11,11 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Make sure the code adheres to the XO coding standard.
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: '17'
           cache: 'npm'
-      - run: npm install
-      - run: npm run lint
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+      - name: Install dependencies
+        run: npm ci
+      - name: Run linter
+        run: npm run lint
