@@ -49,7 +49,7 @@ Fullscreen.propTypes = {
 };
 
 Fullscreen.defaultProps = {
-	callback: () => {},
+	callback() {},
 	selector: '',
 };
 

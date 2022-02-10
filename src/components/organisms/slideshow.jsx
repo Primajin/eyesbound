@@ -73,7 +73,7 @@ const arrowButtons = css`
 
 const Slideshow = ({images, isFullscreen}) => {
 	const properties = {
-		indicators: i => {
+		indicators(i) {
 			const {node: {data}} = images[i];
 			return (
 				<li className="indicator" title={data.title}>

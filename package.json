@@ -11,20 +11,20 @@
     "node": ">=17"
   },
   "scripts": {
-    "prebuild": "xo",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "coverage": "jest --ci --coverage",
     "develop": "gatsby develop -S",
     "format": "npm run xo",
     "lint": "xo",
+    "lint:fix": "xo --fix",
+    "lint:watch": "npx nodemon -x npm run lint:fix --ext js,jsx,json",
+    "prebuild": "xo",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "start:lan": "npm run develop -- -o -H 0.0.0.0 -p 8000",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "xo": "xo --fix",
-    "xo:watch": "npx nodemon -x npm run xo --ext js,jsx,json"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
