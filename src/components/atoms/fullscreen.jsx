@@ -49,9 +49,8 @@ Fullscreen.propTypes = {
 };
 
 Fullscreen.defaultProps = {
-	callback() {},
+	callback: () => {}, // eslint-disable-line object-shorthand
 	selector: '',
 };
 
 export default Fullscreen;
-
