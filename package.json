@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
-    "@emotion/styled": "^11.6.0",
+    "@emotion/styled": "^11.8.1",
     "@react-google-maps/api": "^2.7.0",
     "classnames": "^2.3.1",
     "gatsby": "^4.8.0",
