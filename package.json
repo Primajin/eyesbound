@@ -37,7 +37,7 @@
     "gatsby-plugin-gatsby-cloud": "^4.10.0",
     "gatsby-plugin-image": "^2.10.0",
     "gatsby-plugin-manifest": "^4.10.1",
-    "gatsby-plugin-offline": "^5.10.0",
+    "gatsby-plugin-offline": "^5.10.1",
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-sitemap": "^5.10.1",
     "gatsby-source-prismic": "^5.2.5",
