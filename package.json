@@ -52,7 +52,7 @@
     "babel-preset-gatsby": "^2.9.0",
     "dotenv": "^16.0.0",
     "eslint-config-xo": "^0.40.0",
-    "eslint-config-xo-react": "^0.26.0",
+    "eslint-config-xo-react": "^0.27.0",
     "eslint-plugin-jest": "^26.1.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
