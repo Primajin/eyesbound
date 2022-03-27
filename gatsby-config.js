@@ -41,6 +41,7 @@ module.exports = {
 			}
 		},
 		{resolve: 'gatsby-plugin-sitemap'},
+		{resolve: 'gatsby-plugin-robots-txt'},
 		{resolve: 'gatsby-plugin-image'},
 		{
 			resolve: `gatsby-plugin-manifest`,
