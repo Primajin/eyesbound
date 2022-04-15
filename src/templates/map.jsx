@@ -1,6 +1,6 @@
-import {css, Global} from '@emotion/react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
 import Header from '../components/molecules/header.jsx';
@@ -8,23 +8,10 @@ import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import Map from '../components/molecules/map.jsx';
 import Query from '../types/proptypes.js';
 
-const styles = css`
-	body {
-		overflow: hidden;
-	}
-
-	.gm-fullscreen-control {
-		width: 50px!important;
-		margin: 0!important;
-		height: 50px!important;
-		border-radius: 0!important;
-	}
-`;
-
 const Worldmap = ({data: {allPrismicPicture: {edges}}}) => (
 	<>
 		<HelmetMetaTags title="Worldmap" path="worldmap"/>
-		<Global styles={styles}/>
+		<Global styles={css` body { overflow: hidden; } `}/>
 		<Header/>
 		{edges.length > 0 && <Map data={edges}/>}
 	</>

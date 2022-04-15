@@ -1,11 +1,13 @@
 :root {
 	--background: #fff;
+	--backgroundRGB: 255, 255, 255;
 	--foreground: #000;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #000;
+		--backgroundRGB: 0, 0, 0;
 		--foreground: #fff;
 	}
 }
@@ -57,28 +59,4 @@ button {
 
 button, input, textarea {
 	font: inherit;
-}
-
-/* Google Maps */
-/* src/components/map.jsx */
-.gm-style-iw-d {
-	background: #fff;
-	color: #000;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.gm-style-iw-d > div {
-	padding-left: 6px;
-}
-
-.gm-style-iw-a {
-	transform: translate(-0.5px, -30px)
-}
-
-div[style*="rgb(229, 227, 223)"] {
-	background: var(--background) !important;
-}
-
-.gm-style picture img {
-	max-width: 100%;
 }

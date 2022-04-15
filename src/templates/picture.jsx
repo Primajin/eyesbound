@@ -84,7 +84,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 						{hasDateTime && <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div>}
 						{hasCoords && <div>Location: {shortenedCoords.join(' | ')}</div>}
 					</div>
-					{shortenedCoords.length > 0 && <Map center={coordinates} data={[{node: prismicPicture}]} height="500px" zoom={11}/>}
+					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height="500px" zoom={11}/>}
 				</section>
 			</MainWrapper>
 		</>
