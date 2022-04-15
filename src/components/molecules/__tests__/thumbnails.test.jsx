@@ -8,7 +8,7 @@ describe('Thumbnails', () => {
 		const edges = [];
 		const title = 'title';
 		const type = 'type';
-		const component = create(<Thumbnails edges={edges} title={title} type={type}/>).toJSON();
+		const component = create(<Thumbnails edges={edges} title={title} type={type}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -19,7 +19,7 @@ describe('Thumbnails', () => {
 		const edges = [thumbnailDataNode];
 		const title = 'title';
 		const type = 'type';
-		const component = create(<Thumbnails edges={edges} title={title} type={type}/>).toJSON();
+		const component = create(<Thumbnails edges={edges} title={title} type={type}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -33,7 +33,7 @@ describe('Thumbnails', () => {
 		const edges = [thumbnailDataNode1, thumbnailDataNode2];
 		const title = 'title';
 		const type = 'type';
-		const component = create(<Thumbnails edges={edges} title={title} type={type}/>).toJSON();
+		const component = create(<Thumbnails edges={edges} title={title} type={type}/>);
 		expect(component).toMatchSnapshot();
 	});
 });

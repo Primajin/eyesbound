@@ -6,7 +6,7 @@ import TagLinks from '../tag-links.jsx';
 describe('TagLinks', () => {
 	it('renders correctly with empty list', () => {
 		const tags = [];
-		const component = create(<TagLinks tags={tags}/>).toJSON();
+		const component = create(<TagLinks tags={tags}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -23,7 +23,7 @@ describe('TagLinks', () => {
 				},
 			},
 		];
-		const component = create(<TagLinks tags={tags}/>).toJSON();
+		const component = create(<TagLinks tags={tags}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -50,7 +50,7 @@ describe('TagLinks', () => {
 				},
 			},
 		];
-		const component = create(<TagLinks tags={tags}/>).toJSON();
+		const component = create(<TagLinks tags={tags}/>);
 		expect(component).toMatchSnapshot();
 	});
 });

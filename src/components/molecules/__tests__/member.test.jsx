@@ -8,7 +8,7 @@ describe('Member', () => {
 		const edges = [];
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={edges} title={title} name={name}/>).toJSON();
+		const component = create(<Member edges={edges} title={title} name={name}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -19,7 +19,7 @@ describe('Member', () => {
 		const edges = [thumbnailDataNode];
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={edges} title={title} name={name}/>).toJSON();
+		const component = create(<Member edges={edges} title={title} name={name}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -33,7 +33,7 @@ describe('Member', () => {
 		const edges = [thumbnailDataNode1, thumbnailDataNode2];
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={edges} title={title} name={name}/>).toJSON();
+		const component = create(<Member edges={edges} title={title} name={name}/>);
 		expect(component).toMatchSnapshot();
 	});
 });

@@ -5,7 +5,7 @@ import BulbOff from '../icons/bulb-off.jsx';
 
 describe('BulbOff', () => {
 	it('renders correctly', () => {
-		const component = create(<BulbOff/>).toJSON();
+		const component = create(<BulbOff/>);
 		expect(component).toMatchSnapshot();
 	});
 });

@@ -5,7 +5,7 @@ import Imprint from '../imprint.jsx';
 
 describe('Imprint', () => {
 	it('renders correctly', () => {
-		const component = create(<Imprint/>).toJSON();
+		const component = create(<Imprint/>);
 		expect(component).toMatchSnapshot();
 	});
 });

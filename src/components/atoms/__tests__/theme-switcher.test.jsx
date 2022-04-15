@@ -5,12 +5,12 @@ import ThemeSwitcher from '../theme-switcher.jsx';
 
 describe('ThemeSwitcher', () => {
 	it('renders correctly without props', () => {
-		const component = create(<ThemeSwitcher/>).toJSON();
+		const component = create(<ThemeSwitcher/>);
 		expect(component).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
-		const component = create(<ThemeSwitcher isFullscreen/>).toJSON();
+		const component = create(<ThemeSwitcher isFullscreen/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -19,6 +19,6 @@ describe('ThemeSwitcher', () => {
 		act(() => {
 			component.root.findByType('button').props.onClick();
 		});
-		expect(component.toJSON()).toMatchSnapshot();
+		expect(component).toMatchSnapshot();
 	});
 });

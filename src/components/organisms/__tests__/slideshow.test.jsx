@@ -6,7 +6,7 @@ import Slideshow from '../slideshow.jsx';
 describe('Slideshow', () => {
 	it('renders correctly with list of zero', () => {
 		const images = [];
-		const component = create(<Slideshow images={images}/>).toJSON();
+		const component = create(<Slideshow images={images}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -15,7 +15,7 @@ describe('Slideshow', () => {
 		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};
 		const prismicPictureNode = {node: prismicPicture};
 		const images = [prismicPictureNode];
-		const component = create(<Slideshow isFullscreen images={images}/>).toJSON();
+		const component = create(<Slideshow isFullscreen images={images}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -27,7 +27,7 @@ describe('Slideshow', () => {
 		const prismicPictureNode1 = {node: prismicPicture1};
 		const prismicPictureNode2 = {node: prismicPicture2};
 		const images = [prismicPictureNode1, prismicPictureNode2];
-		const component = create(<Slideshow isFullscreen images={images}/>).toJSON();
+		const component = create(<Slideshow isFullscreen images={images}/>);
 		expect(component).toMatchSnapshot();
 	});
 });
