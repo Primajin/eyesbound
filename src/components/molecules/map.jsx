@@ -27,12 +27,14 @@ const Map = ({center, data, height, zoom}) => {
 	};
 
 	const {image, position, title, uid} = properties;
-	const mapId = prefersDark ? '3337a3a753e88572' : 'bb0e93992dc84f05';
+	const mapIdDark = '3337a3a753e88572';
+	const mapIdLight = 'bb0e93992dc84f05';
+	const mapId = prefersDark ? mapIdDark : mapIdLight;
 
 	const {PICTURE: {path}} = AssetTypes;
 
 	return (
-		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={['3337a3a753e88572', 'bb0e93992dc84f05']} version="beta">
+		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version="beta">
 			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={{mapId}} zoom={zoom}>
 				<>
 					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
