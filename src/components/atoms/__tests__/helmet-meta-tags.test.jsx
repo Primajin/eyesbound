@@ -5,7 +5,7 @@ import HelmetMetaTags from '../helmet-meta-tags.jsx';
 
 describe('HelmetMetaTags', () => {
 	it('renders correctly without props', () => {
-		const component = create(<HelmetMetaTags/>).toJSON();
+		const component = create(<HelmetMetaTags/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -27,7 +27,7 @@ describe('HelmetMetaTags', () => {
 				title={title}
 				uid={uid}
 			/>,
-		).toJSON();
+		);
 		expect(component).toMatchSnapshot();
 	});
 });

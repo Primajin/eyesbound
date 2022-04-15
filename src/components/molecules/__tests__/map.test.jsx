@@ -6,7 +6,7 @@ import Map from '../map.jsx';
 describe('Map', () => {
 	it('renders correctly with list of zero', () => {
 		const data = [];
-		const component = create(<Map data={data}/>).toJSON();
+		const component = create(<Map data={data}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -24,7 +24,7 @@ describe('Map', () => {
 		};
 		const height = '100px';
 		const zoom = 1;
-		const component = create(<Map data={data} center={center} height={height} zoom={zoom}/>).toJSON();
+		const component = create(<Map data={data} center={center} height={height} zoom={zoom}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -42,7 +42,7 @@ describe('Map', () => {
 		};
 		const height = '100%';
 		const zoom = 2;
-		const component = create(<Map data={data} center={center} height={height} zoom={zoom}/>).toJSON();
+		const component = create(<Map data={data} center={center} height={height} zoom={zoom}/>);
 		expect(component).toMatchSnapshot();
 	});
 	 */

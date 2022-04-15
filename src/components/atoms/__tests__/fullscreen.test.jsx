@@ -5,14 +5,14 @@ import Fullscreen from '../fullscreen.jsx';
 
 describe('Fullscreen', () => {
 	it('renders correctly without props', () => {
-		const component = create(<Fullscreen/>).toJSON();
+		const component = create(<Fullscreen/>);
 		expect(component).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
 		const callback = jest.fn();
 		const selector = '';
-		const component = create(<Fullscreen callback={callback} selector={selector}/>).toJSON();
+		const component = create(<Fullscreen callback={callback} selector={selector}/>);
 		expect(component).toMatchSnapshot();
 	});
 

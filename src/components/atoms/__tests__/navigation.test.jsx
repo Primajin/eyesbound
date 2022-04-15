@@ -5,12 +5,12 @@ import Navigation from '../navigation.jsx';
 
 describe('Navigation', () => {
 	it('renders correctly without props', () => {
-		const component = create(<Navigation/>).toJSON();
+		const component = create(<Navigation/>);
 		expect(component).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
-		const component = create(<Navigation isFullscreen/>).toJSON();
+		const component = create(<Navigation isFullscreen/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -19,6 +19,6 @@ describe('Navigation', () => {
 		act(() => {
 			component.root.findByType('div').props.onClick();
 		});
-		expect(component.toJSON()).toMatchSnapshot();
+		expect(component).toMatchSnapshot();
 	});
 });

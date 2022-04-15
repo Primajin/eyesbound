@@ -5,7 +5,7 @@ import BulbOn from '../icons/bulb-on.jsx';
 
 describe('BulbOn', () => {
 	it('renders correctly', () => {
-		const component = create(<BulbOn/>).toJSON();
+		const component = create(<BulbOn/>);
 		expect(component).toMatchSnapshot();
 	});
 });

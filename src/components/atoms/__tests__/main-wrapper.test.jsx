@@ -5,12 +5,12 @@ import MainWrapper from '../main-wrapper.jsx';
 
 describe('MainWrapper', () => {
 	it('renders correctly without props', () => {
-		const component = create(<MainWrapper/>).toJSON();
+		const component = create(<MainWrapper/>);
 		expect(component).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
-		const component = create(<MainWrapper><h1>Hello there!</h1></MainWrapper>).toJSON();
+		const component = create(<MainWrapper><h1>Hello there!</h1></MainWrapper>);
 		expect(component).toMatchSnapshot();
 	});
 });

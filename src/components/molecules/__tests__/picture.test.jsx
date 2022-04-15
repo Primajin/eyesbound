@@ -6,7 +6,7 @@ import Picture from '../picture.jsx';
 describe('Picture', () => {
 	it('renders correctly without extra props', () => {
 		const data = {title: 'title', image: {}};
-		const component = create(<Picture data={data}/>).toJSON();
+		const component = create(<Picture data={data}/>);
 		expect(component).toMatchSnapshot();
 	});
 
@@ -15,7 +15,7 @@ describe('Picture', () => {
 		const layout = 'FIXED';
 		const preferThumbnails = true;
 		const size = {height: 123, width: 456};
-		const component = create(<Picture data={data} layout={layout} preferThumbnails={preferThumbnails} size={size}/>).toJSON();
+		const component = create(<Picture data={data} layout={layout} preferThumbnails={preferThumbnails} size={size}/>);
 		expect(component).toMatchSnapshot();
 	});
 });
