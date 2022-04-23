@@ -9,7 +9,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Make sure the the unit tests pass.
+    name: Make sure the unit tests pass.
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
