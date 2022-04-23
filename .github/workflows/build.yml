@@ -9,7 +9,7 @@ jobs:
     if: contains(github.event.*.labels.*.name, 'dependabot')
     strategy:
       matrix:
-        os: [windows-lastest, ubuntu-latest, macos-latest]
+        os: [windows-latest, ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     name: Make sure it builds.
     steps:
