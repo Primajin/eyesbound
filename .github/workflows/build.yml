@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    if: github.event.label.name == "dependabot"
+    if: github.event.label.name == 'dependabot'
     runs-on: ubuntu-latest
     name: Make sure it builds.
     steps:
