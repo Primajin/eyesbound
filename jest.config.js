@@ -12,6 +12,8 @@ module.exports = {
 		__PATH_PREFIX__: '',
 	},
 	testEnvironment: 'jsdom',
-	testURL: 'http://localhost',
+	testEnvironmentOptions: {
+	  url: 'http://localhost',
+	},
 	setupFiles: ['<rootDir>/loadershim.js', '<rootDir>/jest-mocks.js'],
 };
