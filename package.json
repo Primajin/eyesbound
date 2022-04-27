@@ -57,7 +57,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.0.2",
     "jest-environment-jsdom": "^28.0.2",
-    "react-test-renderer": "^18.0.0",
+    "react-test-renderer": "^18.1.0",
     "xo": "^0.48.0"
   },
   "repository": {
