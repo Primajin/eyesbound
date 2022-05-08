@@ -348,12 +348,11 @@ Array [
               css={
                 Object {
                   "map": undefined,
-                  "name": "1w62pol",
+                  "name": "nihikp",
                   "next": undefined,
                   "styles": "
-	height: 174px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
                   "toString": [Function],
                 }
               }
@@ -379,12 +378,11 @@ Array [
               css={
                 Object {
                   "map": undefined,
-                  "name": "1w62pol",
+                  "name": "nihikp",
                   "next": undefined,
                   "styles": "
-	height: 174px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
                   "toString": [Function],
                 }
               }
@@ -752,12 +750,11 @@ Array [
               css={
                 Object {
                   "map": undefined,
-                  "name": "1w62pol",
+                  "name": "nihikp",
                   "next": undefined,
                   "styles": "
-	height: 174px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
                   "toString": [Function],
                 }
               }

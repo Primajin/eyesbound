@@ -98,12 +98,12 @@ exports[`Slideshow renders correctly with list of more 1`] = `
                     css={
                       Object {
                         "map": undefined,
-                        "name": "724za4",
+                        "name": "1njbo0a",
                         "next": undefined,
                         "styles": "
-	height: calc(100vh - 50px);
-	width: 100vw;
-",
+	  height: calc(100vh - 50px);
+	  width: 100vw;
+	",
                         "toString": [Function],
                       }
                     }
@@ -154,12 +154,12 @@ exports[`Slideshow renders correctly with list of more 1`] = `
                     css={
                       Object {
                         "map": undefined,
-                        "name": "724za4",
+                        "name": "1njbo0a",
                         "next": undefined,
                         "styles": "
-	height: calc(100vh - 50px);
-	width: 100vw;
-",
+	  height: calc(100vh - 50px);
+	  width: 100vw;
+	",
                         "toString": [Function],
                       }
                     }
@@ -259,12 +259,11 @@ exports[`Slideshow renders correctly with list of more 1`] = `
               css={
                 Object {
                   "map": undefined,
-                  "name": "1hgrnzr",
+                  "name": "nihikp",
                   "next": undefined,
                   "styles": "
-	height: 31px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
                   "toString": [Function],
                 }
               }
@@ -325,12 +324,11 @@ exports[`Slideshow renders correctly with list of more 1`] = `
               css={
                 Object {
                   "map": undefined,
-                  "name": "1hgrnzr",
+                  "name": "nihikp",
                   "next": undefined,
                   "styles": "
-	height: 31px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
                   "toString": [Function],
                 }
               }
@@ -480,12 +478,12 @@ exports[`Slideshow renders correctly with list of one 1`] = `
                     css={
                       Object {
                         "map": undefined,
-                        "name": "724za4",
+                        "name": "1njbo0a",
                         "next": undefined,
                         "styles": "
-	height: calc(100vh - 50px);
-	width: 100vw;
-",
+	  height: calc(100vh - 50px);
+	  width: 100vw;
+	",
                         "toString": [Function],
                       }
                     }
@@ -585,12 +583,11 @@ exports[`Slideshow renders correctly with list of one 1`] = `
               css={
                 Object {
                   "map": undefined,
-                  "name": "1hgrnzr",
+                  "name": "nihikp",
                   "next": undefined,
                   "styles": "
-	height: 31px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
                   "toString": [Function],
                 }
               }

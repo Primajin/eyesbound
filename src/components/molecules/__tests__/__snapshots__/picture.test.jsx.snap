@@ -7,12 +7,11 @@ exports[`Picture renders correctly with props 1`] = `
     css={
       Object {
         "map": undefined,
-        "name": "29p3uw",
+        "name": "nihikp",
         "next": undefined,
         "styles": "
-	height: 123px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
         "toString": [Function],
       }
     }
@@ -34,12 +33,11 @@ exports[`Picture renders correctly without extra props 1`] = `
     css={
       Object {
         "map": undefined,
-        "name": "117sghq",
+        "name": "nihikp",
         "next": undefined,
         "styles": "
-	height: px;
-	width: 100%;
-",
+	  padding-top: 66.73913043478261%;
+	",
         "toString": [Function],
       }
     }

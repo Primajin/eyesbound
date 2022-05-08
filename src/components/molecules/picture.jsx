@@ -32,14 +32,15 @@ const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
 	const width = propsWidth ?? gatsbyImageData.width;
 
 	const fullSize = css`
-	height: calc(100vh - 50px);
-	width: 100vw;
-`;
+	  height: calc(100vh - 50px);
+	  width: 100vw;
+	`;
 
+	// calculate image aspect ratio
+	const inverseAspectRatio = 4912 / 7360;
 	const normal = css`
-	height: ${height}px;
-	width: 100%;
-`;
+	  padding-top: ${inverseAspectRatio * 100}%;
+	`;
 
 	const cssClass = layout === 'FULL_WIDTH' ? fullSize : normal;
 
