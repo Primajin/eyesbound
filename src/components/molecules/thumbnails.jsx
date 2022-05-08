@@ -8,11 +8,21 @@ import Picture from './picture.jsx';
 
 const thumbnailsWrapper = css`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr;
 	gap: 5px;
 
+	${up(420)} {
+		grid-template-columns: 1fr 1fr;
+	};
+
 	${up('sm')} {
-		gap: 10px;
+		grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+	};
+
+	${up('lg')} {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 15px;
 	};
 
 	li {

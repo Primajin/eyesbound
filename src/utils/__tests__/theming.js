@@ -7,6 +7,11 @@ describe('theming', () => {
 				expect(up(key)).toBe(`@media (min-width: ${value}px)`);
 			}
 		});
+
+		it('gets media query for custom breakpoint', () => {
+			expect(up(123)).toBe('@media (min-width: 123px)');
+			expect(up('123')).toBe('@media (min-width: 123px)');
+		});
 	});
 
 	describe('forDevice', () => {

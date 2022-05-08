@@ -36,7 +36,7 @@ const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
 	  width: 100vw;
 	`;
 
-	// calculate image aspect ratio
+	// Calculate image aspect ratio
 	const inverseAspectRatio = 4912 / 7360;
 	const normal = css`
 	  padding-top: ${inverseAspectRatio * 100}%;
