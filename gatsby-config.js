@@ -24,8 +24,6 @@ module.exports = {
 				]
 			}
 		},
-		{resolve: 'gatsby-plugin-emotion'},
-		{resolve: 'gatsby-plugin-react-helmet'},
 		{
 			resolve: 'gatsby-source-prismic',
 			options: {
@@ -40,9 +38,6 @@ module.exports = {
 				}
 			}
 		},
-		{resolve: 'gatsby-plugin-sitemap'},
-		{resolve: 'gatsby-plugin-robots-txt'},
-		{resolve: 'gatsby-plugin-image'},
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -76,7 +71,7 @@ module.exports = {
 				mergeDefaultDirectives: true,
 				directives: {
 					'connect-src': `'self' ws: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com maps.googleapis.com`,
-					'font-src': `'self' fonts.gstatic.com`,
+					'font-src': `'self' fonts.gstatic.com fonts.googleapis.com`,
 					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io`,
 					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
 					'prefetch-src': `'self' fonts.googleapis.com fonts.gstatic.com`,
@@ -85,6 +80,12 @@ module.exports = {
 					'worker-src': `'self' blob:`
 				}
 			}
-		}
+		},
+		{resolve: 'gatsby-plugin-robots-txt'},
+		{resolve: 'gatsby-plugin-sitemap'},
+		{resolve: 'gatsby-plugin-react-helmet'},
+		{resolve: 'gatsby-plugin-web-font-loader'},
+		{resolve: 'gatsby-plugin-emotion'},
+		{resolve: 'gatsby-plugin-image'},
 	]
 };

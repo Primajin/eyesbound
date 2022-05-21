@@ -11,8 +11,6 @@ const HTML = props => (
 			<meta charSet='utf-8'/>
 			<meta httpEquiv='x-ua-compatible' content='ie=edge'/>
 			<meta name='viewport' content='width=device-width, initial-scale=1'/>
-			<link rel='preconnect' href='https://fonts.gstatic.com'/>
-			<link rel='preconnect' href='https://fonts.googleapis.com'/>
 			{/* Open Graph / Facebook */}
 			<meta property='og:type' content='website'/>
 			{/* Twitter */}
@@ -35,9 +33,6 @@ const HTML = props => (
 			<meta name='msapplication-square150x150logo' content='/square_150x150.png'/>
 			<meta name='msapplication-wide310x150logo' content='/wide_310x150.png'/>
 			<meta name='msapplication-square310x310logo' content='/large_310x310.png'/>
-			<link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' rel='stylesheet'/>
-			<link href='/reset.css' rel='stylesheet'/>
-			<link href='/global.css' rel='stylesheet'/>
 			{props.headComponents}
 		</head>
 		<body {...props.bodyAttributes}>
