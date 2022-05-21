@@ -21,19 +21,19 @@ const ThemeSwitcher = ({isFullscreen: fullScreen}) => {
 	};
 
 	return (
-		<button aria-label="Switch theme" css={buttonCSS} className={classnames({fullScreen})} type="button" onClick={switchTheme}>
+		<button aria-label='Switch theme' css={buttonCSS} className={classnames({fullScreen})} type='button' onClick={switchTheme}>
 			{prefersDark && (
 				<>
 					<BulbOff/>
 					<Global styles={css`:root { --background: #000; --foreground: #fff;}`}/>
-					<Helmet><meta name="theme-color" content="#000000"/></Helmet>
+					<Helmet><meta name='theme-color' content='#000000'/></Helmet>
 				</>
 			)}
 			{!prefersDark && (
 				<>
 					<BulbOn/>
 					<Global styles={css`:root { --background: #fff; --foreground: #000;}`}/>
-					<Helmet><meta name="theme-color" content="#ffffff"/></Helmet>
+					<Helmet><meta name='theme-color' content='#ffffff'/></Helmet>
 				</>
 			)}
 		</button>

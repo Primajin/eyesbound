@@ -23,15 +23,15 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 		<>
 			<Helmet>
 				<title>{GATSBY_SITE_NAME}</title>
-				<meta name="title" content={GATSBY_SITE_NAME}/>
-				<link rel="canonical" href={GATSBY_SERVER_URL}/>
-				<meta property="og:image" content={`${GATSBY_SERVER_URL}${SocialImage}`}/>
-				<meta property="og:title" content={GATSBY_SITE_NAME}/>
-				<meta property="og:url" content={GATSBY_SERVER_URL}/>
-				<meta property="og:description" content="Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure."/>
-				<meta name="twitter:image" content={`${GATSBY_SERVER_URL}${SocialImage}`}/>
-				<meta name="twitter:title" content={GATSBY_SITE_NAME}/>
-				<meta name="twitter:url" content={GATSBY_SERVER_URL}/>
+				<meta name='title' content={GATSBY_SITE_NAME}/>
+				<link rel='canonical' href={GATSBY_SERVER_URL}/>
+				<meta property='og:image' content={`${GATSBY_SERVER_URL}${SocialImage}`}/>
+				<meta property='og:title' content={GATSBY_SITE_NAME}/>
+				<meta property='og:url' content={GATSBY_SERVER_URL}/>
+				<meta property='og:description' content='Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.'/>
+				<meta name='twitter:image' content={`${GATSBY_SERVER_URL}${SocialImage}`}/>
+				<meta name='twitter:title' content={GATSBY_SITE_NAME}/>
+				<meta name='twitter:url' content={GATSBY_SERVER_URL}/>
 			</Helmet>
 			<Global styles={css` body { height: 100vh; overflow: hidden; width: 100vw; } `}/>
 			<Header isFullscreen={fullScreen}/>

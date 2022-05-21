@@ -76,7 +76,7 @@ const Slideshow = ({images, isFullscreen}) => {
 		indicators(i) {
 			const {node: {data}} = images[i];
 			return (
-				<li className="indicator" title={data.title}>
+				<li className='indicator' title={data.title}>
 					<figure>
 						<Picture preferThumbnails data={data} size={{height: 31, width: 46}}/>
 						<figcaption css={indicatorFigCaption}>{data.title}</figcaption>
@@ -84,19 +84,19 @@ const Slideshow = ({images, isFullscreen}) => {
 				</li>
 			);
 		},
-		nextArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="11" type="button">»</button>,
+		nextArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex='11' type='button'>»</button>,
 		pauseOnHover: false,
-		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex="10" type="button">«</button>,
+		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} tabIndex='10' type='button'>«</button>,
 	};
 	const {PICTURE: {path}} = AssetTypes;
 
 	return (
-		<div className="slide-container">
+		<div className='slide-container'>
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image}, id, uid}}) => (
 					<a key={id} title={title} href={`/${path}/${uid}`}>
 						<figure>
-							<Picture data={{title, image}} layout="FULL_WIDTH"/>
+							<Picture data={{title, image}} layout='FULL_WIDTH'/>
 							<figcaption css={figCaption}>{title}</figcaption>
 						</figure>
 					</a>

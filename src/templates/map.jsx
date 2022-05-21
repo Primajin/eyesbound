@@ -10,7 +10,7 @@ import Query from '../types/proptypes.js';
 
 const Worldmap = ({data: {allPrismicPicture: {edges}}}) => (
 	<>
-		<HelmetMetaTags title="Worldmap" path="worldmap"/>
+		<HelmetMetaTags title='Worldmap' path='worldmap'/>
 		<Global styles={css` body { overflow: hidden; } `}/>
 		<Header/>
 		{edges.length > 0 && <Map data={edges}/>}
