@@ -16,11 +16,14 @@ const centerOfGermany = {
 
 const styles = css`
 	.gm-style {
+		* {
+			font-family: 'Montserrat', sans-serif !important;
+		}
+
 		.gm-style-iw-d,
 		.gm-style-iw-c {
 			background: var(--background);
 			color: var(--foreground);
-			font-family: 'Montserrat', sans-serif;
 			overflow: hidden !important;
 			padding-bottom: 12px;
 
@@ -82,13 +85,14 @@ const Map = ({center, data, height, hasNoInfoWindow, zoom}) => {
 	const mapIdDark = '3337a3a753e88572';
 	const mapIdLight = 'bb0e93992dc84f05';
 	const mapId = prefersDark ? mapIdDark : mapIdLight;
+	const options = {mapId, streetViewControl: false};
 
 	const {PICTURE: {path}} = AssetTypes;
 
 	return (
 		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version='beta'>
 			<Global styles={styles}/>
-			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={{mapId}} zoom={zoom}>
+			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={options} zoom={zoom}>
 				<>
 					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
 						const position = {lat: latitude, lng: longitude};
