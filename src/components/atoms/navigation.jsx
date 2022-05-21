@@ -126,14 +126,14 @@ const Navigation = ({isFullscreen}) => {
 	return (
 		<nav css={nav} className={classnames({open: menuOpen, isFullscreen})}>
 			<ul>
-				<li><a ref={linkOverview} href={`/${PICTURE.path}`} tabIndex="2">Overview</a></li>
-				<li><a ref={linkShuttered} href={`/${SERIES.path}/shuttered`} tabIndex="3">»Shuttered«</a></li>
-				<li><a ref={linkArchitecture} href={`/${CATEGORY.path}/architecture`} tabIndex="4">Architecture</a></li>
-				<li><a ref={linkEnvironment} href={`/${CATEGORY.path}/environment`} tabIndex="5">Environment</a></li>
-				<li><a ref={linkFloral} href={`/${CATEGORY.path}/floral`} tabIndex="6">Floral</a></li>
-				<li><a ref={linkLight} href={`/${CATEGORY.path}/light`} tabIndex="7">Light</a></li>
-				<li><a ref={linkWorldmap} href="/worldmap" tabIndex="8">Worldmap</a></li>
-				<li><a ref={linkContact} href="/imprint" tabIndex="9">Contact</a></li>
+				<li><a ref={linkOverview} href={`/${PICTURE.path}`} tabIndex='2'>Overview</a></li>
+				<li><a ref={linkShuttered} href={`/${SERIES.path}/shuttered`} tabIndex='3'>»Shuttered«</a></li>
+				<li><a ref={linkArchitecture} href={`/${CATEGORY.path}/architecture`} tabIndex='4'>Architecture</a></li>
+				<li><a ref={linkEnvironment} href={`/${CATEGORY.path}/environment`} tabIndex='5'>Environment</a></li>
+				<li><a ref={linkFloral} href={`/${CATEGORY.path}/floral`} tabIndex='6'>Floral</a></li>
+				<li><a ref={linkLight} href={`/${CATEGORY.path}/light`} tabIndex='7'>Light</a></li>
+				<li><a ref={linkWorldmap} href='/worldmap' tabIndex='8'>Worldmap</a></li>
+				<li><a ref={linkContact} href='/imprint' tabIndex='9'>Contact</a></li>
 			</ul>
 			<div onClick={toggleMenu}>Menu</div>
 		</nav>

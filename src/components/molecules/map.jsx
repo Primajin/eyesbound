@@ -86,7 +86,7 @@ const Map = ({center, data, height, hasNoInfoWindow, zoom}) => {
 	const {PICTURE: {path}} = AssetTypes;
 
 	return (
-		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version="beta">
+		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version='beta'>
 			<Global styles={styles}/>
 			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={{mapId}} zoom={zoom}>
 				<>

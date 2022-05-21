@@ -70,7 +70,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 		<>
 			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} description={description} imageSource={imageSource} path={picturePath} title={title} uid={prismicPicture.uid}/>
 			<Header isFullscreen={fullScreen}/>
-			<Fullscreen callback={fullscreenCallback} selector="img"/>
+			<Fullscreen callback={fullscreenCallback} selector='img'/>
 			<MainWrapper>
 				{hasTitle && <h1>{title}</h1>}
 				<section>
@@ -84,7 +84,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 						{hasDateTime && <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div>}
 						{hasCoords && <div>Location: {shortenedCoords.join(' | ')}</div>}
 					</div>
-					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height="500px" zoom={11}/>}
+					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height='500px' zoom={11}/>}
 				</section>
 			</MainWrapper>
 		</>

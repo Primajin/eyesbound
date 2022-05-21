@@ -38,7 +38,7 @@ const Thumbnails = ({edges, title, type}) => (
 		<ul css={thumbnailsWrapper}>
 			{edges.map(({node: {data, id, uid}}) => (
 				<li key={id}>
-					<a href={`/picture/${uid}`} aria-label="link-to-picture">
+					<a href={`/picture/${uid}`} aria-label='link-to-picture'>
 						<Picture preferThumbnails data={data} size={{height: 174, width: 261}}/>
 					</a>
 				</li>
