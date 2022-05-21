@@ -20,19 +20,35 @@ const ThemeSwitcher = ({isFullscreen: fullScreen}) => {
 		fromLocalStorage.setItem('userPrefersDark', flipPreference);
 	};
 
+	const darkStyles = css`
+		:root {
+			--background: #000 !important;
+			--foreground: #fff !important;
+			color-scheme: dark !important;
+		}
+	`;
+
+	const lightStyles = css`
+		:root {
+			--background: #fff !important;
+			--foreground: #000 !important;
+			color-scheme: light !important;
+		}
+	`;
+
 	return (
 		<button aria-label='Switch theme' css={buttonCSS} className={classnames({fullScreen})} type='button' onClick={switchTheme}>
 			{prefersDark && (
 				<>
 					<BulbOff/>
-					<Global styles={css`:root { --background: #000; --foreground: #fff;}`}/>
+					<Global styles={darkStyles}/>
 					<Helmet><meta name='theme-color' content='#000000'/></Helmet>
 				</>
 			)}
 			{!prefersDark && (
 				<>
 					<BulbOn/>
-					<Global styles={css`:root { --background: #fff; --foreground: #000;}`}/>
+					<Global styles={lightStyles}/>
 					<Helmet><meta name='theme-color' content='#ffffff'/></Helmet>
 				</>
 			)}
