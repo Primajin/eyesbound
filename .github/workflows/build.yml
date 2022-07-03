@@ -1,8 +1,8 @@
 name: "Build"
 
-on:
-  pull_request:
-    branches: [ main ]
+on: [push, fork]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   build:
