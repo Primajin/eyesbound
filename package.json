@@ -48,7 +48,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-slideshow-image": "^3.7.5"
+    "react-slideshow-image": "^4.0.1"
   },
   "devDependencies": {
     "babel-jest": "^28.1.2",
