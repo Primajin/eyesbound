@@ -1,0 +1,39 @@
+.indicators {
+	align-items: center;
+	background: var(--foreground);
+	border-top: 2px solid var(--background);
+	bottom: 0;
+	display: flex;
+	flex-wrap: wrap;
+	height: 50px;
+	justify-content: center;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.indicator.indicator.indicator {
+	height: auto;
+	margin-left: 5px;
+	padding: 0;
+	position: static;
+	width: 50px;
+}
+
+.indicator img {
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: opacity .25s, border-color .25s !important;
+	margin-bottom: -2px;
+}
+
+.indicator.active img,
+.indicator:hover img{
+	border-color: var(--background);
+}
+
+/* https://web.dev/content-visibility/ */
+.react-slideshow-fade-images-wrap > div {
+	content-visibility: auto;
+}
