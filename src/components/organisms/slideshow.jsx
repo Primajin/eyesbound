@@ -3,19 +3,16 @@ import React from 'react';
 import classnames from 'classnames';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
+import 'react-slideshow-image/dist/styles.css';
 
 import AssetTypes from '../../constants/asset-types.js';
 import Picture from '../molecules/picture.jsx';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
 
-import '../../../static/slideshow.css';
-
 const figCaption = css`
 	display: none;
 `;
-
-// Indicators css here: static/slideshow.css:97
 
 const indicatorFigCaption = css`
 	bottom: 15px;

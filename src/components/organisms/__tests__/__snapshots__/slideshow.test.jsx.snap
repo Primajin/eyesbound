@@ -9,15 +9,10 @@ exports[`Slideshow renders correctly with list of more 1`] = `
     dir="ltr"
   >
     <div
-      className="react-slideshow-container"
-      onMouseDown={[Function]}
+      className="react-slideshow-container "
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
     >
       <button
         aria-label="Previous Slide"
@@ -71,10 +66,10 @@ exports[`Slideshow renders correctly with list of more 1`] = `
         «
       </button>
       <div
-        className="react-slideshow-fade-wrapper "
+        className="react-slideshow-fadezoom-wrapper "
       >
         <div
-          className="react-slideshow-fade-images-wrap"
+          className="react-slideshow-fadezoom-images-wrap"
         >
           <div
             aria-hidden="false"
@@ -389,15 +384,10 @@ exports[`Slideshow renders correctly with list of one 1`] = `
     dir="ltr"
   >
     <div
-      className="react-slideshow-container"
-      onMouseDown={[Function]}
+      className="react-slideshow-container "
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
     >
       <button
         aria-label="Previous Slide"
@@ -451,10 +441,10 @@ exports[`Slideshow renders correctly with list of one 1`] = `
         «
       </button>
       <div
-        className="react-slideshow-fade-wrapper "
+        className="react-slideshow-fadezoom-wrapper "
       >
         <div
-          className="react-slideshow-fade-images-wrap"
+          className="react-slideshow-fadezoom-images-wrap"
         >
           <div
             aria-hidden="false"
@@ -648,15 +638,10 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
     dir="ltr"
   >
     <div
-      className="react-slideshow-container"
-      onMouseDown={[Function]}
+      className="react-slideshow-container "
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
     >
       <button
         aria-label="Previous Slide"
@@ -710,10 +695,10 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
         «
       </button>
       <div
-        className="react-slideshow-fade-wrapper "
+        className="react-slideshow-fadezoom-wrapper "
       >
         <div
-          className="react-slideshow-fade-images-wrap"
+          className="react-slideshow-fadezoom-images-wrap"
         />
       </div>
       <button
