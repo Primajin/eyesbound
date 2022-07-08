@@ -1,13 +1,11 @@
-.indicators {
+.indicators.indicators.indicators {
 	align-items: center;
 	background: var(--foreground);
 	border-top: 2px solid var(--background);
 	bottom: 0;
-	display: flex;
-	flex-wrap: wrap;
 	height: 50px;
-	justify-content: center;
 	left: 0;
+	margin: 0;
 	position: absolute;
 	width: 100%;
 	z-index: 1;
@@ -36,4 +34,8 @@
 /* https://web.dev/content-visibility/ */
 .react-slideshow-fade-images-wrap > div {
 	content-visibility: auto;
+}
+
+.react-slideshow-fadezoom-wrapper .react-slideshow-fadezoom-images-wrap>div {
+	will-change: opacity;
 }
