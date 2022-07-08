@@ -20,38 +20,40 @@ exports[`Slideshow renders correctly with list of more 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -191,38 +193,40 @@ exports[`Slideshow renders correctly with list of more 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -395,38 +399,40 @@ exports[`Slideshow renders correctly with list of one 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -510,38 +516,40 @@ exports[`Slideshow renders correctly with list of one 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -649,38 +657,40 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -707,38 +717,40 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
