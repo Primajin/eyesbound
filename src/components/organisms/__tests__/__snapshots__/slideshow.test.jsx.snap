@@ -9,15 +9,10 @@ exports[`Slideshow renders correctly with list of more 1`] = `
     dir="ltr"
   >
     <div
-      className="react-slideshow-container"
-      onMouseDown={[Function]}
+      className="react-slideshow-container "
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
     >
       <button
         aria-label="Previous Slide"
@@ -25,38 +20,40 @@ exports[`Slideshow renders correctly with list of more 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -71,10 +68,10 @@ exports[`Slideshow renders correctly with list of more 1`] = `
         «
       </button>
       <div
-        className="react-slideshow-fade-wrapper "
+        className="react-slideshow-fadezoom-wrapper "
       >
         <div
-          className="react-slideshow-fade-images-wrap"
+          className="react-slideshow-fadezoom-images-wrap"
         >
           <div
             aria-hidden="false"
@@ -196,38 +193,40 @@ exports[`Slideshow renders correctly with list of more 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -389,15 +388,10 @@ exports[`Slideshow renders correctly with list of one 1`] = `
     dir="ltr"
   >
     <div
-      className="react-slideshow-container"
-      onMouseDown={[Function]}
+      className="react-slideshow-container "
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
     >
       <button
         aria-label="Previous Slide"
@@ -405,38 +399,40 @@ exports[`Slideshow renders correctly with list of one 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -451,10 +447,10 @@ exports[`Slideshow renders correctly with list of one 1`] = `
         «
       </button>
       <div
-        className="react-slideshow-fade-wrapper "
+        className="react-slideshow-fadezoom-wrapper "
       >
         <div
-          className="react-slideshow-fade-images-wrap"
+          className="react-slideshow-fadezoom-images-wrap"
         >
           <div
             aria-hidden="false"
@@ -520,38 +516,40 @@ exports[`Slideshow renders correctly with list of one 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -648,15 +646,10 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
     dir="ltr"
   >
     <div
-      className="react-slideshow-container"
-      onMouseDown={[Function]}
+      className="react-slideshow-container "
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
     >
       <button
         aria-label="Previous Slide"
@@ -664,38 +657,40 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],
@@ -710,10 +705,10 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
         «
       </button>
       <div
-        className="react-slideshow-fade-wrapper "
+        className="react-slideshow-fadezoom-wrapper "
       >
         <div
-          className="react-slideshow-fade-images-wrap"
+          className="react-slideshow-fadezoom-images-wrap"
         />
       </div>
       <button
@@ -722,38 +717,40 @@ exports[`Slideshow renders correctly with list of zero 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "13ys6af",
+            "name": "3bpb6z",
             "next": undefined,
             "styles": "
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	@media (min-width: 768px) {
-		width: 20px;
-	}
+		@media (min-width: 768px) {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type=\\"next\\"] {
-		right: 0;
+		&[data-type=\\"next\\"] {
+			right: 0;
+		}
 	}
 ",
             "toString": [Function],

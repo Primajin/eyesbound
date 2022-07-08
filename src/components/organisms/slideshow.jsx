@@ -3,6 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
+import 'react-slideshow-image/dist/styles.css';
 
 import AssetTypes from '../../constants/asset-types.js';
 import Picture from '../molecules/picture.jsx';
@@ -39,35 +40,37 @@ const indicatorFigCaption = css`
 `;
 
 const arrowButtons = css`
-	background: var(--foreground);
-	color: var(--background);
-	height: 180px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: background-color .333s, color .333s, opacity .333s;
-	width: 40px;
-	z-index: 5;
+	&&& { // specificity hack
+		background: var(--foreground);
+		color: var(--background);
+		height: 180px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color .333s, color .333s, opacity .333s;
+		width: 40px;
+		z-index: 5;
 
-	${up('md')} {
-		width: 20px;
-	}
+		${up('md')} {
+			width: 20px;
+		}
 
-	&:hover,
-	&:focus {
-		background: var(--background);
-		color: var(--foreground);
-		outline: 0;
-	}
+		&:hover,
+		&:focus {
+			background: var(--background);
+			color: var(--foreground);
+			outline: 0;
+		}
 
-	&.isFullscreen {
-		opacity: 0.65;
-	}
+		&.isFullscreen {
+			opacity: 0.65;
+		}
 
-	&[data-type="next"] {
-		right: 0;
+		&[data-type="next"] {
+			right: 0;
+		}
 	}
 `;
 
