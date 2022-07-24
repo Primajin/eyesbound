@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Thumbnails renders correctly with list of more 1`] = `
+exports[`Thumbnails renders correctly with a list of more 1`] = `
 Array [
   <h1>
     type
@@ -107,7 +107,7 @@ Array [
 ]
 `;
 
-exports[`Thumbnails renders correctly with list of one 1`] = `
+exports[`Thumbnails renders correctly with a list of one 1`] = `
 Array [
   <h1>
     type
@@ -184,7 +184,7 @@ Array [
 ]
 `;
 
-exports[`Thumbnails renders correctly with list of zero 1`] = `
+exports[`Thumbnails renders correctly with a list of zero 1`] = `
 Array [
   <h1>
     type

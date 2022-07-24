@@ -4,13 +4,12 @@ import {create} from 'react-test-renderer';
 import Slideshow from '../slideshow.jsx';
 
 describe('Slideshow', () => {
-	it('renders correctly with list of zero', () => {
-		const images = [];
-		const component = create(<Slideshow images={images}/>);
+	it('renders correctly with a list of zero', () => {
+		const component = create(<Slideshow images={[]}/>);
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with list of one', () => {
+	it('renders correctly with a list of one', () => {
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};
 		const prismicPictureNode = {node: prismicPicture};
@@ -19,7 +18,7 @@ describe('Slideshow', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with list of more', () => {
+	it('renders correctly with a list of more', () => {
 		const picture1 = {coordinates: {latitude: 52.456, longitude: 13.456}, image: {}, title: 'title1'};
 		const picture2 = {coordinates: {latitude: 52.789, longitude: 13.798}, image: {}, title: 'title2'};
 		const prismicPicture1 = {data: picture1, id: 'id-1', uid: 'uid-1'};

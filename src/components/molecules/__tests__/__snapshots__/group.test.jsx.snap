@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Group renders correctly with list of more 1`] = `
+exports[`Group renders correctly with a list of more 1`] = `
 Array [
   <div
     className="mock-helmet"
@@ -342,7 +342,7 @@ Array [
 ]
 `;
 
-exports[`Group renders correctly with list of one 1`] = `
+exports[`Group renders correctly with a list of one 1`] = `
 Array [
   <div
     className="mock-helmet"
@@ -676,7 +676,7 @@ Array [
 ]
 `;
 
-exports[`Group renders correctly with list of zero 1`] = `
+exports[`Group renders correctly with a list of zero 1`] = `
 Array [
   <div
     className="mock-helmet"

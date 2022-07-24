@@ -2,7 +2,7 @@
 
 exports[`Navigation renders correctly when menu is toggled 1`] = `
 <nav
-  className="open"
+  className=""
   css={
     Object {
       "map": undefined,

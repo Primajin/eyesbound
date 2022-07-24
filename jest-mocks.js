@@ -28,3 +28,31 @@ jest.mock('react-helmet', () => {
 		Helmet: jest.fn().mockImplementation(mockHelmet),
 	};
 });
+
+jest.mock('@react-google-maps/api', () => {
+	const React = require('react');
+	const plugin = jest.requireActual('@react-google-maps/api');
+	const mockGoogleMap = ({children, ...props}) =>
+		React.createElement('div', {
+			...props,
+			className: 'mock-google-map',
+		}, children);
+
+	const mockInfoWindow = ({children, ...props}) =>
+		React.createElement('div', {
+			...props,
+			className: 'mock-info-window',
+		}, children);
+
+	const mockMarker = ({children, ...props}) =>
+		React.createElement('div', {
+			...props,
+			className: 'mock-marker',
+		}, children);
+	return {
+		...plugin,
+		GoogleMap: jest.fn().mockImplementation(mockGoogleMap),
+		InfoWindow: jest.fn().mockImplementation(mockInfoWindow),
+		Marker: jest.fn().mockImplementation(mockMarker),
+	};
+});

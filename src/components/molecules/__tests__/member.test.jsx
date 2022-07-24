@@ -1,18 +1,20 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {act, create} from 'react-test-renderer';
 
 import Member from '../member.jsx';
 
 describe('Member', () => {
-	it('renders correctly with list of zero', () => {
-		const edges = [];
+	it('renders correctly with a list of zero', () => {
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={edges} title={title} name={name}/>);
+		const component = create(<Member edges={[]} title={title} name={name}/>);
+		act(() => {
+			component.root.findByType('button').props.onClick();
+		});
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with list of one', () => {
+	it('renders correctly with a list of one', () => {
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const thumbnailData = {data: picture, id: 'id-foo', uid: 'uid-bar'};
 		const thumbnailDataNode = {node: thumbnailData};
@@ -23,7 +25,7 @@ describe('Member', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with list of more', () => {
+	it('renders correctly with a list of more', () => {
 		const picture1 = {coordinates: {latitude: 52.456, longitude: 13.456}, image: {}, title: 'title1'};
 		const picture2 = {coordinates: {latitude: 52.789, longitude: 13.798}, image: {}, title: 'title2'};
 		const thumbnailData1 = {data: picture1, id: 'id-1', uid: 'uid-1'};
