@@ -1,18 +1,11 @@
 import PropTypes from 'prop-types';
-import React, {memo, useState} from 'react';
-import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api';
+import React, {memo} from 'react';
+import {LoadScript} from '@react-google-maps/api';
 import {css, Global} from '@emotion/react';
 
-import AssetTypes from '../../constants/asset-types.js';
-import {fromLocalStorage} from '../../utils/local-storage.js';
 import {prismicPictureNode} from '../../types/proptypes.js';
-import {userPrefersDark} from '../../utils/theming.js';
-import Picture from './picture.jsx';
-
-const centerOfGermany = {
-	latitude: 51.164_229_2,
-	longitude: 10.454_119_4,
-};
+import GoogleMap from '../atoms/google-map.jsx';
+import {centerOfGermany, mapIdDark, mapIdLight} from '../../constants/map.js';
 
 const styles = css`
 	.gm-style {
@@ -64,60 +57,25 @@ const styles = css`
 	}
 `;
 
-const Map = ({center, data, height, hasNoInfoWindow, zoom}) => {
-	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
-	const [properties, setProperties] = useState({});
-	const {image, position, title, uid} = properties;
-	const mapCenter = {lat: center.latitude, lng: center.longitude};
-
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const prefersDark = storagePrefersDark ?? userPrefersDark;
-
-	const toggleInfoWindow = properties => () => {
-		if (hasNoInfoWindow) {
-			return;
-		}
-
-		setInfoWindowOpen(true);
-		setProperties(properties);
-	};
-
-	const mapIdDark = '3337a3a753e88572';
-	const mapIdLight = 'bb0e93992dc84f05';
-	const mapId = prefersDark ? mapIdDark : mapIdLight;
-	const options = {mapId, streetViewControl: false};
-
-	const {PICTURE: {path}} = AssetTypes;
-
-	return (
+const Map = ({center, data, height, hasNoInfoWindow, isDark, zoom}) =>
+	(
 		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version='beta'>
 			<Global styles={styles}/>
-			<GoogleMap center={mapCenter} mapContainerStyle={{height}} options={options} zoom={zoom}>
-				<>
-					{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
-						const position = {lat: latitude, lng: longitude};
-						const properties = {image, position, title, uid};
-						return <Marker key={id} position={position} title={title} clickable={!hasNoInfoWindow} onClick={toggleInfoWindow(properties)}/>;
-					})}
-					{infoWindowOpen && title && (
-						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
-							<a href={`/${path}/${uid}`}>
-								<h1>{title}</h1>
-								<Picture preferThumbnails data={{title, image}} size={{height: 110, width: 164}}/>
-							</a>
-						</InfoWindow>
-					)}
-				</>
-			</GoogleMap>
+			<div css={{display: isDark ? 'none' : undefined}}>
+				<GoogleMap data={data} height={height} center={center} hasNoInfoWindow={hasNoInfoWindow} mapId={mapIdLight} zoom={zoom}/>
+			</div>
+			<div css={{display: isDark ? undefined : 'none'}}>
+				<GoogleMap data={data} height={height} center={center} hasNoInfoWindow={hasNoInfoWindow} mapId={mapIdDark} zoom={zoom}/>
+			</div>
 		</LoadScript>
 	);
-};
 
 Map.propTypes = {
 	center: PropTypes.exact({latitude: PropTypes.number, longitude: PropTypes.number}),
 	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,
-	height: PropTypes.string,
 	hasNoInfoWindow: PropTypes.bool,
+	height: PropTypes.string,
+	isDark: PropTypes.bool.isRequired,
 	zoom: PropTypes.number,
 };
 

@@ -4,17 +4,28 @@ import {Helmet} from 'react-helmet';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 
-import SocialImage from '../../static/social-image.png';
 import Fullscreen from '../components/atoms/fullscreen.jsx';
 import Header from '../components/molecules/header.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/organisms/slideshow.jsx';
+import SocialImage from '../../static/social-image.png';
+import {fromLocalStorage} from '../utils/local-storage.js';
+import {userPrefersDark} from '../utils/theming.js';
 
 const Home = ({data: {allPrismicPicture: {edges}}}) => {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
 		setFullScreen(isFullscreen);
+	};
+
+	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+
+	const switchTheme = () => {
+		const flipPreference = !isDark;
+		setIsDark(flipPreference);
+		fromLocalStorage.setItem('userPrefersDark', flipPreference);
 	};
 
 	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
@@ -34,7 +45,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 				<meta name='twitter:url' content={GATSBY_SERVER_URL}/>
 			</Helmet>
 			<Global styles={css` body { height: 100vh; overflow: hidden; width: 100vw; } `}/>
-			<Header isFullscreen={fullScreen}/>
+			<Header isDark={isDark} isFullscreen={fullScreen} switchTheme={switchTheme}/>
 			<Fullscreen callback={fullscreenCallback}/>
 			<Slideshow images={edges} isFullscreen={fullScreen}/>
 		</>

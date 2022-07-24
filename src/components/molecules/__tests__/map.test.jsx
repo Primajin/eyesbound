@@ -5,8 +5,7 @@ import Map from '../map.jsx';
 
 describe('Map', () => {
 	it('renders correctly with list of zero', () => {
-		const data = [];
-		const component = create(<Map data={data}/>);
+		const component = create(<Map isDark data={[]}/>);
 		expect(component).toMatchSnapshot();
 	});
 

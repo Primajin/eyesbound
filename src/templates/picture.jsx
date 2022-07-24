@@ -12,7 +12,8 @@ import Map from '../components/molecules/map.jsx';
 import PictureComponent from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 import TagLinks from '../components/atoms/tag-links.jsx';
-import {up} from '../utils/theming.js';
+import {fromLocalStorage} from '../utils/local-storage.js';
+import {up, userPrefersDark} from '../utils/theming.js';
 
 const details = css`
 	margin: 20px 0;
@@ -42,6 +43,15 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 		setFullScreen(isFullscreen);
 	};
 
+	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+
+	const switchTheme = () => {
+		const flipPreference = !isDark;
+		setIsDark(flipPreference);
+		fromLocalStorage.setItem('userPrefersDark', flipPreference);
+	};
+
 	const {data = {}} = prismicPicture;
 	const {category, coordinates, datetime, image, series, title, tags} = data;
 
@@ -69,7 +79,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 	return (
 		<>
 			<HelmetMetaTags coordinates={shortenedCoords} dateTime={datetime} description={description} imageSource={imageSource} path={picturePath} title={title} uid={prismicPicture.uid}/>
-			<Header isFullscreen={fullScreen}/>
+			<Header isFullscreen={fullScreen} isDark={isDark} switchTheme={switchTheme}/>
 			<Fullscreen callback={fullscreenCallback} selector='img'/>
 			<MainWrapper>
 				{hasTitle && <h1>{title}</h1>}
@@ -84,7 +94,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 						{hasDateTime && <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div>}
 						{hasCoords && <div>Location: {shortenedCoords.join(' | ')}</div>}
 					</div>
-					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height='500px' zoom={11}/>}
+					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height='500px' isDark={isDark} zoom={11}/>}
 				</section>
 			</MainWrapper>
 		</>
