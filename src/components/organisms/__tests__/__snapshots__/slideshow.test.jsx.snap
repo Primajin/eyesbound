@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Slideshow renders correctly with list of more 1`] = `
+exports[`Slideshow renders correctly with a list of more 1`] = `
 <div
   className="slide-container"
 >
@@ -95,12 +95,12 @@ exports[`Slideshow renders correctly with list of more 1`] = `
                     css={
                       Object {
                         "map": undefined,
-                        "name": "1njbo0a",
+                        "name": "724za4",
                         "next": undefined,
                         "styles": "
-	  height: calc(100vh - 50px);
-	  width: 100vw;
-	",
+	height: calc(100vh - 50px);
+	width: 100vw;
+",
                         "toString": [Function],
                       }
                     }
@@ -151,12 +151,12 @@ exports[`Slideshow renders correctly with list of more 1`] = `
                     css={
                       Object {
                         "map": undefined,
-                        "name": "1njbo0a",
+                        "name": "724za4",
                         "next": undefined,
                         "styles": "
-	  height: calc(100vh - 50px);
-	  width: 100vw;
-	",
+	height: calc(100vh - 50px);
+	width: 100vw;
+",
                         "toString": [Function],
                       }
                     }
@@ -258,11 +258,11 @@ exports[`Slideshow renders correctly with list of more 1`] = `
               css={
                 Object {
                   "map": undefined,
-                  "name": "nihikp",
+                  "name": "m2yydh",
                   "next": undefined,
                   "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
                   "toString": [Function],
                 }
               }
@@ -323,11 +323,11 @@ exports[`Slideshow renders correctly with list of more 1`] = `
               css={
                 Object {
                   "map": undefined,
-                  "name": "nihikp",
+                  "name": "m2yydh",
                   "next": undefined,
                   "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
                   "toString": [Function],
                 }
               }
@@ -379,7 +379,7 @@ exports[`Slideshow renders correctly with list of more 1`] = `
 </div>
 `;
 
-exports[`Slideshow renders correctly with list of one 1`] = `
+exports[`Slideshow renders correctly with a list of one 1`] = `
 <div
   className="slide-container"
 >
@@ -474,12 +474,12 @@ exports[`Slideshow renders correctly with list of one 1`] = `
                     css={
                       Object {
                         "map": undefined,
-                        "name": "1njbo0a",
+                        "name": "724za4",
                         "next": undefined,
                         "styles": "
-	  height: calc(100vh - 50px);
-	  width: 100vw;
-	",
+	height: calc(100vh - 50px);
+	width: 100vw;
+",
                         "toString": [Function],
                       }
                     }
@@ -581,11 +581,11 @@ exports[`Slideshow renders correctly with list of one 1`] = `
               css={
                 Object {
                   "map": undefined,
-                  "name": "nihikp",
+                  "name": "m2yydh",
                   "next": undefined,
                   "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
                   "toString": [Function],
                 }
               }
@@ -637,7 +637,7 @@ exports[`Slideshow renders correctly with list of one 1`] = `
 </div>
 `;
 
-exports[`Slideshow renders correctly with list of zero 1`] = `
+exports[`Slideshow renders correctly with a list of zero 1`] = `
 <div
   className="slide-container"
 >

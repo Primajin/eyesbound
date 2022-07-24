@@ -5,6 +5,17 @@ import {css} from '@emotion/react';
 
 import {Picture as PictureType, Size as SizeType} from '../../types/proptypes.js';
 
+const fullSize = css`
+	height: calc(100vh - 50px);
+	width: 100vw;
+`;
+
+// Calculate image aspect ratio
+const inverseAspectRatio = 4912 / 7360;
+const normal = css`
+	padding-top: ${inverseAspectRatio * 100}%;
+`;
+
 const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
 	let gatsbyImageData = {};
 	const alt = image.alt ?? title;
@@ -30,17 +41,6 @@ const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
 
 	const height = propsHeight ?? gatsbyImageData.height;
 	const width = propsWidth ?? gatsbyImageData.width;
-
-	const fullSize = css`
-	  height: calc(100vh - 50px);
-	  width: 100vw;
-	`;
-
-	// Calculate image aspect ratio
-	const inverseAspectRatio = 4912 / 7360;
-	const normal = css`
-	  padding-top: ${inverseAspectRatio * 100}%;
-	`;
 
 	const cssClass = layout === 'FULL_WIDTH' ? fullSize : normal;
 

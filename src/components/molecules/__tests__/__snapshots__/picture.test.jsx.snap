@@ -1,17 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Picture renders correctly with props 1`] = `
+exports[`Picture renders correctly with preferThumbnails false 1`] = `
 <picture>
   <img
     alt="title"
     css={
       Object {
         "map": undefined,
-        "name": "nihikp",
+        "name": "m2yydh",
         "next": undefined,
         "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
+        "toString": [Function],
+      }
+    }
+    height={123}
+    image={
+      Object {
+        "layout": "FIXED",
+      }
+    }
+    width={456}
+  />
+</picture>
+`;
+
+exports[`Picture renders correctly with preferThumbnails true 1`] = `
+<picture>
+  <img
+    alt="title"
+    css={
+      Object {
+        "map": undefined,
+        "name": "m2yydh",
+        "next": undefined,
+        "styles": "
+	padding-top: 66.73913043478261%;
+",
         "toString": [Function],
       }
     }
@@ -33,11 +59,11 @@ exports[`Picture renders correctly without extra props 1`] = `
     css={
       Object {
         "map": undefined,
-        "name": "nihikp",
+        "name": "m2yydh",
         "next": undefined,
         "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
         "toString": [Function],
       }
     }

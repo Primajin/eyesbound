@@ -108,6 +108,10 @@ const Navigation = ({isFullscreen}) => {
 			}
 		};
 
+		if (process.env.NODE_ENV === 'test') {
+			openMenu();
+		}
+
 		// Register eventListener once
 		document.addEventListener('focus', openMenu, true);
 

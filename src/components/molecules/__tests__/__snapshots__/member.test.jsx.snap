@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Member renders correctly with list of more 1`] = `
+exports[`Member renders correctly with a list of more 1`] = `
 Array [
   <div
     className="mock-helmet"
@@ -273,14 +273,14 @@ Array [
           fill="none"
         />
         <path
-          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
         />
       </svg>
       <div
         className="mock-helmet"
       >
         <meta
-          content="#ffffff"
+          content="#000000"
           name="theme-color"
         />
       </div>
@@ -358,11 +358,11 @@ Array [
               css={
                 Object {
                   "map": undefined,
-                  "name": "nihikp",
+                  "name": "m2yydh",
                   "next": undefined,
                   "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
                   "toString": [Function],
                 }
               }
@@ -388,11 +388,11 @@ Array [
               css={
                 Object {
                   "map": undefined,
-                  "name": "nihikp",
+                  "name": "m2yydh",
                   "next": undefined,
                   "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
                   "toString": [Function],
                 }
               }
@@ -412,7 +412,7 @@ Array [
 ]
 `;
 
-exports[`Member renders correctly with list of one 1`] = `
+exports[`Member renders correctly with a list of one 1`] = `
 Array [
   <div
     className="mock-helmet"
@@ -685,14 +685,14 @@ Array [
           fill="none"
         />
         <path
-          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
         />
       </svg>
       <div
         className="mock-helmet"
       >
         <meta
-          content="#ffffff"
+          content="#000000"
           name="theme-color"
         />
       </div>
@@ -770,11 +770,11 @@ Array [
               css={
                 Object {
                   "map": undefined,
-                  "name": "nihikp",
+                  "name": "m2yydh",
                   "next": undefined,
                   "styles": "
-	  padding-top: 66.73913043478261%;
-	",
+	padding-top: 66.73913043478261%;
+",
                   "toString": [Function],
                 }
               }
@@ -794,7 +794,7 @@ Array [
 ]
 `;
 
-exports[`Member renders correctly with list of zero 1`] = `
+exports[`Member renders correctly with a list of zero 1`] = `
 Array [
   <div
     className="mock-helmet"
@@ -1067,14 +1067,14 @@ Array [
           fill="none"
         />
         <path
-          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
         />
       </svg>
       <div
         className="mock-helmet"
       >
         <meta
-          content="#ffffff"
+          content="#000000"
           name="theme-color"
         />
       </div>
