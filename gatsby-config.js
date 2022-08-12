@@ -71,12 +71,11 @@ module.exports = {
 				mergeDefaultDirectives: true,
 				directives: {
 					'connect-src': `'self' ws: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com maps.googleapis.com`,
-					'font-src': `'self' fonts.gstatic.com fonts.googleapis.com`,
 					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io`,
 					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
 					'prefetch-src': `'self' fonts.googleapis.com fonts.gstatic.com`,
 					'script-src': `'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com static.cdn.prismic.io`,
-					'style-src': `'self' 'unsafe-inline' fonts.googleapis.com`,
+					'style-src': `'self' 'unsafe-inline'`,
 					'worker-src': `'self' blob:`
 				}
 			}
