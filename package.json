@@ -30,7 +30,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@fontsource/montserrat": "^4.5.12",
-    "@react-google-maps/api": "^2.12.1",
+    "@react-google-maps/api": "^2.12.2",
     "classnames": "^2.3.1",
     "gatsby": "^4.20.0",
     "gatsby-plugin-csp": "^1.1.3",
