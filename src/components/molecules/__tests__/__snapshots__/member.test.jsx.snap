@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Member renders correctly with a list of more 1`] = `
-Array [
+[
   <div
     className="mock-helmet"
   >
@@ -27,7 +27,7 @@ Array [
     <h1
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1vze745",
           "next": undefined,
@@ -70,7 +70,7 @@ Array [
     <nav
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
@@ -222,7 +222,7 @@ Array [
       aria-label="Switch theme"
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "jwavk5",
           "next": undefined,
@@ -288,7 +288,7 @@ Array [
   </header>,
   <main
     css={
-      Object {
+      {
         "map": undefined,
         "name": "14akp75",
         "next": undefined,
@@ -316,7 +316,7 @@ Array [
     </h1>
     <ul
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ktsphj",
           "next": undefined,
@@ -356,7 +356,7 @@ Array [
             <img
               alt="title1"
               css={
-                Object {
+                {
                   "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
@@ -368,7 +368,7 @@ Array [
               }
               height={174}
               image={
-                Object {
+                {
                   "layout": "CONSTRAINED",
                 }
               }
@@ -386,7 +386,7 @@ Array [
             <img
               alt="title2"
               css={
-                Object {
+                {
                   "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
@@ -398,7 +398,7 @@ Array [
               }
               height={174}
               image={
-                Object {
+                {
                   "layout": "CONSTRAINED",
                 }
               }
@@ -413,7 +413,7 @@ Array [
 `;
 
 exports[`Member renders correctly with a list of one 1`] = `
-Array [
+[
   <div
     className="mock-helmet"
   >
@@ -439,7 +439,7 @@ Array [
     <h1
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1vze745",
           "next": undefined,
@@ -482,7 +482,7 @@ Array [
     <nav
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
@@ -634,7 +634,7 @@ Array [
       aria-label="Switch theme"
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "jwavk5",
           "next": undefined,
@@ -700,7 +700,7 @@ Array [
   </header>,
   <main
     css={
-      Object {
+      {
         "map": undefined,
         "name": "14akp75",
         "next": undefined,
@@ -728,7 +728,7 @@ Array [
     </h1>
     <ul
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ktsphj",
           "next": undefined,
@@ -768,7 +768,7 @@ Array [
             <img
               alt="title1"
               css={
-                Object {
+                {
                   "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
@@ -780,7 +780,7 @@ Array [
               }
               height={174}
               image={
-                Object {
+                {
                   "layout": "CONSTRAINED",
                 }
               }
@@ -795,7 +795,7 @@ Array [
 `;
 
 exports[`Member renders correctly with a list of zero 1`] = `
-Array [
+[
   <div
     className="mock-helmet"
   >
@@ -821,7 +821,7 @@ Array [
     <h1
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1vze745",
           "next": undefined,
@@ -864,7 +864,7 @@ Array [
     <nav
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
@@ -1016,7 +1016,7 @@ Array [
       aria-label="Switch theme"
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "jwavk5",
           "next": undefined,
@@ -1082,7 +1082,7 @@ Array [
   </header>,
   <main
     css={
-      Object {
+      {
         "map": undefined,
         "name": "14akp75",
         "next": undefined,
@@ -1110,7 +1110,7 @@ Array [
     </h1>
     <ul
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ktsphj",
           "next": undefined,

@@ -5,7 +5,7 @@ exports[`Fullscreen renders correctly with props 1`] = `
   aria-label="Toggle fullscreen"
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "12oymiu",
       "next": undefined,
@@ -76,7 +76,7 @@ exports[`Fullscreen renders correctly without props 1`] = `
   aria-label="Toggle fullscreen"
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "12oymiu",
       "next": undefined,

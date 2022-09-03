@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Map renders correctly with dark mode 1`] = `
-Array [
+[
   <div />,
   <div>
     Loading...
@@ -10,7 +10,7 @@ Array [
 `;
 
 exports[`Map renders correctly with light mode 1`] = `
-Array [
+[
   <div />,
   <div>
     Loading...
