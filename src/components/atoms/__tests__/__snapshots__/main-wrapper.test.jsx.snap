@@ -3,7 +3,7 @@
 exports[`MainWrapper renders correctly with props 1`] = `
 <main
   css={
-    Object {
+    {
       "map": undefined,
       "name": "14akp75",
       "next": undefined,
@@ -30,7 +30,7 @@ exports[`MainWrapper renders correctly with props 1`] = `
 exports[`MainWrapper renders correctly without props 1`] = `
 <main
   css={
-    Object {
+    {
       "map": undefined,
       "name": "14akp75",
       "next": undefined,

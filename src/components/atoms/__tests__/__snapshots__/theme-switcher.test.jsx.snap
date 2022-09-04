@@ -5,7 +5,7 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 1`] = `
   aria-label="Switch theme"
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "jwavk5",
       "next": undefined,
@@ -75,7 +75,7 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 2`] = `
   aria-label="Switch theme"
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "jwavk5",
       "next": undefined,
@@ -116,11 +116,11 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 2`] = `
   }
   onClick={
     [MockFunction] {
-      "calls": Array [
-        Array [],
+      "calls": [
+        [],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
@@ -157,7 +157,7 @@ exports[`ThemeSwitcher renders correctly with all props 1`] = `
   aria-label="Switch theme"
   className="fullScreen"
   css={
-    Object {
+    {
       "map": undefined,
       "name": "jwavk5",
       "next": undefined,
@@ -227,7 +227,7 @@ exports[`ThemeSwitcher renders correctly with minimum props 1`] = `
   aria-label="Switch theme"
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "jwavk5",
       "next": undefined,

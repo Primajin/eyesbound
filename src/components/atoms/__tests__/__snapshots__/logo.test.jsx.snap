@@ -4,7 +4,7 @@ exports[`Logo renders correctly with props 1`] = `
 <h1
   className="isFullscreen"
   css={
-    Object {
+    {
       "map": undefined,
       "name": "1vze745",
       "next": undefined,
@@ -50,7 +50,7 @@ exports[`Logo renders correctly without props 1`] = `
 <h1
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "1vze745",
       "next": undefined,

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Thumbnails renders correctly with a list of more 1`] = `
-Array [
+[
   <h1>
     type
     : 
@@ -12,7 +12,7 @@ Array [
   </h1>,
   <ul
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1ktsphj",
         "next": undefined,
@@ -52,7 +52,7 @@ Array [
           <img
             alt="title1"
             css={
-              Object {
+              {
                 "map": undefined,
                 "name": "m2yydh",
                 "next": undefined,
@@ -64,7 +64,7 @@ Array [
             }
             height={174}
             image={
-              Object {
+              {
                 "layout": "CONSTRAINED",
               }
             }
@@ -82,7 +82,7 @@ Array [
           <img
             alt="title2"
             css={
-              Object {
+              {
                 "map": undefined,
                 "name": "m2yydh",
                 "next": undefined,
@@ -94,7 +94,7 @@ Array [
             }
             height={174}
             image={
-              Object {
+              {
                 "layout": "CONSTRAINED",
               }
             }
@@ -108,7 +108,7 @@ Array [
 `;
 
 exports[`Thumbnails renders correctly with a list of one 1`] = `
-Array [
+[
   <h1>
     type
     : 
@@ -119,7 +119,7 @@ Array [
   </h1>,
   <ul
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1ktsphj",
         "next": undefined,
@@ -159,7 +159,7 @@ Array [
           <img
             alt="title1"
             css={
-              Object {
+              {
                 "map": undefined,
                 "name": "m2yydh",
                 "next": undefined,
@@ -171,7 +171,7 @@ Array [
             }
             height={174}
             image={
-              Object {
+              {
                 "layout": "CONSTRAINED",
               }
             }
@@ -185,7 +185,7 @@ Array [
 `;
 
 exports[`Thumbnails renders correctly with a list of zero 1`] = `
-Array [
+[
   <h1>
     type
     : 
@@ -196,7 +196,7 @@ Array [
   </h1>,
   <ul
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1ktsphj",
         "next": undefined,

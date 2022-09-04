@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Imprint renders correctly 1`] = `
-Array [
+[
   <div
     className="mock-helmet"
   >
@@ -35,7 +35,7 @@ Array [
     <h1
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1vze745",
           "next": undefined,
@@ -78,7 +78,7 @@ Array [
     <nav
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
@@ -230,7 +230,7 @@ Array [
       aria-label="Switch theme"
       className=""
       css={
-        Object {
+        {
           "map": undefined,
           "name": "jwavk5",
           "next": undefined,
@@ -296,7 +296,7 @@ Array [
   </header>,
   <main
     css={
-      Object {
+      {
         "map": undefined,
         "name": "14akp75",
         "next": undefined,
@@ -345,7 +345,7 @@ Array [
         <i
           className="icon-cc"
           css={
-            Object {
+            {
               "map": undefined,
               "name": "1upep0j",
               "next": undefined,
@@ -360,10 +360,10 @@ Array [
 	vertical-align: middle;
 	width: 64px;
 
-	&.icon-cc { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-by { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-nc-eu { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-sa { background-image: url(\\"test-file-stub\\"); }
+	&.icon-cc { background-image: url("test-file-stub"); }
+	&.icon-cc-by { background-image: url("test-file-stub"); }
+	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
+	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
               "toString": [Function],
             }
@@ -375,7 +375,7 @@ Array [
         <i
           className="icon-cc-by"
           css={
-            Object {
+            {
               "map": undefined,
               "name": "1upep0j",
               "next": undefined,
@@ -390,10 +390,10 @@ Array [
 	vertical-align: middle;
 	width: 64px;
 
-	&.icon-cc { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-by { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-nc-eu { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-sa { background-image: url(\\"test-file-stub\\"); }
+	&.icon-cc { background-image: url("test-file-stub"); }
+	&.icon-cc-by { background-image: url("test-file-stub"); }
+	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
+	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
               "toString": [Function],
             }
@@ -405,7 +405,7 @@ Array [
         <i
           className="icon-cc-nc-eu"
           css={
-            Object {
+            {
               "map": undefined,
               "name": "1upep0j",
               "next": undefined,
@@ -420,10 +420,10 @@ Array [
 	vertical-align: middle;
 	width: 64px;
 
-	&.icon-cc { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-by { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-nc-eu { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-sa { background-image: url(\\"test-file-stub\\"); }
+	&.icon-cc { background-image: url("test-file-stub"); }
+	&.icon-cc-by { background-image: url("test-file-stub"); }
+	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
+	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
               "toString": [Function],
             }
@@ -435,7 +435,7 @@ Array [
         <i
           className="icon-cc-sa"
           css={
-            Object {
+            {
               "map": undefined,
               "name": "1upep0j",
               "next": undefined,
@@ -450,10 +450,10 @@ Array [
 	vertical-align: middle;
 	width: 64px;
 
-	&.icon-cc { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-by { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-nc-eu { background-image: url(\\"test-file-stub\\"); }
-	&.icon-cc-sa { background-image: url(\\"test-file-stub\\"); }
+	&.icon-cc { background-image: url("test-file-stub"); }
+	&.icon-cc-by { background-image: url("test-file-stub"); }
+	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
+	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
               "toString": [Function],
             }

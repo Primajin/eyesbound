@@ -4,7 +4,7 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
 <nav
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "1ghowhq",
       "next": undefined,
@@ -158,7 +158,7 @@ exports[`Navigation renders correctly with props 1`] = `
 <nav
   className="isFullscreen"
   css={
-    Object {
+    {
       "map": undefined,
       "name": "1ghowhq",
       "next": undefined,
@@ -312,7 +312,7 @@ exports[`Navigation renders correctly without props 1`] = `
 <nav
   className=""
   css={
-    Object {
+    {
       "map": undefined,
       "name": "1ghowhq",
       "next": undefined,

@@ -5,7 +5,7 @@ exports[`Header renders correctly with props 1`] = `
   <h1
     className="isFullscreen"
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1vze745",
         "next": undefined,
@@ -48,7 +48,7 @@ exports[`Header renders correctly with props 1`] = `
   <nav
     className="isFullscreen"
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1ghowhq",
         "next": undefined,
@@ -204,7 +204,7 @@ exports[`Header renders correctly without props 1`] = `
   <h1
     className=""
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1vze745",
         "next": undefined,
@@ -247,7 +247,7 @@ exports[`Header renders correctly without props 1`] = `
   <nav
     className=""
     css={
-      Object {
+      {
         "map": undefined,
         "name": "1ghowhq",
         "next": undefined,

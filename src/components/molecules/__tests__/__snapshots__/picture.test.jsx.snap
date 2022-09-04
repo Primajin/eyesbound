@@ -5,7 +5,7 @@ exports[`Picture renders correctly with preferThumbnails false 1`] = `
   <img
     alt="title"
     css={
-      Object {
+      {
         "map": undefined,
         "name": "m2yydh",
         "next": undefined,
@@ -17,7 +17,7 @@ exports[`Picture renders correctly with preferThumbnails false 1`] = `
     }
     height={123}
     image={
-      Object {
+      {
         "layout": "FIXED",
       }
     }
@@ -31,7 +31,7 @@ exports[`Picture renders correctly with preferThumbnails true 1`] = `
   <img
     alt="title"
     css={
-      Object {
+      {
         "map": undefined,
         "name": "m2yydh",
         "next": undefined,
@@ -43,7 +43,7 @@ exports[`Picture renders correctly with preferThumbnails true 1`] = `
     }
     height={123}
     image={
-      Object {
+      {
         "layout": "FIXED",
       }
     }
@@ -57,7 +57,7 @@ exports[`Picture renders correctly without extra props 1`] = `
   <img
     alt="title"
     css={
-      Object {
+      {
         "map": undefined,
         "name": "m2yydh",
         "next": undefined,
@@ -68,7 +68,7 @@ exports[`Picture renders correctly without extra props 1`] = `
       }
     }
     image={
-      Object {
+      {
         "layout": "CONSTRAINED",
       }
     }

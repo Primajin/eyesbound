@@ -3,19 +3,19 @@
 exports[`GoogleMap renders correctly with props and a list of one 1`] = `
 <div
   center={
-    Object {
+    {
       "lat": 52.473092,
       "lng": 13.327628,
     }
   }
   className="mock-google-map"
   mapContainerStyle={
-    Object {
+    {
       "height": "100px",
     }
   }
   options={
-    Object {
+    {
       "mapId": "map-id",
       "streetViewControl": false,
     }
@@ -27,7 +27,7 @@ exports[`GoogleMap renders correctly with props and a list of one 1`] = `
     clickable={true}
     onClick={[Function]}
     position={
-      Object {
+      {
         "lat": 52.123,
         "lng": 13.123,
       }
@@ -40,19 +40,19 @@ exports[`GoogleMap renders correctly with props and a list of one 1`] = `
 exports[`GoogleMap renders correctly with props and a list of one 2`] = `
 <div
   center={
-    Object {
+    {
       "lat": 52.473092,
       "lng": 13.327628,
     }
   }
   className="mock-google-map"
   mapContainerStyle={
-    Object {
+    {
       "height": "100px",
     }
   }
   options={
-    Object {
+    {
       "mapId": "map-id",
       "streetViewControl": false,
     }
@@ -64,7 +64,7 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
     clickable={true}
     onClick={[Function]}
     position={
-      Object {
+      {
         "lat": 52.123,
         "lng": 13.123,
       }
@@ -75,12 +75,12 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
     className="mock-info-window"
     onCloseClick={[Function]}
     options={
-      Object {
+      {
         "maxWidth": 200,
       }
     }
     position={
-      Object {
+      {
         "lat": 52.123,
         "lng": 13.123,
       }
@@ -96,7 +96,7 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
         <img
           alt="title1"
           css={
-            Object {
+            {
               "map": undefined,
               "name": "m2yydh",
               "next": undefined,
@@ -108,7 +108,7 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
           }
           height={110}
           image={
-            Object {
+            {
               "layout": "CONSTRAINED",
             }
           }
@@ -123,19 +123,19 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
 exports[`GoogleMap renders correctly with props and a list of two 1`] = `
 <div
   center={
-    Object {
+    {
       "lat": 52.473092,
       "lng": 13.327628,
     }
   }
   className="mock-google-map"
   mapContainerStyle={
-    Object {
+    {
       "height": "100px",
     }
   }
   options={
-    Object {
+    {
       "mapId": "map-id",
       "streetViewControl": false,
     }
@@ -147,7 +147,7 @@ exports[`GoogleMap renders correctly with props and a list of two 1`] = `
     clickable={false}
     onClick={[Function]}
     position={
-      Object {
+      {
         "lat": 52.123,
         "lng": 13.123,
       }
@@ -159,7 +159,7 @@ exports[`GoogleMap renders correctly with props and a list of two 1`] = `
     clickable={false}
     onClick={[Function]}
     position={
-      Object {
+      {
         "lat": 52.456,
         "lng": 13.456,
       }
@@ -172,19 +172,19 @@ exports[`GoogleMap renders correctly with props and a list of two 1`] = `
 exports[`GoogleMap renders correctly with props and a list of zero 1`] = `
 <div
   center={
-    Object {
+    {
       "lat": 52.473092,
       "lng": 13.327628,
     }
   }
   className="mock-google-map"
   mapContainerStyle={
-    Object {
+    {
       "height": "100px",
     }
   }
   options={
-    Object {
+    {
       "mapId": "map-id",
       "streetViewControl": false,
     }
@@ -196,7 +196,7 @@ exports[`GoogleMap renders correctly with props and a list of zero 1`] = `
     clickable={false}
     onClick={[Function]}
     position={
-      Object {
+      {
         "lat": 52.123,
         "lng": 13.123,
       }
