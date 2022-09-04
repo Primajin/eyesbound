@@ -97,6 +97,15 @@
         {
           "forbidDefaultForRequired": true
         }
+      ],
+      "react/no-unknown-property": [
+        2,
+        {
+          "ignore": [
+            "css",
+            "fill"
+          ]
+        }
       ]
     }
   },
