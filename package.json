@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "babel-jest": "^29.0.2",
-    "babel-preset-gatsby": "^2.22.0",
+    "babel-preset-gatsby": "^2.23.0",
     "dotenv": "^16.0.2",
     "eslint-config-xo": "^0.42.0",
     "eslint-config-xo-react": "^0.27.0",
