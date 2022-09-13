@@ -1,7 +1,7 @@
 /* global window */
 // window may be used only after it has been checked against being undefined
 /**
- * Does user prefer dark mode UI in Operation System settings?
+ * Does user prefer dark mode UI in Operating System settings?
  * @type {boolean}
  */
 export const userPrefersDark = typeof window !== 'undefined' && window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
