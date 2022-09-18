@@ -1,11 +1,25 @@
 /* global localStorage */
 // localStorage may be used only after it has been checked against being undefined
 
-const getItem = () => null;
-const setItem = () => undefined;
+/**
+ * Returns the current value associated with the given key, or null if the given key does not exist.
+ * @param _key {string}
+ * @returns {string | null}
+ */
+const getItem = (_key) => null;
 
 /**
- * Does user prefer dark mode UI in Local Storage settings?
- * @type {object}
+ * Sets the value of the pair identified by key to value, creating a new key/value pair if none existed for key previously.
+ * Throws a "QuotaExceededError" DOMException exception if the new value couldn't be set. (Setting could fail if, e.g., the user has disabled storage for the site, or if the quota has been exceeded.)
+ * Dispatches a storage event on Window objects holding an equivalent Storage object.
+ * @param _key {string}
+ * @param _value {string}
+ * @returns {void}
+ */
+const setItem = (_key, _value) => {};
+
+/**
+ * Getter and setter for local storage
+ * @type {{getItem: (function(string): string | null), setItem: setItem}|Storage} fromLocalStorage
  */
 export const fromLocalStorage = typeof localStorage === 'undefined' ? {getItem, setItem} : localStorage;
