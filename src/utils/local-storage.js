@@ -6,7 +6,7 @@
  * @param _key {string}
  * @returns {string | null}
  */
-const getItem = (_key) => null;
+const getItem = _key => null;
 
 /**
  * Sets the value of the pair identified by key to value, creating a new key/value pair if none existed for key previously.
