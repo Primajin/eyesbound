@@ -3,7 +3,7 @@ import React from 'react';
 
 const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
-/* eslint-disable react/no-danger,unicorn/text-encoding-identifier-case */
+/* eslint-disable react/no-danger */
 const HTML = props => (
 	<html lang='en' dir='ltr' {...props.htmlAttributes}>
 		<head>
