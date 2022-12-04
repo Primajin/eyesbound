@@ -7,10 +7,10 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  install:
     if: ${{ github.event.labels.name != 'dependabot'}}
     runs-on: ubuntu-latest
-    name: Make sure it builds.
+    name: Install dependencies.
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,13 +27,34 @@ jobs:
           restore-keys: npm-
       - name: Install dependencies
         run: npm ci
+      - name: Upload node_modules
+        uses: actions/upload-artifact@v3
+        with:
+          name: node_modules
+          path: node_modules
+  build:
+    needs: [ install ]
+    runs-on: ubuntu-latest
+    name: Make sure it builds.
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19'
+          cache: 'npm'
+      - name: Download node_modules
+      - uses: actions/download-artifact@v3
+        with:
+          name: node_modules
       - name: Run build
         run: npm run build
         env:
           GATSBY_API_KEY: ${{ secrets.GATSBY_API_KEY }}
           GATSBY_G_MAPS: ${{ secrets.GATSBY_G_MAPS }}
   lint:
-    needs: [ build ]
+    needs: [ install ]
     runs-on: ubuntu-latest
     name: Make sure the code adheres to the XO coding standard.
     steps:
@@ -44,16 +65,14 @@ jobs:
         with:
           node-version: '19'
           cache: 'npm'
-      - name: Cache dependencies
-        uses: actions/cache@v3
+      - name: Download node_modules
+      - uses: actions/download-artifact@v3
         with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
+          name: node_modules
       - name: Run linter
         run: npm run lint
   test:
-    needs: [ build ]
+    needs: [ install ]
     runs-on: ubuntu-latest
     name: Make sure the unit tests pass.
     steps:
@@ -64,12 +83,10 @@ jobs:
         with:
           node-version: '19'
           cache: 'npm'
-      - name: Cache dependencies
-        uses: actions/cache@v3
+      - name: Download node_modules
+      - uses: actions/download-artifact@v3
         with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
+          name: node_modules
       - name: Run coverage
         run: npm run coverage
       - name: Upload coverage to Codecov
