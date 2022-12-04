@@ -2,7 +2,7 @@ name: "Lint"
 
 on:
   workflow_run:
-    workflows: [build]
+    workflows: [Build, Build Matrix]
     types: [completed]
 
 jobs:
