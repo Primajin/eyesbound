@@ -45,7 +45,7 @@ jobs:
           node-version: '19'
           cache: 'npm'
       - name: Download node_modules
-      - uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: node_modules
       - name: Run build
@@ -66,7 +66,7 @@ jobs:
           node-version: '19'
           cache: 'npm'
       - name: Download node_modules
-      - uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: node_modules
       - name: Run linter
@@ -84,7 +84,7 @@ jobs:
           node-version: '19'
           cache: 'npm'
       - name: Download node_modules
-      - uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: node_modules
       - name: Run coverage
