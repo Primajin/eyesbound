@@ -1,15 +1,18 @@
-name: "Build"
+name: "Build Matrix"
 
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    types: [labeled]
 
 jobs:
   build:
-    if: ${{ github.event.labels.name != 'dependabot'}}
-    runs-on: ubuntu-latest
+    if: ${{ github.event.labels.name == 'dependabot'}}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     name: Make sure it builds.
     steps:
       - name: Checkout code
