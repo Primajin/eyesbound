@@ -10,6 +10,9 @@ const {
 } = process.env;
 
 module.exports = {
+	flags: {
+		DEV_SSR: true
+	},
 	jsxRuntime: 'automatic',
 	jsxImportSource: '@emotion/react',
 	siteMetadata: {
