@@ -4,14 +4,14 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    types: [labeled]
+    types: [ labeled ]
 
 jobs:
   build:
     if: ${{ github.event.labels.name == 'dependabot'}}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [ windows-latest, ubuntu-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
     name: Make sure it builds.
     steps:
