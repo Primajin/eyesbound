@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import classnames from 'classnames';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';
@@ -24,28 +24,43 @@ const lightStyles = css`
 	}
 `;
 
-const ThemeSwitcher = ({isFullscreen: fullScreen, isDark, switchTheme}) => (
-	<button
-		aria-label='Switch theme' css={buttonCSS}
-		className={classnames({fullScreen})} type='button'
-		onClick={switchTheme}
-	>
-		{isDark && (
-			<>
+const ThemeSwitcher = ({isFullscreen: fullScreen, isDark, switchTheme}) => {
+	const [darkmode, setDarkmode] = useState(false);
+
+	useEffect(() => {
+		setDarkmode(isDark);
+	}, [isDark]);
+
+	if (darkmode) {
+		return (
+			<button
+				aria-label='Switch theme' css={buttonCSS}
+				className={classnames({fullScreen})} type='button'
+				onClick={switchTheme}
+			>
 				<BulbOff/>
 				<Global styles={darkStyles}/>
-				<Helmet><meta name='theme-color' content='#000000'/></Helmet>
-			</>
-		)}
-		{!isDark && (
-			<>
-				<BulbOn/>
-				<Global styles={lightStyles}/>
-				<Helmet><meta name='theme-color' content='#ffffff'/></Helmet>
-			</>
-		)}
-	</button>
-);
+				<Helmet>
+					<meta name='theme-color' content='#000000'/>
+				</Helmet>
+			</button>
+		);
+	}
+
+	return (
+		<button
+			aria-label='Switch theme' css={buttonCSS}
+			className={classnames({fullScreen})} type='button'
+			onClick={switchTheme}
+		>
+			<BulbOn/>
+			<Global styles={lightStyles}/>
+			<Helmet>
+				<meta name='theme-color' content='#ffffff'/>
+			</Helmet>
+		</button>
+	);
+};
 
 ThemeSwitcher.propTypes = {
 	isDark: PropTypes.bool.isRequired,
