@@ -32,7 +32,7 @@
     "@fontsource/montserrat": "^4.5.13",
     "@react-google-maps/api": "^2.17.0",
     "classnames": "^2.3.2",
-    "gatsby": "^4.24.8",
+    "gatsby": "^4.25.0",
     "gatsby-plugin-csp": "^1.1.4",
     "gatsby-plugin-emotion": "^7.24.0",
     "gatsby-plugin-gatsby-cloud": "^4.24.1",
