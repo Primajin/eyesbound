@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    types: [ labeled ]
+    types: [ labeled, opened, synchronize , reopened ]
 
 jobs:
   build:
-    if: ${{ github.event.labels.name == 'dependabot'}}
+    if: contains(github.event.pull_request.labels.*.name, 'dependabot')
     strategy:
       matrix:
         os: [ windows-latest, ubuntu-latest, macos-latest ]
