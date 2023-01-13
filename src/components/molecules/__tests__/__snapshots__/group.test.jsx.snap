@@ -6,9 +6,7 @@ exports[`Group renders correctly with a list of more 1`] = `
     className="mock-helmet"
   >
     <title>
-      plural
-       | 
-      EYESBOUND
+      plural | EYESBOUND
     </title>
     <meta
       content="plural | EYESBOUND"
@@ -348,9 +346,7 @@ exports[`Group renders correctly with a list of one 1`] = `
     className="mock-helmet"
   >
     <title>
-      plural
-       | 
-      EYESBOUND
+      plural | EYESBOUND
     </title>
     <meta
       content="plural | EYESBOUND"
@@ -682,9 +678,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
     className="mock-helmet"
   >
     <title>
-      plural
-       | 
-      EYESBOUND
+      plural | EYESBOUND
     </title>
     <meta
       content="plural | EYESBOUND"

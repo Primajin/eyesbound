@@ -6,9 +6,7 @@ exports[`Member renders correctly with a list of more 1`] = `
     className="mock-helmet"
   >
     <title>
-      title
-       | 
-      EYESBOUND
+      title | EYESBOUND
     </title>
     <meta
       content="title | EYESBOUND"
@@ -418,9 +416,7 @@ exports[`Member renders correctly with a list of one 1`] = `
     className="mock-helmet"
   >
     <title>
-      title
-       | 
-      EYESBOUND
+      title | EYESBOUND
     </title>
     <meta
       content="title | EYESBOUND"
@@ -800,9 +796,7 @@ exports[`Member renders correctly with a list of zero 1`] = `
     className="mock-helmet"
   >
     <title>
-      title
-       | 
-      EYESBOUND
+      title | EYESBOUND
     </title>
     <meta
       content="title | EYESBOUND"

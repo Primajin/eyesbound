@@ -6,9 +6,7 @@ exports[`Imprint renders correctly 1`] = `
     className="mock-helmet"
   >
     <title>
-      Imprint & Contact
-       | 
-      EYESBOUND
+      Imprint & Contact | EYESBOUND
     </title>
     <meta
       content="Imprint & Contact | EYESBOUND"
