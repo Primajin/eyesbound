@@ -10,13 +10,14 @@ const HelmetMetaTags = ({coordinates, dateTime, imageSource, path, description, 
 	const hasDescription = Boolean(description);
 	const hasTitle = Boolean(title);
 	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
+	const titleText = `${title} | ${GATSBY_SITE_NAME}`;
 
 	return (
 		<Helmet>
-			{hasTitle && <title>{title} | {GATSBY_SITE_NAME}</title>}
-			{hasTitle && <meta name='title' content={`${title} | ${GATSBY_SITE_NAME}`}/>}
-			{hasTitle && <meta property='og:title' content={`${title} | ${GATSBY_SITE_NAME}`}/>}
-			{hasTitle && <meta name='twitter:title' content={`${title} | ${GATSBY_SITE_NAME}`}/>}
+			{hasTitle && <title>{titleText}</title>}
+			{hasTitle && <meta name='title' content={titleText}/>}
+			{hasTitle && <meta property='og:title' content={titleText}/>}
+			{hasTitle && <meta name='twitter:title' content={titleText}/>}
 			{hasDescription && <meta property='og:description' content={description}/>}
 			{hasDescription && <meta name='twitter:description' content={description}/>}
 			{hasImageSource && <meta property='og:image' content={imageSource}/>}
