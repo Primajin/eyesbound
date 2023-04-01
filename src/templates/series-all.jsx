@@ -16,17 +16,15 @@ Series.propTypes = {
 
 export default Series;
 
-export const pageQuery = graphql`
-	query AllSeries {
-		allPrismicSeries(sort: {order: ASC, fields: data___title}) {
-			edges {
-				node {
-					uid
-					data {
-						title
-					}
-				}
-			}
-		}
-	}
-`;
+export const pageQuery = graphql`query AllSeries {
+  allPrismicSeries(sort: {data: {title: ASC}}) {
+    edges {
+      node {
+        uid
+        data {
+          title
+        }
+      }
+    }
+  }
+}`;

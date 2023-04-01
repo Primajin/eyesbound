@@ -16,26 +16,24 @@ Pictures.propTypes = {
 
 export default Pictures;
 
-export const pageQuery = graphql`
-	query AllPictures {
-		allPrismicPicture(sort: {fields: data___datetime, order: DESC}) {
-			edges {
-				node {
-					id
-					uid
-					data {
-						title
-						image {
-							alt
-							thumbnails {
-								thumbnail {
-									gatsbyImageData(width: 261)
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;
+export const pageQuery = graphql`query AllPictures {
+  allPrismicPicture(sort: {data: {datetime: DESC}}) {
+    edges {
+      node {
+        id
+        uid
+        data {
+          title
+          image {
+            alt
+            thumbnails {
+              thumbnail {
+                gatsbyImageData(width: 261)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;

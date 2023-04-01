@@ -20,32 +20,33 @@ Series.propTypes = {
 
 export default Series;
 
-export const pageQuery = graphql`
-	query SeriesBySlug($uid: String!) {
-		prismicSeries(uid: {eq: $uid}) {
-			uid
-			data {
-				title
-			}
-		}
-		allPrismicPicture(filter: {data: {series: {uid: {eq: $uid}}}}, sort: {fields: data___datetime, order: DESC}) {
-			edges {
-				node {
-					data {
-						title
-						image {
-							alt
-							thumbnails {
-								thumbnail {
-									gatsbyImageData(width: 261)
-								}
-							}
-						}
-					}
-					uid
-					id
-				}
-			}
-		}
-	}
-`;
+export const pageQuery = graphql`query SeriesBySlug($uid: String!) {
+  prismicSeries(uid: {eq: $uid}) {
+    uid
+    data {
+      title
+    }
+  }
+  allPrismicPicture(
+    filter: {data: {series: {uid: {eq: $uid}}}}
+    sort: {data: {datetime: DESC}}
+  ) {
+    edges {
+      node {
+        data {
+          title
+          image {
+            alt
+            thumbnails {
+              thumbnail {
+                gatsbyImageData(width: 261)
+              }
+            }
+          }
+        }
+        uid
+        id
+      }
+    }
+  }
+}`;
