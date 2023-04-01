@@ -58,27 +58,29 @@ Home.propTypes = {
 
 export default Home;
 
-export const pageQuery = graphql`
-	query Homepage {
-		allPrismicPicture(filter: {data: {homepage: {eq: true}}}, limit: 5, sort: {fields: data___datetime, order: DESC}) {
-			edges {
-				node {
-					id
-					uid
-					data {
-						title
-						image {
-							alt
-							gatsbyImageData(width: 1280, imgixParams: {q: 100})
-							thumbnails {
-								thumbnail {
-									gatsbyImageData(width: 50)
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;
+export const pageQuery = graphql`query Homepage {
+  allPrismicPicture(
+    filter: {data: {homepage: {eq: true}}}
+    limit: 5
+    sort: {data: {datetime: DESC}}
+  ) {
+    edges {
+      node {
+        id
+        uid
+        data {
+          title
+          image {
+            alt
+            gatsbyImageData(width: 1280, imgixParams: {q: 100})
+            thumbnails {
+              thumbnail {
+                gatsbyImageData(width: 50)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;

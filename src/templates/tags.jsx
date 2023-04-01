@@ -16,17 +16,15 @@ Tags.propTypes = {
 
 export default Tags;
 
-export const pageQuery = graphql`
-	query AllTags {
-		allPrismicTags(sort: {order: ASC, fields: data___title}) {
-			edges {
-				node {
-					uid
-					data {
-						title
-					}
-				}
-			}
-		}
-	}
-`;
+export const pageQuery = graphql`query AllTags {
+  allPrismicTags(sort: {data: {title: ASC}}) {
+    edges {
+      node {
+        uid
+        data {
+          title
+        }
+      }
+    }
+  }
+}`;
