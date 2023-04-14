@@ -9,7 +9,6 @@ import AssetTypes from '../../constants/asset-types.js';
 import Picture from '../molecules/picture.jsx';
 import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
-
 import '../../../static/slideshow.css';
 
 const figCaption = css`
