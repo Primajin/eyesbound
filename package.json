@@ -27,7 +27,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
+    "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.6",
     "@fontsource/montserrat": "^4.5.14",
     "@react-google-maps/api": "^2.18.1",
