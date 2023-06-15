@@ -35,7 +35,7 @@
     "gatsby": "^5.10.0",
     "gatsby-plugin-csp": "^1.1.4",
     "gatsby-plugin-emotion": "^8.10.0",
-    "gatsby-plugin-gatsby-cloud": "^5.10.0",
+    "gatsby-plugin-gatsby-cloud": "^5.11.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-offline": "^6.10.0",
