@@ -2,6 +2,8 @@ require('dotenv').config({
 	path: `.env.${process.env.NODE_ENV}`
 });
 
+const adapter = require("gatsby-adapter-netlify")
+
 const {
 	GATSBY_SERVER_URL = 'https://eyesbound.com',
 	GATSBY_SITE_NAME = 'EYESBOUND',
@@ -10,6 +12,7 @@ const {
 } = process.env;
 
 module.exports = {
+	adapter: adapter(),
 	flags: {
 		FAST_DEV: true,
 		DEV_SSR: true
