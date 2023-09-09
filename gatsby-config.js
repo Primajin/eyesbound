@@ -21,7 +21,7 @@ module.exports = {
 	},
 	plugins: [
 		{
-			resolve: 'gatsby-plugin-gatsby-cloud',
+			resolve: 'gatsby-plugin-netlify',
 			options: {
 				allPageHeaders: [
 					'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload'
