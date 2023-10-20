@@ -29,10 +29,10 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/montserrat": "^5.0.13",
+    "@fontsource/montserrat": "^5.0.14",
     "@react-google-maps/api": "^2.19.2",
     "classnames": "^2.3.2",
-    "gatsby": "^5.12.6",
+    "gatsby": "^5.12.7",
     "gatsby-plugin-csp": "^1.1.4",
     "gatsby-plugin-emotion": "^8.12.0",
     "gatsby-plugin-image": "^3.12.1",
@@ -48,7 +48,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-slideshow-image": "^4.2.1"
+    "react-slideshow-image": "^4.3.0"
   },
   "devDependencies": {
     "babel-jest": "^29.7.0",
