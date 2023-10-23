@@ -41,7 +41,7 @@
     "gatsby-plugin-offline": "^6.12.1",
     "gatsby-plugin-react-helmet": "^6.12.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
-    "gatsby-plugin-sitemap": "^6.12.1",
+    "gatsby-plugin-sitemap": "^6.12.2",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-prismic": "^6.0.1",
     "prop-types": "^15.8.1",
