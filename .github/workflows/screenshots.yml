@@ -31,7 +31,7 @@ jobs:
       - name: screenshots-ci-action
         uses: flameddd/screenshots-ci-action@master
         with:
-          url: ${{ steps.waitFor200.outputs.url }}
+          url: ${{ steps.waitFor200.outputs.url }}/picture/
           releaseId: 132409907
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
