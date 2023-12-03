@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
 
 jobs:
   screenshots:
@@ -32,6 +32,8 @@ jobs:
         uses: flameddd/screenshots-ci-action@master
         with:
           url: ${{ steps.waitFor200.outputs.url }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
           path: screenshots
