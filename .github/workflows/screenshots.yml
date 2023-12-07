@@ -4,6 +4,8 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 
+permissions: write-all
+
 jobs:
   screenshots:
     runs-on: ubuntu-latest
@@ -26,6 +28,9 @@ jobs:
         uses: mujo-code/puppeteer-headful@master
         env:
           CI: 'true'
+      - name: Sleep for 120 seconds
+        run: sleep 120s
+        shell: bash
       - name: screenshots-ci-action
         uses: flameddd/screenshots-ci-action@master
         with:
