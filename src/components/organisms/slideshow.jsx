@@ -110,14 +110,21 @@ const Slideshow = ({images, isFullscreen}) => {
 	return (
 		<div className='slide-container'>
 			<Fade {...properties}>
-				{images.map(({node: {data: {title, image}, id, uid}}) => (
-					<a key={id} css={slide} style={{backgroundImage: `url(${image.thumbnails.thumbnail.gatsbyImageData.images.fallback.src})`}} title={title} href={`/${path}/${uid}`}>
-						<figure css={figure}>
-							<Picture data={{title, image}} layout='FULL_WIDTH'/>
-							<figcaption css={figCaption}>{title}</figcaption>
-						</figure>
-					</a>
-				))}
+				{images.map(({node: {data: {title, image}, id, uid}}) => {
+					const thumbnailSrc = image.thumbnails?.thumbnail.gatsbyImageData.images.fallback.src;
+					return (
+						<a
+							key={id} css={slide}
+							style={thumbnailSrc && {backgroundImage: `url(${thumbnailSrc})`}}
+							title={title} href={`/${path}/${uid}`}
+						>
+							<figure css={figure}>
+								<Picture data={{title, image}} layout='FULL_WIDTH'/>
+								<figcaption css={figCaption}>{title}</figcaption>
+							</figure>
+						</a>
+					);
+				})}
 			</Fade>
 		</div>
 	);
