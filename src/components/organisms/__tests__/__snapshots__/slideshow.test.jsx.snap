@@ -657,13 +657,15 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -675,6 +677,7 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -717,13 +720,15 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -735,6 +740,7 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
