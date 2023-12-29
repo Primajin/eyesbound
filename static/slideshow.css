@@ -36,6 +36,6 @@
 	content-visibility: auto;
 }
 
-.react-slideshow-fadezoom-wrapper .react-slideshow-fadezoom-images-wrap>div {
+.react-slideshow-fadezoom-wrapper .react-slideshow-fadezoom-images-wrap > div {
 	will-change: opacity;
 }

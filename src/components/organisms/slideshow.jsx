@@ -11,6 +11,18 @@ import {prismicPictureNode} from '../../types/proptypes.js';
 import {up} from '../../utils/theming.js';
 import '../../../static/slideshow.css';
 
+const slide = css`
+	background: center center transparent no-repeat;
+	background-size: cover;
+	display: block;
+	height: 100vh;
+`;
+
+const figure = css`
+	height: 100%;
+	backdrop-filter: blur(10px);
+`;
+
 const figCaption = css`
 	display: none;
 `;
@@ -43,6 +55,8 @@ const arrowButtons = css`
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -54,6 +68,7 @@ const arrowButtons = css`
 
 		${up('md')} {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -95,14 +110,21 @@ const Slideshow = ({images, isFullscreen}) => {
 	return (
 		<div className='slide-container'>
 			<Fade {...properties}>
-				{images.map(({node: {data: {title, image}, id, uid}}) => (
-					<a key={id} title={title} href={`/${path}/${uid}`}>
-						<figure>
-							<Picture data={{title, image}} layout='FULL_WIDTH'/>
-							<figcaption css={figCaption}>{title}</figcaption>
-						</figure>
-					</a>
-				))}
+				{images.map(({node: {data: {title, image}, id, uid}}) => {
+					const thumbnailSrc = image.thumbnails?.thumbnail.gatsbyImageData.images.fallback.src;
+					return (
+						<a
+							key={id} css={slide}
+							style={thumbnailSrc && {backgroundImage: `url(${thumbnailSrc})`}}
+							title={title} href={`/${path}/${uid}`}
+						>
+							<figure css={figure}>
+								<Picture data={{title, image}} layout='FULL_WIDTH'/>
+								<figcaption css={figCaption}>{title}</figcaption>
+							</figure>
+						</a>
+					);
+				})}
 			</Fade>
 		</div>
 	);

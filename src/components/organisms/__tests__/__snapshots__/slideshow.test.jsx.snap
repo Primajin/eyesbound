@@ -20,13 +20,15 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -38,6 +40,7 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -85,10 +88,37 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
             }
           >
             <a
+              css={
+                {
+                  "map": undefined,
+                  "name": "1bjmnzj",
+                  "next": undefined,
+                  "styles": "
+	background: center center transparent no-repeat;
+	background-size: cover;
+	display: block;
+	height: 100vh;
+",
+                  "toString": [Function],
+                }
+              }
               href="/picture/uid-1"
               title="title1"
             >
-              <figure>
+              <figure
+                css={
+                  {
+                    "map": undefined,
+                    "name": "10ppafn",
+                    "next": undefined,
+                    "styles": "
+	height: 100%;
+	backdrop-filter: blur(10px);
+",
+                    "toString": [Function],
+                  }
+                }
+              >
                 <picture>
                   <img
                     alt="title1"
@@ -141,10 +171,37 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
             }
           >
             <a
+              css={
+                {
+                  "map": undefined,
+                  "name": "1bjmnzj",
+                  "next": undefined,
+                  "styles": "
+	background: center center transparent no-repeat;
+	background-size: cover;
+	display: block;
+	height: 100vh;
+",
+                  "toString": [Function],
+                }
+              }
               href="/picture/uid-2"
               title="title2"
             >
-              <figure>
+              <figure
+                css={
+                  {
+                    "map": undefined,
+                    "name": "10ppafn",
+                    "next": undefined,
+                    "styles": "
+	height: 100%;
+	backdrop-filter: blur(10px);
+",
+                    "toString": [Function],
+                  }
+                }
+              >
                 <picture>
                   <img
                     alt="title2"
@@ -193,13 +250,15 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -211,6 +270,7 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -399,13 +459,15 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -417,6 +479,7 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -464,10 +527,37 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
             }
           >
             <a
+              css={
+                {
+                  "map": undefined,
+                  "name": "1bjmnzj",
+                  "next": undefined,
+                  "styles": "
+	background: center center transparent no-repeat;
+	background-size: cover;
+	display: block;
+	height: 100vh;
+",
+                  "toString": [Function],
+                }
+              }
               href="/picture/uid-bar"
               title="title1"
             >
-              <figure>
+              <figure
+                css={
+                  {
+                    "map": undefined,
+                    "name": "10ppafn",
+                    "next": undefined,
+                    "styles": "
+	height: 100%;
+	backdrop-filter: blur(10px);
+",
+                    "toString": [Function],
+                  }
+                }
+              >
                 <picture>
                   <img
                     alt="title1"
@@ -516,13 +606,15 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -534,6 +626,7 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -657,13 +750,15 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -675,6 +770,7 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
@@ -717,13 +813,15 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         css={
           {
             "map": undefined,
-            "name": "3bpb6z",
+            "name": "1qdprdn",
             "next": undefined,
             "styles": "
 	&&& { // specificity hack
 		background: var(--foreground);
 		color: var(--background);
 		height: 180px;
+		font-size: 2rem;
+		font-weight: bold;
 		opacity: 1;
 		position: fixed;
 		text-align: center;
@@ -735,6 +833,7 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
 
 		@media (min-width: 768px) {
 			width: 20px;
+			font-size: 1rem;
 		}
 
 		&:hover,
