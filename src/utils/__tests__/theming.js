@@ -1,4 +1,6 @@
-import {breakpoints, deviceSpecs, forDevice, up} from '../theming.js';
+import {
+	breakpoints, deviceSpecs, forDevice, up,
+} from '../theming.js';
 
 describe('theming', () => {
 	describe('up', () => {
