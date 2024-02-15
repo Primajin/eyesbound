@@ -8,6 +8,7 @@ export const fullscreenElement = typeof document !== 'undefined' && (document.fu
  */
 export const toggleFullscreen = selector => {
 	document.fullscreenElement = fullscreenElement;
+	// eslint-disable-next-line logical-assignment-operators
 	document.exitFullscreen = document.exitFullscreen || document.mozExitFullscreen || document.msExitFullscreen || document.webkitExitFullscreen;
 	const queriedElement = selector && selector.length > 0 && document.querySelector(selector);
 	const element = queriedElement || document.documentElement;

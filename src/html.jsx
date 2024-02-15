@@ -4,8 +4,8 @@ import React from 'react';
 const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 /* eslint-disable react/no-danger */
-const HTML = props => (
-	<html lang='en' dir='ltr' {...props.htmlAttributes}>
+const HTML = properties => (
+	<html lang='en' dir='ltr' {...properties.htmlAttributes}>
 		<head>
 			<title>{GATSBY_SITE_NAME}</title>
 			<meta charSet='utf-8'/>
@@ -33,12 +33,12 @@ const HTML = props => (
 			<meta name='msapplication-square150x150logo' content='/square_150x150.png'/>
 			<meta name='msapplication-wide310x150logo' content='/wide_310x150.png'/>
 			<meta name='msapplication-square310x310logo' content='/large_310x310.png'/>
-			{props.headComponents}
+			{properties.headComponents}
 		</head>
-		<body {...props.bodyAttributes}>
-			{props.preBodyComponents}
-			<div key='body' dangerouslySetInnerHTML={{__html: props.body}} id='___gatsby'/>
-			{props.postBodyComponents}
+		<body {...properties.bodyAttributes}>
+			{properties.preBodyComponents}
+			<div key='body' dangerouslySetInnerHTML={{__html: properties.body}} id='___gatsby'/>
+			{properties.postBodyComponents}
 		</body>
 	</html>
 );

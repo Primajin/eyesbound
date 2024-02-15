@@ -19,28 +19,28 @@ const normal = css`
 const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
 	let gatsbyImageData = {};
 	const alt = image.alt ?? title;
-	const {height: propsHeight, width: propsWidth} = size;
+	const {height: propertiesHeight, width: propertiesWidth} = size;
 
 	if (preferThumbnails) {
-		if (Object.prototype.hasOwnProperty.call(image, 'gatsbyImageData')) {
+		if (Object.hasOwn(image, 'gatsbyImageData')) {
 			({gatsbyImageData} = image);
 		}
 
-		if (Object.prototype.hasOwnProperty.call(image, 'thumbnails')) {
+		if (Object.hasOwn(image, 'thumbnails')) {
 			({thumbnails: {thumbnail: {gatsbyImageData}}} = image);
 		}
 	} else {
-		if (Object.prototype.hasOwnProperty.call(image, 'thumbnails')) {
+		if (Object.hasOwn(image, 'thumbnails')) {
 			({thumbnails: {thumbnail: {gatsbyImageData}}} = image);
 		}
 
-		if (Object.prototype.hasOwnProperty.call(image, 'gatsbyImageData')) {
+		if (Object.hasOwn(image, 'gatsbyImageData')) {
 			({gatsbyImageData} = image);
 		}
 	}
 
-	const height = propsHeight ?? gatsbyImageData.height;
-	const width = propsWidth ?? gatsbyImageData.width;
+	const height = propertiesHeight ?? gatsbyImageData.height;
+	const width = propertiesWidth ?? gatsbyImageData.width;
 
 	const cssClass = layout === 'FULL_WIDTH' ? fullSize : normal;
 

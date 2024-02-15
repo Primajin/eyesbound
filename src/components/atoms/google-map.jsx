@@ -30,7 +30,9 @@ const GoogleMap = ({center, data, height, hasNoInfoWindow, mapId, zoom}) => {
 			<>
 				{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
 					const position = {lat: latitude, lng: longitude};
-					const properties = {image, position, title, uid};
+					const properties = {
+						image, position, title, uid,
+					};
 					return <Marker key={id} position={position} title={title} clickable={!hasNoInfoWindow} onClick={toggleInfoWindow(properties)}/>;
 				})}
 				{infoWindowOpen && title && (

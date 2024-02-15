@@ -111,11 +111,11 @@ const Slideshow = ({images, isFullscreen}) => {
 		<div className='slide-container'>
 			<Fade {...properties}>
 				{images.map(({node: {data: {title, image}, id, uid}}) => {
-					const thumbnailSrc = image.thumbnails?.thumbnail.gatsbyImageData.images.fallback.src;
+					const thumbnailSource = image.thumbnails?.thumbnail.gatsbyImageData.images.fallback.src;
 					return (
 						<a
 							key={id} css={slide}
-							style={thumbnailSrc && {backgroundImage: `url(${thumbnailSrc})`}}
+							style={thumbnailSource && {backgroundImage: `url(${thumbnailSource})`}}
 							title={title} href={`/${path}/${uid}`}
 						>
 							<figure css={figure}>
