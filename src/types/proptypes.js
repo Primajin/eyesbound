@@ -1,4 +1,6 @@
-import {array, arrayOf, bool, exact, node, number, object, oneOfType, string} from 'prop-types';
+import {
+	array, arrayOf, bool, exact, node, number, object, oneOfType, string,
+} from 'prop-types';
 
 /* eslint-disable camelcase,capitalized-comments */
 

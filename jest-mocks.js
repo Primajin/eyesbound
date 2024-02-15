@@ -3,9 +3,9 @@
 jest.mock('gatsby-plugin-image', () => {
 	const React = require('react');
 	const plugin = jest.requireActual('gatsby-plugin-image');
-	const mockImage = ({imgClassName, ...props}) =>
+	const mockImage = ({imgClassName, ...properties}) =>
 		React.createElement('img', {
-			...props,
+			...properties,
 			className: imgClassName,
 		});
 	return {
@@ -18,9 +18,9 @@ jest.mock('gatsby-plugin-image', () => {
 jest.mock('react-helmet', () => {
 	const React = require('react');
 	const plugin = jest.requireActual('react-helmet');
-	const mockHelmet = ({children, ...props}) =>
+	const mockHelmet = ({children, ...properties}) =>
 		React.createElement('div', {
-			...props,
+			...properties,
 			className: 'mock-helmet',
 		}, children);
 	return {
@@ -32,21 +32,21 @@ jest.mock('react-helmet', () => {
 jest.mock('@react-google-maps/api', () => {
 	const React = require('react');
 	const plugin = jest.requireActual('@react-google-maps/api');
-	const mockGoogleMap = ({children, ...props}) =>
+	const mockGoogleMap = ({children, ...properties}) =>
 		React.createElement('div', {
-			...props,
+			...properties,
 			className: 'mock-google-map',
 		}, children);
 
-	const mockInfoWindow = ({children, ...props}) =>
+	const mockInfoWindow = ({children, ...properties}) =>
 		React.createElement('div', {
-			...props,
+			...properties,
 			className: 'mock-info-window',
 		}, children);
 
-	const mockMarker = ({children, ...props}) =>
+	const mockMarker = ({children, ...properties}) =>
 		React.createElement('div', {
-			...props,
+			...properties,
 			className: 'mock-marker',
 		}, children);
 	return {

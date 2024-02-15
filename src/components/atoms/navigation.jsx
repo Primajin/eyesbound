@@ -8,7 +8,7 @@ import {css} from '@emotion/react';
 import AssetTypes from '../../constants/asset-types.js';
 import {up} from '../../utils/theming.js';
 
-const nav = css`
+const navigationStyle = css`
 	line-height: 40px;
 	opacity: 1;
 	outline: 0;
@@ -128,7 +128,7 @@ const Navigation = ({isFullscreen}) => {
 	const {PICTURE, SERIES, CATEGORY} = AssetTypes;
 
 	return (
-		<nav css={nav} className={classnames({open: menuOpen, isFullscreen})}>
+		<nav css={navigationStyle} className={classnames({open: menuOpen, isFullscreen})}>
 			<ul>
 				<li><a ref={linkOverview} href={`/${PICTURE.path}`} tabIndex='2'>Overview</a></li>
 				<li><a ref={linkShuttered} href={`/${SERIES.path}/shuttered`} tabIndex='3'>»Shuttered«</a></li>
