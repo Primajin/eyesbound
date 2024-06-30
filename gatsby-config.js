@@ -75,7 +75,7 @@ module.exports = {
 				mergeDefaultDirectives: true,
 				directives: {
 					'connect-src': `'self' ws: data: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com *.googleapis.com`,
-					'font-src': `'self' fonts.googleapis.com`,
+					'font-src': `'self' fonts.gstatic.com`,
 					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io app.netlify.com`,
 					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
 					'script-src': `'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com static.cdn.prismic.io`,
