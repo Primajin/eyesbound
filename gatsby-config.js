@@ -74,7 +74,7 @@ module.exports = {
 				mergeStyleHashes: false,
 				mergeDefaultDirectives: true,
 				directives: {
-					'connect-src': `'self' ws: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com maps.googleapis.com`,
+					'connect-src': `'self' ws: data: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com maps.googleapis.com mapsresources-pa.googleapis.com`,
 					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io`,
 					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
 					'script-src': `'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com static.cdn.prismic.io`,
