@@ -74,10 +74,10 @@ module.exports = {
 				mergeStyleHashes: false,
 				mergeDefaultDirectives: true,
 				directives: {
-					'connect-src': `'self' ws: data: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com maps.googleapis.com mapsresources-pa.googleapis.com`,
-					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io`,
+					'connect-src': `'self' ws: data: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com *.googleapis.com`,
+					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io app.netlify.com`,
 					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
-					'script-src': `'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com static.cdn.prismic.io`,
+					'script-src': `'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com static.cdn.prismic.io`,
 					'style-src': `'self' 'unsafe-inline'`,
 					'worker-src': `'self' blob:`
 				}
