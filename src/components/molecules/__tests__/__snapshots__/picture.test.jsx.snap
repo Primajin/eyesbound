@@ -6,13 +6,11 @@ exports[`Picture renders correctly with preferThumbnails false 1`] = `
     alt="title"
     css={
       {
-        "map": undefined,
         "name": "m2yydh",
         "next": undefined,
         "styles": "
 	padding-top: 66.73913043478261%;
 ",
-        "toString": [Function],
       }
     }
     height={123}
@@ -32,13 +30,11 @@ exports[`Picture renders correctly with preferThumbnails true 1`] = `
     alt="title"
     css={
       {
-        "map": undefined,
         "name": "m2yydh",
         "next": undefined,
         "styles": "
 	padding-top: 66.73913043478261%;
 ",
-        "toString": [Function],
       }
     }
     height={123}
@@ -58,13 +54,11 @@ exports[`Picture renders correctly without extra props 1`] = `
     alt="title"
     css={
       {
-        "map": undefined,
         "name": "m2yydh",
         "next": undefined,
         "styles": "
 	padding-top: 66.73913043478261%;
 ",
-        "toString": [Function],
       }
     }
     image={

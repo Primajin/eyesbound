@@ -4,7 +4,6 @@ exports[`MainWrapper renders correctly with props 1`] = `
 <main
   css={
     {
-      "map": undefined,
       "name": "14akp75",
       "next": undefined,
       "styles": "
@@ -17,7 +16,6 @@ exports[`MainWrapper renders correctly with props 1`] = `
 		padding-bottom: 1em;
 	}
 ",
-      "toString": [Function],
     }
   }
 >
@@ -31,7 +29,6 @@ exports[`MainWrapper renders correctly without props 1`] = `
 <main
   css={
     {
-      "map": undefined,
       "name": "14akp75",
       "next": undefined,
       "styles": "
@@ -44,7 +41,6 @@ exports[`MainWrapper renders correctly without props 1`] = `
 		padding-bottom: 1em;
 	}
 ",
-      "toString": [Function],
     }
   }
 />

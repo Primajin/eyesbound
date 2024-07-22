@@ -26,7 +26,6 @@ exports[`Member renders correctly with a list of more 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1vze745",
           "next": undefined,
           "styles": "
@@ -54,7 +53,6 @@ exports[`Member renders correctly with a list of more 1`] = `
 		width: 400px;
 	};
 ",
-          "toString": [Function],
         }
       }
     >
@@ -69,7 +67,6 @@ exports[`Member renders correctly with a list of more 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
           "styles": "
@@ -140,7 +137,6 @@ exports[`Member renders correctly with a list of more 1`] = `
 		text-transform: uppercase;
 	}
 ",
-          "toString": [Function],
         }
       }
     >
@@ -221,7 +217,6 @@ exports[`Member renders correctly with a list of more 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "jwavk5",
           "next": undefined,
           "styles": "
@@ -256,7 +251,6 @@ exports[`Member renders correctly with a list of more 1`] = `
 		width: 40px;
 	}
 ",
-          "toString": [Function],
         }
       }
       onClick={[Function]}
@@ -287,7 +281,6 @@ exports[`Member renders correctly with a list of more 1`] = `
   <main
     css={
       {
-        "map": undefined,
         "name": "14akp75",
         "next": undefined,
         "styles": "
@@ -300,7 +293,6 @@ exports[`Member renders correctly with a list of more 1`] = `
 		padding-bottom: 1em;
 	}
 ",
-        "toString": [Function],
       }
     }
   >
@@ -315,7 +307,6 @@ exports[`Member renders correctly with a list of more 1`] = `
     <ul
       css={
         {
-          "map": undefined,
           "name": "1ktsphj",
           "next": undefined,
           "styles": "
@@ -341,7 +332,6 @@ exports[`Member renders correctly with a list of more 1`] = `
 		content-visibility: auto;
 	}
 ",
-          "toString": [Function],
         }
       }
     >
@@ -355,13 +345,11 @@ exports[`Member renders correctly with a list of more 1`] = `
               alt="title1"
               css={
                 {
-                  "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
                   "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                  "toString": [Function],
                 }
               }
               height={174}
@@ -385,13 +373,11 @@ exports[`Member renders correctly with a list of more 1`] = `
               alt="title2"
               css={
                 {
-                  "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
                   "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                  "toString": [Function],
                 }
               }
               height={174}
@@ -436,7 +422,6 @@ exports[`Member renders correctly with a list of one 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1vze745",
           "next": undefined,
           "styles": "
@@ -464,7 +449,6 @@ exports[`Member renders correctly with a list of one 1`] = `
 		width: 400px;
 	};
 ",
-          "toString": [Function],
         }
       }
     >
@@ -479,7 +463,6 @@ exports[`Member renders correctly with a list of one 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
           "styles": "
@@ -550,7 +533,6 @@ exports[`Member renders correctly with a list of one 1`] = `
 		text-transform: uppercase;
 	}
 ",
-          "toString": [Function],
         }
       }
     >
@@ -631,7 +613,6 @@ exports[`Member renders correctly with a list of one 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "jwavk5",
           "next": undefined,
           "styles": "
@@ -666,7 +647,6 @@ exports[`Member renders correctly with a list of one 1`] = `
 		width: 40px;
 	}
 ",
-          "toString": [Function],
         }
       }
       onClick={[Function]}
@@ -697,7 +677,6 @@ exports[`Member renders correctly with a list of one 1`] = `
   <main
     css={
       {
-        "map": undefined,
         "name": "14akp75",
         "next": undefined,
         "styles": "
@@ -710,7 +689,6 @@ exports[`Member renders correctly with a list of one 1`] = `
 		padding-bottom: 1em;
 	}
 ",
-        "toString": [Function],
       }
     }
   >
@@ -725,7 +703,6 @@ exports[`Member renders correctly with a list of one 1`] = `
     <ul
       css={
         {
-          "map": undefined,
           "name": "1ktsphj",
           "next": undefined,
           "styles": "
@@ -751,7 +728,6 @@ exports[`Member renders correctly with a list of one 1`] = `
 		content-visibility: auto;
 	}
 ",
-          "toString": [Function],
         }
       }
     >
@@ -765,13 +741,11 @@ exports[`Member renders correctly with a list of one 1`] = `
               alt="title1"
               css={
                 {
-                  "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
                   "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                  "toString": [Function],
                 }
               }
               height={174}
@@ -816,7 +790,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1vze745",
           "next": undefined,
           "styles": "
@@ -844,7 +817,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
 		width: 400px;
 	};
 ",
-          "toString": [Function],
         }
       }
     >
@@ -859,7 +831,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
           "styles": "
@@ -930,7 +901,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
 		text-transform: uppercase;
 	}
 ",
-          "toString": [Function],
         }
       }
     >
@@ -1011,7 +981,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "jwavk5",
           "next": undefined,
           "styles": "
@@ -1046,7 +1015,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
 		width: 40px;
 	}
 ",
-          "toString": [Function],
         }
       }
       onClick={[Function]}
@@ -1077,7 +1045,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
   <main
     css={
       {
-        "map": undefined,
         "name": "14akp75",
         "next": undefined,
         "styles": "
@@ -1090,7 +1057,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
 		padding-bottom: 1em;
 	}
 ",
-        "toString": [Function],
       }
     }
   >
@@ -1105,7 +1071,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
     <ul
       css={
         {
-          "map": undefined,
           "name": "1ktsphj",
           "next": undefined,
           "styles": "
@@ -1131,7 +1096,6 @@ exports[`Member renders correctly with a list of zero 1`] = `
 		content-visibility: auto;
 	}
 ",
-          "toString": [Function],
         }
       }
     />

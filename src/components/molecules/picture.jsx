@@ -16,7 +16,7 @@ const normal = css`
 	padding-top: ${inverseAspectRatio * 100}%;
 `;
 
-const Picture = ({data: {title, image}, layout, preferThumbnails, size}) => {
+const Picture = ({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails = false, size = {}}) => {
 	let gatsbyImageData = {};
 	const alt = image.alt ?? title;
 	const {height: propertiesHeight, width: propertiesWidth} = size;
@@ -58,12 +58,6 @@ Picture.propTypes = {
 	layout: PropTypes.oneOf(['CONSTRAINED', 'FIXED', 'FULL_WIDTH']),
 	preferThumbnails: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 	size: PropTypes.shape(SizeType),
-};
-
-Picture.defaultProps = {
-	layout: 'CONSTRAINED',
-	preferThumbnails: false,
-	size: {},
 };
 
 export default Picture;

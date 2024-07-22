@@ -6,7 +6,6 @@ exports[`Fullscreen renders correctly with props 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "12oymiu",
       "next": undefined,
       "styles": "
@@ -49,7 +48,6 @@ exports[`Fullscreen renders correctly with props 1`] = `
 		width: 50px;
 	}
 ",
-      "toString": [Function],
     }
   }
   onClick={[Function]}
@@ -77,7 +75,6 @@ exports[`Fullscreen renders correctly without props 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "12oymiu",
       "next": undefined,
       "styles": "
@@ -120,7 +117,6 @@ exports[`Fullscreen renders correctly without props 1`] = `
 		width: 50px;
 	}
 ",
-      "toString": [Function],
     }
   }
   onClick={[Function]}

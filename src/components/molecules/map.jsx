@@ -57,7 +57,7 @@ const styles = css`
 	}
 `;
 
-const Map = ({center, data, height, hasNoInfoWindow, isDark, zoom}) =>
+const Map = ({center = centerOfGermany, data, height = '100vh', hasNoInfoWindow = false, isDark, zoom = 5}) =>
 	(
 		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version='beta'>
 			<Global styles={styles}/>
@@ -77,13 +77,6 @@ Map.propTypes = {
 	height: PropTypes.string,
 	isDark: PropTypes.bool.isRequired,
 	zoom: PropTypes.number,
-};
-
-Map.defaultProps = {
-	center: centerOfGermany,
-	height: '100vh',
-	hasNoInfoWindow: false,
-	zoom: 5,
 };
 
 export default memo(Map);

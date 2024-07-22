@@ -20,7 +20,7 @@ const buttonClass = css`
 	}
 `;
 
-const Fullscreen = ({callback, selector}) => {
+const Fullscreen = ({callback = () => {}, selector = ''}) => {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	useEffect(() => {
@@ -46,11 +46,6 @@ const Fullscreen = ({callback, selector}) => {
 Fullscreen.propTypes = {
 	callback: PropTypes.func,
 	selector: PropTypes.string,
-};
-
-Fullscreen.defaultProps = {
-	callback: () => {}, // eslint-disable-line object-shorthand
-	selector: '',
 };
 
 export default Fullscreen;

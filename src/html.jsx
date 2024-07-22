@@ -4,8 +4,8 @@ import React from 'react';
 const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 /* eslint-disable react/no-danger */
-const HTML = properties => (
-	<html lang='en' dir='ltr' {...properties.htmlAttributes}>
+const HTML = ({body = {}, bodyAttributes = [], headComponents = {}, htmlAttributes = [], postBodyComponents = '', preBodyComponents = []}) => (
+	<html lang='en' dir='ltr' {...(htmlAttributes)}>
 		<head>
 			<title>{GATSBY_SITE_NAME}</title>
 			<meta charSet='utf-8'/>
@@ -33,12 +33,12 @@ const HTML = properties => (
 			<meta name='msapplication-square150x150logo' content='/square_150x150.png'/>
 			<meta name='msapplication-wide310x150logo' content='/wide_310x150.png'/>
 			<meta name='msapplication-square310x310logo' content='/large_310x310.png'/>
-			{properties.headComponents}
+			{headComponents}
 		</head>
-		<body {...properties.bodyAttributes}>
-			{properties.preBodyComponents}
-			<div key='body' dangerouslySetInnerHTML={{__html: properties.body}} id='___gatsby'/>
-			{properties.postBodyComponents}
+		<body {...(bodyAttributes)}>
+			{preBodyComponents}
+			<div key='body' dangerouslySetInnerHTML={{__html: body}} id='___gatsby'/>
+			{postBodyComponents}
 		</body>
 	</html>
 );
@@ -51,15 +51,6 @@ HTML.propTypes = {
 	preBodyComponents: PropTypes.array,
 	body: PropTypes.string,
 	postBodyComponents: PropTypes.array,
-};
-
-HTML.defaultProps = {
-	htmlAttributes: {},
-	headComponents: [],
-	bodyAttributes: {},
-	preBodyComponents: [],
-	body: '',
-	postBodyComponents: [],
 };
 
 export default HTML;

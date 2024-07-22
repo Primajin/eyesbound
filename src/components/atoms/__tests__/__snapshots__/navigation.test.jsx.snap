@@ -5,7 +5,6 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "1ghowhq",
       "next": undefined,
       "styles": "
@@ -76,7 +75,6 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
 		text-transform: uppercase;
 	}
 ",
-      "toString": [Function],
     }
   }
 >
@@ -159,7 +157,6 @@ exports[`Navigation renders correctly with props 1`] = `
   className="isFullscreen"
   css={
     {
-      "map": undefined,
       "name": "1ghowhq",
       "next": undefined,
       "styles": "
@@ -230,7 +227,6 @@ exports[`Navigation renders correctly with props 1`] = `
 		text-transform: uppercase;
 	}
 ",
-      "toString": [Function],
     }
   }
 >
@@ -313,7 +309,6 @@ exports[`Navigation renders correctly without props 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "1ghowhq",
       "next": undefined,
       "styles": "
@@ -384,7 +379,6 @@ exports[`Navigation renders correctly without props 1`] = `
 		text-transform: uppercase;
 	}
 ",
-      "toString": [Function],
     }
   }
 >

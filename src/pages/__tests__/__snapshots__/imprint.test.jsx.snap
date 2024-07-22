@@ -34,7 +34,6 @@ exports[`Imprint renders correctly 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1vze745",
           "next": undefined,
           "styles": "
@@ -62,7 +61,6 @@ exports[`Imprint renders correctly 1`] = `
 		width: 400px;
 	};
 ",
-          "toString": [Function],
         }
       }
     >
@@ -77,7 +75,6 @@ exports[`Imprint renders correctly 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "1ghowhq",
           "next": undefined,
           "styles": "
@@ -148,7 +145,6 @@ exports[`Imprint renders correctly 1`] = `
 		text-transform: uppercase;
 	}
 ",
-          "toString": [Function],
         }
       }
     >
@@ -229,7 +225,6 @@ exports[`Imprint renders correctly 1`] = `
       className=""
       css={
         {
-          "map": undefined,
           "name": "jwavk5",
           "next": undefined,
           "styles": "
@@ -264,7 +259,6 @@ exports[`Imprint renders correctly 1`] = `
 		width: 40px;
 	}
 ",
-          "toString": [Function],
         }
       }
       onClick={[Function]}
@@ -295,7 +289,6 @@ exports[`Imprint renders correctly 1`] = `
   <main
     css={
       {
-        "map": undefined,
         "name": "14akp75",
         "next": undefined,
         "styles": "
@@ -308,7 +301,6 @@ exports[`Imprint renders correctly 1`] = `
 		padding-bottom: 1em;
 	}
 ",
-        "toString": [Function],
       }
     }
   >
@@ -344,7 +336,6 @@ exports[`Imprint renders correctly 1`] = `
           className="icon-cc"
           css={
             {
-              "map": undefined,
               "name": "1upep0j",
               "next": undefined,
               "styles": "
@@ -363,7 +354,6 @@ exports[`Imprint renders correctly 1`] = `
 	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
 	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
-              "toString": [Function],
             }
           }
           title="Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)"
@@ -374,7 +364,6 @@ exports[`Imprint renders correctly 1`] = `
           className="icon-cc-by"
           css={
             {
-              "map": undefined,
               "name": "1upep0j",
               "next": undefined,
               "styles": "
@@ -393,7 +382,6 @@ exports[`Imprint renders correctly 1`] = `
 	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
 	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
-              "toString": [Function],
             }
           }
           title="Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use."
@@ -404,7 +392,6 @@ exports[`Imprint renders correctly 1`] = `
           className="icon-cc-nc-eu"
           css={
             {
-              "map": undefined,
               "name": "1upep0j",
               "next": undefined,
               "styles": "
@@ -423,7 +410,6 @@ exports[`Imprint renders correctly 1`] = `
 	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
 	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
-              "toString": [Function],
             }
           }
           title="NonCommercial — You may not use the material for commercial purposes."
@@ -434,7 +420,6 @@ exports[`Imprint renders correctly 1`] = `
           className="icon-cc-sa"
           css={
             {
-              "map": undefined,
               "name": "1upep0j",
               "next": undefined,
               "styles": "
@@ -453,7 +438,6 @@ exports[`Imprint renders correctly 1`] = `
 	&.icon-cc-nc-eu { background-image: url("test-file-stub"); }
 	&.icon-cc-sa { background-image: url("test-file-stub"); }
 ",
-              "toString": [Function],
             }
           }
           title="ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original."

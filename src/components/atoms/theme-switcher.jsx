@@ -24,7 +24,8 @@ const lightStyles = css`
 	}
 `;
 
-const ThemeSwitcher = ({isFullscreen: fullScreen, isDark, switchTheme}) => {
+const ThemeSwitcher = ({isFullscreen = false, isDark, switchTheme}) => {
+	const fullScreen = isFullscreen;
 	const [darkmode, setDarkmode] = useState(false);
 
 	useEffect(() => {
@@ -66,10 +67,6 @@ ThemeSwitcher.propTypes = {
 	isDark: PropTypes.bool.isRequired,
 	isFullscreen: PropTypes.bool,
 	switchTheme: PropTypes.func.isRequired,
-};
-
-ThemeSwitcher.defaultProps = {
-	isFullscreen: false,
 };
 
 export default ThemeSwitcher;
