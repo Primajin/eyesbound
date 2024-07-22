@@ -5,7 +5,6 @@ exports[`Logo renders correctly with props 1`] = `
   className="isFullscreen"
   css={
     {
-      "map": undefined,
       "name": "1vze745",
       "next": undefined,
       "styles": "
@@ -33,7 +32,6 @@ exports[`Logo renders correctly with props 1`] = `
 		width: 400px;
 	};
 ",
-      "toString": [Function],
     }
   }
 >
@@ -51,7 +49,6 @@ exports[`Logo renders correctly without props 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "1vze745",
       "next": undefined,
       "styles": "
@@ -79,7 +76,6 @@ exports[`Logo renders correctly without props 1`] = `
 		width: 400px;
 	};
 ",
-      "toString": [Function],
     }
   }
 >

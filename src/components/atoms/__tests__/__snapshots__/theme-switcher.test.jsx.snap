@@ -6,7 +6,6 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "jwavk5",
       "next": undefined,
       "styles": "
@@ -41,7 +40,6 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 1`] = `
 		width: 40px;
 	}
 ",
-      "toString": [Function],
     }
   }
   onClick={[MockFunction]}
@@ -76,7 +74,6 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 2`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "jwavk5",
       "next": undefined,
       "styles": "
@@ -111,7 +108,6 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 2`] = `
 		width: 40px;
 	}
 ",
-      "toString": [Function],
     }
   }
   onClick={
@@ -158,7 +154,6 @@ exports[`ThemeSwitcher renders correctly with all props 1`] = `
   className="fullScreen"
   css={
     {
-      "map": undefined,
       "name": "jwavk5",
       "next": undefined,
       "styles": "
@@ -193,7 +188,6 @@ exports[`ThemeSwitcher renders correctly with all props 1`] = `
 		width: 40px;
 	}
 ",
-      "toString": [Function],
     }
   }
   onClick={[MockFunction]}
@@ -228,7 +222,6 @@ exports[`ThemeSwitcher renders correctly with minimum props 1`] = `
   className=""
   css={
     {
-      "map": undefined,
       "name": "jwavk5",
       "next": undefined,
       "styles": "
@@ -263,7 +256,6 @@ exports[`ThemeSwitcher renders correctly with minimum props 1`] = `
 		width: 40px;
 	}
 ",
-      "toString": [Function],
     }
   }
   onClick={[MockFunction]}

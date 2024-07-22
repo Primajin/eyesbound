@@ -97,13 +97,11 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
           alt="title1"
           css={
             {
-              "map": undefined,
               "name": "m2yydh",
               "next": undefined,
               "styles": "
 	padding-top: 66.73913043478261%;
 ",
-              "toString": [Function],
             }
           }
           height={110}

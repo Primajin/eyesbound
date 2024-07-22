@@ -19,7 +19,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
         className="isFullscreen nav "
         css={
           {
-            "map": undefined,
             "name": "1qdprdn",
             "next": undefined,
             "styles": "
@@ -59,7 +58,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 		}
 	}
 ",
-            "toString": [Function],
           }
         }
         data-type="prev"
@@ -90,7 +88,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
             <a
               css={
                 {
-                  "map": undefined,
                   "name": "1bjmnzj",
                   "next": undefined,
                   "styles": "
@@ -99,7 +96,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 	display: block;
 	height: 100vh;
 ",
-                  "toString": [Function],
                 }
               }
               href="/picture/uid-1"
@@ -108,14 +104,12 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
               <figure
                 css={
                   {
-                    "map": undefined,
                     "name": "10ppafn",
                     "next": undefined,
                     "styles": "
 	height: 100%;
 	backdrop-filter: blur(10px);
 ",
-                    "toString": [Function],
                   }
                 }
               >
@@ -124,14 +118,12 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                     alt="title1"
                     css={
                       {
-                        "map": undefined,
                         "name": "724za4",
                         "next": undefined,
                         "styles": "
 	height: calc(100vh - 50px);
 	width: 100vw;
 ",
-                        "toString": [Function],
                       }
                     }
                     image={
@@ -144,13 +136,11 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                 <figcaption
                   css={
                     {
-                      "map": undefined,
                       "name": "t2dtan",
                       "next": undefined,
                       "styles": "
 	display: none;
 ",
-                      "toString": [Function],
                     }
                   }
                 >
@@ -173,7 +163,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
             <a
               css={
                 {
-                  "map": undefined,
                   "name": "1bjmnzj",
                   "next": undefined,
                   "styles": "
@@ -182,7 +171,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 	display: block;
 	height: 100vh;
 ",
-                  "toString": [Function],
                 }
               }
               href="/picture/uid-2"
@@ -191,14 +179,12 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
               <figure
                 css={
                   {
-                    "map": undefined,
                     "name": "10ppafn",
                     "next": undefined,
                     "styles": "
 	height: 100%;
 	backdrop-filter: blur(10px);
 ",
-                    "toString": [Function],
                   }
                 }
               >
@@ -207,14 +193,12 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                     alt="title2"
                     css={
                       {
-                        "map": undefined,
                         "name": "724za4",
                         "next": undefined,
                         "styles": "
 	height: calc(100vh - 50px);
 	width: 100vw;
 ",
-                        "toString": [Function],
                       }
                     }
                     image={
@@ -227,13 +211,11 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                 <figcaption
                   css={
                     {
-                      "map": undefined,
                       "name": "t2dtan",
                       "next": undefined,
                       "styles": "
 	display: none;
 ",
-                      "toString": [Function],
                     }
                   }
                 >
@@ -249,7 +231,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
         className="isFullscreen nav "
         css={
           {
-            "map": undefined,
             "name": "1qdprdn",
             "next": undefined,
             "styles": "
@@ -289,7 +270,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 		}
 	}
 ",
-            "toString": [Function],
           }
         }
         data-type="next"
@@ -317,13 +297,11 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
               alt="title1"
               css={
                 {
-                  "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
                   "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                  "toString": [Function],
                 }
               }
               height={31}
@@ -338,7 +316,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
           <figcaption
             css={
               {
-                "map": undefined,
                 "name": "1052cht",
                 "next": undefined,
                 "styles": "
@@ -361,7 +338,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 		opacity: 1;
 	}
 ",
-                "toString": [Function],
               }
             }
           >
@@ -382,13 +358,11 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
               alt="title2"
               css={
                 {
-                  "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
                   "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                  "toString": [Function],
                 }
               }
               height={31}
@@ -403,7 +377,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
           <figcaption
             css={
               {
-                "map": undefined,
                 "name": "1052cht",
                 "next": undefined,
                 "styles": "
@@ -426,7 +399,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
 		opacity: 1;
 	}
 ",
-                "toString": [Function],
               }
             }
           >
@@ -458,7 +430,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
         className="isFullscreen nav "
         css={
           {
-            "map": undefined,
             "name": "1qdprdn",
             "next": undefined,
             "styles": "
@@ -498,7 +469,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
 		}
 	}
 ",
-            "toString": [Function],
           }
         }
         data-type="prev"
@@ -529,7 +499,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
             <a
               css={
                 {
-                  "map": undefined,
                   "name": "1bjmnzj",
                   "next": undefined,
                   "styles": "
@@ -538,7 +507,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
 	display: block;
 	height: 100vh;
 ",
-                  "toString": [Function],
                 }
               }
               href="/picture/uid-bar"
@@ -547,14 +515,12 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
               <figure
                 css={
                   {
-                    "map": undefined,
                     "name": "10ppafn",
                     "next": undefined,
                     "styles": "
 	height: 100%;
 	backdrop-filter: blur(10px);
 ",
-                    "toString": [Function],
                   }
                 }
               >
@@ -563,14 +529,12 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
                     alt="title1"
                     css={
                       {
-                        "map": undefined,
                         "name": "724za4",
                         "next": undefined,
                         "styles": "
 	height: calc(100vh - 50px);
 	width: 100vw;
 ",
-                        "toString": [Function],
                       }
                     }
                     image={
@@ -583,13 +547,11 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
                 <figcaption
                   css={
                     {
-                      "map": undefined,
                       "name": "t2dtan",
                       "next": undefined,
                       "styles": "
 	display: none;
 ",
-                      "toString": [Function],
                     }
                   }
                 >
@@ -605,7 +567,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
         className="isFullscreen nav "
         css={
           {
-            "map": undefined,
             "name": "1qdprdn",
             "next": undefined,
             "styles": "
@@ -645,7 +606,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
 		}
 	}
 ",
-            "toString": [Function],
           }
         }
         data-type="next"
@@ -673,13 +633,11 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
               alt="title1"
               css={
                 {
-                  "map": undefined,
                   "name": "m2yydh",
                   "next": undefined,
                   "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                  "toString": [Function],
                 }
               }
               height={31}
@@ -694,7 +652,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
           <figcaption
             css={
               {
-                "map": undefined,
                 "name": "1052cht",
                 "next": undefined,
                 "styles": "
@@ -717,7 +674,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
 		opacity: 1;
 	}
 ",
-                "toString": [Function],
               }
             }
           >
@@ -749,7 +705,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         className=" nav "
         css={
           {
-            "map": undefined,
             "name": "1qdprdn",
             "next": undefined,
             "styles": "
@@ -789,7 +744,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
 		}
 	}
 ",
-            "toString": [Function],
           }
         }
         data-type="prev"
@@ -812,7 +766,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         className=" nav "
         css={
           {
-            "map": undefined,
             "name": "1qdprdn",
             "next": undefined,
             "styles": "
@@ -852,7 +805,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
 		}
 	}
 ",
-            "toString": [Function],
           }
         }
         data-type="next"

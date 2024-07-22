@@ -13,7 +13,6 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
   <ul
     css={
       {
-        "map": undefined,
         "name": "1ktsphj",
         "next": undefined,
         "styles": "
@@ -39,7 +38,6 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
 		content-visibility: auto;
 	}
 ",
-        "toString": [Function],
       }
     }
   >
@@ -53,13 +51,11 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
             alt="title1"
             css={
               {
-                "map": undefined,
                 "name": "m2yydh",
                 "next": undefined,
                 "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                "toString": [Function],
               }
             }
             height={174}
@@ -83,13 +79,11 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
             alt="title2"
             css={
               {
-                "map": undefined,
                 "name": "m2yydh",
                 "next": undefined,
                 "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                "toString": [Function],
               }
             }
             height={174}
@@ -120,7 +114,6 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
   <ul
     css={
       {
-        "map": undefined,
         "name": "1ktsphj",
         "next": undefined,
         "styles": "
@@ -146,7 +139,6 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
 		content-visibility: auto;
 	}
 ",
-        "toString": [Function],
       }
     }
   >
@@ -160,13 +152,11 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
             alt="title1"
             css={
               {
-                "map": undefined,
                 "name": "m2yydh",
                 "next": undefined,
                 "styles": "
 	padding-top: 66.73913043478261%;
 ",
-                "toString": [Function],
               }
             }
             height={174}
@@ -197,7 +187,6 @@ exports[`Thumbnails renders correctly with a list of zero 1`] = `
   <ul
     css={
       {
-        "map": undefined,
         "name": "1ktsphj",
         "next": undefined,
         "styles": "
@@ -223,7 +212,6 @@ exports[`Thumbnails renders correctly with a list of zero 1`] = `
 		content-visibility: auto;
 	}
 ",
-        "toString": [Function],
       }
     }
   />,
