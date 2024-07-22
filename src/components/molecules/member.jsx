@@ -12,7 +12,7 @@ import Header from './header.jsx';
 
 const {PICTURE: {plural}} = AssetTypes;
 
-const Member = ({edges, name, path, title, uid}) => {
+const Member = ({edges, name, path = '', title, uid = ''}) => {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -39,11 +39,6 @@ Member.propTypes = {
 	path: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	uid: PropTypes.string,
-};
-
-Member.defaultProps = {
-	path: '',
-	uid: '',
 };
 
 export default Member;

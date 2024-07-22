@@ -14,14 +14,10 @@ const mainWrapper = css`
 	}
 `;
 
-const MainWrapper = ({children}) => <main css={mainWrapper}>{children}</main>;
+const MainWrapper = ({children = undefined}) => <main css={mainWrapper}>{children}</main>;
 
 MainWrapper.propTypes = {
 	children,
-};
-
-MainWrapper.defaultProps = {
-	children: undefined,
 };
 
 export default MainWrapper;
