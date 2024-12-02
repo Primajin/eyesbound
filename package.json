@@ -8,7 +8,7 @@
     "name": "Jannis Hell"
   },
   "engines": {
-    "node": ">=19"
+    "node": ">=22.4.0"
   },
   "scripts": {
     "build": "gatsby build",
