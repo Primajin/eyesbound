@@ -4,7 +4,7 @@
  * Does user prefer dark mode UI in Operating System settings?
  * @type {boolean}
  */
-export const userPrefersDark = typeof window !== 'undefined' && window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+export const userPrefersDark = typeof globalThis !== 'undefined' && globalThis && globalThis.matchMedia && globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
 
 /**
  * Breakpoints for devices
