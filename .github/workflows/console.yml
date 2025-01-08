@@ -1,15 +1,16 @@
-name: "Screenshots"
+name: "Console"
 
 on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 
-permissions: write-all
+permissions:
+  pull-requests: write
 
 jobs:
-  screenshots:
+  get-console-logs:
     runs-on: ubuntu-latest
-    name: Get screenshots of picture page
+    name: Get console logs
     steps:
       - name: Wait for Pages changed to neutral
         uses: fountainhead/action-wait-for-check@v1.2.0
@@ -18,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           checkName: 'Pages changed - eyesbound'
-      - name: Get Preview URL and generate screenshot after Netlify check done
+      - name: Get Preview URL after Netlify check done
         if: steps.wait-for-Netlify.outputs.conclusion == 'neutral'
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
@@ -26,18 +27,9 @@ jobs:
           site_name: 'eyesbound'
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: install puppeteer-headful
-        uses: mujo-code/puppeteer-headful@master
-        env:
-          CI: 'true'
-      - name: screenshots-ci-action
-        uses: flameddd/screenshots-ci-action@master
+      - name: Use WebApp Console Log Action
+        uses: Primajin/webapp-console-log-action@v1
         with:
-          url: ${{ steps.waitFor200.outputs.url }}/picture/
-          releaseId: 132409907
+          webapp-url: ${{ steps.waitFor200.outputs.url }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v4
-        with:
-          path: screenshots
-          name: Download-screenshots
