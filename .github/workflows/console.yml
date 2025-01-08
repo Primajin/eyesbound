@@ -8,8 +8,9 @@ permissions:
   pull-requests: write
 
 jobs:
-  screenshots:
+  get-console-logs:
     runs-on: ubuntu-latest
+    name: Get console logs
     steps:
       - name: Wait for Pages changed to neutral
         uses: fountainhead/action-wait-for-check@v1.2.0

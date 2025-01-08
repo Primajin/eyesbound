@@ -9,6 +9,7 @@ permissions: write-all
 jobs:
   screenshots:
     runs-on: ubuntu-latest
+    name: Get screenshots of picture page
     steps:
       - name: Wait for Pages changed to neutral
         uses: fountainhead/action-wait-for-check@v1.2.0
