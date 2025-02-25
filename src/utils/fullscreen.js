@@ -7,15 +7,18 @@ export const fullscreenElement = typeof document !== 'undefined' && (document.fu
  * @param {string} [selector] the css selector; falls back to documentElement if undefined or not found
  */
 export const toggleFullscreen = selector => {
-	document.fullscreenElement = fullscreenElement;
-	// eslint-disable-next-line logical-assignment-operators
-	document.exitFullscreen = document.exitFullscreen || document.mozExitFullscreen || document.msExitFullscreen || document.webkitExitFullscreen;
+	const exitFullscreenNotSupported = () => console.debug('Exit fullscreen is not supported');
+
+	document.exitFullscreen = (document.exitFullscreen || document.mozExitFullscreen || document.msExitFullscreen || document.webkitExitFullscreen) ?? exitFullscreenNotSupported;
+
 	const queriedElement = selector && selector.length > 0 && document.querySelector(selector);
 	const element = queriedElement || document.documentElement;
-	const fallback = () => {};
-	element.requestFullscreen = (element.requestFullscreen || element.mozRequestFullscreen || element.msRequestFullscreen || element.webkitRequestFullscreen) ?? fallback;
 
-	if (!document.fullscreenElement) {
+	const fullscreenNotSupported = () => console.debug('Fullscreen is not supported');
+	element.requestFullscreen = (element.requestFullscreen || element.mozRequestFullscreen || element.msRequestFullscreen || element.webkitRequestFullscreen) ?? fullscreenNotSupported;
+
+	const fullscreenElement = document.fullscreenElement || document.mozFullscreenElement || document.msFullscreenElement || document.webkitFullscreenDocument;
+	if (!fullscreenElement) {
 		element.requestFullscreen();
 	} else if (document.exitFullscreen) {
 		document.exitFullscreen();

@@ -16,4 +16,5 @@ module.exports = {
 	  url: 'http://localhost',
 	},
 	setupFiles: ['<rootDir>/loadershim.js', '<rootDir>/jest-mocks.js'],
+	watchPathIgnorePatterns: ['node_modules', '\\.cache', '<rootDir>.*/public'],
 };

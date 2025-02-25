@@ -14,9 +14,9 @@ describe('Navigation', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly when menu is toggled', () => {
+	it('renders correctly when menu is toggled', async () => {
 		const component = create(<Navigation/>);
-		act(() => {
+		await act(() => {
 			component.root.findByType('div').props.onClick();
 		});
 		expect(component).toMatchSnapshot();
