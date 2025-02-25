@@ -16,7 +16,7 @@ describe('Fullscreen', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('calls back the callback', () => {
+	it('calls back the callback', async () => {
 		/* global document */
 		document.addEventListener = jest.fn((_, callback) => {
 			callback();
@@ -24,8 +24,9 @@ describe('Fullscreen', () => {
 		const callback = jest.fn();
 		const selector = '';
 		const component = create(<Fullscreen callback={callback} selector={selector}/>);
-		act(() => {
+		await act(() => {
 			component.root.findByType('button').props.onClick();
+			globalThis.document.dispatchEvent(new Event('fullscreenchange'));
 		});
 		expect(callback).toHaveBeenCalledTimes(1);
 	});

@@ -20,7 +20,7 @@ describe('GoogleMap', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with props and a list of one', () => {
+	it('renders correctly with props and a list of one', async () => {
 		const center = {latitude: 52.473_092, longitude: 13.327_628};
 
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
@@ -35,7 +35,7 @@ describe('GoogleMap', () => {
 		const component = create(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
 		expect(component).toMatchSnapshot();
 
-		act(() => {
+		await act(() => {
 			component.root.findByProps({title: 'title1'}).props.onClick();
 		});
 
@@ -45,7 +45,7 @@ describe('GoogleMap', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('renders correctly with props and a list of two', () => {
+	it('renders correctly with props and a list of two', async () => {
 		const center = {latitude: 52.473_092, longitude: 13.327_628};
 
 		const picture1 = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
@@ -62,7 +62,7 @@ describe('GoogleMap', () => {
 		const zoom = 1;
 		const component = create(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
 
-		act(() => {
+		await act(() => {
 			component.root.findByProps({title: 'title1'}).props.onClick();
 		});
 
