@@ -29,7 +29,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@fontsource/montserrat": "^5.1.1",
+    "@fontsource/montserrat": "^5.2.5",
     "@react-google-maps/api": "^2.20.6",
     "classnames": "^2.5.1",
     "gatsby": "^5.14.1",
