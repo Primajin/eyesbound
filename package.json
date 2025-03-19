@@ -13,7 +13,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "coverage": "jest --ci --coverage",
+    "coverage": "JEST_JUNIT_CLASSNAME=\"{filepath}\" jest --reporters=jest-junit --ci --coverage",
     "develop": "gatsby clean && gatsby develop -S",
     "format": "npm run xo",
     "lint": "xo",
@@ -60,6 +60,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "react-test-renderer": "^18.3.1",
     "xo": "^0.60.0"
   },
