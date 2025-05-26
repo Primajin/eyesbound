@@ -62,7 +62,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-junit": "^16.0.0",
     "react-test-renderer": "^18.3.1",
-    "xo": "^0.60.0"
+    "xo": "^1.0.0"
   },
   "overrides": {
     "axios": "^1.6.7"
