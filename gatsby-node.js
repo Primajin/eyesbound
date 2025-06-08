@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('node:path');
 
 exports.createPages = async ({graphql, actions}) => {
 	const {createPage} = actions;
@@ -6,13 +6,13 @@ exports.createPages = async ({graphql, actions}) => {
 	// --- Home ---
 	createPage({
 		path: '/',
-		component: path.resolve('src/templates/home.jsx')
+		component: path.resolve('src/templates/home.jsx'),
 	});
 
 	// --- Worldmap ---
 	createPage({
 		path: '/worldmap',
-		component: path.resolve('src/templates/map.jsx')
+		component: path.resolve('src/templates/map.jsx'),
 	});
 
 	const pages = await graphql(`
@@ -50,7 +50,7 @@ exports.createPages = async ({graphql, actions}) => {
 	// --- Pictures ---
 	createPage({
 		path: '/picture',
-		component: path.resolve('src/templates/pictures.jsx')
+		component: path.resolve('src/templates/pictures.jsx'),
 	});
 
 	for (const edge of pages.data.allPrismicPicture.edges) {
@@ -58,15 +58,15 @@ exports.createPages = async ({graphql, actions}) => {
 			path: `/picture/${edge.node.uid}`,
 			component: path.resolve('src/templates/picture.jsx'),
 			context: {
-				uid: edge.node.uid
-			}
+				uid: edge.node.uid,
+			},
 		});
 	}
 
 	// --- Categories ---
 	createPage({
 		path: '/category',
-		component: path.resolve('src/templates/categories.jsx')
+		component: path.resolve('src/templates/categories.jsx'),
 	});
 
 	for (const edge of pages.data.allPrismicCategory.edges) {
@@ -74,15 +74,15 @@ exports.createPages = async ({graphql, actions}) => {
 			path: `/category/${edge.node.uid}`,
 			component: path.resolve('src/templates/category.jsx'),
 			context: {
-				uid: edge.node.uid
-			}
+				uid: edge.node.uid,
+			},
 		});
 	}
 
 	// --- Series ---
 	createPage({
 		path: '/series',
-		component: path.resolve('src/templates/series-all.jsx')
+		component: path.resolve('src/templates/series-all.jsx'),
 	});
 
 	for (const edge of pages.data.allPrismicSeries.edges) {
@@ -90,15 +90,15 @@ exports.createPages = async ({graphql, actions}) => {
 			path: `/series/${edge.node.uid}`,
 			component: path.resolve('src/templates/series.jsx'),
 			context: {
-				uid: edge.node.uid
-			}
+				uid: edge.node.uid,
+			},
 		});
 	}
 
 	// --- Tags ---
 	createPage({
 		path: '/tag',
-		component: path.resolve('src/templates/tags.jsx')
+		component: path.resolve('src/templates/tags.jsx'),
 	});
 
 	for (const edge of pages.data.allPrismicTags.edges) {
@@ -106,8 +106,8 @@ exports.createPages = async ({graphql, actions}) => {
 			path: `/tag/${edge.node.uid}`,
 			component: path.resolve('src/templates/tag.jsx'),
 			context: {
-				uid: edge.node.uid
-			}
+				uid: edge.node.uid,
+			},
 		});
 	}
 };

@@ -1,5 +1,5 @@
 require('dotenv').config({
-	path: `.env.${process.env.NODE_ENV}`
+	path: `.env.${process.env.NODE_ENV}`,
 });
 
 const {
@@ -12,21 +12,21 @@ const {
 module.exports = {
 	flags: {
 		FAST_DEV: true,
-		DEV_SSR: true
+		DEV_SSR: true,
 	},
 	jsxRuntime: 'automatic',
 	jsxImportSource: '@emotion/react',
 	siteMetadata: {
-		siteUrl: GATSBY_SERVER_URL
+		siteUrl: GATSBY_SERVER_URL,
 	},
 	plugins: [
 		{
 			resolve: 'gatsby-plugin-netlify',
 			options: {
 				allPageHeaders: [
-					'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload'
-				]
-			}
+					'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
+				],
+			},
 		},
 		{
 			resolve: 'gatsby-source-prismic',
@@ -38,51 +38,51 @@ module.exports = {
 					category: require('./src/schemas/category.json'),
 					picture: require('./src/schemas/picture.json'),
 					series: require('./src/schemas/series.json'),
-					tags: require('./src/schemas/tags.json')
-				}
-			}
+					tags: require('./src/schemas/tags.json'),
+				},
+			},
 		},
 		{
-			resolve: `gatsby-plugin-manifest`,
+			resolve: 'gatsby-plugin-manifest',
 			options: {
 				name: GATSBY_SITE_NAME,
 				short_name: GATSBY_SITE_NAME,
-				description: `Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.`,
-				start_url: `/`,
-				background_color: `#fff`,
-				theme_color: `#000`,
-				display: `standalone`,
-				icon: `static/logo.png`,
-				icon_options: {purpose: `any maskable`},
+				description: 'Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.',
+				start_url: '/',
+				background_color: '#fff',
+				theme_color: '#000',
+				display: 'standalone',
+				icon: 'static/logo.png',
+				icon_options: {purpose: 'any maskable'},
 				cache_busting_mode: 'none',
-				theme_color_in_head: false
-			}
+				theme_color_in_head: false,
+			},
 		},
 		{
 			resolve: 'gatsby-plugin-offline',
 			options: {
 				workboxConfig: {
-					globPatterns: ['**/static*']
-				}
-			}
+					globPatterns: ['**/static*'],
+				},
+			},
 		},
 		{
-			resolve: `gatsby-plugin-csp`,
+			resolve: 'gatsby-plugin-csp',
 			options: {
 				disableOnDev: false,
 				mergeScriptHashes: false,
 				mergeStyleHashes: false,
 				mergeDefaultDirectives: true,
 				directives: {
-					'connect-src': `'self' ws: data: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com *.googleapis.com`,
-					'font-src': `'self' fonts.gstatic.com`,
+					'connect-src': '\'self\' ws: data: localhost:* eyesbound.com:* *.gtsb.io:* *.gatsbyjs.com:* www.gstatic.com *.googleapis.com',
+					'font-src': '\'self\' fonts.gstatic.com',
 					'frame-src': `'self' ${GATSBY_PRISMIC_REPO_NAME}.prismic.io app.netlify.com`,
-					'img-src': `'self' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io`,
-					'script-src': `'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com static.cdn.prismic.io`,
-					'style-src': `'self' 'unsafe-inline' fonts.googleapis.com`,
-					'worker-src': `'self' blob:`
-				}
-			}
+					'img-src': '\'self\' data: maps.gstatic.com *.googleapis.com *.ggpht images.prismic.io',
+					'script-src': '\'self\' \'unsafe-inline\' \'unsafe-eval\' *.googleapis.com static.cdn.prismic.io',
+					'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com',
+					'worker-src': '\'self\' blob:',
+				},
+			},
 		},
 		{resolve: 'gatsby-plugin-robots-txt'},
 		{resolve: 'gatsby-plugin-sitemap'},
@@ -90,5 +90,5 @@ module.exports = {
 		{resolve: 'gatsby-plugin-web-font-loader'},
 		{resolve: 'gatsby-plugin-emotion'},
 		{resolve: 'gatsby-plugin-image'},
-	]
+	],
 };

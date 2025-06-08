@@ -57,18 +57,17 @@ const styles = css`
 	}
 `;
 
-const Map = ({center = centerOfGermany, data, height = '100vh', hasNoInfoWindow = false, isDark, zoom = 5}) =>
-	(
-		<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version='beta'>
-			<Global styles={styles}/>
-			<div css={{display: isDark ? 'none' : undefined}}>
-				<GoogleMap data={data} height={height} center={center} hasNoInfoWindow={hasNoInfoWindow} mapId={mapIdLight} zoom={zoom}/>
-			</div>
-			<div css={{display: isDark ? undefined : 'none'}}>
-				<GoogleMap data={data} height={height} center={center} hasNoInfoWindow={hasNoInfoWindow} mapId={mapIdDark} zoom={zoom}/>
-			</div>
-		</LoadScript>
-	);
+const Map = ({center = centerOfGermany, data, height = '100vh', hasNoInfoWindow = false, isDark, zoom = 5}) => (
+	<LoadScript googleMapsApiKey={process.env.GATSBY_G_MAPS} mapIds={[mapIdDark, mapIdLight]} version='beta'>
+		<Global styles={styles}/>
+		<div css={{display: isDark ? 'none' : undefined}}>
+			<GoogleMap data={data} height={height} center={center} hasNoInfoWindow={hasNoInfoWindow} mapId={mapIdLight} zoom={zoom}/>
+		</div>
+		<div css={{display: isDark ? undefined : 'none'}}>
+			<GoogleMap data={data} height={height} center={center} hasNoInfoWindow={hasNoInfoWindow} mapId={mapIdDark} zoom={zoom}/>
+		</div>
+	</LoadScript>
+);
 
 Map.propTypes = {
 	center: PropTypes.exact({latitude: PropTypes.number, longitude: PropTypes.number}),

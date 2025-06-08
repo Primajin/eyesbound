@@ -35,14 +35,16 @@ const GoogleMap = ({center, data, height, hasNoInfoWindow, mapId, zoom}) => {
 					};
 					return <Marker key={id} position={position} title={title} clickable={!hasNoInfoWindow} onClick={toggleInfoWindow(properties)}/>;
 				})}
-				{infoWindowOpen && title && (
-					<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
-						<a href={`/${path}/${uid}`}>
-							<h1>{title}</h1>
-							<Picture preferThumbnails data={{title, image}} size={{height: 110, width: 164}}/>
-						</a>
-					</InfoWindow>
-				)}
+				{ infoWindowOpen && title
+					? (
+						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
+							<a href={`/${path}/${uid}`}>
+								<h1>{title}</h1>
+								<Picture preferThumbnails data={{title, image}} size={{height: 110, width: 164}}/>
+							</a>
+						</InfoWindow>
+					)
+					: null}
 			</>
 		</ReactGoogleMap>
 	);
