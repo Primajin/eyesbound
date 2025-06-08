@@ -99,6 +99,7 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                 }
               }
               href="/picture/uid-1"
+              style={null}
               title="title1"
             >
               <figure
@@ -174,6 +175,7 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                 }
               }
               href="/picture/uid-2"
+              style={null}
               title="title2"
             >
               <figure
@@ -510,6 +512,7 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
                 }
               }
               href="/picture/uid-bar"
+              style={null}
               title="title1"
             >
               <figure
