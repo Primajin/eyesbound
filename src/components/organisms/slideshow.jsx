@@ -115,7 +115,7 @@ const Slideshow = ({images, isFullscreen = false}) => {
 					return (
 						<a
 							key={id} css={slide}
-							style={thumbnailSource && {backgroundImage: `url(${thumbnailSource})`}}
+							style={thumbnailSource ? {backgroundImage: `url(${thumbnailSource})`} : null}
 							title={title} href={`/${path}/${uid}`}
 						>
 							<figure css={figure}>

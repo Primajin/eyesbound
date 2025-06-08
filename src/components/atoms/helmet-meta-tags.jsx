@@ -14,19 +14,19 @@ const HelmetMetaTags = ({coordinates = [], dateTime = '', imageSource = '', path
 
 	return (
 		<Helmet>
-			{hasTitle && <title>{titleText}</title>}
-			{hasTitle && <meta name='title' content={titleText}/>}
-			{hasTitle && <meta property='og:title' content={titleText}/>}
-			{hasTitle && <meta name='twitter:title' content={titleText}/>}
-			{hasDescription && <meta property='og:description' content={description}/>}
-			{hasDescription && <meta name='twitter:description' content={description}/>}
-			{hasImageSource && <meta property='og:image' content={imageSource}/>}
-			{hasImageSource && <meta name='twitter:image' content={imageSource}/>}
-			{hasPath && <link rel='canonical' href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>}
-			{hasPath && <meta property='og:url' content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/>}
-			{hasCoords && <meta name='geo.position' content={coordinates.join(';')}/>}
-			{hasCoords && <meta name='ICBM' content={coordinates.join(', ')}/>}
-			{hasDateTime && <meta name='date' content={dateTime}/>}
+			{hasTitle ? <title>{titleText}</title> : null}
+			{hasTitle ? <meta name='title' content={titleText}/> : null}
+			{hasTitle ? <meta property='og:title' content={titleText}/> : null}
+			{hasTitle ? <meta name='twitter:title' content={titleText}/> : null}
+			{hasDescription ? <meta property='og:description' content={description}/> : null}
+			{hasDescription ? <meta name='twitter:description' content={description}/> : null}
+			{hasImageSource ? <meta property='og:image' content={imageSource}/> : null}
+			{hasImageSource ? <meta name='twitter:image' content={imageSource}/> : null}
+			{hasPath ? <link rel='canonical' href={`${GATSBY_SERVER_URL}/${path}/${uid}`}/> : null}
+			{hasPath ? <meta property='og:url' content={`${GATSBY_SERVER_URL}/${path}/${uid}`}/> : null}
+			{hasCoords ? <meta name='geo.position' content={coordinates.join(';')}/> : null}
+			{hasCoords ? <meta name='ICBM' content={coordinates.join(', ')}/> : null}
+			{hasDateTime ? <meta name='date' content={dateTime}/> : null}
 		</Helmet>
 	);
 };

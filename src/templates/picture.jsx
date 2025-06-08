@@ -82,7 +82,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 			<Header isFullscreen={fullScreen} isDark={isDark} switchTheme={switchTheme}/>
 			<Fullscreen callback={fullscreenCallback} selector='img'/>
 			<MainWrapper>
-				{hasTitle && <h1>{title}</h1>}
+				{hasTitle ? <h1>{title}</h1> : null}
 				<section>
 					{Boolean(categoryTitle) && <h3>Category: <a href={`/${categoryPath}/${categoryUID}`}>{categoryTitle}</a></h3>}
 					{Boolean(seriesTitle) && <h3>Series: <a href={`/${seriesPath}/${seriesUID}`}>{seriesTitle}</a></h3>}
@@ -90,9 +90,9 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 						<PictureComponent data={data} size={{height: 715, width: 1072}}/>
 					</figure>
 					<div css={details}>
-						{hasTags && <div>Tags: <TagLinks tags={tags}/></div>}
-						{hasDateTime && <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div>}
-						{hasCoords && <div>Location: {shortenedCoords.join(' | ')}</div>}
+						{hasTags ? <div>Tags: <TagLinks tags={tags}/></div> : null}
+						{hasDateTime ? <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div> : null}
+						{hasCoords ? <div>Location: {shortenedCoords.join(' | ')}</div> : null}
 					</div>
 					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height='500px' isDark={isDark} zoom={11}/>}
 				</section>
