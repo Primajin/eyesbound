@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@fontsource/montserrat": "^5.2.6",
     "@react-google-maps/api": "^2.20.7",
     "classnames": "^2.5.1",
