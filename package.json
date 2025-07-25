@@ -52,9 +52,9 @@
   },
   "devDependencies": {
     "babel-jest": "^30.0.5",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "eslint": "^8.57.1",
-    "eslint-config-xo": "~0.45.0",
+    "eslint-config-xo": "~0.48.0",
     "eslint-config-xo-react": "^0.27.0",
     "eslint-plugin-jest": "^29.0.1",
     "identity-obj-proxy": "^3.0.0",
