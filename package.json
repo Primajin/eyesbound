@@ -32,7 +32,7 @@
     "@fontsource/montserrat": "^5.2.6",
     "@react-google-maps/api": "^2.20.7",
     "classnames": "^2.5.1",
-    "gatsby": "^5.14.5",
+    "gatsby": "^5.14.6",
     "gatsby-plugin-csp": "^1.1.4",
     "gatsby-plugin-emotion": "^8.14.0",
     "gatsby-plugin-image": "^3.14.0",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "babel-jest": "^30.0.5",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "eslint": "^8.57.1",
     "eslint-config-xo": "~0.45.0",
     "eslint-config-xo-react": "^0.27.0",
