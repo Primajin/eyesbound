@@ -7,7 +7,7 @@ on:
     types: [ labeled, opened, synchronize , reopened ]
 
 jobs:
-  build:
+  build-matrix:
     if: contains(github.event.pull_request.labels.*.name, 'dependabot')
     strategy:
       matrix:
