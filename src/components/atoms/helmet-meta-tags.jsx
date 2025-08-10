@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Helmet} from 'react-helmet';
 
-const HelmetMetaTags = ({coordinates = [], dateTime = '', imageSource = '', path = '', description = '', title = '', uid = ''}) => {
+const defaultCoordinates = [];
+// eslint-disable-next-line complexity
+function HelmetMetaTags({coordinates = defaultCoordinates, dateTime = '', imageSource = '', path = '', description = '', title = '', uid = ''}) {
 	const hasCoords = coordinates?.length > 0;
 	const hasDateTime = Boolean(dateTime);
 	const hasImageSource = Boolean(imageSource);
@@ -29,7 +31,7 @@ const HelmetMetaTags = ({coordinates = [], dateTime = '', imageSource = '', path
 			{hasDateTime ? <meta name='date' content={dateTime}/> : null}
 		</Helmet>
 	);
-};
+}
 
 HelmetMetaTags.propTypes = {
 	coordinates: PropTypes.array,

@@ -16,7 +16,16 @@ const normal = css`
 	padding-top: ${inverseAspectRatio * 100}%;
 `;
 
-const Picture = ({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails = false, size = {}}) => {
+/**
+ * Default size for the image.
+ * @type {{width: number | undefined, height: number | undefined}}
+ */
+const defaultSize = {
+	width: undefined,
+	height: undefined,
+};
+
+function Picture({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails = false, size = defaultSize}) {
 	let gatsbyImageData = {};
 	const alt = image.alt ?? title;
 	const {height: propertiesHeight, width: propertiesWidth} = size;
@@ -51,7 +60,7 @@ const Picture = ({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails
 			<GatsbyImage css={cssClass} alt={alt} height={height} image={gatsbyImageData} width={width}/>
 		</picture>
 	);
-};
+}
 
 Picture.propTypes = {
 	data: PropTypes.shape(PictureType).isRequired,

@@ -5,13 +5,15 @@ import Logo from '../atoms/logo.jsx';
 import Navigation from '../atoms/navigation.jsx';
 import ThemeSwitcher from '../atoms/theme-switcher.jsx';
 
-const Header = ({isFullscreen = false, isDark = true, switchTheme = null}) => (
-	<header>
-		<Logo isFullscreen={isFullscreen}/>
-		<Navigation isFullscreen={isFullscreen}/>
-		{Boolean(switchTheme) && <ThemeSwitcher isFullscreen={isFullscreen} isDark={isDark} switchTheme={switchTheme}/>}
-	</header>
-);
+function Header({isFullscreen = false, isDark = true, switchTheme = null}) {
+	return (
+		<header>
+			<Logo isFullscreen={isFullscreen}/>
+			<Navigation isFullscreen={isFullscreen}/>
+			{Boolean(switchTheme) && <ThemeSwitcher isFullscreen={isFullscreen} isDark={isDark} switchTheme={switchTheme}/>}
+		</header>
+	);
+}
 
 Header.propTypes = {
 	isDark: PropTypes.bool,

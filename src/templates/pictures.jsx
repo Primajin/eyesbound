@@ -8,7 +8,9 @@ import Query from '../types/proptypes.js';
 
 const {PICTURE: {path, plural}} = AssetTypes;
 
-const Pictures = ({data: {allPrismicPicture: {edges}}}) => <Member edges={edges} name={plural} path={path} title={plural}/>;
+function Pictures({data: {allPrismicPicture: {edges}}}) {
+	return <Member edges={edges} name={plural} path={path} title={plural}/>;
+}
 
 Pictures.propTypes = {
 	data: PropTypes.shape(Query).isRequired,

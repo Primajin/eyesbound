@@ -36,7 +36,14 @@ const details = css`
 	}
 `;
 
-const Picture = ({data: {prismicPicture = {}}}) => {
+const defaultPictureData = {};
+
+function TimeComponent(datetime) {
+	return <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time>;
+}
+
+// eslint-disable-next-line complexity
+function Picture({data: {prismicPicture = defaultPictureData}}) {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
@@ -91,7 +98,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 					</figure>
 					<div css={details}>
 						{hasTags ? <div>Tags: <TagLinks tags={tags}/></div> : null}
-						{hasDateTime ? <div>Captured: <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time></div> : null}
+						{hasDateTime ? <div>Captured: <TimeComponent datetime={datetime}/></div> : null}
 						{hasCoords ? <div>Location: {shortenedCoords.join(' | ')}</div> : null}
 					</div>
 					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height='500px' isDark={isDark} zoom={11}/>}
@@ -99,7 +106,7 @@ const Picture = ({data: {prismicPicture = {}}}) => {
 			</MainWrapper>
 		</>
 	);
-};
+}
 
 Picture.propTypes = {
 	data: PropTypes.shape(Query).isRequired,

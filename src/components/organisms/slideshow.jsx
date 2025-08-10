@@ -88,7 +88,7 @@ const arrowButtons = css`
 	}
 `;
 
-const Slideshow = ({images, isFullscreen = false}) => {
+function Slideshow({images, isFullscreen = false}) {
 	const properties = {
 		indicators(i) {
 			const {node: {data}} = images[i];
@@ -128,7 +128,7 @@ const Slideshow = ({images, isFullscreen = false}) => {
 			</Fade>
 		</div>
 	);
-};
+}
 
 Slideshow.propTypes = {
 	images: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,

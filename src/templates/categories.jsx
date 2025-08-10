@@ -8,7 +8,9 @@ import Query from '../types/proptypes.js';
 
 const {CATEGORY: {path, plural}} = AssetTypes;
 
-const Category = ({data: {allPrismicCategory: {edges}}}) => <Group edges={edges} path={path} plural={plural}/>;
+function Category({data: {allPrismicCategory: {edges}}}) {
+	return <Group edges={edges} path={path} plural={plural}/>;
+}
 
 Category.propTypes = {
 	data: PropTypes.shape(Query).isRequired,

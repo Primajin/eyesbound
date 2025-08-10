@@ -8,11 +8,11 @@ import Query from '../types/proptypes.js';
 
 const {CATEGORY: {name, path}} = AssetTypes;
 
-const Category = ({data: {prismicCategory, allPrismicPicture}}) => {
+function Category({data: {prismicCategory, allPrismicPicture}}) {
 	const {data: categoryData} = prismicCategory;
 	const {edges} = allPrismicPicture;
 	return <Member edges={edges} name={name} path={path} uid={prismicCategory.uid} title={categoryData.title}/>;
-};
+}
 
 Category.propTypes = {
 	data: PropTypes.shape(Query).isRequired,

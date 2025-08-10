@@ -10,7 +10,7 @@ import Query from '../types/proptypes.js';
 import {fromLocalStorage} from '../utils/local-storage.js';
 import {userPrefersDark} from '../utils/theming.js';
 
-const Worldmap = ({data: {allPrismicPicture: {edges}}}) => {
+function Worldmap({data: {allPrismicPicture: {edges}}}) {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -28,7 +28,7 @@ const Worldmap = ({data: {allPrismicPicture: {edges}}}) => {
 			{edges.length > 0 && <Map data={edges} isDark={isDark}/>}
 		</>
 	);
-};
+}
 
 Worldmap.propTypes = {
 	data: PropTypes.shape(Query).isRequired,

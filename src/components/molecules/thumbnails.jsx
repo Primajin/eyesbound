@@ -30,22 +30,24 @@ const thumbnailsWrapper = css`
 	}
 `;
 
-const Thumbnails = ({edges, title, type}) => (
-	<>
-		<h1>
-			{type}: {title} ({edges.length})
-		</h1>
-		<ul css={thumbnailsWrapper}>
-			{edges.map(({node: {data, id, uid}}) => (
-				<li key={id}>
-					<a href={`/picture/${uid}`} aria-label='link-to-picture'>
-						<Picture preferThumbnails data={data} size={{height: 174, width: 261}}/>
-					</a>
-				</li>
-			))}
-		</ul>
-	</>
-);
+function Thumbnails({edges, title, type}) {
+	return (
+		<>
+			<h1>
+				{type}: {title} ({edges.length})
+			</h1>
+			<ul css={thumbnailsWrapper}>
+				{edges.map(({node: {data, id, uid}}) => (
+					<li key={id}>
+						<a href={`/picture/${uid}`} aria-label='link-to-picture'>
+							<Picture preferThumbnails data={data} size={{height: 174, width: 261}}/>
+						</a>
+					</li>
+				))}
+			</ul>
+		</>
+	);
+}
 
 Thumbnails.propTypes = {
 	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)).isRequired,

@@ -5,15 +5,17 @@ import AssetTypes from '../../constants/asset-types.js';
 
 const {TAG: {path}} = AssetTypes;
 
-const TagLinks = ({tags}) => tags.map((tag, index) => {
-	const uid = tag?.tag?.document?.uid;
-	const title = tag?.tag?.document?.data?.title;
-	return (
-		<Fragment key={uid}>
-			<a href={`/${path}/${uid}`}>{title}</a>{index < (tags.length - 1) && ' | '}
-		</Fragment>
-	);
-});
+function TagLinks({tags}) {
+	return tags.map((tag, index) => {
+		const uid = tag?.tag?.document?.uid;
+		const title = tag?.tag?.document?.data?.title;
+		return (
+			<Fragment key={uid}>
+				<a href={`/${path}/${uid}`}>{title}</a>{index < (tags.length - 1) && ' | '}
+			</Fragment>
+		);
+	});
+}
 
 TagLinks.propTypes = {
 	tags: PropTypes.array.isRequired,

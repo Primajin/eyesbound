@@ -31,7 +31,7 @@ const icon = css`
 
 const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
-const Imprint = () => {
+function Imprint() {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -41,6 +41,7 @@ const Imprint = () => {
 		fromLocalStorage.setItem('userPrefersDark', flipPreference);
 	};
 
+	/* eslint-disable @stylistic/max-len */
 	return (
 		<>
 			<HelmetMetaTags title='Imprint & Contact' path='imprint'/>
@@ -206,6 +207,7 @@ const Imprint = () => {
 			</MainWrapper>
 		</>
 	);
-};
+	/* eslint-enable @stylistic/max-len */
+}
 
 export default Imprint;

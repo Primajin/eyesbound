@@ -12,7 +12,7 @@ import SocialImage from '../../static/social-image.png';
 import {fromLocalStorage} from '../utils/local-storage.js';
 import {userPrefersDark} from '../utils/theming.js';
 
-const Home = ({data: {allPrismicPicture: {edges}}}) => {
+function Home({data: {allPrismicPicture: {edges}}}) {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
@@ -30,6 +30,7 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 
 	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
+	/* eslint-disable @stylistic/max-len */
 	return (
 		<>
 			<Helmet>
@@ -50,7 +51,8 @@ const Home = ({data: {allPrismicPicture: {edges}}}) => {
 			<Slideshow images={edges} isFullscreen={fullScreen}/>
 		</>
 	);
-};
+	/* eslint-enable @stylistic/max-len */
+}
 
 Home.propTypes = {
 	data: PropTypes.shape(Query).isRequired,
