@@ -17,17 +17,15 @@ describe('HelmetMetaTags', () => {
 		const path = 'picture';
 		const title = 'Libeskind';
 		const uid = 'libeskind';
-		const component = create(
-			<HelmetMetaTags
-				coordinates={coordinates}
-				dateTime={dateTime}
-				description={description}
-				imageSource={imageSource}
-				path={path}
-				title={title}
-				uid={uid}
-			/>,
-		);
+		const component = create(<HelmetMetaTags
+			coordinates={coordinates}
+			dateTime={dateTime}
+			description={description}
+			imageSource={imageSource}
+			path={path}
+			title={title}
+			uid={uid}
+		/>);
 		expect(component).toMatchSnapshot();
 	});
 });

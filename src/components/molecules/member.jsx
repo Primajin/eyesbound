@@ -12,7 +12,7 @@ import Header from './header.jsx';
 
 const {PICTURE: {plural}} = AssetTypes;
 
-const Member = ({edges, name, path = '', title, uid = ''}) => {
+function Member({edges, name, path = '', title, uid = ''}) {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -31,7 +31,7 @@ const Member = ({edges, name, path = '', title, uid = ''}) => {
 			</MainWrapper>
 		</>
 	);
-};
+}
 
 Member.propTypes = {
 	edges: PropTypes.arrayOf(PropTypes.exact(ThumbnailDataNode)).isRequired,

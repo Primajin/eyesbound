@@ -24,7 +24,7 @@ const lightStyles = css`
 	}
 `;
 
-const ThemeSwitcher = ({isFullscreen = false, isDark, switchTheme}) => {
+function ThemeSwitcher({isFullscreen = false, isDark, switchTheme}) {
 	const fullScreen = isFullscreen;
 	const [darkmode, setDarkmode] = useState(false);
 
@@ -61,7 +61,7 @@ const ThemeSwitcher = ({isFullscreen = false, isDark, switchTheme}) => {
 			</Helmet>
 		</button>
 	);
-};
+}
 
 ThemeSwitcher.propTypes = {
 	isDark: PropTypes.bool.isRequired,

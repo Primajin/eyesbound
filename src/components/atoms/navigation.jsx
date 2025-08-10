@@ -77,7 +77,7 @@ const navigationStyle = css`
 	}
 `;
 
-const Navigation = ({isFullscreen = false}) => {
+function Navigation({isFullscreen = false}) {
 	const linkOverview = useRef(null);
 	const linkShuttered = useRef(null);
 	const linkArchitecture = useRef(null);
@@ -142,7 +142,7 @@ const Navigation = ({isFullscreen = false}) => {
 			<div onClick={toggleMenu}>Menu</div>
 		</nav>
 	);
-};
+}
 
 Navigation.propTypes = {
 	isFullscreen: PropTypes.bool,

@@ -9,7 +9,7 @@ import {userPrefersDark} from '../../utils/theming.js';
 import List from './list.jsx';
 import Header from './header.jsx';
 
-const Group = ({edges: data, path, plural}) => {
+function Group({edges: data, path, plural}) {
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -28,7 +28,7 @@ const Group = ({edges: data, path, plural}) => {
 			</MainWrapper>
 		</>
 	);
-};
+}
 
 Group.propTypes = {
 	edges: PropTypes.arrayOf(PropTypes.exact(ListDataNode)).isRequired,

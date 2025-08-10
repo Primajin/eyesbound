@@ -33,7 +33,9 @@ const logo = css`
 
 const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
-const Logo = ({isFullscreen = false}) => <h1 css={logo} className={classnames({isFullscreen})}><a href='/' tabIndex='1'>{GATSBY_SITE_NAME}</a></h1>;
+function Logo({isFullscreen = false}) {
+	return <h1 css={logo} className={classnames({isFullscreen})}><a href='/' tabIndex='1'>{GATSBY_SITE_NAME}</a></h1>;
+}
 
 Logo.propTypes = {
 	isFullscreen: PropTypes.bool,

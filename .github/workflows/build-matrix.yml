@@ -7,7 +7,7 @@ on:
     types: [ labeled, opened, synchronize , reopened ]
 
 jobs:
-  build:
+  build-matrix:
     if: contains(github.event.pull_request.labels.*.name, 'dependabot')
     strategy:
       matrix:
@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
           cache: 'npm'
       - name: Cache dependencies
         uses: actions/cache@v4

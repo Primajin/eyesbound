@@ -20,7 +20,11 @@ const buttonClass = css`
 	}
 `;
 
-const Fullscreen = ({callback = () => {}, selector = ''}) => {
+const defaultCallback = () => {
+	// Default callback does nothing
+};
+
+function Fullscreen({callback = defaultCallback, selector = ''}) {
 	const [fullScreen, setFullScreen] = useState(false);
 
 	useEffect(() => {
@@ -40,8 +44,16 @@ const Fullscreen = ({callback = () => {}, selector = ''}) => {
 		};
 	}, [callback]);
 
-	return <button aria-label='Toggle fullscreen' type='button' css={buttonClass} className={classnames({fullScreen})} tabIndex='12' onClick={() => toggleFullscreen(selector)}>{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}</button>;
-};
+	return (
+		<button
+			aria-label='Toggle fullscreen'
+			type='button' css={buttonClass} className={classnames({fullScreen})}
+			tabIndex='12' onClick={() => toggleFullscreen(selector)}
+		>
+			{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}
+		</button>
+	);
+}
 
 Fullscreen.propTypes = {
 	callback: PropTypes.func,

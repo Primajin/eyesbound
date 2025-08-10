@@ -14,7 +14,9 @@ const mainWrapper = css`
 	}
 `;
 
-const MainWrapper = ({children = undefined}) => <main css={mainWrapper}>{children}</main>;
+function MainWrapper({children = undefined}) {
+	return <main css={mainWrapper}>{children}</main>;
+}
 
 MainWrapper.propTypes = {
 	children,

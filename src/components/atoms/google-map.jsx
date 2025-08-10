@@ -6,7 +6,7 @@ import AssetTypes from '../../constants/asset-types.js';
 import Picture from '../molecules/picture.jsx';
 import {prismicPictureNode} from '../../types/proptypes.js';
 
-const GoogleMap = ({center, data, height, hasNoInfoWindow, mapId, zoom}) => {
+function GoogleMap({center, data, height, hasNoInfoWindow, mapId, zoom}) {
 	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
 	const [properties, setProperties] = useState({});
 	const {image, position, title, uid} = properties;
@@ -48,7 +48,7 @@ const GoogleMap = ({center, data, height, hasNoInfoWindow, mapId, zoom}) => {
 			</>
 		</ReactGoogleMap>
 	);
-};
+}
 
 GoogleMap.propTypes = {
 	center: PropTypes.exact({latitude: PropTypes.number, longitude: PropTypes.number}).isRequired,

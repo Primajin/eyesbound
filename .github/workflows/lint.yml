@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
           cache: 'npm'
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -44,5 +44,6 @@ jobs:
         with:
           auto_fix: true
           xo: true
-          commit_message: ":sparkles: Fix code style issues with ${linter}"
+          xo_args: "--config eslint.config.mjs"
+          commit_message: ":sparkles: fix code style issues with ${linter}"
           git_email: Primajin@users.noreply.github.com
