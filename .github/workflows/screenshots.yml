@@ -25,7 +25,7 @@ jobs:
         with:
           site_name: 'eyesbound'
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: install puppeteer-headful
         uses: mujo-code/puppeteer-headful@master
         env:
