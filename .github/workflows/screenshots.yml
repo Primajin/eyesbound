@@ -34,7 +34,7 @@ jobs:
         uses: flameddd/screenshots-ci-action@master
         with:
           url: ${{ steps.waitFor200.outputs.url }}/picture/
-          releaseId: 132409907
+          releaseId: 243448603
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v4
