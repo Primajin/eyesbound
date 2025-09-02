@@ -1,4 +1,3 @@
-import xo from 'xo';
 import xoConfig from 'eslint-config-xo';
 import xoReactConfig from 'eslint-config-xo-react';
 import {globalIgnores} from 'eslint/config';
@@ -64,5 +63,4 @@ const eslintConfig = [
 	},
 ];
 
-// Ensure that the config is compatible with ESLint (this will import the necessary plugins and parsers under the hood)
-export default xo.xoToEslintConfig(eslintConfig);
+export default eslintConfig;
