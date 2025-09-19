@@ -1,5 +1,4 @@
 import xo from 'xo';
-import xoConfig from 'eslint-config-xo';
 import xoReactConfig from 'eslint-config-xo-react';
 import {globalIgnores} from 'eslint/config';
 import pluginJest from 'eslint-plugin-jest';
@@ -16,7 +15,6 @@ const eslintConfig = [
 		'loadershim.js',
 		'package-lock.json',
 	]),
-	...xoConfig,
 	...xoReactConfig,
 	{
 		files: ['**/*.test.{js,jsx,ts,tsx}'],
@@ -64,5 +62,4 @@ const eslintConfig = [
 	},
 ];
 
-// Ensure that the config is compatible with ESLint (this will import the necessary plugins and parsers under the hood)
 export default xo.xoToEslintConfig(eslintConfig);
