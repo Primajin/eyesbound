@@ -53,7 +53,7 @@
     "babel-jest": "^30.2.0",
     "dotenv": "^17.2.3",
     "eslint": "^9.36.0",
-    "eslint-config-xo-react": "^0.28.0",
+    "eslint-config-xo-react": "^0.29.0",
     "eslint-plugin-jest": "^29.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.2.0",
