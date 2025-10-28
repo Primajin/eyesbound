@@ -37,7 +37,7 @@ jobs:
           releaseId: 243448603
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           path: screenshots
           name: Download-screenshots
