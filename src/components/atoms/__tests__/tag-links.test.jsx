@@ -1,13 +1,13 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import TagLinks from '../tag-links.jsx';
 
 describe('TagLinks', () => {
 	it('renders correctly with empty list', () => {
 		const tags = [];
-		const component = create(<TagLinks tags={tags}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<TagLinks tags={tags}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with tag list of one', () => {
@@ -23,8 +23,8 @@ describe('TagLinks', () => {
 				},
 			},
 		];
-		const component = create(<TagLinks tags={tags}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<TagLinks tags={tags}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with tag list of more', () => {
@@ -50,7 +50,7 @@ describe('TagLinks', () => {
 				},
 			},
 		];
-		const component = create(<TagLinks tags={tags}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<TagLinks tags={tags}/>);
+		expect(container).toMatchSnapshot();
 	});
 });

@@ -1,33 +1,32 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import Fullscreen from '../fullscreen.jsx';
 
 describe('Fullscreen', () => {
 	it('renders correctly without props', () => {
-		const component = create(<Fullscreen/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Fullscreen/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
 		const callback = jest.fn();
 		const selector = '';
-		const component = create(<Fullscreen callback={callback} selector={selector}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Fullscreen callback={callback} selector={selector}/>);
+		expect(container).toMatchSnapshot();
 	});
 
-	it('calls back the callback', async () => {
+	it('calls back the callback', () => {
 		/* global document */
 		document.addEventListener = jest.fn((_, callback) => {
 			callback();
 		});
 		const callback = jest.fn();
 		const selector = '';
-		const component = create(<Fullscreen callback={callback} selector={selector}/>);
-		await act(() => {
-			component.root.findByType('button').props.onClick();
-			globalThis.document.dispatchEvent(new Event('fullscreenchange'));
-		});
+		const {container} = render(<Fullscreen callback={callback} selector={selector}/>);
+		const button = container.querySelector('button');
+		fireEvent.click(button);
+		globalThis.document.dispatchEvent(new Event('fullscreenchange'));
 		expect(callback).toHaveBeenCalledTimes(1);
 	});
 });

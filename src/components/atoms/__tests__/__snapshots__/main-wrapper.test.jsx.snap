@@ -1,47 +1,21 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`MainWrapper renders correctly with props 1`] = `
-<main
-  css={
-    {
-      "name": "14akp75",
-      "next": undefined,
-      "styles": "
-	width: clamp(16rem, 90vw, 70rem);
-	margin: 170px auto 100px;
-	padding: 0 1.5rem;
-
-	h1, h3 {
-		font-weight: 400;
-		padding-bottom: 1em;
-	}
-",
-    }
-  }
->
-  <h1>
-    Hello there!
-  </h1>
-</main>
+<div>
+  <main
+    css="[object Object]"
+  >
+    <h1>
+      Hello there!
+    </h1>
+  </main>
+</div>
 `;
 
 exports[`MainWrapper renders correctly without props 1`] = `
-<main
-  css={
-    {
-      "name": "14akp75",
-      "next": undefined,
-      "styles": "
-	width: clamp(16rem, 90vw, 70rem);
-	margin: 170px auto 100px;
-	padding: 0 1.5rem;
-
-	h1, h3 {
-		font-weight: 400;
-		padding-bottom: 1em;
-	}
-",
-    }
-  }
-/>
+<div>
+  <main
+    css="[object Object]"
+  />
+</div>
 `;

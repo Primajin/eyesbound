@@ -1,38 +1,36 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import ThemeSwitcher from '../theme-switcher.jsx';
 
 describe('ThemeSwitcher', () => {
 	it('renders correctly with minimum props', () => {
-		const component = create(<ThemeSwitcher isDark switchTheme={jest.fn()}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<ThemeSwitcher isDark switchTheme={jest.fn()}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with all props', () => {
-		const component = create(<ThemeSwitcher isDark isFullscreen switchTheme={jest.fn()}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<ThemeSwitcher isDark isFullscreen switchTheme={jest.fn()}/>);
+		expect(container).toMatchSnapshot();
 	});
 
-	it('renders correctly when theme is toggled', async () => {
+	it('renders correctly when theme is toggled', () => {
 		let isDark = true;
 		const switchTheme = jest.fn(() => {
 			isDark = !isDark;
 		});
 
-		let component;
-		await act(() => {
-			component = create(<ThemeSwitcher isDark={isDark} switchTheme={switchTheme}/>);
-		});
+		const {container, rerender} = render(<ThemeSwitcher isDark={isDark} switchTheme={switchTheme}/>);
 
 		expect(isDark).toBe(true);
-		expect(component).toMatchSnapshot();
-		await act(() => {
-			component.root.findByType('button').props.onClick();
-			component.update(<ThemeSwitcher isDark={isDark} switchTheme={switchTheme}/>);
-		});
+		expect(container).toMatchSnapshot();
+
+		const button = container.querySelector('button');
+		fireEvent.click(button);
+		rerender(<ThemeSwitcher isDark={isDark} switchTheme={switchTheme}/>);
+
 		expect(isDark).toBe(false);
 		expect(switchTheme).toHaveBeenCalled();
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });
