@@ -1,87 +1,33 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Logo renders correctly with props 1`] = `
-<h1
-  className="isFullscreen"
-  css={
-    {
-      "name": "1vze745",
-      "next": undefined,
-      "styles": "
-	background-color: var(--foreground);
-	color: var(--background);
-	font-size: 27px;
-	font-weight: 700;
-	height: 100px;
-	left: 0;
-	line-height: 100px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	transition: opacity .333s;
-	top: 0;
-	width: 250px;
-	z-index: 10;
-
-	&.isFullscreen {
-		opacity: 0.65;
-	}
-
-	@media (min-width: 576px) {
-		font-size: 37px;
-		width: 400px;
-	};
-",
-    }
-  }
->
-  <a
-    href="/"
+<div>
+  <h1
+    class="isFullscreen"
+    css="[object Object]"
   >
-    EYESBOUND
-  </a>
-</h1>
+    <a
+      href="/"
+      tabindex="1"
+    >
+      EYESBOUND
+    </a>
+  </h1>
+</div>
 `;
 
 exports[`Logo renders correctly without props 1`] = `
-<h1
-  className=""
-  css={
-    {
-      "name": "1vze745",
-      "next": undefined,
-      "styles": "
-	background-color: var(--foreground);
-	color: var(--background);
-	font-size: 27px;
-	font-weight: 700;
-	height: 100px;
-	left: 0;
-	line-height: 100px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	transition: opacity .333s;
-	top: 0;
-	width: 250px;
-	z-index: 10;
-
-	&.isFullscreen {
-		opacity: 0.65;
-	}
-
-	@media (min-width: 576px) {
-		font-size: 37px;
-		width: 400px;
-	};
-",
-    }
-  }
->
-  <a
-    href="/"
+<div>
+  <h1
+    class=""
+    css="[object Object]"
   >
-    EYESBOUND
-  </a>
-</h1>
+    <a
+      href="/"
+      tabindex="1"
+    >
+      EYESBOUND
+    </a>
+  </h1>
+</div>
 `;

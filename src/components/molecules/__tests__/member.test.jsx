@@ -1,5 +1,5 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import Member from '../member.jsx';
 
@@ -7,11 +7,10 @@ describe('Member', () => {
 	it('renders correctly with a list of zero', () => {
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={[]} title={title} name={name}/>);
-		act(() => {
-			component.root.findByType('button').props.onClick();
-		});
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Member edges={[]} title={title} name={name}/>);
+		const button = container.querySelector('button');
+		fireEvent.click(button);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of one', () => {
@@ -21,8 +20,8 @@ describe('Member', () => {
 		const edges = [thumbnailDataNode];
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={edges} title={title} name={name}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Member edges={edges} title={title} name={name}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of more', () => {
@@ -35,7 +34,7 @@ describe('Member', () => {
 		const edges = [thumbnailDataNode1, thumbnailDataNode2];
 		const name = 'name';
 		const title = 'title';
-		const component = create(<Member edges={edges} title={title} name={name}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Member edges={edges} title={title} name={name}/>);
+		expect(container).toMatchSnapshot();
 	});
 });

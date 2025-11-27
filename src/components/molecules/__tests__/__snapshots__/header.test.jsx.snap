@@ -1,373 +1,185 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Header renders correctly with props 1`] = `
-<header>
-  <h1
-    className="isFullscreen"
-    css={
-      {
-        "name": "1vze745",
-        "next": undefined,
-        "styles": "
-	background-color: var(--foreground);
-	color: var(--background);
-	font-size: 27px;
-	font-weight: 700;
-	height: 100px;
-	left: 0;
-	line-height: 100px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	transition: opacity .333s;
-	top: 0;
-	width: 250px;
-	z-index: 10;
-
-	&.isFullscreen {
-		opacity: 0.65;
-	}
-
-	@media (min-width: 576px) {
-		font-size: 37px;
-		width: 400px;
-	};
-",
-      }
-    }
-  >
-    <a
-      href="/"
+<div>
+  <header>
+    <h1
+      class="isFullscreen"
+      css="[object Object]"
     >
-      EYESBOUND
-    </a>
-  </h1>
-  <nav
-    className="isFullscreen"
-    css={
-      {
-        "name": "1ghowhq",
-        "next": undefined,
-        "styles": "
-	line-height: 40px;
-	opacity: 1;
-	outline: 0;
-	position: fixed;
-	text-align: center;
-	top: 100px;
-	transform: translateY(calc(-100% + 40px));
-	transition: transform .333s, opacity .333s;
-	user-select: none;
-	width: 180px;
-	z-index: 9;
-
-	@media (min-width: 768px) {
-		transform: translateY(calc(-100% + 20px));
-	};
-
-	&.isFullscreen {
-		opacity: 0;
-	}
-
-	div {
-		transition: background-color .333s, color .333s;
-		background-color: var(--background);
-		color: var(--foreground);
-
-		@media (min-width: 768px) {
-			line-height: 20px;
-		};
-
-		&:hover {
-			background: var(--foreground);
-			color: var(--background);
-		}
-	}
-
-	&.open {
-		transform: translateY(0);
-
-		div {
-			cursor: default;
-
-			&:hover {
-				background-color: var(--background);
-				color: var(--foreground);
-			}
-		}
-	}
-
-	ul {
-		background-color: var(--foreground);
-		color: var(--background);
-	}
-
-	li {
-		transition: opacity .333s;
-
-		&:hover {
-			opacity: 0.666;
-		}
-	}
-
-	div, li {
-		cursor: pointer;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-",
-      }
-    }
-  >
-    <ul>
-      <li>
-        <a
-          href="/picture"
-        >
-          Overview
-        </a>
-      </li>
-      <li>
-        <a
-          href="/series/shuttered"
-        >
-          »Shuttered«
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/architecture"
-        >
-          Architecture
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/environment"
-        >
-          Environment
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/floral"
-        >
-          Floral
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/light"
-        >
-          Light
-        </a>
-      </li>
-      <li>
-        <a
-          href="/worldmap"
-        >
-          Worldmap
-        </a>
-      </li>
-      <li>
-        <a
-          href="/imprint"
-        >
-          Contact
-        </a>
-      </li>
-    </ul>
-    <div
-      onClick={[Function]}
+      <a
+        href="/"
+        tabindex="1"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      class="isFullscreen"
+      css="[object Object]"
     >
-      Menu
-    </div>
-  </nav>
-</header>
+      <ul>
+        <li>
+          <a
+            href="/picture"
+            tabindex="2"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+            tabindex="3"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+            tabindex="4"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+            tabindex="5"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+            tabindex="6"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+            tabindex="7"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+            tabindex="8"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+            tabindex="9"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div>
+        Menu
+      </div>
+    </nav>
+  </header>
+</div>
 `;
 
 exports[`Header renders correctly without props 1`] = `
-<header>
-  <h1
-    className=""
-    css={
-      {
-        "name": "1vze745",
-        "next": undefined,
-        "styles": "
-	background-color: var(--foreground);
-	color: var(--background);
-	font-size: 27px;
-	font-weight: 700;
-	height: 100px;
-	left: 0;
-	line-height: 100px;
-	opacity: 1;
-	position: fixed;
-	text-align: center;
-	transition: opacity .333s;
-	top: 0;
-	width: 250px;
-	z-index: 10;
-
-	&.isFullscreen {
-		opacity: 0.65;
-	}
-
-	@media (min-width: 576px) {
-		font-size: 37px;
-		width: 400px;
-	};
-",
-      }
-    }
-  >
-    <a
-      href="/"
+<div>
+  <header>
+    <h1
+      class=""
+      css="[object Object]"
     >
-      EYESBOUND
-    </a>
-  </h1>
-  <nav
-    className=""
-    css={
-      {
-        "name": "1ghowhq",
-        "next": undefined,
-        "styles": "
-	line-height: 40px;
-	opacity: 1;
-	outline: 0;
-	position: fixed;
-	text-align: center;
-	top: 100px;
-	transform: translateY(calc(-100% + 40px));
-	transition: transform .333s, opacity .333s;
-	user-select: none;
-	width: 180px;
-	z-index: 9;
-
-	@media (min-width: 768px) {
-		transform: translateY(calc(-100% + 20px));
-	};
-
-	&.isFullscreen {
-		opacity: 0;
-	}
-
-	div {
-		transition: background-color .333s, color .333s;
-		background-color: var(--background);
-		color: var(--foreground);
-
-		@media (min-width: 768px) {
-			line-height: 20px;
-		};
-
-		&:hover {
-			background: var(--foreground);
-			color: var(--background);
-		}
-	}
-
-	&.open {
-		transform: translateY(0);
-
-		div {
-			cursor: default;
-
-			&:hover {
-				background-color: var(--background);
-				color: var(--foreground);
-			}
-		}
-	}
-
-	ul {
-		background-color: var(--foreground);
-		color: var(--background);
-	}
-
-	li {
-		transition: opacity .333s;
-
-		&:hover {
-			opacity: 0.666;
-		}
-	}
-
-	div, li {
-		cursor: pointer;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-",
-      }
-    }
-  >
-    <ul>
-      <li>
-        <a
-          href="/picture"
-        >
-          Overview
-        </a>
-      </li>
-      <li>
-        <a
-          href="/series/shuttered"
-        >
-          »Shuttered«
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/architecture"
-        >
-          Architecture
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/environment"
-        >
-          Environment
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/floral"
-        >
-          Floral
-        </a>
-      </li>
-      <li>
-        <a
-          href="/category/light"
-        >
-          Light
-        </a>
-      </li>
-      <li>
-        <a
-          href="/worldmap"
-        >
-          Worldmap
-        </a>
-      </li>
-      <li>
-        <a
-          href="/imprint"
-        >
-          Contact
-        </a>
-      </li>
-    </ul>
-    <div
-      onClick={[Function]}
+      <a
+        href="/"
+        tabindex="1"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      class=""
+      css="[object Object]"
     >
-      Menu
-    </div>
-  </nav>
-</header>
+      <ul>
+        <li>
+          <a
+            href="/picture"
+            tabindex="2"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+            tabindex="3"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+            tabindex="4"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+            tabindex="5"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+            tabindex="6"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+            tabindex="7"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+            tabindex="8"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+            tabindex="9"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div>
+        Menu
+      </div>
+    </nav>
+  </header>
+</div>
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import GoogleMap from '../google-map.jsx';
 
@@ -16,11 +16,11 @@ describe('GoogleMap', () => {
 		const height = '100px';
 		const mapId = 'map-id';
 		const zoom = 1;
-		const component = create(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
+		expect(container).toMatchSnapshot();
 	});
 
-	it('renders correctly with props and a list of one', async () => {
+	it('renders correctly with props and a list of one', () => {
 		const center = {latitude: 52.473_092, longitude: 13.327_628};
 
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
@@ -32,20 +32,19 @@ describe('GoogleMap', () => {
 		const height = '100px';
 		const mapId = 'map-id';
 		const zoom = 1;
-		const component = create(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
+		expect(container).toMatchSnapshot();
 
-		await act(() => {
-			component.root.findByProps({title: 'title1'}).props.onClick();
-		});
+		const marker = container.querySelector('[title="title1"]');
+		fireEvent.click(marker);
 
-		const infoWindow = component.root.findByProps({className: 'mock-info-window'});
+		const infoWindow = container.querySelector('.mock-info-window');
 		expect(infoWindow).toBeDefined();
 
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
-	it('renders correctly with props and a list of two', async () => {
+	it('renders correctly with props and a list of two', () => {
 		const center = {latitude: 52.473_092, longitude: 13.327_628};
 
 		const picture1 = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
@@ -60,12 +59,11 @@ describe('GoogleMap', () => {
 		const height = '100px';
 		const mapId = 'map-id';
 		const zoom = 1;
-		const component = create(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
+		const {container} = render(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
 
-		await act(() => {
-			component.root.findByProps({title: 'title1'}).props.onClick();
-		});
+		const marker = container.querySelector('[title="title1"]');
+		fireEvent.click(marker);
 
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

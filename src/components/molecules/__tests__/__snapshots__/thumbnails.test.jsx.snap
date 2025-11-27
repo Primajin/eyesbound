@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Thumbnails renders correctly with a list of more 1`] = `
-[
+<div>
   <h1>
     type
     : 
@@ -9,37 +9,9 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
      (
     2
     )
-  </h1>,
+  </h1>
   <ul
-    css={
-      {
-        "name": "1ktsphj",
-        "next": undefined,
-        "styles": "
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 5px;
-
-	@media (min-width: 420px) {
-		grid-template-columns: 1fr 1fr;
-	};
-
-	@media (min-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-	};
-
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 15px;
-	};
-
-	li {
-		content-visibility: auto;
-	}
-",
-      }
-    }
+    css="[object Object]"
   >
     <li>
       <a
@@ -49,22 +21,10 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
         <picture>
           <img
             alt="title1"
-            css={
-              {
-                "name": "m2yydh",
-                "next": undefined,
-                "styles": "
-	padding-top: 66.73913043478261%;
-",
-              }
-            }
-            height={174}
-            image={
-              {
-                "layout": "CONSTRAINED",
-              }
-            }
-            width={261}
+            css="[object Object]"
+            height="174"
+            image="[object Object]"
+            width="261"
           />
         </picture>
       </a>
@@ -77,32 +37,20 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
         <picture>
           <img
             alt="title2"
-            css={
-              {
-                "name": "m2yydh",
-                "next": undefined,
-                "styles": "
-	padding-top: 66.73913043478261%;
-",
-              }
-            }
-            height={174}
-            image={
-              {
-                "layout": "CONSTRAINED",
-              }
-            }
-            width={261}
+            css="[object Object]"
+            height="174"
+            image="[object Object]"
+            width="261"
           />
         </picture>
       </a>
     </li>
-  </ul>,
-]
+  </ul>
+</div>
 `;
 
 exports[`Thumbnails renders correctly with a list of one 1`] = `
-[
+<div>
   <h1>
     type
     : 
@@ -110,37 +58,9 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
      (
     1
     )
-  </h1>,
+  </h1>
   <ul
-    css={
-      {
-        "name": "1ktsphj",
-        "next": undefined,
-        "styles": "
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 5px;
-
-	@media (min-width: 420px) {
-		grid-template-columns: 1fr 1fr;
-	};
-
-	@media (min-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-	};
-
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 15px;
-	};
-
-	li {
-		content-visibility: auto;
-	}
-",
-      }
-    }
+    css="[object Object]"
   >
     <li>
       <a
@@ -150,32 +70,20 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
         <picture>
           <img
             alt="title1"
-            css={
-              {
-                "name": "m2yydh",
-                "next": undefined,
-                "styles": "
-	padding-top: 66.73913043478261%;
-",
-              }
-            }
-            height={174}
-            image={
-              {
-                "layout": "CONSTRAINED",
-              }
-            }
-            width={261}
+            css="[object Object]"
+            height="174"
+            image="[object Object]"
+            width="261"
           />
         </picture>
       </a>
     </li>
-  </ul>,
-]
+  </ul>
+</div>
 `;
 
 exports[`Thumbnails renders correctly with a list of zero 1`] = `
-[
+<div>
   <h1>
     type
     : 
@@ -183,37 +91,9 @@ exports[`Thumbnails renders correctly with a list of zero 1`] = `
      (
     0
     )
-  </h1>,
+  </h1>
   <ul
-    css={
-      {
-        "name": "1ktsphj",
-        "next": undefined,
-        "styles": "
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 5px;
-
-	@media (min-width: 420px) {
-		grid-template-columns: 1fr 1fr;
-	};
-
-	@media (min-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-	};
-
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 15px;
-	};
-
-	li {
-		content-visibility: auto;
-	}
-",
-      }
-    }
-  />,
-]
+    css="[object Object]"
+  />
+</div>
 `;

@@ -1,65 +1,17 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`HelmetMetaTags renders correctly with props 1`] = `
-<div
-  className="mock-helmet"
->
-  <title>
-    Libeskind | EYESBOUND
-  </title>
-  <meta
-    content="Libeskind | EYESBOUND"
-    name="title"
-  />
-  <meta
-    content="Libeskind | EYESBOUND"
-    property="og:title"
-  />
-  <meta
-    content="Libeskind | EYESBOUND"
-    name="twitter:title"
-  />
-  <meta
-    content="Anyone can hold the helm when the sea is calm"
-    property="og:description"
-  />
-  <meta
-    content="Anyone can hold the helm when the sea is calm"
-    name="twitter:description"
-  />
-  <meta
-    content="https://images.prismic.io/eyesbound/d4b035f1-21c8-476a-bd8f-6335f44ced7d__DSC2116.jpg"
-    property="og:image"
-  />
-  <meta
-    content="https://images.prismic.io/eyesbound/d4b035f1-21c8-476a-bd8f-6335f44ced7d__DSC2116.jpg"
-    name="twitter:image"
-  />
-  <link
-    href="https://eyesbound.com/picture/libeskind"
-    rel="canonical"
-  />
-  <meta
-    content="https://eyesbound.com/picture/libeskind"
-    property="og:url"
-  />
-  <meta
-    content="52.473092;13.327628"
-    name="geo.position"
-  />
-  <meta
-    content="52.473092, 13.327628"
-    name="ICBM"
-  />
-  <meta
-    content="1986-03-14T11:25:00+0000"
-    name="date"
+<div>
+  <div
+    class="mock-helmet"
   />
 </div>
 `;
 
 exports[`HelmetMetaTags renders correctly without props 1`] = `
-<div
-  className="mock-helmet"
-/>
+<div>
+  <div
+    class="mock-helmet"
+  />
+</div>
 `;
