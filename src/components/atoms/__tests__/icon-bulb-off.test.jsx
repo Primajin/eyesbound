@@ -1,11 +1,11 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import BulbOff from '../icons/bulb-off.jsx';
 
 describe('BulbOff', () => {
 	it('renders correctly', () => {
-		const component = create(<BulbOff/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<BulbOff/>);
+		expect(container).toMatchSnapshot();
 	});
 });

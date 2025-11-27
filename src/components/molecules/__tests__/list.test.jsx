@@ -1,5 +1,5 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import List from '../list.jsx';
 
@@ -7,8 +7,8 @@ describe('List', () => {
 	it('renders correctly with a list of zero', () => {
 		const path = 'path';
 		const title = 'title';
-		const component = create(<List data={[]} title={title} path={path}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<List data={[]} title={title} path={path}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of one', () => {
@@ -17,8 +17,8 @@ describe('List', () => {
 		const data = [listDataNode];
 		const path = 'path';
 		const title = 'title';
-		const component = create(<List data={data} title={title} path={path}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<List data={data} title={title} path={path}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of more', () => {
@@ -29,7 +29,7 @@ describe('List', () => {
 		const data = [listDataNode1, listDataNode2];
 		const path = 'path';
 		const title = 'title';
-		const component = create(<List data={data} title={title} path={path}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<List data={data} title={title} path={path}/>);
+		expect(container).toMatchSnapshot();
 	});
 });

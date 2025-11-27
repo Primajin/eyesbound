@@ -1,5 +1,5 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import Group from '../group.jsx';
 
@@ -7,11 +7,10 @@ describe('Group', () => {
 	it('renders correctly with a list of zero', () => {
 		const path = 'path';
 		const plural = 'plural';
-		const component = create(<Group edges={[]} plural={plural} path={path}/>);
-		act(() => {
-			component.root.findByType('button').props.onClick();
-		});
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Group edges={[]} plural={plural} path={path}/>);
+		const button = container.querySelector('button');
+		fireEvent.click(button);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of one', () => {
@@ -20,8 +19,8 @@ describe('Group', () => {
 		const edges = [listDataNode];
 		const path = 'path';
 		const plural = 'plural';
-		const component = create(<Group edges={edges} plural={plural} path={path}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Group edges={edges} plural={plural} path={path}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of more', () => {
@@ -32,7 +31,7 @@ describe('Group', () => {
 		const edges = [listDataNode1, listDataNode2];
 		const path = 'path';
 		const plural = 'plural';
-		const component = create(<Group edges={edges} plural={plural} path={path}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Group edges={edges} plural={plural} path={path}/>);
+		expect(container).toMatchSnapshot();
 	});
 });
