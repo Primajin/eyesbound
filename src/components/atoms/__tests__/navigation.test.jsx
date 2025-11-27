@@ -1,24 +1,23 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import Navigation from '../navigation.jsx';
 
 describe('Navigation', () => {
 	it('renders correctly without props', () => {
-		const component = create(<Navigation/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Navigation/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
-		const component = create(<Navigation isFullscreen/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Navigation isFullscreen/>);
+		expect(container).toMatchSnapshot();
 	});
 
-	it('renders correctly when menu is toggled', async () => {
-		const component = create(<Navigation/>);
-		await act(() => {
-			component.root.findByType('div').props.onClick();
-		});
-		expect(component).toMatchSnapshot();
+	it('renders correctly when menu is toggled', () => {
+		const {container} = render(<Navigation/>);
+		const div = container.querySelector('div');
+		fireEvent.click(div);
+		expect(container).toMatchSnapshot();
 	});
 });

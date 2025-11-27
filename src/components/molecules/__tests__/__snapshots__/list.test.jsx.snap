@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`List renders correctly with a list of more 1`] = `
-[
+<div>
   <h1>
     title
      (
     2
     )
-  </h1>,
+  </h1>
   <ul>
     <li>
       <a
@@ -25,18 +25,18 @@ exports[`List renders correctly with a list of more 1`] = `
         List Data Title 2
       </a>
     </li>
-  </ul>,
-]
+  </ul>
+</div>
 `;
 
 exports[`List renders correctly with a list of one 1`] = `
-[
+<div>
   <h1>
     title
      (
     1
     )
-  </h1>,
+  </h1>
   <ul>
     <li>
       <a
@@ -46,18 +46,18 @@ exports[`List renders correctly with a list of one 1`] = `
         List Data Title
       </a>
     </li>
-  </ul>,
-]
+  </ul>
+</div>
 `;
 
 exports[`List renders correctly with a list of zero 1`] = `
-[
+<div>
   <h1>
     title
      (
     0
     )
-  </h1>,
-  <ul />,
-]
+  </h1>
+  <ul />
+</div>
 `;
