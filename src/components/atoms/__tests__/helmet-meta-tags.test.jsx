@@ -1,12 +1,12 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import HelmetMetaTags from '../helmet-meta-tags.jsx';
 
 describe('HelmetMetaTags', () => {
 	it('renders correctly without props', () => {
-		const component = create(<HelmetMetaTags/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<HelmetMetaTags/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
@@ -17,7 +17,7 @@ describe('HelmetMetaTags', () => {
 		const path = 'picture';
 		const title = 'Libeskind';
 		const uid = 'libeskind';
-		const component = create(<HelmetMetaTags
+		const {container} = render(<HelmetMetaTags
 			coordinates={coordinates}
 			dateTime={dateTime}
 			description={description}
@@ -26,6 +26,6 @@ describe('HelmetMetaTags', () => {
 			title={title}
 			uid={uid}
 		/>);
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

@@ -1,11 +1,11 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import Fullscreen from '../icons/fullscreen.jsx';
 
 describe('Fullscreen', () => {
 	it('renders correctly', () => {
-		const component = create(<Fullscreen/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Fullscreen/>);
+		expect(container).toMatchSnapshot();
 	});
 });

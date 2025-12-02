@@ -1,71 +1,69 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Picture renders correctly with preferThumbnails false 1`] = `
-<picture>
-  <img
-    alt="title"
-    css={
-      {
-        "name": "m2yydh",
-        "next": undefined,
-        "styles": "
-	padding-top: 66.73913043478261%;
-",
-      }
-    }
-    height={123}
-    image={
-      {
-        "layout": "FIXED",
-      }
-    }
-    width={456}
-  />
-</picture>
+<div>
+  <picture>
+    <img
+      alt="title"
+      css="[object Object]"
+      height="123"
+      image="[object Object]"
+      width="456"
+    />
+  </picture>
+</div>
+`;
+
+exports[`Picture renders correctly with preferThumbnails false 2`] = `
+<div>
+  <picture>
+    <img
+      alt="title"
+      css="[object Object]"
+      height="123"
+      image="[object Object]"
+      width="456"
+    />
+  </picture>
+</div>
 `;
 
 exports[`Picture renders correctly with preferThumbnails true 1`] = `
-<picture>
-  <img
-    alt="title"
-    css={
-      {
-        "name": "m2yydh",
-        "next": undefined,
-        "styles": "
-	padding-top: 66.73913043478261%;
-",
-      }
-    }
-    height={123}
-    image={
-      {
-        "layout": "FIXED",
-      }
-    }
-    width={456}
-  />
-</picture>
+<div>
+  <picture>
+    <img
+      alt="title"
+      css="[object Object]"
+      height="123"
+      image="[object Object]"
+      width="456"
+    />
+  </picture>
+</div>
+`;
+
+exports[`Picture renders correctly with preferThumbnails true 2`] = `
+<div>
+  <picture>
+    <img
+      alt="title"
+      css="[object Object]"
+      height="123"
+      image="[object Object]"
+      width="456"
+    />
+  </picture>
+</div>
 `;
 
 exports[`Picture renders correctly without extra props 1`] = `
-<picture>
-  <img
-    alt="title"
-    css={
-      {
-        "name": "m2yydh",
-        "next": undefined,
-        "styles": "
-	padding-top: 66.73913043478261%;
-",
-      }
-    }
-    image={
-      {
-        "layout": "CONSTRAINED",
-      }
-    }
-  />
-</picture>
+<div>
+  <picture>
+    <img
+      alt="title"
+      css="[object Object]"
+      image="[object Object]"
+    />
+  </picture>
+</div>
 `;

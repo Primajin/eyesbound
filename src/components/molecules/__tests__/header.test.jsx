@@ -1,16 +1,16 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import Header from '../header.jsx';
 
 describe('Header', () => {
 	it('renders correctly without props', () => {
-		const component = create(<Header/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Header/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with props', () => {
-		const component = create(<Header isFullscreen/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Header isFullscreen/>);
+		expect(container).toMatchSnapshot();
 	});
 });

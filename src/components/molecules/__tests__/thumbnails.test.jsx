@@ -1,5 +1,5 @@
 import React from 'react';
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react';
 
 import Thumbnails from '../thumbnails.jsx';
 
@@ -7,8 +7,8 @@ describe('Thumbnails', () => {
 	it('renders correctly with a list of zero', () => {
 		const title = 'title';
 		const type = 'type';
-		const component = create(<Thumbnails edges={[]} title={title} type={type}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Thumbnails edges={[]} title={title} type={type}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of one', () => {
@@ -18,8 +18,8 @@ describe('Thumbnails', () => {
 		const edges = [thumbnailDataNode];
 		const title = 'title';
 		const type = 'type';
-		const component = create(<Thumbnails edges={edges} title={title} type={type}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Thumbnails edges={edges} title={title} type={type}/>);
+		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with a list of more', () => {
@@ -32,7 +32,7 @@ describe('Thumbnails', () => {
 		const edges = [thumbnailDataNode1, thumbnailDataNode2];
 		const title = 'title';
 		const type = 'type';
-		const component = create(<Thumbnails edges={edges} title={title} type={type}/>);
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Thumbnails edges={edges} title={title} type={type}/>);
+		expect(container).toMatchSnapshot();
 	});
 });
