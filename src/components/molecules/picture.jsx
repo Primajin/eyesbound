@@ -53,11 +53,11 @@ function Picture({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails
 
 	const cssClass = layout === 'FULL_WIDTH' ? fullSize : normal;
 
-	gatsbyImageData.layout = layout;
+	const imageData = {...gatsbyImageData, layout};
 
 	return (
 		<picture>
-			<GatsbyImage css={cssClass} alt={alt} height={height} image={gatsbyImageData} width={width}/>
+			<GatsbyImage css={cssClass} alt={alt} height={height} image={imageData} width={width}/>
 		</picture>
 	);
 }
