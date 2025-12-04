@@ -7,7 +7,7 @@ Eyesbound is a Gatsby-based website for a Berlin-based photographer, built with 
 
 ### 1. Setup and Dependencies
 - **ALWAYS** run `npm install` first before making any code changes
-- This project requires Node.js >= 22.4.0 (though it may work with lower versions)
+- This project requires Node.js >= 22.4.0 as specified in package.json
 - Dependencies are managed via npm, never use yarn or other package managers
 
 ### 2. Code Quality and Linting
@@ -27,7 +27,7 @@ Eyesbound is a Gatsby-based website for a Berlin-based photographer, built with 
 - Test files use Jest with React Testing Library
 - Snapshot tests are used extensively
 - Run `npm run coverage` to generate coverage reports
-- Update snapshots only when intentional changes are made: `npm test:update`
+- Update snapshots only when intentional changes are made: `npm run test:update`
 - Follow existing test patterns in `__tests__` directories
 
 ### 4. Build and Development
