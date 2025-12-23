@@ -66,7 +66,6 @@ exports[`Group renders correctly with a list of more 1`] = `
     >
       <a
         href="/"
-        tabIndex="1"
       >
         EYESBOUND
       </a>
@@ -152,7 +151,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/picture"
-            tabIndex="2"
           >
             Overview
           </a>
@@ -160,7 +158,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/series/shuttered"
-            tabIndex="3"
           >
             »Shuttered«
           </a>
@@ -168,7 +165,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/category/architecture"
-            tabIndex="4"
           >
             Architecture
           </a>
@@ -176,7 +172,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/category/environment"
-            tabIndex="5"
           >
             Environment
           </a>
@@ -184,7 +179,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/category/floral"
-            tabIndex="6"
           >
             Floral
           </a>
@@ -192,7 +186,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/category/light"
-            tabIndex="7"
           >
             Light
           </a>
@@ -200,7 +193,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/worldmap"
-            tabIndex="8"
           >
             Worldmap
           </a>
@@ -208,7 +200,6 @@ exports[`Group renders correctly with a list of more 1`] = `
         <li>
           <a
             href="/imprint"
-            tabIndex="9"
           >
             Contact
           </a>
@@ -398,7 +389,6 @@ exports[`Group renders correctly with a list of one 1`] = `
     >
       <a
         href="/"
-        tabIndex="1"
       >
         EYESBOUND
       </a>
@@ -484,7 +474,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/picture"
-            tabIndex="2"
           >
             Overview
           </a>
@@ -492,7 +481,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/series/shuttered"
-            tabIndex="3"
           >
             »Shuttered«
           </a>
@@ -500,7 +488,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/category/architecture"
-            tabIndex="4"
           >
             Architecture
           </a>
@@ -508,7 +495,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/category/environment"
-            tabIndex="5"
           >
             Environment
           </a>
@@ -516,7 +502,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/category/floral"
-            tabIndex="6"
           >
             Floral
           </a>
@@ -524,7 +509,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/category/light"
-            tabIndex="7"
           >
             Light
           </a>
@@ -532,7 +516,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/worldmap"
-            tabIndex="8"
           >
             Worldmap
           </a>
@@ -540,7 +523,6 @@ exports[`Group renders correctly with a list of one 1`] = `
         <li>
           <a
             href="/imprint"
-            tabIndex="9"
           >
             Contact
           </a>
@@ -722,7 +704,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
     >
       <a
         href="/"
-        tabIndex="1"
       >
         EYESBOUND
       </a>
@@ -808,7 +789,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/picture"
-            tabIndex="2"
           >
             Overview
           </a>
@@ -816,7 +796,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/series/shuttered"
-            tabIndex="3"
           >
             »Shuttered«
           </a>
@@ -824,7 +803,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/category/architecture"
-            tabIndex="4"
           >
             Architecture
           </a>
@@ -832,7 +810,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/category/environment"
-            tabIndex="5"
           >
             Environment
           </a>
@@ -840,7 +817,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/category/floral"
-            tabIndex="6"
           >
             Floral
           </a>
@@ -848,7 +824,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/category/light"
-            tabIndex="7"
           >
             Light
           </a>
@@ -856,7 +831,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/worldmap"
-            tabIndex="8"
           >
             Worldmap
           </a>
@@ -864,7 +838,6 @@ exports[`Group renders correctly with a list of zero 1`] = `
         <li>
           <a
             href="/imprint"
-            tabIndex="9"
           >
             Contact
           </a>
