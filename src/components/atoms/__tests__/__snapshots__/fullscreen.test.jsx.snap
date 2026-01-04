@@ -51,7 +51,6 @@ exports[`Fullscreen renders correctly with props 1`] = `
     }
   }
   onClick={[Function]}
-  tabIndex="12"
   type="button"
 >
   <svg
@@ -120,7 +119,6 @@ exports[`Fullscreen renders correctly without props 1`] = `
     }
   }
   onClick={[Function]}
-  tabIndex="12"
   type="button"
 >
   <svg

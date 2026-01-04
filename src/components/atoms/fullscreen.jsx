@@ -48,7 +48,7 @@ function Fullscreen({callback = defaultCallback, selector = ''}) {
 		<button
 			aria-label='Toggle fullscreen'
 			type='button' css={buttonClass} className={classnames({fullScreen})}
-			tabIndex='12' onClick={() => toggleFullscreen(selector)}
+			onClick={() => toggleFullscreen(selector)}
 		>
 			{fullScreen ? <IconFullscreenExit/> : <IconFullscreen/>}
 		</button>
