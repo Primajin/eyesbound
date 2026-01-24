@@ -63,7 +63,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
         data-type="prev"
         disabled={false}
         onClick={[Function]}
-        tabIndex="10"
         type="button"
       >
         «
@@ -277,7 +276,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
         data-type="next"
         disabled={false}
         onClick={[Function]}
-        tabIndex="11"
         type="button"
       >
         »
@@ -476,7 +474,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
         data-type="prev"
         disabled={false}
         onClick={[Function]}
-        tabIndex="10"
         type="button"
       >
         «
@@ -614,7 +611,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
         data-type="next"
         disabled={false}
         onClick={[Function]}
-        tabIndex="11"
         type="button"
       >
         »
@@ -752,7 +748,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         data-type="prev"
         disabled={false}
         onClick={[Function]}
-        tabIndex="10"
         type="button"
       >
         «
@@ -813,7 +808,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
         data-type="next"
         disabled={false}
         onClick={[Function]}
-        tabIndex="11"
         type="button"
       >
         »
