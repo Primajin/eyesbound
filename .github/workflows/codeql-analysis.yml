@@ -15,8 +15,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
   schedule:
     - cron: '28 5 * * 6' # At 05:28 on Saturday
 
