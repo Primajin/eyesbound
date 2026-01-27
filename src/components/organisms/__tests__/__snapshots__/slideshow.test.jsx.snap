@@ -17,7 +17,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
           class="isFullscreen nav "
           css="[object Object]"
           data-type="prev"
-          tabindex="10"
           type="button"
         >
           «
@@ -94,7 +93,6 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
           class="isFullscreen nav "
           css="[object Object]"
           data-type="next"
-          tabindex="11"
           type="button"
         >
           »
@@ -172,7 +170,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
           class="isFullscreen nav "
           css="[object Object]"
           data-type="prev"
-          tabindex="10"
           type="button"
         >
           «
@@ -220,7 +217,6 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
           class="isFullscreen nav "
           css="[object Object]"
           data-type="next"
-          tabindex="11"
           type="button"
         >
           »
@@ -275,7 +271,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
           class=" nav "
           css="[object Object]"
           data-type="prev"
-          tabindex="10"
           type="button"
         >
           «
@@ -293,7 +288,6 @@ exports[`Slideshow renders correctly with a list of zero 1`] = `
           class=" nav "
           css="[object Object]"
           data-type="next"
-          tabindex="11"
           type="button"
         >
           »

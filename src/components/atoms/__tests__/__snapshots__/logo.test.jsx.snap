@@ -8,7 +8,6 @@ exports[`Logo renders correctly with props 1`] = `
   >
     <a
       href="/"
-      tabindex="1"
     >
       EYESBOUND
     </a>
@@ -24,7 +23,6 @@ exports[`Logo renders correctly without props 1`] = `
   >
     <a
       href="/"
-      tabindex="1"
     >
       EYESBOUND
     </a>

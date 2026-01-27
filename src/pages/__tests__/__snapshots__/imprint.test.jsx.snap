@@ -12,7 +12,6 @@ exports[`Imprint renders correctly 1`] = `
     >
       <a
         href="/"
-        tabindex="1"
       >
         EYESBOUND
       </a>
@@ -25,7 +24,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/picture"
-            tabindex="2"
           >
             Overview
           </a>
@@ -33,7 +31,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/series/shuttered"
-            tabindex="3"
           >
             »Shuttered«
           </a>
@@ -41,7 +38,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/category/architecture"
-            tabindex="4"
           >
             Architecture
           </a>
@@ -49,7 +45,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/category/environment"
-            tabindex="5"
           >
             Environment
           </a>
@@ -57,7 +52,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/category/floral"
-            tabindex="6"
           >
             Floral
           </a>
@@ -65,7 +59,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/category/light"
-            tabindex="7"
           >
             Light
           </a>
@@ -73,7 +66,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/worldmap"
-            tabindex="8"
           >
             Worldmap
           </a>
@@ -81,7 +73,6 @@ exports[`Imprint renders correctly 1`] = `
         <li>
           <a
             href="/imprint"
-            tabindex="9"
           >
             Contact
           </a>

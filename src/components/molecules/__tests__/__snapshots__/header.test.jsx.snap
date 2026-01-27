@@ -9,7 +9,6 @@ exports[`Header renders correctly with props 1`] = `
     >
       <a
         href="/"
-        tabindex="1"
       >
         EYESBOUND
       </a>
@@ -22,7 +21,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/picture"
-            tabindex="2"
           >
             Overview
           </a>
@@ -30,7 +28,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/series/shuttered"
-            tabindex="3"
           >
             »Shuttered«
           </a>
@@ -38,7 +35,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/category/architecture"
-            tabindex="4"
           >
             Architecture
           </a>
@@ -46,7 +42,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/category/environment"
-            tabindex="5"
           >
             Environment
           </a>
@@ -54,7 +49,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/category/floral"
-            tabindex="6"
           >
             Floral
           </a>
@@ -62,7 +56,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/category/light"
-            tabindex="7"
           >
             Light
           </a>
@@ -70,7 +63,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/worldmap"
-            tabindex="8"
           >
             Worldmap
           </a>
@@ -78,7 +70,6 @@ exports[`Header renders correctly with props 1`] = `
         <li>
           <a
             href="/imprint"
-            tabindex="9"
           >
             Contact
           </a>
@@ -101,7 +92,6 @@ exports[`Header renders correctly without props 1`] = `
     >
       <a
         href="/"
-        tabindex="1"
       >
         EYESBOUND
       </a>
@@ -114,7 +104,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/picture"
-            tabindex="2"
           >
             Overview
           </a>
@@ -122,7 +111,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/series/shuttered"
-            tabindex="3"
           >
             »Shuttered«
           </a>
@@ -130,7 +118,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/category/architecture"
-            tabindex="4"
           >
             Architecture
           </a>
@@ -138,7 +125,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/category/environment"
-            tabindex="5"
           >
             Environment
           </a>
@@ -146,7 +132,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/category/floral"
-            tabindex="6"
           >
             Floral
           </a>
@@ -154,7 +139,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/category/light"
-            tabindex="7"
           >
             Light
           </a>
@@ -162,7 +146,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/worldmap"
-            tabindex="8"
           >
             Worldmap
           </a>
@@ -170,7 +153,6 @@ exports[`Header renders correctly without props 1`] = `
         <li>
           <a
             href="/imprint"
-            tabindex="9"
           >
             Contact
           </a>
