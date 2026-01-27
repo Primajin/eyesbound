@@ -3,15 +3,18 @@
 exports[`GoogleMap renders correctly with props and a list of one 1`] = `
 <div>
   <div
-    center="[object Object]"
     class="mock-google-map"
-    mapcontainerstyle="[object Object]"
-    options="[object Object]"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
     zoom="1"
   >
     <div
       class="mock-marker"
-      position="[object Object]"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
       title="title1"
     />
   </div>
@@ -21,21 +24,25 @@ exports[`GoogleMap renders correctly with props and a list of one 1`] = `
 exports[`GoogleMap renders correctly with props and a list of one 2`] = `
 <div>
   <div
-    center="[object Object]"
     class="mock-google-map"
-    mapcontainerstyle="[object Object]"
-    options="[object Object]"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
     zoom="1"
   >
     <div
       class="mock-marker"
-      position="[object Object]"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
       title="title1"
     />
     <div
       class="mock-info-window"
-      options="[object Object]"
-      position="[object Object]"
+      data-option-maxwidth="200"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
     >
       <a
         href="/picture/uid-bar"
@@ -46,8 +53,8 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
         <picture>
           <img
             alt="title1"
+            data-image-layout="CONSTRAINED"
             height="110"
-            image="[object Object]"
             width="164"
           />
         </picture>
@@ -60,20 +67,24 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
 exports[`GoogleMap renders correctly with props and a list of two 1`] = `
 <div>
   <div
-    center="[object Object]"
     class="mock-google-map"
-    mapcontainerstyle="[object Object]"
-    options="[object Object]"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
     zoom="1"
   >
     <div
       class="mock-marker"
-      position="[object Object]"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
       title="title1"
     />
     <div
       class="mock-marker"
-      position="[object Object]"
+      data-position-lat="52.456"
+      data-position-lng="13.456"
       title="title2"
     />
   </div>
@@ -83,15 +94,18 @@ exports[`GoogleMap renders correctly with props and a list of two 1`] = `
 exports[`GoogleMap renders correctly with props and a list of zero 1`] = `
 <div>
   <div
-    center="[object Object]"
     class="mock-google-map"
-    mapcontainerstyle="[object Object]"
-    options="[object Object]"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
     zoom="1"
   >
     <div
       class="mock-marker"
-      position="[object Object]"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
       title="title1"
     />
   </div>

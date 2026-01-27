@@ -128,7 +128,7 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                   <picture>
                     <img
                       alt="title1"
-                      image="[object Object]"
+                      data-image-layout="FULL_WIDTH"
                     />
                   </picture>
                   <figcaption
@@ -156,7 +156,7 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
                   <picture>
                     <img
                       alt="title2"
-                      image="[object Object]"
+                      data-image-layout="FULL_WIDTH"
                     />
                   </picture>
                   <figcaption
@@ -191,8 +191,8 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
             <picture>
               <img
                 alt="title1"
+                data-image-layout="CONSTRAINED"
                 height="31"
-                image="[object Object]"
                 width="46"
               />
             </picture>
@@ -213,8 +213,8 @@ exports[`Slideshow renders correctly with a list of more 1`] = `
             <picture>
               <img
                 alt="title2"
+                data-image-layout="CONSTRAINED"
                 height="31"
-                image="[object Object]"
                 width="46"
               />
             </picture>
@@ -359,7 +359,7 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
                   <picture>
                     <img
                       alt="title1"
-                      image="[object Object]"
+                      data-image-layout="FULL_WIDTH"
                     />
                   </picture>
                   <figcaption
@@ -394,8 +394,8 @@ exports[`Slideshow renders correctly with a list of one 1`] = `
             <picture>
               <img
                 alt="title1"
+                data-image-layout="CONSTRAINED"
                 height="31"
-                image="[object Object]"
                 width="46"
               />
             </picture>

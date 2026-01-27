@@ -5,8 +5,8 @@ exports[`Picture renders correctly with preferThumbnails false 1`] = `
   <picture>
     <img
       alt="title"
+      data-image-layout="FIXED"
       height="123"
-      image="[object Object]"
       width="456"
     />
   </picture>
@@ -18,8 +18,8 @@ exports[`Picture renders correctly with preferThumbnails false 2`] = `
   <picture>
     <img
       alt="title"
+      data-image-layout="FIXED"
       height="123"
-      image="[object Object]"
       width="456"
     />
   </picture>
@@ -31,8 +31,8 @@ exports[`Picture renders correctly with preferThumbnails true 1`] = `
   <picture>
     <img
       alt="title"
+      data-image-layout="FIXED"
       height="123"
-      image="[object Object]"
       width="456"
     />
   </picture>
@@ -44,8 +44,8 @@ exports[`Picture renders correctly with preferThumbnails true 2`] = `
   <picture>
     <img
       alt="title"
+      data-image-layout="FIXED"
       height="123"
-      image="[object Object]"
       width="456"
     />
   </picture>
@@ -57,7 +57,7 @@ exports[`Picture renders correctly without extra props 1`] = `
   <picture>
     <img
       alt="title"
-      image="[object Object]"
+      data-image-layout="CONSTRAINED"
     />
   </picture>
 </div>

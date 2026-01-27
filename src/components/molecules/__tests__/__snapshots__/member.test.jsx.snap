@@ -354,8 +354,8 @@ exports[`Member renders correctly with a list of more 1`] = `
           <picture>
             <img
               alt="title1"
+              data-image-layout="CONSTRAINED"
               height="174"
-              image="[object Object]"
               width="261"
             />
           </picture>
@@ -369,8 +369,8 @@ exports[`Member renders correctly with a list of more 1`] = `
           <picture>
             <img
               alt="title2"
+              data-image-layout="CONSTRAINED"
               height="174"
-              image="[object Object]"
               width="261"
             />
           </picture>
@@ -735,8 +735,8 @@ exports[`Member renders correctly with a list of one 1`] = `
           <picture>
             <img
               alt="title1"
+              data-image-layout="CONSTRAINED"
               height="174"
-              image="[object Object]"
               width="261"
             />
           </picture>
