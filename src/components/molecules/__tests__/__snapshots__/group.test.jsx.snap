@@ -4,7 +4,38 @@ exports[`Group renders correctly with a list of more 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      plural | EYESBOUND
+    </div>
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+    <div
+      data-helmet-tag="link"
+      data-href="https://eyesbound.com/path/"
+      data-rel="canonical"
+    />
+    <div
+      data-content="https://eyesbound.com/path/"
+      data-helmet-tag="meta"
+      data-property="og:url"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -102,7 +133,13 @@ exports[`Group renders correctly with a list of more 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main
@@ -140,7 +177,38 @@ exports[`Group renders correctly with a list of one 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      plural | EYESBOUND
+    </div>
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+    <div
+      data-helmet-tag="link"
+      data-href="https://eyesbound.com/path/"
+      data-rel="canonical"
+    />
+    <div
+      data-content="https://eyesbound.com/path/"
+      data-helmet-tag="meta"
+      data-property="og:url"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -238,7 +306,13 @@ exports[`Group renders correctly with a list of one 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main
@@ -268,7 +342,38 @@ exports[`Group renders correctly with a list of zero 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      plural | EYESBOUND
+    </div>
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="plural | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+    <div
+      data-helmet-tag="link"
+      data-href="https://eyesbound.com/path/"
+      data-rel="canonical"
+    />
+    <div
+      data-content="https://eyesbound.com/path/"
+      data-helmet-tag="meta"
+      data-property="og:url"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -366,7 +471,13 @@ exports[`Group renders correctly with a list of zero 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main

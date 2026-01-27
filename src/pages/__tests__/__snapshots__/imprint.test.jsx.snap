@@ -4,7 +4,38 @@ exports[`Imprint renders correctly 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      Imprint & Contact | EYESBOUND
+    </div>
+    <div
+      data-content="Imprint & Contact | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="Imprint & Contact | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="Imprint & Contact | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+    <div
+      data-helmet-tag="link"
+      data-href="https://eyesbound.com/imprint/"
+      data-rel="canonical"
+    />
+    <div
+      data-content="https://eyesbound.com/imprint/"
+      data-helmet-tag="meta"
+      data-property="og:url"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -102,7 +133,13 @@ exports[`Imprint renders correctly 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main

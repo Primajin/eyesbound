@@ -17,15 +17,46 @@ jest.mock('gatsby-plugin-image', () => {
 
 jest.mock('react-helmet', () => {
 	const React = require('react');
-	const plugin = jest.requireActual('react-helmet');
-	const mockHelmet = ({children, ...properties}) =>
-		React.createElement('div', {
-			...properties,
-			className: 'mock-helmet',
-		}, children);
+	const mockHelmet = props => {
+		const children = Array.isArray(props.children) ? props.children : [props.children];
+		const validChildren = children.filter(child => child !== null && child !== undefined);
+
+		// Convert children to div elements with metadata
+		// This is needed because <title> and <meta> don't render in document.body
+		const convertedChildren = validChildren.map((child, index) => {
+			if (!child || !child.type) {
+				return null;
+			}
+
+			const childProps = child.props || {};
+			const attrs = {
+				key: index,
+				'data-helmet-tag': child.type,
+			};
+
+			// Copy relevant attributes
+			for (const key of Object.keys(childProps)) {
+				if (key !== 'children') {
+					attrs[`data-${key}`] = String(childProps[key]);
+				}
+			}
+
+			return React.createElement(
+				'div',
+				attrs,
+				childProps.children || null,
+			);
+		});
+
+		return React.createElement(
+			'div',
+			{className: 'mock-helmet'},
+			convertedChildren.filter(Boolean),
+		);
+	};
+
 	return {
-		...plugin,
-		Helmet: jest.fn().mockImplementation(mockHelmet),
+		Helmet: mockHelmet,
 	};
 });
 

@@ -4,7 +4,28 @@ exports[`Member renders correctly with a list of more 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      title | EYESBOUND
+    </div>
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -102,7 +123,13 @@ exports[`Member renders correctly with a list of more 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main
@@ -160,7 +187,28 @@ exports[`Member renders correctly with a list of one 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      title | EYESBOUND
+    </div>
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -258,7 +306,13 @@ exports[`Member renders correctly with a list of one 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main
@@ -300,7 +354,28 @@ exports[`Member renders correctly with a list of zero 1`] = `
 <div>
   <div
     class="mock-helmet"
-  />
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      title | EYESBOUND
+    </div>
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="title | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+  </div>
   <header>
     <h1
       class=""
@@ -398,7 +473,13 @@ exports[`Member renders correctly with a list of zero 1`] = `
       </svg>
       <div
         class="mock-helmet"
-      />
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
     </button>
   </header>
   <main

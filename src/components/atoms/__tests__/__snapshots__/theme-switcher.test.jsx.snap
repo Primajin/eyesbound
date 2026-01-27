@@ -22,7 +22,13 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 1`] = `
     </svg>
     <div
       class="mock-helmet"
-    />
+    >
+      <div
+        data-content="#000000"
+        data-helmet-tag="meta"
+        data-name="theme-color"
+      />
+    </div>
   </button>
 </div>
 `;
@@ -49,7 +55,13 @@ exports[`ThemeSwitcher renders correctly when theme is toggled 2`] = `
     </svg>
     <div
       class="mock-helmet"
-    />
+    >
+      <div
+        data-content="#ffffff"
+        data-helmet-tag="meta"
+        data-name="theme-color"
+      />
+    </div>
   </button>
 </div>
 `;
@@ -76,7 +88,13 @@ exports[`ThemeSwitcher renders correctly with all props 1`] = `
     </svg>
     <div
       class="mock-helmet"
-    />
+    >
+      <div
+        data-content="#000000"
+        data-helmet-tag="meta"
+        data-name="theme-color"
+      />
+    </div>
   </button>
 </div>
 `;
@@ -103,7 +121,13 @@ exports[`ThemeSwitcher renders correctly with minimum props 1`] = `
     </svg>
     <div
       class="mock-helmet"
-    />
+    >
+      <div
+        data-content="#000000"
+        data-helmet-tag="meta"
+        data-name="theme-color"
+      />
+    </div>
   </button>
 </div>
 `;
