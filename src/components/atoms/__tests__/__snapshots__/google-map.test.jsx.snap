@@ -46,7 +46,6 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
         <picture>
           <img
             alt="title1"
-            css="[object Object]"
             height="110"
             image="[object Object]"
             width="164"

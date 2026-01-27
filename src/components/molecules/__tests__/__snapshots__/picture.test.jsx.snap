@@ -5,7 +5,6 @@ exports[`Picture renders correctly with preferThumbnails false 1`] = `
   <picture>
     <img
       alt="title"
-      css="[object Object]"
       height="123"
       image="[object Object]"
       width="456"
@@ -19,7 +18,6 @@ exports[`Picture renders correctly with preferThumbnails false 2`] = `
   <picture>
     <img
       alt="title"
-      css="[object Object]"
       height="123"
       image="[object Object]"
       width="456"
@@ -33,7 +31,6 @@ exports[`Picture renders correctly with preferThumbnails true 1`] = `
   <picture>
     <img
       alt="title"
-      css="[object Object]"
       height="123"
       image="[object Object]"
       width="456"
@@ -47,7 +44,6 @@ exports[`Picture renders correctly with preferThumbnails true 2`] = `
   <picture>
     <img
       alt="title"
-      css="[object Object]"
       height="123"
       image="[object Object]"
       width="456"
@@ -61,7 +57,6 @@ exports[`Picture renders correctly without extra props 1`] = `
   <picture>
     <img
       alt="title"
-      css="[object Object]"
       image="[object Object]"
     />
   </picture>

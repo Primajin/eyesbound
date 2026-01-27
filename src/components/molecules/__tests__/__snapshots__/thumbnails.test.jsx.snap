@@ -1,6 +1,36 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Thumbnails renders correctly with a list of more 1`] = `
+.emotion-0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-0 li {
+  content-visibility: auto;
+}
+
 <div>
   <h1>
     type
@@ -11,7 +41,7 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
     )
   </h1>
   <ul
-    css="[object Object]"
+    class="emotion-0"
   >
     <li>
       <a
@@ -21,7 +51,6 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
         <picture>
           <img
             alt="title1"
-            css="[object Object]"
             height="174"
             image="[object Object]"
             width="261"
@@ -37,7 +66,6 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
         <picture>
           <img
             alt="title2"
-            css="[object Object]"
             height="174"
             image="[object Object]"
             width="261"
@@ -50,6 +78,36 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
 `;
 
 exports[`Thumbnails renders correctly with a list of one 1`] = `
+.emotion-0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-0 li {
+  content-visibility: auto;
+}
+
 <div>
   <h1>
     type
@@ -60,7 +118,7 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
     )
   </h1>
   <ul
-    css="[object Object]"
+    class="emotion-0"
   >
     <li>
       <a
@@ -70,7 +128,6 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
         <picture>
           <img
             alt="title1"
-            css="[object Object]"
             height="174"
             image="[object Object]"
             width="261"
@@ -83,6 +140,36 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
 `;
 
 exports[`Thumbnails renders correctly with a list of zero 1`] = `
+.emotion-0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-0 li {
+  content-visibility: auto;
+}
+
 <div>
   <h1>
     type
@@ -93,7 +180,7 @@ exports[`Thumbnails renders correctly with a list of zero 1`] = `
     )
   </h1>
   <ul
-    css="[object Object]"
+    class="emotion-0"
   />
 </div>
 `;

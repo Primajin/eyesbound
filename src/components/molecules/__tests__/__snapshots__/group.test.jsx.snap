@@ -1,6 +1,179 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Group renders correctly with a list of more 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-1 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open div {
+  cursor: default;
+}
+
+.emotion-1.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 div,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-3 {
+  width: clamp(16rem, 90vw, 70rem);
+  margin: 170px auto 100px;
+  padding: 0 1.5rem;
+}
+
+.emotion-3 h1,
+.emotion-3 h3 {
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
 <div>
   <div
     class="mock-helmet"
@@ -38,8 +211,7 @@ exports[`Group renders correctly with a list of more 1`] = `
   </div>
   <header>
     <h1
-      class=""
-      css="[object Object]"
+      class="emotion-0"
     >
       <a
         href="/"
@@ -48,8 +220,7 @@ exports[`Group renders correctly with a list of more 1`] = `
       </a>
     </h1>
     <nav
-      class=""
-      css="[object Object]"
+      class="emotion-1"
     >
       <ul>
         <li>
@@ -115,8 +286,7 @@ exports[`Group renders correctly with a list of more 1`] = `
     </nav>
     <button
       aria-label="Switch theme"
-      class=""
-      css="[object Object]"
+      class="emotion-2"
       type="button"
     >
       <svg
@@ -143,7 +313,7 @@ exports[`Group renders correctly with a list of more 1`] = `
     </button>
   </header>
   <main
-    css="[object Object]"
+    class="emotion-3"
   >
     <h1>
       plural
@@ -174,6 +344,179 @@ exports[`Group renders correctly with a list of more 1`] = `
 `;
 
 exports[`Group renders correctly with a list of one 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-1 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open div {
+  cursor: default;
+}
+
+.emotion-1.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 div,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-3 {
+  width: clamp(16rem, 90vw, 70rem);
+  margin: 170px auto 100px;
+  padding: 0 1.5rem;
+}
+
+.emotion-3 h1,
+.emotion-3 h3 {
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
 <div>
   <div
     class="mock-helmet"
@@ -211,8 +554,7 @@ exports[`Group renders correctly with a list of one 1`] = `
   </div>
   <header>
     <h1
-      class=""
-      css="[object Object]"
+      class="emotion-0"
     >
       <a
         href="/"
@@ -221,8 +563,7 @@ exports[`Group renders correctly with a list of one 1`] = `
       </a>
     </h1>
     <nav
-      class=""
-      css="[object Object]"
+      class="emotion-1"
     >
       <ul>
         <li>
@@ -288,8 +629,7 @@ exports[`Group renders correctly with a list of one 1`] = `
     </nav>
     <button
       aria-label="Switch theme"
-      class=""
-      css="[object Object]"
+      class="emotion-2"
       type="button"
     >
       <svg
@@ -316,7 +656,7 @@ exports[`Group renders correctly with a list of one 1`] = `
     </button>
   </header>
   <main
-    css="[object Object]"
+    class="emotion-3"
   >
     <h1>
       plural
@@ -339,6 +679,179 @@ exports[`Group renders correctly with a list of one 1`] = `
 `;
 
 exports[`Group renders correctly with a list of zero 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-1 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open div {
+  cursor: default;
+}
+
+.emotion-1.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 div,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-3 {
+  width: clamp(16rem, 90vw, 70rem);
+  margin: 170px auto 100px;
+  padding: 0 1.5rem;
+}
+
+.emotion-3 h1,
+.emotion-3 h3 {
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
 <div>
   <div
     class="mock-helmet"
@@ -376,8 +889,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
   </div>
   <header>
     <h1
-      class=""
-      css="[object Object]"
+      class="emotion-0"
     >
       <a
         href="/"
@@ -386,8 +898,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
       </a>
     </h1>
     <nav
-      class=""
-      css="[object Object]"
+      class="emotion-1"
     >
       <ul>
         <li>
@@ -453,8 +964,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
     </nav>
     <button
       aria-label="Switch theme"
-      class=""
-      css="[object Object]"
+      class="emotion-2"
       type="button"
     >
       <svg
@@ -481,7 +991,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
     </button>
   </header>
   <main
-    css="[object Object]"
+    class="emotion-3"
   >
     <h1>
       plural

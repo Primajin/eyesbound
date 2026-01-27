@@ -1,11 +1,128 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Header renders correctly with props 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-1 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open div {
+  cursor: default;
+}
+
+.emotion-1.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 div,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 <div>
   <header>
     <h1
-      class="isFullscreen"
-      css="[object Object]"
+      class="isFullscreen emotion-0"
     >
       <a
         href="/"
@@ -14,8 +131,7 @@ exports[`Header renders correctly with props 1`] = `
       </a>
     </h1>
     <nav
-      class="isFullscreen"
-      css="[object Object]"
+      class="isFullscreen emotion-1"
     >
       <ul>
         <li>
@@ -84,11 +200,128 @@ exports[`Header renders correctly with props 1`] = `
 `;
 
 exports[`Header renders correctly without props 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-1 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open div {
+  cursor: default;
+}
+
+.emotion-1.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 div,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 <div>
   <header>
     <h1
-      class=""
-      css="[object Object]"
+      class="emotion-0"
     >
       <a
         href="/"
@@ -97,8 +330,7 @@ exports[`Header renders correctly without props 1`] = `
       </a>
     </h1>
     <nav
-      class=""
-      css="[object Object]"
+      class="emotion-1"
     >
       <ul>
         <li>
