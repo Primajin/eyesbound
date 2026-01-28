@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Map renders correctly with dark mode 1`] = `
-[
-  <div />,
+<div>
+  <div />
   <div>
     Loading...
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Map renders correctly with light mode 1`] = `
-[
-  <div />,
+<div>
+  <div />
   <div>
     Loading...
-  </div>,
-]
+  </div>
+</div>
 `;

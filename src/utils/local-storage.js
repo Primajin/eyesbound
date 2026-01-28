@@ -1,5 +1,4 @@
-/* global localStorage */
-// localStorage may be used only after it has been checked against being undefined
+// LocalStorage may be used only after it has been checked against being undefined
 
 /**
  * Returns the current value associated with the given key, or null if the given key does not exist.

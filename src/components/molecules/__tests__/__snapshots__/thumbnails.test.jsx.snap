@@ -1,7 +1,37 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Thumbnails renders correctly with a list of more 1`] = `
-[
+.emotion-0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-0 li {
+  content-visibility: auto;
+}
+
+<div>
   <h1>
     type
     : 
@@ -9,37 +39,9 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
      (
     2
     )
-  </h1>,
+  </h1>
   <ul
-    css={
-      {
-        "name": "1ktsphj",
-        "next": undefined,
-        "styles": "
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 5px;
-
-	@media (min-width: 420px) {
-		grid-template-columns: 1fr 1fr;
-	};
-
-	@media (min-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-	};
-
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 15px;
-	};
-
-	li {
-		content-visibility: auto;
-	}
-",
-      }
-    }
+    class="emotion-0"
   >
     <li>
       <a
@@ -49,22 +51,9 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
         <picture>
           <img
             alt="title1"
-            css={
-              {
-                "name": "m2yydh",
-                "next": undefined,
-                "styles": "
-	padding-top: 66.73913043478261%;
-",
-              }
-            }
-            height={174}
-            image={
-              {
-                "layout": "CONSTRAINED",
-              }
-            }
-            width={261}
+            data-image-layout="CONSTRAINED"
+            height="174"
+            width="261"
           />
         </picture>
       </a>
@@ -77,32 +66,49 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
         <picture>
           <img
             alt="title2"
-            css={
-              {
-                "name": "m2yydh",
-                "next": undefined,
-                "styles": "
-	padding-top: 66.73913043478261%;
-",
-              }
-            }
-            height={174}
-            image={
-              {
-                "layout": "CONSTRAINED",
-              }
-            }
-            width={261}
+            data-image-layout="CONSTRAINED"
+            height="174"
+            width="261"
           />
         </picture>
       </a>
     </li>
-  </ul>,
-]
+  </ul>
+</div>
 `;
 
 exports[`Thumbnails renders correctly with a list of one 1`] = `
-[
+.emotion-0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-0 li {
+  content-visibility: auto;
+}
+
+<div>
   <h1>
     type
     : 
@@ -110,37 +116,9 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
      (
     1
     )
-  </h1>,
+  </h1>
   <ul
-    css={
-      {
-        "name": "1ktsphj",
-        "next": undefined,
-        "styles": "
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 5px;
-
-	@media (min-width: 420px) {
-		grid-template-columns: 1fr 1fr;
-	};
-
-	@media (min-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-	};
-
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 15px;
-	};
-
-	li {
-		content-visibility: auto;
-	}
-",
-      }
-    }
+    class="emotion-0"
   >
     <li>
       <a
@@ -150,32 +128,49 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
         <picture>
           <img
             alt="title1"
-            css={
-              {
-                "name": "m2yydh",
-                "next": undefined,
-                "styles": "
-	padding-top: 66.73913043478261%;
-",
-              }
-            }
-            height={174}
-            image={
-              {
-                "layout": "CONSTRAINED",
-              }
-            }
-            width={261}
+            data-image-layout="CONSTRAINED"
+            height="174"
+            width="261"
           />
         </picture>
       </a>
     </li>
-  </ul>,
-]
+  </ul>
+</div>
 `;
 
 exports[`Thumbnails renders correctly with a list of zero 1`] = `
-[
+.emotion-0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-0 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-0 li {
+  content-visibility: auto;
+}
+
+<div>
   <h1>
     type
     : 
@@ -183,37 +178,9 @@ exports[`Thumbnails renders correctly with a list of zero 1`] = `
      (
     0
     )
-  </h1>,
+  </h1>
   <ul
-    css={
-      {
-        "name": "1ktsphj",
-        "next": undefined,
-        "styles": "
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 5px;
-
-	@media (min-width: 420px) {
-		grid-template-columns: 1fr 1fr;
-	};
-
-	@media (min-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-	};
-
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 15px;
-	};
-
-	li {
-		content-visibility: auto;
-	}
-",
-      }
-    }
-  />,
-]
+    class="emotion-0"
+  />
+</div>
 `;

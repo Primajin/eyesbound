@@ -1,14 +1,13 @@
 import React from 'react';
-import {act, create} from 'react-test-renderer';
+import {fireEvent, render} from '@testing-library/react';
 
 import Imprint from '../imprint.jsx';
 
 describe('Imprint', () => {
 	it('renders correctly', () => {
-		const component = create(<Imprint/>);
-		act(() => {
-			component.root.findByType('button').props.onClick();
-		});
-		expect(component).toMatchSnapshot();
+		const {container} = render(<Imprint/>);
+		const button = container.querySelector('button');
+		fireEvent.click(button);
+		expect(container).toMatchSnapshot();
 	});
 });

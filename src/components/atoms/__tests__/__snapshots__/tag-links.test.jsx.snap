@@ -1,27 +1,29 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`TagLinks renders correctly with empty list 1`] = `null`;
+exports[`TagLinks renders correctly with empty list 1`] = `<div />`;
 
 exports[`TagLinks renders correctly with tag list of more 1`] = `
-[
+<div>
   <a
     href="/tag/1234-5678-90"
   >
     Hello
-  </a>,
-  " | ",
+  </a>
+   | 
   <a
     href="/tag/9876-5432-10"
   >
     There
-  </a>,
-]
+  </a>
+</div>
 `;
 
 exports[`TagLinks renders correctly with tag list of one 1`] = `
-<a
-  href="/tag/1234-5678-90"
->
-  Hello
-</a>
+<div>
+  <a
+    href="/tag/1234-5678-90"
+  >
+    Hello
+  </a>
+</div>
 `;

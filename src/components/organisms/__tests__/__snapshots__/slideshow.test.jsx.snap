@@ -1,821 +1,500 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Slideshow renders correctly with a list of more 1`] = `
-<div
-  className="slide-container"
->
+.emotion-0.emotion-0.emotion-0 {
+  background: var(--foreground);
+  color: var(--background);
+  height: 180px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 40px;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .emotion-0.emotion-0.emotion-0 {
+    width: 20px;
+    font-size: 1rem;
+  }
+}
+
+.emotion-0.emotion-0.emotion-0:hover,
+.emotion-0.emotion-0.emotion-0:focus {
+  background: var(--background);
+  color: var(--foreground);
+  outline: 0;
+}
+
+.emotion-0.emotion-0.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+.emotion-0.emotion-0.emotion-0[data-type="next"] {
+  right: 0;
+}
+
+.emotion-1 {
+  background: center center transparent no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: block;
+  height: 100vh;
+}
+
+.emotion-2 {
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.emotion-3 {
+  display: none;
+}
+
+.emotion-8 {
+  bottom: 15px;
+  color: var(--background);
+  display: none;
+  font-weight: 700;
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+@media (min-width: 768px) {
+  .emotion-8 {
+    display: block;
+  }
+}
+
+.active .emotion-8 {
+  opacity: 1;
+}
+
+<div>
   <div
-    aria-roledescription="carousel"
-    dir="ltr"
+    class="slide-container"
   >
     <div
-      className="react-slideshow-container "
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
+      aria-roledescription="carousel"
+      dir="ltr"
     >
-      <button
-        aria-label="Previous Slide"
-        className="isFullscreen nav "
-        css={
-          {
-            "name": "1qdprdn",
-            "next": undefined,
-            "styles": "
-	&&& { // specificity hack
-		background: var(--foreground);
-		color: var(--background);
-		height: 180px;
-		font-size: 2rem;
-		font-weight: bold;
-		opacity: 1;
-		position: fixed;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: background-color .333s, color .333s, opacity .333s;
-		width: 40px;
-		z-index: 5;
-
-		@media (min-width: 768px) {
-			width: 20px;
-			font-size: 1rem;
-		}
-
-		&:hover,
-		&:focus {
-			background: var(--background);
-			color: var(--foreground);
-			outline: 0;
-		}
-
-		&.isFullscreen {
-			opacity: 0.65;
-		}
-
-		&[data-type="next"] {
-			right: 0;
-		}
-	}
-",
-          }
-        }
-        data-type="prev"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        «
-      </button>
       <div
-        className="react-slideshow-fadezoom-wrapper "
+        class="react-slideshow-container "
       >
+        <button
+          aria-label="Previous Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="prev"
+          type="button"
+        >
+          «
+        </button>
         <div
-          className="react-slideshow-fadezoom-images-wrap"
+          class="react-slideshow-fadezoom-wrapper "
         >
           <div
-            aria-hidden="false"
-            aria-roledescription="slide"
-            data-index={0}
-            style={
-              {
-                "opacity": "1",
-                "zIndex": "1",
-              }
-            }
+            class="react-slideshow-fadezoom-images-wrap"
+            style="width: 0px;"
           >
-            <a
-              css={
-                {
-                  "name": "1bjmnzj",
-                  "next": undefined,
-                  "styles": "
-	background: center center transparent no-repeat;
-	background-size: cover;
-	display: block;
-	height: 100vh;
-",
-                }
-              }
-              href="/picture/uid-1"
-              style={null}
-              title="title1"
+            <div
+              aria-hidden="false"
+              aria-roledescription="slide"
+              data-index="0"
+              style="opacity: 1; z-index: 1; width: 0px; left: 0px; display: block;"
             >
-              <figure
-                css={
-                  {
-                    "name": "10ppafn",
-                    "next": undefined,
-                    "styles": "
-	height: 100%;
-	backdrop-filter: blur(10px);
-",
-                  }
-                }
+              <a
+                class="emotion-1"
+                href="/picture/uid-1"
+                title="title1"
               >
-                <picture>
-                  <img
-                    alt="title1"
-                    css={
-                      {
-                        "name": "724za4",
-                        "next": undefined,
-                        "styles": "
-	height: calc(100vh - 50px);
-	width: 100vw;
-",
-                      }
-                    }
-                    image={
-                      {
-                        "layout": "FULL_WIDTH",
-                      }
-                    }
-                  />
-                </picture>
-                <figcaption
-                  css={
-                    {
-                      "name": "t2dtan",
-                      "next": undefined,
-                      "styles": "
-	display: none;
-",
-                    }
-                  }
+                <figure
+                  class="emotion-2"
                 >
-                  title1
-                </figcaption>
-              </figure>
-            </a>
-          </div>
-          <div
-            aria-hidden="true"
-            aria-roledescription="slide"
-            data-index={1}
-            style={
-              {
-                "opacity": "0",
-                "zIndex": "0",
-              }
-            }
-          >
-            <a
-              css={
-                {
-                  "name": "1bjmnzj",
-                  "next": undefined,
-                  "styles": "
-	background: center center transparent no-repeat;
-	background-size: cover;
-	display: block;
-	height: 100vh;
-",
-                }
-              }
-              href="/picture/uid-2"
-              style={null}
-              title="title2"
+                  <picture>
+                    <img
+                      alt="title1"
+                      data-image-layout="FULL_WIDTH"
+                    />
+                  </picture>
+                  <figcaption
+                    class="emotion-3"
+                  >
+                    title1
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div
+              aria-hidden="true"
+              aria-roledescription="slide"
+              data-index="1"
+              style="opacity: 0; z-index: 0; width: 0px; left: 0px; display: block;"
             >
-              <figure
-                css={
-                  {
-                    "name": "10ppafn",
-                    "next": undefined,
-                    "styles": "
-	height: 100%;
-	backdrop-filter: blur(10px);
-",
-                  }
-                }
+              <a
+                class="emotion-1"
+                href="/picture/uid-2"
+                title="title2"
               >
-                <picture>
-                  <img
-                    alt="title2"
-                    css={
-                      {
-                        "name": "724za4",
-                        "next": undefined,
-                        "styles": "
-	height: calc(100vh - 50px);
-	width: 100vw;
-",
-                      }
-                    }
-                    image={
-                      {
-                        "layout": "FULL_WIDTH",
-                      }
-                    }
-                  />
-                </picture>
-                <figcaption
-                  css={
-                    {
-                      "name": "t2dtan",
-                      "next": undefined,
-                      "styles": "
-	display: none;
-",
-                    }
-                  }
+                <figure
+                  class="emotion-2"
                 >
-                  title2
-                </figcaption>
-              </figure>
-            </a>
+                  <picture>
+                    <img
+                      alt="title2"
+                      data-image-layout="FULL_WIDTH"
+                    />
+                  </picture>
+                  <figcaption
+                    class="emotion-3"
+                  >
+                    title2
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
           </div>
         </div>
+        <button
+          aria-label="Next Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="next"
+          type="button"
+        >
+          »
+        </button>
       </div>
-      <button
-        aria-label="Next Slide"
-        className="isFullscreen nav "
-        css={
-          {
-            "name": "1qdprdn",
-            "next": undefined,
-            "styles": "
-	&&& { // specificity hack
-		background: var(--foreground);
-		color: var(--background);
-		height: 180px;
-		font-size: 2rem;
-		font-weight: bold;
-		opacity: 1;
-		position: fixed;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: background-color .333s, color .333s, opacity .333s;
-		width: 40px;
-		z-index: 5;
-
-		@media (min-width: 768px) {
-			width: 20px;
-			font-size: 1rem;
-		}
-
-		&:hover,
-		&:focus {
-			background: var(--background);
-			color: var(--foreground);
-			outline: 0;
-		}
-
-		&.isFullscreen {
-			opacity: 0.65;
-		}
-
-		&[data-type="next"] {
-			right: 0;
-		}
-	}
-",
-          }
-        }
-        data-type="next"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+      <ul
+        class="indicators"
       >
-        »
-      </button>
+        <li
+          aria-label="Go to slide 1"
+          class="indicator active"
+          data-key="0"
+          title="title1"
+        >
+          <figure>
+            <picture>
+              <img
+                alt="title1"
+                data-image-layout="CONSTRAINED"
+                height="31"
+                width="46"
+              />
+            </picture>
+            <figcaption
+              class="emotion-8"
+            >
+              title1
+            </figcaption>
+          </figure>
+        </li>
+        <li
+          aria-label="Go to slide 2"
+          class="indicator "
+          data-key="1"
+          title="title2"
+        >
+          <figure>
+            <picture>
+              <img
+                alt="title2"
+                data-image-layout="CONSTRAINED"
+                height="31"
+                width="46"
+              />
+            </picture>
+            <figcaption
+              class="emotion-8"
+            >
+              title2
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
     </div>
-    <ul
-      className="indicators"
-    >
-      <li
-        aria-label="Go to slide 1"
-        className="indicator active"
-        data-key={0}
-        onClick={[Function]}
-        title="title1"
-      >
-        <figure>
-          <picture>
-            <img
-              alt="title1"
-              css={
-                {
-                  "name": "m2yydh",
-                  "next": undefined,
-                  "styles": "
-	padding-top: 66.73913043478261%;
-",
-                }
-              }
-              height={31}
-              image={
-                {
-                  "layout": "CONSTRAINED",
-                }
-              }
-              width={46}
-            />
-          </picture>
-          <figcaption
-            css={
-              {
-                "name": "1052cht",
-                "next": undefined,
-                "styles": "
-	bottom: 15px;
-	color: var(--background);
-	display: none;
-	font-weight: 700;
-	opacity: 0;
-	position: absolute;
-	right: 20px;
-	text-align: right;
-	text-transform: uppercase;
-	transition: opacity .333s;
-
-	@media (min-width: 768px) {
-		display: block;
-	}
-
-	.active & {
-		opacity: 1;
-	}
-",
-              }
-            }
-          >
-            title1
-          </figcaption>
-        </figure>
-      </li>
-      <li
-        aria-label="Go to slide 2"
-        className="indicator "
-        data-key={1}
-        onClick={[Function]}
-        title="title2"
-      >
-        <figure>
-          <picture>
-            <img
-              alt="title2"
-              css={
-                {
-                  "name": "m2yydh",
-                  "next": undefined,
-                  "styles": "
-	padding-top: 66.73913043478261%;
-",
-                }
-              }
-              height={31}
-              image={
-                {
-                  "layout": "CONSTRAINED",
-                }
-              }
-              width={46}
-            />
-          </picture>
-          <figcaption
-            css={
-              {
-                "name": "1052cht",
-                "next": undefined,
-                "styles": "
-	bottom: 15px;
-	color: var(--background);
-	display: none;
-	font-weight: 700;
-	opacity: 0;
-	position: absolute;
-	right: 20px;
-	text-align: right;
-	text-transform: uppercase;
-	transition: opacity .333s;
-
-	@media (min-width: 768px) {
-		display: block;
-	}
-
-	.active & {
-		opacity: 1;
-	}
-",
-              }
-            }
-          >
-            title2
-          </figcaption>
-        </figure>
-      </li>
-    </ul>
   </div>
 </div>
 `;
 
 exports[`Slideshow renders correctly with a list of one 1`] = `
-<div
-  className="slide-container"
->
+.emotion-0.emotion-0.emotion-0 {
+  background: var(--foreground);
+  color: var(--background);
+  height: 180px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 40px;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .emotion-0.emotion-0.emotion-0 {
+    width: 20px;
+    font-size: 1rem;
+  }
+}
+
+.emotion-0.emotion-0.emotion-0:hover,
+.emotion-0.emotion-0.emotion-0:focus {
+  background: var(--background);
+  color: var(--foreground);
+  outline: 0;
+}
+
+.emotion-0.emotion-0.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+.emotion-0.emotion-0.emotion-0[data-type="next"] {
+  right: 0;
+}
+
+.emotion-1 {
+  background: center center transparent no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: block;
+  height: 100vh;
+}
+
+.emotion-2 {
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.emotion-3 {
+  display: none;
+}
+
+.emotion-5 {
+  bottom: 15px;
+  color: var(--background);
+  display: none;
+  font-weight: 700;
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+@media (min-width: 768px) {
+  .emotion-5 {
+    display: block;
+  }
+}
+
+.active .emotion-5 {
+  opacity: 1;
+}
+
+<div>
   <div
-    aria-roledescription="carousel"
-    dir="ltr"
+    class="slide-container"
   >
     <div
-      className="react-slideshow-container "
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
+      aria-roledescription="carousel"
+      dir="ltr"
     >
-      <button
-        aria-label="Previous Slide"
-        className="isFullscreen nav "
-        css={
-          {
-            "name": "1qdprdn",
-            "next": undefined,
-            "styles": "
-	&&& { // specificity hack
-		background: var(--foreground);
-		color: var(--background);
-		height: 180px;
-		font-size: 2rem;
-		font-weight: bold;
-		opacity: 1;
-		position: fixed;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: background-color .333s, color .333s, opacity .333s;
-		width: 40px;
-		z-index: 5;
-
-		@media (min-width: 768px) {
-			width: 20px;
-			font-size: 1rem;
-		}
-
-		&:hover,
-		&:focus {
-			background: var(--background);
-			color: var(--foreground);
-			outline: 0;
-		}
-
-		&.isFullscreen {
-			opacity: 0.65;
-		}
-
-		&[data-type="next"] {
-			right: 0;
-		}
-	}
-",
-          }
-        }
-        data-type="prev"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        «
-      </button>
       <div
-        className="react-slideshow-fadezoom-wrapper "
+        class="react-slideshow-container "
       >
+        <button
+          aria-label="Previous Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="prev"
+          type="button"
+        >
+          «
+        </button>
         <div
-          className="react-slideshow-fadezoom-images-wrap"
+          class="react-slideshow-fadezoom-wrapper "
         >
           <div
-            aria-hidden="false"
-            aria-roledescription="slide"
-            data-index={0}
-            style={
-              {
-                "opacity": "1",
-                "zIndex": "1",
-              }
-            }
+            class="react-slideshow-fadezoom-images-wrap"
+            style="width: 0px;"
           >
-            <a
-              css={
-                {
-                  "name": "1bjmnzj",
-                  "next": undefined,
-                  "styles": "
-	background: center center transparent no-repeat;
-	background-size: cover;
-	display: block;
-	height: 100vh;
-",
-                }
-              }
-              href="/picture/uid-bar"
-              style={null}
-              title="title1"
+            <div
+              aria-hidden="false"
+              aria-roledescription="slide"
+              data-index="0"
+              style="opacity: 1; z-index: 1; width: 0px; left: 0px; display: block;"
             >
-              <figure
-                css={
-                  {
-                    "name": "10ppafn",
-                    "next": undefined,
-                    "styles": "
-	height: 100%;
-	backdrop-filter: blur(10px);
-",
-                  }
-                }
+              <a
+                class="emotion-1"
+                href="/picture/uid-bar"
+                title="title1"
               >
-                <picture>
-                  <img
-                    alt="title1"
-                    css={
-                      {
-                        "name": "724za4",
-                        "next": undefined,
-                        "styles": "
-	height: calc(100vh - 50px);
-	width: 100vw;
-",
-                      }
-                    }
-                    image={
-                      {
-                        "layout": "FULL_WIDTH",
-                      }
-                    }
-                  />
-                </picture>
-                <figcaption
-                  css={
-                    {
-                      "name": "t2dtan",
-                      "next": undefined,
-                      "styles": "
-	display: none;
-",
-                    }
-                  }
+                <figure
+                  class="emotion-2"
                 >
-                  title1
-                </figcaption>
-              </figure>
-            </a>
+                  <picture>
+                    <img
+                      alt="title1"
+                      data-image-layout="FULL_WIDTH"
+                    />
+                  </picture>
+                  <figcaption
+                    class="emotion-3"
+                  >
+                    title1
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
           </div>
         </div>
+        <button
+          aria-label="Next Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="next"
+          type="button"
+        >
+          »
+        </button>
       </div>
-      <button
-        aria-label="Next Slide"
-        className="isFullscreen nav "
-        css={
-          {
-            "name": "1qdprdn",
-            "next": undefined,
-            "styles": "
-	&&& { // specificity hack
-		background: var(--foreground);
-		color: var(--background);
-		height: 180px;
-		font-size: 2rem;
-		font-weight: bold;
-		opacity: 1;
-		position: fixed;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: background-color .333s, color .333s, opacity .333s;
-		width: 40px;
-		z-index: 5;
-
-		@media (min-width: 768px) {
-			width: 20px;
-			font-size: 1rem;
-		}
-
-		&:hover,
-		&:focus {
-			background: var(--background);
-			color: var(--foreground);
-			outline: 0;
-		}
-
-		&.isFullscreen {
-			opacity: 0.65;
-		}
-
-		&[data-type="next"] {
-			right: 0;
-		}
-	}
-",
-          }
-        }
-        data-type="next"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+      <ul
+        class="indicators"
       >
-        »
-      </button>
+        <li
+          aria-label="Go to slide 1"
+          class="indicator active"
+          data-key="0"
+          title="title1"
+        >
+          <figure>
+            <picture>
+              <img
+                alt="title1"
+                data-image-layout="CONSTRAINED"
+                height="31"
+                width="46"
+              />
+            </picture>
+            <figcaption
+              class="emotion-5"
+            >
+              title1
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
     </div>
-    <ul
-      className="indicators"
-    >
-      <li
-        aria-label="Go to slide 1"
-        className="indicator active"
-        data-key={0}
-        onClick={[Function]}
-        title="title1"
-      >
-        <figure>
-          <picture>
-            <img
-              alt="title1"
-              css={
-                {
-                  "name": "m2yydh",
-                  "next": undefined,
-                  "styles": "
-	padding-top: 66.73913043478261%;
-",
-                }
-              }
-              height={31}
-              image={
-                {
-                  "layout": "CONSTRAINED",
-                }
-              }
-              width={46}
-            />
-          </picture>
-          <figcaption
-            css={
-              {
-                "name": "1052cht",
-                "next": undefined,
-                "styles": "
-	bottom: 15px;
-	color: var(--background);
-	display: none;
-	font-weight: 700;
-	opacity: 0;
-	position: absolute;
-	right: 20px;
-	text-align: right;
-	text-transform: uppercase;
-	transition: opacity .333s;
-
-	@media (min-width: 768px) {
-		display: block;
-	}
-
-	.active & {
-		opacity: 1;
-	}
-",
-              }
-            }
-          >
-            title1
-          </figcaption>
-        </figure>
-      </li>
-    </ul>
   </div>
 </div>
 `;
 
 exports[`Slideshow renders correctly with a list of zero 1`] = `
-<div
-  className="slide-container"
->
+.emotion-0.emotion-0.emotion-0 {
+  background: var(--foreground);
+  color: var(--background);
+  height: 180px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 40px;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .emotion-0.emotion-0.emotion-0 {
+    width: 20px;
+    font-size: 1rem;
+  }
+}
+
+.emotion-0.emotion-0.emotion-0:hover,
+.emotion-0.emotion-0.emotion-0:focus {
+  background: var(--background);
+  color: var(--foreground);
+  outline: 0;
+}
+
+.emotion-0.emotion-0.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+.emotion-0.emotion-0.emotion-0[data-type="next"] {
+  right: 0;
+}
+
+<div>
   <div
-    aria-roledescription="carousel"
-    dir="ltr"
+    class="slide-container"
   >
     <div
-      className="react-slideshow-container "
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
+      aria-roledescription="carousel"
+      dir="ltr"
     >
-      <button
-        aria-label="Previous Slide"
-        className=" nav "
-        css={
-          {
-            "name": "1qdprdn",
-            "next": undefined,
-            "styles": "
-	&&& { // specificity hack
-		background: var(--foreground);
-		color: var(--background);
-		height: 180px;
-		font-size: 2rem;
-		font-weight: bold;
-		opacity: 1;
-		position: fixed;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: background-color .333s, color .333s, opacity .333s;
-		width: 40px;
-		z-index: 5;
-
-		@media (min-width: 768px) {
-			width: 20px;
-			font-size: 1rem;
-		}
-
-		&:hover,
-		&:focus {
-			background: var(--background);
-			color: var(--foreground);
-			outline: 0;
-		}
-
-		&.isFullscreen {
-			opacity: 0.65;
-		}
-
-		&[data-type="next"] {
-			right: 0;
-		}
-	}
-",
-          }
-        }
-        data-type="prev"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        «
-      </button>
       <div
-        className="react-slideshow-fadezoom-wrapper "
+        class="react-slideshow-container "
       >
+        <button
+          aria-label="Previous Slide"
+          class="nav emotion-0"
+          data-type="prev"
+          type="button"
+        >
+          «
+        </button>
         <div
-          className="react-slideshow-fadezoom-images-wrap"
-        />
+          class="react-slideshow-fadezoom-wrapper "
+        >
+          <div
+            class="react-slideshow-fadezoom-images-wrap"
+            style="width: 0px;"
+          />
+        </div>
+        <button
+          aria-label="Next Slide"
+          class="nav emotion-0"
+          data-type="next"
+          type="button"
+        >
+          »
+        </button>
       </div>
-      <button
-        aria-label="Next Slide"
-        className=" nav "
-        css={
-          {
-            "name": "1qdprdn",
-            "next": undefined,
-            "styles": "
-	&&& { // specificity hack
-		background: var(--foreground);
-		color: var(--background);
-		height: 180px;
-		font-size: 2rem;
-		font-weight: bold;
-		opacity: 1;
-		position: fixed;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: background-color .333s, color .333s, opacity .333s;
-		width: 40px;
-		z-index: 5;
-
-		@media (min-width: 768px) {
-			width: 20px;
-			font-size: 1rem;
-		}
-
-		&:hover,
-		&:focus {
-			background: var(--background);
-			color: var(--foreground);
-			outline: 0;
-		}
-
-		&.isFullscreen {
-			opacity: 0.65;
-		}
-
-		&[data-type="next"] {
-			right: 0;
-		}
-	}
-",
-          }
-        }
-        data-type="next"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        »
-      </button>
+      <ul
+        class="indicators"
+      />
     </div>
-    <ul
-      className="indicators"
-    />
   </div>
 </div>
 `;

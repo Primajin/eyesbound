@@ -1,205 +1,113 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`GoogleMap renders correctly with props and a list of one 1`] = `
-<div
-  center={
-    {
-      "lat": 52.473092,
-      "lng": 13.327628,
-    }
-  }
-  className="mock-google-map"
-  mapContainerStyle={
-    {
-      "height": "100px",
-    }
-  }
-  options={
-    {
-      "mapId": "map-id",
-      "streetViewControl": false,
-    }
-  }
-  zoom={1}
->
+<div>
   <div
-    className="mock-marker"
-    clickable={true}
-    onClick={[Function]}
-    position={
-      {
-        "lat": 52.123,
-        "lng": 13.123,
-      }
-    }
-    title="title1"
-  />
+    class="mock-google-map"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
+    zoom="1"
+  >
+    <div
+      class="mock-marker"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
+      title="title1"
+    />
+  </div>
 </div>
 `;
 
 exports[`GoogleMap renders correctly with props and a list of one 2`] = `
-<div
-  center={
-    {
-      "lat": 52.473092,
-      "lng": 13.327628,
-    }
-  }
-  className="mock-google-map"
-  mapContainerStyle={
-    {
-      "height": "100px",
-    }
-  }
-  options={
-    {
-      "mapId": "map-id",
-      "streetViewControl": false,
-    }
-  }
-  zoom={1}
->
+<div>
   <div
-    className="mock-marker"
-    clickable={true}
-    onClick={[Function]}
-    position={
-      {
-        "lat": 52.123,
-        "lng": 13.123,
-      }
-    }
-    title="title1"
-  />
-  <div
-    className="mock-info-window"
-    onCloseClick={[Function]}
-    options={
-      {
-        "maxWidth": 200,
-      }
-    }
-    position={
-      {
-        "lat": 52.123,
-        "lng": 13.123,
-      }
-    }
+    class="mock-google-map"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
+    zoom="1"
   >
-    <a
-      href="/picture/uid-bar"
+    <div
+      class="mock-marker"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
+      title="title1"
+    />
+    <div
+      class="mock-info-window"
+      data-option-maxwidth="200"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
     >
-      <h1>
-        title1
-      </h1>
-      <picture>
-        <img
-          alt="title1"
-          css={
-            {
-              "name": "m2yydh",
-              "next": undefined,
-              "styles": "
-	padding-top: 66.73913043478261%;
-",
-            }
-          }
-          height={110}
-          image={
-            {
-              "layout": "CONSTRAINED",
-            }
-          }
-          width={164}
-        />
-      </picture>
-    </a>
+      <a
+        href="/picture/uid-bar"
+      >
+        <h1>
+          title1
+        </h1>
+        <picture>
+          <img
+            alt="title1"
+            data-image-layout="CONSTRAINED"
+            height="110"
+            width="164"
+          />
+        </picture>
+      </a>
+    </div>
   </div>
 </div>
 `;
 
 exports[`GoogleMap renders correctly with props and a list of two 1`] = `
-<div
-  center={
-    {
-      "lat": 52.473092,
-      "lng": 13.327628,
-    }
-  }
-  className="mock-google-map"
-  mapContainerStyle={
-    {
-      "height": "100px",
-    }
-  }
-  options={
-    {
-      "mapId": "map-id",
-      "streetViewControl": false,
-    }
-  }
-  zoom={1}
->
+<div>
   <div
-    className="mock-marker"
-    clickable={false}
-    onClick={[Function]}
-    position={
-      {
-        "lat": 52.123,
-        "lng": 13.123,
-      }
-    }
-    title="title1"
-  />
-  <div
-    className="mock-marker"
-    clickable={false}
-    onClick={[Function]}
-    position={
-      {
-        "lat": 52.456,
-        "lng": 13.456,
-      }
-    }
-    title="title2"
-  />
+    class="mock-google-map"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
+    zoom="1"
+  >
+    <div
+      class="mock-marker"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
+      title="title1"
+    />
+    <div
+      class="mock-marker"
+      data-position-lat="52.456"
+      data-position-lng="13.456"
+      title="title2"
+    />
+  </div>
 </div>
 `;
 
 exports[`GoogleMap renders correctly with props and a list of zero 1`] = `
-<div
-  center={
-    {
-      "lat": 52.473092,
-      "lng": 13.327628,
-    }
-  }
-  className="mock-google-map"
-  mapContainerStyle={
-    {
-      "height": "100px",
-    }
-  }
-  options={
-    {
-      "mapId": "map-id",
-      "streetViewControl": false,
-    }
-  }
-  zoom={1}
->
+<div>
   <div
-    className="mock-marker"
-    clickable={false}
-    onClick={[Function]}
-    position={
-      {
-        "lat": 52.123,
-        "lng": 13.123,
-      }
-    }
-    title="title1"
-  />
+    class="mock-google-map"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
+    zoom="1"
+  >
+    <div
+      class="mock-marker"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
+      title="title1"
+    />
+  </div>
 </div>
 `;

@@ -1,433 +1,478 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Navigation renders correctly when menu is toggled 1`] = `
-<nav
-  className=""
-  css={
-    {
-      "name": "1ghowhq",
-      "next": undefined,
-      "styles": "
-	line-height: 40px;
-	opacity: 1;
-	outline: 0;
-	position: fixed;
-	text-align: center;
-	top: 100px;
-	transform: translateY(calc(-100% + 40px));
-	transition: transform .333s, opacity .333s;
-	user-select: none;
-	width: 180px;
-	z-index: 9;
+.emotion-0 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
 
-	@media (min-width: 768px) {
-		transform: translateY(calc(-100% + 20px));
-	};
-
-	&.isFullscreen {
-		opacity: 0;
-	}
-
-	div {
-		transition: background-color .333s, color .333s;
-		background-color: var(--background);
-		color: var(--foreground);
-
-		@media (min-width: 768px) {
-			line-height: 20px;
-		};
-
-		&:hover {
-			background: var(--foreground);
-			color: var(--background);
-		}
-	}
-
-	&.open {
-		transform: translateY(0);
-
-		div {
-			cursor: default;
-
-			&:hover {
-				background-color: var(--background);
-				color: var(--foreground);
-			}
-		}
-	}
-
-	ul {
-		background-color: var(--foreground);
-		color: var(--background);
-	}
-
-	li {
-		transition: opacity .333s;
-
-		&:hover {
-			opacity: 0.666;
-		}
-	}
-
-	div, li {
-		cursor: pointer;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-",
-    }
+@media (min-width: 768px) {
+  .emotion-0 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
   }
->
-  <ul>
-    <li>
-      <a
-        href="/picture"
-      >
-        Overview
-      </a>
-    </li>
-    <li>
-      <a
-        href="/series/shuttered"
-      >
-        »Shuttered«
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/architecture"
-      >
-        Architecture
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/environment"
-      >
-        Environment
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/floral"
-      >
-        Floral
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/light"
-      >
-        Light
-      </a>
-    </li>
-    <li>
-      <a
-        href="/worldmap"
-      >
-        Worldmap
-      </a>
-    </li>
-    <li>
-      <a
-        href="/imprint"
-      >
-        Contact
-      </a>
-    </li>
-  </ul>
-  <div
-    onClick={[Function]}
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-0 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-0 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-0 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-0.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-0.open div {
+  cursor: default;
+}
+
+.emotion-0.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-0 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-0 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-0 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-0 div,
+.emotion-0 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+<div>
+  <nav
+    class="open emotion-0"
   >
-    Menu
-  </div>
-</nav>
+    <ul>
+      <li>
+        <a
+          href="/picture"
+        >
+          Overview
+        </a>
+      </li>
+      <li>
+        <a
+          href="/series/shuttered"
+        >
+          »Shuttered«
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/architecture"
+        >
+          Architecture
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/environment"
+        >
+          Environment
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/floral"
+        >
+          Floral
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/light"
+        >
+          Light
+        </a>
+      </li>
+      <li>
+        <a
+          href="/worldmap"
+        >
+          Worldmap
+        </a>
+      </li>
+      <li>
+        <a
+          href="/imprint"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+    <div>
+      Menu
+    </div>
+  </nav>
+</div>
 `;
 
 exports[`Navigation renders correctly with props 1`] = `
-<nav
-  className="isFullscreen"
-  css={
-    {
-      "name": "1ghowhq",
-      "next": undefined,
-      "styles": "
-	line-height: 40px;
-	opacity: 1;
-	outline: 0;
-	position: fixed;
-	text-align: center;
-	top: 100px;
-	transform: translateY(calc(-100% + 40px));
-	transition: transform .333s, opacity .333s;
-	user-select: none;
-	width: 180px;
-	z-index: 9;
+.emotion-0 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
 
-	@media (min-width: 768px) {
-		transform: translateY(calc(-100% + 20px));
-	};
-
-	&.isFullscreen {
-		opacity: 0;
-	}
-
-	div {
-		transition: background-color .333s, color .333s;
-		background-color: var(--background);
-		color: var(--foreground);
-
-		@media (min-width: 768px) {
-			line-height: 20px;
-		};
-
-		&:hover {
-			background: var(--foreground);
-			color: var(--background);
-		}
-	}
-
-	&.open {
-		transform: translateY(0);
-
-		div {
-			cursor: default;
-
-			&:hover {
-				background-color: var(--background);
-				color: var(--foreground);
-			}
-		}
-	}
-
-	ul {
-		background-color: var(--foreground);
-		color: var(--background);
-	}
-
-	li {
-		transition: opacity .333s;
-
-		&:hover {
-			opacity: 0.666;
-		}
-	}
-
-	div, li {
-		cursor: pointer;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-",
-    }
+@media (min-width: 768px) {
+  .emotion-0 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
   }
->
-  <ul>
-    <li>
-      <a
-        href="/picture"
-      >
-        Overview
-      </a>
-    </li>
-    <li>
-      <a
-        href="/series/shuttered"
-      >
-        »Shuttered«
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/architecture"
-      >
-        Architecture
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/environment"
-      >
-        Environment
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/floral"
-      >
-        Floral
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/light"
-      >
-        Light
-      </a>
-    </li>
-    <li>
-      <a
-        href="/worldmap"
-      >
-        Worldmap
-      </a>
-    </li>
-    <li>
-      <a
-        href="/imprint"
-      >
-        Contact
-      </a>
-    </li>
-  </ul>
-  <div
-    onClick={[Function]}
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-0 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-0 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-0 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-0.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-0.open div {
+  cursor: default;
+}
+
+.emotion-0.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-0 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-0 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-0 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-0 div,
+.emotion-0 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+<div>
+  <nav
+    class="isFullscreen emotion-0"
   >
-    Menu
-  </div>
-</nav>
+    <ul>
+      <li>
+        <a
+          href="/picture"
+        >
+          Overview
+        </a>
+      </li>
+      <li>
+        <a
+          href="/series/shuttered"
+        >
+          »Shuttered«
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/architecture"
+        >
+          Architecture
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/environment"
+        >
+          Environment
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/floral"
+        >
+          Floral
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/light"
+        >
+          Light
+        </a>
+      </li>
+      <li>
+        <a
+          href="/worldmap"
+        >
+          Worldmap
+        </a>
+      </li>
+      <li>
+        <a
+          href="/imprint"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+    <div>
+      Menu
+    </div>
+  </nav>
+</div>
 `;
 
 exports[`Navigation renders correctly without props 1`] = `
-<nav
-  className=""
-  css={
-    {
-      "name": "1ghowhq",
-      "next": undefined,
-      "styles": "
-	line-height: 40px;
-	opacity: 1;
-	outline: 0;
-	position: fixed;
-	text-align: center;
-	top: 100px;
-	transform: translateY(calc(-100% + 40px));
-	transition: transform .333s, opacity .333s;
-	user-select: none;
-	width: 180px;
-	z-index: 9;
+.emotion-0 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
 
-	@media (min-width: 768px) {
-		transform: translateY(calc(-100% + 20px));
-	};
-
-	&.isFullscreen {
-		opacity: 0;
-	}
-
-	div {
-		transition: background-color .333s, color .333s;
-		background-color: var(--background);
-		color: var(--foreground);
-
-		@media (min-width: 768px) {
-			line-height: 20px;
-		};
-
-		&:hover {
-			background: var(--foreground);
-			color: var(--background);
-		}
-	}
-
-	&.open {
-		transform: translateY(0);
-
-		div {
-			cursor: default;
-
-			&:hover {
-				background-color: var(--background);
-				color: var(--foreground);
-			}
-		}
-	}
-
-	ul {
-		background-color: var(--foreground);
-		color: var(--background);
-	}
-
-	li {
-		transition: opacity .333s;
-
-		&:hover {
-			opacity: 0.666;
-		}
-	}
-
-	div, li {
-		cursor: pointer;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-",
-    }
+@media (min-width: 768px) {
+  .emotion-0 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
   }
->
-  <ul>
-    <li>
-      <a
-        href="/picture"
-      >
-        Overview
-      </a>
-    </li>
-    <li>
-      <a
-        href="/series/shuttered"
-      >
-        »Shuttered«
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/architecture"
-      >
-        Architecture
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/environment"
-      >
-        Environment
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/floral"
-      >
-        Floral
-      </a>
-    </li>
-    <li>
-      <a
-        href="/category/light"
-      >
-        Light
-      </a>
-    </li>
-    <li>
-      <a
-        href="/worldmap"
-      >
-        Worldmap
-      </a>
-    </li>
-    <li>
-      <a
-        href="/imprint"
-      >
-        Contact
-      </a>
-    </li>
-  </ul>
-  <div
-    onClick={[Function]}
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-0 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-0 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-0 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-0.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-0.open div {
+  cursor: default;
+}
+
+.emotion-0.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-0 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-0 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-0 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-0 div,
+.emotion-0 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+<div>
+  <nav
+    class="emotion-0"
   >
-    Menu
-  </div>
-</nav>
+    <ul>
+      <li>
+        <a
+          href="/picture"
+        >
+          Overview
+        </a>
+      </li>
+      <li>
+        <a
+          href="/series/shuttered"
+        >
+          »Shuttered«
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/architecture"
+        >
+          Architecture
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/environment"
+        >
+          Environment
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/floral"
+        >
+          Floral
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category/light"
+        >
+          Light
+        </a>
+      </li>
+      <li>
+        <a
+          href="/worldmap"
+        >
+          Worldmap
+        </a>
+      </li>
+      <li>
+        <a
+          href="/imprint"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+    <div>
+      Menu
+    </div>
+  </nav>
+</div>
 `;
