@@ -38,9 +38,13 @@ const details = css`
 
 const defaultPictureData = {};
 
-function TimeComponent(datetime) {
+function TimeComponent({datetime}) {
 	return <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time>;
 }
+
+TimeComponent.propTypes = {
+	datetime: PropTypes.string.isRequired,
+};
 
 // eslint-disable-next-line complexity
 function Picture({data: {prismicPicture = defaultPictureData}}) {
