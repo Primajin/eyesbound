@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
+import {useTranslation} from 'react-i18next';
 
 import Header from '../components/molecules/header.jsx';
 import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
@@ -11,6 +12,7 @@ import {fromLocalStorage} from '../utils/local-storage.js';
 import {userPrefersDark} from '../utils/theming.js';
 
 function Worldmap({data: {allPrismicPicture: {edges}}}) {
+	const {t} = useTranslation();
 	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
 	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
 
@@ -22,7 +24,7 @@ function Worldmap({data: {allPrismicPicture: {edges}}}) {
 
 	return (
 		<>
-			<HelmetMetaTags title='Worldmap' path='worldmap'/>
+			<HelmetMetaTags title={t('navigation.worldmap')} path='worldmap'/>
 			<Global styles={css` body { overflow: hidden; } `}/>
 			<Header isDark={isDark} switchTheme={switchTheme}/>
 			{edges.length > 0 && <Map data={edges} isDark={isDark}/>}

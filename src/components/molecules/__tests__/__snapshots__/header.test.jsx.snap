@@ -119,6 +119,57 @@ exports[`Header renders correctly with props 1`] = `
   text-transform: uppercase;
 }
 
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+  right: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
 <div>
   <header>
     <h1
@@ -195,6 +246,13 @@ exports[`Header renders correctly with props 1`] = `
         Menu
       </div>
     </nav>
+    <button
+      class="fullScreen emotion-2"
+      title="Switch to German"
+      type="button"
+    >
+      EN
+    </button>
   </header>
 </div>
 `;
@@ -318,6 +376,57 @@ exports[`Header renders correctly without props 1`] = `
   text-transform: uppercase;
 }
 
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+  right: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
 <div>
   <header>
     <h1
@@ -394,6 +503,13 @@ exports[`Header renders correctly without props 1`] = `
         Menu
       </div>
     </nav>
+    <button
+      class="emotion-2"
+      title="Switch to German"
+      type="button"
+    >
+      EN
+    </button>
   </header>
 </div>
 `;
