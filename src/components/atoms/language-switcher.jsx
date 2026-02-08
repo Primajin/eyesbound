@@ -19,7 +19,7 @@ const languageSwitcherStyle = css`
 `;
 
 function LanguageSwitcher({isFullscreen = false}) {
-	const {i18n} = useTranslation();
+	const {i18n, t} = useTranslation();
 
 	const toggleLanguage = () => {
 		const newLang = i18n.language === 'en' ? 'de' : 'en';
@@ -27,13 +27,14 @@ function LanguageSwitcher({isFullscreen = false}) {
 	};
 
 	const currentLang = i18n.language === 'en' ? 'EN' : 'DE';
+	const targetLang = i18n.language === 'en' ? t('language.german') : t('language.english');
 
 	return (
 		<button
 			type='button'
 			css={languageSwitcherStyle}
 			className={classnames({fullScreen: isFullscreen})}
-			title={`Switch to ${i18n.language === 'en' ? 'German' : 'English'}`}
+			title={t('language.switchTo', {language: targetLang})}
 			onClick={toggleLanguage}
 		>
 			{currentLang}

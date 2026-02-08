@@ -26,7 +26,7 @@ const translations = {
 	},
 };
 
-const translate = key => {
+const translate = (key, options = {}) => {
 	const keys = key.split('.');
 	let value = translations;
 
@@ -35,6 +35,11 @@ const translate = key => {
 		if (value === undefined) {
 			return key; // Fallback to key if translation not found
 		}
+	}
+
+	// Handle interpolation for templates like "Switch to {{language}}"
+	if (typeof value === 'string' && options) {
+		return value.replace(/{{(\w+)}}/g, (_, variable) => options[variable] || '');
 	}
 
 	return value;
