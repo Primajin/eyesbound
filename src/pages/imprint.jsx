@@ -49,7 +49,7 @@ function Imprint() {
 			<HelmetMetaTags title={t('imprint.metaTitle')} path='imprint'/>
 			<Header isDark={isDark} switchTheme={switchTheme}/>
 			<MainWrapper>
-				<h1>{t('imprint.title')}</h1>
+				<h1>{t('imprint.pageTitle')}</h1>
 				<address>{GATSBY_SITE_NAME}<br/>Jannis Hell<br/>Friedrich-Wilhelm-Platz 2<br/>12161 Berlin<br/>Deutschland<br/>Phone: 84183026<br/>Email: admin@eyesbound.com<br/>Website: eyesbound.com<br/><br/></address>
 				<p>
 					<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank' rel='noreferrer'>
@@ -59,7 +59,7 @@ function Imprint() {
 						<i css={icon} className='icon-cc-sa' title='ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.'>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</i>
 					</a>
 				</p>
-				<h2>{t('imprint.design')}:</h2>
+				<h2>{t('imprint.design')}</h2>
 				<p>Julia Hell<br/><a href='http://www.julia-hell.com' target='_blank' rel='noreferrer'>http://www.julia-hell.com</a></p>
 				<p>
 					<a href='https://competition.adesignaward.com/design.php?ID=45698' target='_blank' rel='noreferrer'>

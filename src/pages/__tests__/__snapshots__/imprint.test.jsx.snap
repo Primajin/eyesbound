@@ -416,7 +416,7 @@ exports[`Imprint renders correctly 1`] = `
     class="emotion-4"
   >
     <h1>
-      imprint.title
+      imprint.pageTitle
     </h1>
     <address>
       EYESBOUND
@@ -471,7 +471,6 @@ exports[`Imprint renders correctly 1`] = `
     </p>
     <h2>
       imprint.design
-      :
     </h2>
     <p>
       Julia Hell

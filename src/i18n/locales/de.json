@@ -13,9 +13,9 @@
     "location": "Ort"
   },
   "imprint": {
-    "title": "Kontakt & Impressum",
+    "pageTitle": "Kontakt & Impressum",
     "metaTitle": "Impressum & Kontakt",
-    "design": "Design",
+    "design": "Design:",
     "privacyPolicy": "Datenschutzerklärung"
   },
   "language": {

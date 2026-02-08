@@ -13,9 +13,9 @@
     "location": "Location"
   },
   "imprint": {
-    "title": "Contact & Imprint",
+    "pageTitle": "Contact & Imprint",
     "metaTitle": "Imprint & Contact",
-    "design": "Design",
+    "design": "Design:",
     "privacyPolicy": "Privacy Policy"
   },
   "language": {
