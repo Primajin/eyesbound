@@ -32,11 +32,14 @@ describe('Navigation', () => {
 		link.focus();
 
 		// Verify link is focused
+		// eslint-disable-next-line no-undef
 		expect(document.activeElement).toBe(link);
 
 		// Trigger the focus event that the component listens for
 		// The handler will check if document.activeElement is one of the nav links
+		// eslint-disable-next-line no-undef
 		const focusEvent = new FocusEvent('focus', {bubbles: true});
+		// eslint-disable-next-line no-undef
 		document.dispatchEvent(focusEvent);
 
 		// After the focus event, menu should be open (wait for state update)

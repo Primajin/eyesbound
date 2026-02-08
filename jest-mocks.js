@@ -131,6 +131,7 @@ jest.mock('@react-google-maps/api', () => {
 			children,
 			onCloseClick && React.createElement('button', {
 				key: 'close-button',
+				type: 'button',
 				className: 'mock-close-button',
 				onClick: onCloseClick,
 			}, 'Close'),
