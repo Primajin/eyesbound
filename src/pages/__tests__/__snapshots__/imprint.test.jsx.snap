@@ -271,20 +271,20 @@ exports[`Imprint renders correctly 1`] = `
     <div
       data-helmet-tag="title"
     >
-      imprint.metaTitle | EYESBOUND
+      Imprint & Contact | EYESBOUND
     </div>
     <div
-      data-content="imprint.metaTitle | EYESBOUND"
+      data-content="Imprint & Contact | EYESBOUND"
       data-helmet-tag="meta"
       data-name="title"
     />
     <div
-      data-content="imprint.metaTitle | EYESBOUND"
+      data-content="Imprint & Contact | EYESBOUND"
       data-helmet-tag="meta"
       data-property="og:title"
     />
     <div
-      data-content="imprint.metaTitle | EYESBOUND"
+      data-content="Imprint & Contact | EYESBOUND"
       data-helmet-tag="meta"
       data-name="twitter:title"
     />
@@ -317,7 +317,7 @@ exports[`Imprint renders correctly 1`] = `
           <a
             href="/picture"
           >
-            navigation.overview
+            Overview
           </a>
         </li>
         <li>
@@ -359,19 +359,19 @@ exports[`Imprint renders correctly 1`] = `
           <a
             href="/worldmap"
           >
-            navigation.worldmap
+            Worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            navigation.contact
+            Contact
           </a>
         </li>
       </ul>
       <div>
-        navigation.menu
+        Menu
       </div>
     </nav>
     <div
@@ -416,7 +416,7 @@ exports[`Imprint renders correctly 1`] = `
     class="emotion-4"
   >
     <h1>
-      imprint.pageTitle
+      Contact & Imprint
     </h1>
     <address>
       EYESBOUND
@@ -470,7 +470,7 @@ exports[`Imprint renders correctly 1`] = `
       </a>
     </p>
     <h2>
-      imprint.design
+      Design:
     </h2>
     <p>
       Julia Hell
@@ -498,7 +498,7 @@ exports[`Imprint renders correctly 1`] = `
       </a>
     </p>
     <h4>
-      imprint.privacyPolicy
+      Privacy Policy
     </h4>
     <p>
       We are very delighted that you have shown interest in our enterprise. Data protection is of a particularly high priority for the management of 

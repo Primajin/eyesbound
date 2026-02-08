@@ -286,7 +286,7 @@ exports[`Group renders correctly with a list of more 1`] = `
           <a
             href="/picture"
           >
-            navigation.overview
+            Overview
           </a>
         </li>
         <li>
@@ -328,19 +328,19 @@ exports[`Group renders correctly with a list of more 1`] = `
           <a
             href="/worldmap"
           >
-            navigation.worldmap
+            Worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            navigation.contact
+            Contact
           </a>
         </li>
       </ul>
       <div>
-        navigation.menu
+        Menu
       </div>
     </nav>
     <div
@@ -698,7 +698,7 @@ exports[`Group renders correctly with a list of one 1`] = `
           <a
             href="/picture"
           >
-            navigation.overview
+            Overview
           </a>
         </li>
         <li>
@@ -740,19 +740,19 @@ exports[`Group renders correctly with a list of one 1`] = `
           <a
             href="/worldmap"
           >
-            navigation.worldmap
+            Worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            navigation.contact
+            Contact
           </a>
         </li>
       </ul>
       <div>
-        navigation.menu
+        Menu
       </div>
     </nav>
     <div
@@ -1102,7 +1102,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
           <a
             href="/picture"
           >
-            navigation.overview
+            Overview
           </a>
         </li>
         <li>
@@ -1144,19 +1144,19 @@ exports[`Group renders correctly with a list of zero 1`] = `
           <a
             href="/worldmap"
           >
-            navigation.worldmap
+            Worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            navigation.contact
+            Contact
           </a>
         </li>
       </ul>
       <div>
-        navigation.menu
+        Menu
       </div>
     </nav>
     <div

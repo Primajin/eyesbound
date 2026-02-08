@@ -197,7 +197,7 @@ exports[`Header renders correctly with props 1`] = `
           <a
             href="/picture"
           >
-            navigation.overview
+            Overview
           </a>
         </li>
         <li>
@@ -239,19 +239,19 @@ exports[`Header renders correctly with props 1`] = `
           <a
             href="/worldmap"
           >
-            navigation.worldmap
+            Worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            navigation.contact
+            Contact
           </a>
         </li>
       </ul>
       <div>
-        navigation.menu
+        Menu
       </div>
     </nav>
     <div
@@ -465,7 +465,7 @@ exports[`Header renders correctly without props 1`] = `
           <a
             href="/picture"
           >
-            navigation.overview
+            Overview
           </a>
         </li>
         <li>
@@ -507,19 +507,19 @@ exports[`Header renders correctly without props 1`] = `
           <a
             href="/worldmap"
           >
-            navigation.worldmap
+            Worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            navigation.contact
+            Contact
           </a>
         </li>
       </ul>
       <div>
-        navigation.menu
+        Menu
       </div>
     </nav>
     <div
