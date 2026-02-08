@@ -22,6 +22,6 @@ describe('LanguageSwitcher', () => {
 
 	it('renders with isFullscreen prop', () => {
 		const {container} = render(<LanguageSwitcher isFullscreen/>);
-		expect(container.querySelector('.isFullscreen')).toBeInTheDocument();
+		expect(container.querySelector('.fullScreen')).toBeInTheDocument();
 	});
 });

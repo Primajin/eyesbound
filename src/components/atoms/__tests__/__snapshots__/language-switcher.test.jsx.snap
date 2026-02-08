@@ -2,74 +2,63 @@
 
 exports[`LanguageSwitcher renders correctly 1`] = `
 .emotion-0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
   cursor: pointer;
-  left: 180px;
-  line-height: 40px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   opacity: 1;
-  outline: 0;
+  padding: 0;
   position: fixed;
-  text-align: center;
-  top: 100px;
-  -webkit-transition: opacity .333s;
-  transition: opacity .333s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 40px;
-  z-index: 9;
-}
-
-@media (min-width: 768px) {
-  .emotion-0 {
-    line-height: 20px;
-    top: 120px;
-    width: 20px;
-  }
-}
-
-.emotion-0.isFullscreen {
-  opacity: 0;
-}
-
-.emotion-0 button {
-  background-color: var(--background);
-  border: 1px solid var(--foreground);
-  color: var(--foreground);
-  cursor: pointer;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+  right: 100px;
   font-size: 14px;
   font-weight: 700;
-  height: 40px;
-  padding: 0;
   text-transform: uppercase;
-  -webkit-transition: background-color .333s,color .333s;
-  transition: background-color .333s,color .333s;
+}
+
+.emotion-0:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-0.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-0 svg {
+  fill: currentColor;
+  height: 40px;
   width: 40px;
 }
 
-@media (min-width: 768px) {
-  .emotion-0 button {
-    font-size: 10px;
-    height: 20px;
-    width: 20px;
-  }
-}
-
-.emotion-0 button:hover {
-  background: var(--foreground);
-  color: var(--background);
+.emotion-0.fullScreen {
+  opacity: 0.65;
 }
 
 <div>
-  <div
+  <button
     class="emotion-0"
+    title="Switch to German"
+    type="button"
   >
-    <button
-      title="Switch to German"
-      type="button"
-    >
-      EN
-    </button>
-  </div>
+    EN
+  </button>
 </div>
 `;
