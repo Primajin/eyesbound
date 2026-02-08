@@ -23,6 +23,32 @@ function HTML({
 	return (
 		<html lang='en' dir='ltr' {...(htmlAttributes)}>
 			<head>
+				{/* eslint-disable react/no-danger */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							(function() {
+								try {
+									var userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+									var storagePrefersDark = localStorage.getItem('userPrefersDark');
+									var isDark = storagePrefersDark !== null ? JSON.parse(storagePrefersDark) : userPrefersDark;
+									
+									if (isDark) {
+										document.documentElement.style.setProperty('--background', '#000');
+										document.documentElement.style.setProperty('--backgroundRGB', '0, 0, 0');
+										document.documentElement.style.setProperty('--foreground', '#fff');
+										document.documentElement.style.colorScheme = 'dark';
+									} else {
+										document.documentElement.style.setProperty('--background', '#fff');
+										document.documentElement.style.setProperty('--backgroundRGB', '255, 255, 255');
+										document.documentElement.style.setProperty('--foreground', '#000');
+										document.documentElement.style.colorScheme = 'light';
+									}
+								} catch (e) {}
+							})();
+						`,
+					}}
+				/>
 				<title>{GATSBY_SITE_NAME}</title>
 				<meta charSet='utf-8'/>
 				<meta httpEquiv='x-ua-compatible' content='ie=edge'/>
@@ -52,6 +78,7 @@ function HTML({
 				<meta name='msapplication-wide310x150logo' content='/wide_310x150.png'/>
 				<meta name='msapplication-square310x310logo' content='/large_310x310.png'/>
 				{headComponents}
+				{/* eslint-enable react/no-danger */}
 			</head>
 			<body {...(bodyAttributes)}>
 				{preBodyComponents}
