@@ -20,7 +20,8 @@ describe('404 Page', () => {
 
 	it('has a link back to home', () => {
 		const {container} = render(<NotFoundPage/>);
-		const link = container.querySelector('a[href="/"]');
+		const link = container.querySelector('main a[href="/"]');
 		expect(link).toBeTruthy();
+		expect(link.textContent).toBe('Return to Home');
 	});
 });
