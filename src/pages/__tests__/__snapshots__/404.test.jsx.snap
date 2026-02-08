@@ -145,6 +145,10 @@ exports[`404 Page renders correctly 1`] = `
   transition: background-color .333s,color .333s,opacity .333s;
   width: 50px;
   z-index: 8;
+  right: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .emotion-2:hover {
@@ -162,35 +166,82 @@ exports[`404 Page renders correctly 1`] = `
   width: 40px;
 }
 
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
 .emotion-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-3:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-3.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-3 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-4 {
   width: clamp(16rem, 90vw, 70rem);
   margin: 170px auto 100px;
   padding: 0 1.5rem;
 }
 
-.emotion-3 h1,
-.emotion-3 h3 {
+.emotion-4 h1,
+.emotion-4 h3 {
   font-weight: 400;
   padding-bottom: 1em;
 }
 
-.emotion-4 {
+.emotion-5 {
   text-align: center;
   padding: 40px 0;
 }
 
-.emotion-4 h1 {
+.emotion-5 h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.emotion-4 p {
+.emotion-5 p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   color: var(--foreground);
 }
 
-.emotion-4 a {
+.emotion-5 a {
   display: inline-block;
   padding: 12px 24px;
   background: var(--foreground);
@@ -202,7 +253,7 @@ exports[`404 Page renders correctly 1`] = `
   transition: opacity 0.3s ease;
 }
 
-.emotion-4 a:hover {
+.emotion-5 a:hover {
   opacity: 0.8;
 }
 
@@ -317,8 +368,15 @@ exports[`404 Page renders correctly 1`] = `
       </div>
     </nav>
     <button
-      aria-label="Switch theme"
       class="emotion-2"
+      title="Switch to German"
+      type="button"
+    >
+      EN
+    </button>
+    <button
+      aria-label="Switch theme"
+      class="emotion-3"
       type="button"
     >
       <svg
@@ -345,10 +403,10 @@ exports[`404 Page renders correctly 1`] = `
     </button>
   </header>
   <main
-    class="emotion-3"
+    class="emotion-4"
   >
     <div
-      class="emotion-4"
+      class="emotion-5"
     >
       <h1>
         404 - Page Not Found
