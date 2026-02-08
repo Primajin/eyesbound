@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
 import {useTranslation} from 'react-i18next';
@@ -8,25 +8,37 @@ import Header from '../components/molecules/header.jsx';
 import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import Map from '../components/molecules/map.jsx';
 import Query from '../types/proptypes.js';
-import {fromLocalStorage} from '../utils/local-storage.js';
 import {userPrefersDark} from '../utils/theming.js';
 
 function Worldmap({data: {allPrismicPicture: {edges}}}) {
 	const {t} = useTranslation();
-	const [isDark, setIsDark] = useState(userPrefersDark);
-
-	useEffect(() => {
-		const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-		if (storagePrefersDark !== null) {
-			// eslint-disable-next-line react-hooks/set-state-in-effect
-			setIsDark(storagePrefersDark);
+	const [isDark, setIsDark] = useState(() => {
+		// During SSR, we don't have access to localStorage, so use system preference
+		if (globalThis.window === undefined) {
+			return userPrefersDark;
 		}
-	}, []);
+
+		// On client, read from localStorage to match what the inline script set
+		try {
+			const stored = localStorage.getItem('userPrefersDark');
+			if (stored !== null) {
+				return JSON.parse(stored);
+			}
+		} catch {
+			// Fallback to system preference if localStorage fails
+		}
+
+		return userPrefersDark;
+	});
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;
 		setIsDark(flipPreference);
-		fromLocalStorage.setItem('userPrefersDark', flipPreference);
+		try {
+			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
+		} catch {
+			// Silently fail if localStorage is not available
+		}
 	};
 
 	return (
