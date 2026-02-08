@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import HelmetMetaTags from '../atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../atoms/main-wrapper.jsx';
@@ -10,8 +10,15 @@ import List from './list.jsx';
 import Header from './header.jsx';
 
 function Group({edges: data, path, plural}) {
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(userPrefersDark);
+
+	useEffect(() => {
+		const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+		if (storagePrefersDark !== null) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setIsDark(storagePrefersDark);
+		}
+	}, []);
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;

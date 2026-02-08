@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import AssetTypes from '../../constants/asset-types.js';
 import HelmetMetaTags from '../atoms/helmet-meta-tags.jsx';
@@ -13,8 +13,15 @@ import Header from './header.jsx';
 const {PICTURE: {plural}} = AssetTypes;
 
 function Member({edges, name, path = '', title, uid = ''}) {
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(userPrefersDark);
+
+	useEffect(() => {
+		const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+		if (storagePrefersDark !== null) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setIsDark(storagePrefersDark);
+		}
+	}, []);
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {css} from '@emotion/react';
 
 import ADesignAwardBadge from '../../static/a-design-award-winner-2016-silver-2x.png';
@@ -32,8 +32,15 @@ const icon = css`
 const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 function Imprint() {
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(userPrefersDark);
+
+	useEffect(() => {
+		const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+		if (storagePrefersDark !== null) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setIsDark(storagePrefersDark);
+		}
+	}, []);
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;
