@@ -106,4 +106,35 @@ describe('GoogleMap', () => {
 
 		expect(container).toMatchSnapshot();
 	});
+
+	it('closes InfoWindow when close button is clicked', () => {
+		const center = {latitude: 52.473_092, longitude: 13.327_628};
+
+		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
+		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};
+		const prismicPictureNode = {node: prismicPicture};
+		const data = [prismicPictureNode];
+
+		const hasNoInfoWindow = false;
+		const height = '100px';
+		const mapId = 'map-id';
+		const zoom = 1;
+		const {container} = render(<GoogleMap center={center} data={data} hasNoInfoWindow={hasNoInfoWindow} height={height} mapId={mapId} zoom={zoom}/>);
+
+		// Open InfoWindow by clicking marker
+		const marker = container.querySelector('[title="title1"]');
+		fireEvent.click(marker);
+
+		// Verify InfoWindow is open
+		let infoWindow = container.querySelector('.mock-info-window');
+		expect(infoWindow).toBeInTheDocument();
+
+		// Find and click the close button
+		const closeButton = infoWindow.querySelector('.mock-close-button');
+		fireEvent.click(closeButton);
+
+		// Verify InfoWindow is closed
+		infoWindow = container.querySelector('.mock-info-window');
+		expect(infoWindow).not.toBeInTheDocument();
+	});
 });

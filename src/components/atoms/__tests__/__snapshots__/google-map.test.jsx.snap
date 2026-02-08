@@ -44,6 +44,11 @@ exports[`GoogleMap maintains correct InfoWindow position when clicking different
           />
         </picture>
       </a>
+      <button
+        class="mock-close-button"
+      >
+        Close
+      </button>
     </div>
   </div>
 </div>
@@ -108,6 +113,11 @@ exports[`GoogleMap renders correctly with props and a list of one 2`] = `
           />
         </picture>
       </a>
+      <button
+        class="mock-close-button"
+      >
+        Close
+      </button>
     </div>
   </div>
 </div>

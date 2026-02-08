@@ -24,4 +24,36 @@ describe('LanguageSwitcher', () => {
 		const {container} = render(<LanguageSwitcher isFullscreen/>);
 		expect(container.querySelector('.fullScreen')).toBeInTheDocument();
 	});
+
+	it('displays German when starting from German language', () => {
+		// Mock i18n to start with German
+		const mockUseTranslation = require('react-i18next').useTranslation;
+		const originalImplementation = mockUseTranslation;
+		
+		jest.spyOn(require('react-i18next'), 'useTranslation').mockImplementation(() => ({
+			t: (key, options) => {
+				if (key === 'language.switchTo') {
+					return `Wechseln zu ${options?.language || ''}`;
+				}
+
+				if (key === 'language.english') return 'Englisch';
+				if (key === 'language.german') return 'Deutsch';
+				return key;
+			},
+			i18n: {
+				language: 'de',
+				changeLanguage: jest.fn(),
+			},
+		}));
+
+		render(<LanguageSwitcher/>);
+		const button = screen.getByRole('button');
+
+		// Should display "DE" when language is German
+		expect(button.textContent).toBe('DE');
+		expect(button).toHaveAttribute('title', 'Wechseln zu Englisch');
+
+		// Restore original mock
+		require('react-i18next').useTranslation.mockRestore();
+	});
 });

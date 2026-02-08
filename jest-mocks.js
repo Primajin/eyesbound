@@ -113,7 +113,7 @@ jest.mock('@react-google-maps/api', () => {
 		}, children);
 	};
 
-	const mockInfoWindow = ({children, position, options, ...properties}) => {
+	const mockInfoWindow = ({children, position, options, onCloseClick, ...properties}) => {
 		const positionAttrs = position
 			? {
 				'data-position-lat': String(position.lat),
@@ -127,7 +127,14 @@ jest.mock('@react-google-maps/api', () => {
 			...positionAttrs,
 			...optionAttrs,
 			className: 'mock-info-window',
-		}, children);
+		}, [
+			children,
+			onCloseClick && React.createElement('button', {
+				key: 'close-button',
+				className: 'mock-close-button',
+				onClick: onCloseClick,
+			}, 'Close'),
+		]);
 	};
 
 	const mockMarker = ({children, position, options, ...properties}) => {

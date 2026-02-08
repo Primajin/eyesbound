@@ -1,5 +1,368 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`Slideshow renders correctly when image has no thumbnail source 1`] = `
+.emotion-0.emotion-0.emotion-0 {
+  background: var(--foreground);
+  color: var(--background);
+  height: 180px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 40px;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .emotion-0.emotion-0.emotion-0 {
+    width: 20px;
+    font-size: 1rem;
+  }
+}
+
+.emotion-0.emotion-0.emotion-0:hover,
+.emotion-0.emotion-0.emotion-0:focus {
+  background: var(--background);
+  color: var(--foreground);
+  outline: 0;
+}
+
+.emotion-0.emotion-0.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+.emotion-0.emotion-0.emotion-0[data-type="next"] {
+  right: 0;
+}
+
+.emotion-1 {
+  background: center center transparent no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: block;
+  height: 100vh;
+}
+
+.emotion-2 {
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.emotion-3 {
+  display: none;
+}
+
+.emotion-5 {
+  bottom: 15px;
+  color: var(--background);
+  display: none;
+  font-weight: 700;
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+@media (min-width: 768px) {
+  .emotion-5 {
+    display: block;
+  }
+}
+
+.active .emotion-5 {
+  opacity: 1;
+}
+
+<div>
+  <div
+    class="slide-container"
+  >
+    <div
+      aria-roledescription="carousel"
+      dir="ltr"
+    >
+      <div
+        class="react-slideshow-container "
+      >
+        <button
+          aria-label="Previous Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="prev"
+          type="button"
+        >
+          «
+        </button>
+        <div
+          class="react-slideshow-fadezoom-wrapper "
+        >
+          <div
+            class="react-slideshow-fadezoom-images-wrap"
+            style="width: 0px;"
+          >
+            <div
+              aria-hidden="false"
+              aria-roledescription="slide"
+              data-index="0"
+              style="opacity: 1; z-index: 1; width: 0px; left: 0px; display: block;"
+            >
+              <a
+                class="emotion-1"
+                href="/picture/uid-bar"
+                title="title1"
+              >
+                <figure
+                  class="emotion-2"
+                >
+                  <picture>
+                    <img
+                      alt="title1"
+                      data-image-layout="FULL_WIDTH"
+                    />
+                  </picture>
+                  <figcaption
+                    class="emotion-3"
+                  >
+                    title1
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-label="Next Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="next"
+          type="button"
+        >
+          »
+        </button>
+      </div>
+      <ul
+        class="indicators"
+      >
+        <li
+          aria-label="Go to slide 1"
+          class="indicator active"
+          data-key="0"
+          title="title1"
+        >
+          <figure>
+            <picture>
+              <img
+                alt="title1"
+                data-image-layout="CONSTRAINED"
+                height="31"
+                width="46"
+              />
+            </picture>
+            <figcaption
+              class="emotion-5"
+            >
+              title1
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slideshow renders correctly when image has thumbnail source 1`] = `
+.emotion-0.emotion-0.emotion-0 {
+  background: var(--foreground);
+  color: var(--background);
+  height: 180px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 40px;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .emotion-0.emotion-0.emotion-0 {
+    width: 20px;
+    font-size: 1rem;
+  }
+}
+
+.emotion-0.emotion-0.emotion-0:hover,
+.emotion-0.emotion-0.emotion-0:focus {
+  background: var(--background);
+  color: var(--foreground);
+  outline: 0;
+}
+
+.emotion-0.emotion-0.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+.emotion-0.emotion-0.emotion-0[data-type="next"] {
+  right: 0;
+}
+
+.emotion-1 {
+  background: center center transparent no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: block;
+  height: 100vh;
+}
+
+.emotion-2 {
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.emotion-3 {
+  display: none;
+}
+
+.emotion-5 {
+  bottom: 15px;
+  color: var(--background);
+  display: none;
+  font-weight: 700;
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+@media (min-width: 768px) {
+  .emotion-5 {
+    display: block;
+  }
+}
+
+.active .emotion-5 {
+  opacity: 1;
+}
+
+<div>
+  <div
+    class="slide-container"
+  >
+    <div
+      aria-roledescription="carousel"
+      dir="ltr"
+    >
+      <div
+        class="react-slideshow-container "
+      >
+        <button
+          aria-label="Previous Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="prev"
+          type="button"
+        >
+          «
+        </button>
+        <div
+          class="react-slideshow-fadezoom-wrapper "
+        >
+          <div
+            class="react-slideshow-fadezoom-images-wrap"
+            style="width: 0px;"
+          >
+            <div
+              aria-hidden="false"
+              aria-roledescription="slide"
+              data-index="0"
+              style="opacity: 1; z-index: 1; width: 0px; left: 0px; display: block;"
+            >
+              <a
+                class="emotion-1"
+                href="/picture/uid-bar"
+                style="background-image: url("/thumb-image.jpg");"
+                title="title1"
+              >
+                <figure
+                  class="emotion-2"
+                >
+                  <picture>
+                    <img
+                      alt="title1"
+                      data-image-layout="FULL_WIDTH"
+                    />
+                  </picture>
+                  <figcaption
+                    class="emotion-3"
+                  >
+                    title1
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-label="Next Slide"
+          class="isFullscreen nav emotion-0"
+          data-type="next"
+          type="button"
+        >
+          »
+        </button>
+      </div>
+      <ul
+        class="indicators"
+      >
+        <li
+          aria-label="Go to slide 1"
+          class="indicator active"
+          data-key="0"
+          title="title1"
+        >
+          <figure>
+            <picture>
+              <img
+                alt="title1"
+                data-image-layout="CONSTRAINED"
+                height="31"
+                width="46"
+              />
+            </picture>
+            <figcaption
+              class="emotion-5"
+            >
+              title1
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Slideshow renders correctly with a list of more 1`] = `
 .emotion-0.emotion-0.emotion-0 {
   background: var(--foreground);
