@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {memo, useState} from 'react';
+import React, {memo, useMemo, useState} from 'react';
 import {GoogleMap as ReactGoogleMap, InfoWindow, Marker} from '@react-google-maps/api';
 
 import AssetTypes from '../../constants/asset-types.js';
@@ -10,7 +10,7 @@ function GoogleMap({center, data, height, hasNoInfoWindow, mapId, zoom}) {
 	const [infoWindowOpen, setInfoWindowOpen] = useState(false);
 	const [properties, setProperties] = useState({});
 	const {image, position, title, uid} = properties;
-	const mapCenter = {lat: center.latitude, lng: center.longitude};
+	const mapCenter = useMemo(() => ({lat: center.latitude, lng: center.longitude}), [center.latitude, center.longitude]);
 
 	const toggleInfoWindow = properties => () => {
 		if (hasNoInfoWindow) {
@@ -21,12 +21,14 @@ function GoogleMap({center, data, height, hasNoInfoWindow, mapId, zoom}) {
 		setProperties(properties);
 	};
 
-	const options = {mapId, streetViewControl: false};
+	const options = useMemo(() => ({mapId, streetViewControl: false}), [mapId]);
+	const mapContainerStyle = useMemo(() => ({height}), [height]);
+	const infoWindowOptions = useMemo(() => ({maxWidth: 200}), []);
 
 	const {PICTURE: {path}} = AssetTypes;
 
 	return (
-		<ReactGoogleMap center={mapCenter} mapContainerStyle={{height}} options={options} zoom={zoom}>
+		<ReactGoogleMap center={mapCenter} mapContainerStyle={mapContainerStyle} options={options} zoom={zoom}>
 			<>
 				{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
 					const position = {lat: latitude, lng: longitude};
@@ -37,7 +39,7 @@ function GoogleMap({center, data, height, hasNoInfoWindow, mapId, zoom}) {
 				})}
 				{ infoWindowOpen && title
 					? (
-						<InfoWindow position={position} options={{maxWidth: 200}} onCloseClick={() => setInfoWindowOpen(false)}>
+						<InfoWindow position={position} options={infoWindowOptions} onCloseClick={() => setInfoWindowOpen(false)}>
 							<a href={`/${path}/${uid}`}>
 								<h1>{title}</h1>
 								<Picture preferThumbnails data={{title, image}} size={{height: 110, width: 164}}/>
