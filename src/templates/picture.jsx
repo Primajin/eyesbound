@@ -38,7 +38,7 @@ const details = css`
 
 const defaultPictureData = {};
 
-function TimeComponent(datetime) {
+function TimeComponent({datetime}) {
 	return <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time>;
 }
 
