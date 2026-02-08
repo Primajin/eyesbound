@@ -119,6 +119,65 @@ exports[`Header renders correctly with props 1`] = `
   text-transform: uppercase;
 }
 
+.emotion-2 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-2.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-2 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-2 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
 <div>
   <header>
     <h1
@@ -138,7 +197,7 @@ exports[`Header renders correctly with props 1`] = `
           <a
             href="/picture"
           >
-            Overview
+            navigation.overview
           </a>
         </li>
         <li>
@@ -180,21 +239,31 @@ exports[`Header renders correctly with props 1`] = `
           <a
             href="/worldmap"
           >
-            Worldmap
+            navigation.worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            Contact
+            navigation.contact
           </a>
         </li>
       </ul>
       <div>
-        Menu
+        navigation.menu
       </div>
     </nav>
+    <div
+      class="isFullscreen emotion-2"
+    >
+      <button
+        title="Switch to German"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
   </header>
 </div>
 `;
@@ -318,6 +387,65 @@ exports[`Header renders correctly without props 1`] = `
   text-transform: uppercase;
 }
 
+.emotion-2 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-2.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-2 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-2 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
 <div>
   <header>
     <h1
@@ -337,7 +465,7 @@ exports[`Header renders correctly without props 1`] = `
           <a
             href="/picture"
           >
-            Overview
+            navigation.overview
           </a>
         </li>
         <li>
@@ -379,21 +507,31 @@ exports[`Header renders correctly without props 1`] = `
           <a
             href="/worldmap"
           >
-            Worldmap
+            navigation.worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            Contact
+            navigation.contact
           </a>
         </li>
       </ul>
       <div>
-        Menu
+        navigation.menu
       </div>
     </nav>
+    <div
+      class="emotion-2"
+    >
+      <button
+        title="Switch to German"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
   </header>
 </div>
 `;

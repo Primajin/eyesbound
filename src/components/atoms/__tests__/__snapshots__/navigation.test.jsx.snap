@@ -99,7 +99,7 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
         <a
           href="/picture"
         >
-          Overview
+          navigation.overview
         </a>
       </li>
       <li>
@@ -141,19 +141,19 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
         <a
           href="/worldmap"
         >
-          Worldmap
+          navigation.worldmap
         </a>
       </li>
       <li>
         <a
           href="/imprint"
         >
-          Contact
+          navigation.contact
         </a>
       </li>
     </ul>
     <div>
-      Menu
+      navigation.menu
     </div>
   </nav>
 </div>
@@ -258,7 +258,7 @@ exports[`Navigation renders correctly with props 1`] = `
         <a
           href="/picture"
         >
-          Overview
+          navigation.overview
         </a>
       </li>
       <li>
@@ -300,19 +300,19 @@ exports[`Navigation renders correctly with props 1`] = `
         <a
           href="/worldmap"
         >
-          Worldmap
+          navigation.worldmap
         </a>
       </li>
       <li>
         <a
           href="/imprint"
         >
-          Contact
+          navigation.contact
         </a>
       </li>
     </ul>
     <div>
-      Menu
+      navigation.menu
     </div>
   </nav>
 </div>
@@ -417,7 +417,7 @@ exports[`Navigation renders correctly without props 1`] = `
         <a
           href="/picture"
         >
-          Overview
+          navigation.overview
         </a>
       </li>
       <li>
@@ -459,19 +459,19 @@ exports[`Navigation renders correctly without props 1`] = `
         <a
           href="/worldmap"
         >
-          Worldmap
+          navigation.worldmap
         </a>
       </li>
       <li>
         <a
           href="/imprint"
         >
-          Contact
+          navigation.contact
         </a>
       </li>
     </ul>
     <div>
-      Menu
+      navigation.menu
     </div>
   </nav>
 </div>

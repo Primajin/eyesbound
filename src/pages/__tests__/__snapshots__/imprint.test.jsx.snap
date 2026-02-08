@@ -120,6 +120,65 @@ exports[`Imprint renders correctly 1`] = `
 }
 
 .emotion-2 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-2.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-2 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-2 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -147,34 +206,34 @@ exports[`Imprint renders correctly 1`] = `
   z-index: 8;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   background: var(--background);
   color: var(--foreground);
 }
 
-.emotion-2.fullScreen {
+.emotion-3.fullScreen {
   opacity: 0.65;
 }
 
-.emotion-2 svg {
+.emotion-3 svg {
   fill: currentColor;
   height: 40px;
   width: 40px;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: clamp(16rem, 90vw, 70rem);
   margin: 170px auto 100px;
   padding: 0 1.5rem;
 }
 
-.emotion-3 h1,
-.emotion-3 h3 {
+.emotion-4 h1,
+.emotion-4 h3 {
   font-weight: 400;
   padding-bottom: 1em;
 }
 
-.emotion-4 {
+.emotion-5 {
   background: transparent center center no-repeat;
   display: inline-block;
   height: 64px;
@@ -189,19 +248,19 @@ exports[`Imprint renders correctly 1`] = `
   width: 64px;
 }
 
-.emotion-4.icon-cc {
+.emotion-5.icon-cc {
   background-image: url("test-file-stub");
 }
 
-.emotion-4.icon-cc-by {
+.emotion-5.icon-cc-by {
   background-image: url("test-file-stub");
 }
 
-.emotion-4.icon-cc-nc-eu {
+.emotion-5.icon-cc-nc-eu {
   background-image: url("test-file-stub");
 }
 
-.emotion-4.icon-cc-sa {
+.emotion-5.icon-cc-sa {
   background-image: url("test-file-stub");
 }
 
@@ -212,20 +271,20 @@ exports[`Imprint renders correctly 1`] = `
     <div
       data-helmet-tag="title"
     >
-      Imprint & Contact | EYESBOUND
+      imprint.metaTitle | EYESBOUND
     </div>
     <div
-      data-content="Imprint & Contact | EYESBOUND"
+      data-content="imprint.metaTitle | EYESBOUND"
       data-helmet-tag="meta"
       data-name="title"
     />
     <div
-      data-content="Imprint & Contact | EYESBOUND"
+      data-content="imprint.metaTitle | EYESBOUND"
       data-helmet-tag="meta"
       data-property="og:title"
     />
     <div
-      data-content="Imprint & Contact | EYESBOUND"
+      data-content="imprint.metaTitle | EYESBOUND"
       data-helmet-tag="meta"
       data-name="twitter:title"
     />
@@ -258,7 +317,7 @@ exports[`Imprint renders correctly 1`] = `
           <a
             href="/picture"
           >
-            Overview
+            navigation.overview
           </a>
         </li>
         <li>
@@ -300,24 +359,34 @@ exports[`Imprint renders correctly 1`] = `
           <a
             href="/worldmap"
           >
-            Worldmap
+            navigation.worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            Contact
+            navigation.contact
           </a>
         </li>
       </ul>
       <div>
-        Menu
+        navigation.menu
       </div>
     </nav>
+    <div
+      class="emotion-2"
+    >
+      <button
+        title="Switch to German"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
     <button
       aria-label="Switch theme"
-      class="emotion-2"
+      class="emotion-3"
       type="button"
     >
       <svg
@@ -344,10 +413,10 @@ exports[`Imprint renders correctly 1`] = `
     </button>
   </header>
   <main
-    class="emotion-3"
+    class="emotion-4"
   >
     <h1>
-      Contact & Imprint
+      imprint.title
     </h1>
     <address>
       EYESBOUND
@@ -375,25 +444,25 @@ exports[`Imprint renders correctly 1`] = `
         target="_blank"
       >
         <i
-          class="icon-cc emotion-4"
+          class="icon-cc emotion-5"
           title="Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)"
         >
           Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
         </i>
         <i
-          class="icon-cc-by emotion-4"
+          class="icon-cc-by emotion-5"
           title="Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use."
         >
           Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
         </i>
         <i
-          class="icon-cc-nc-eu emotion-4"
+          class="icon-cc-nc-eu emotion-5"
           title="NonCommercial — You may not use the material for commercial purposes."
         >
           NonCommercial — You may not use the material for commercial purposes.
         </i>
         <i
-          class="icon-cc-sa emotion-4"
+          class="icon-cc-sa emotion-5"
           title="ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original."
         >
           ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
@@ -401,7 +470,8 @@ exports[`Imprint renders correctly 1`] = `
       </a>
     </p>
     <h2>
-      Design:
+      imprint.design
+      :
     </h2>
     <p>
       Julia Hell
@@ -429,7 +499,7 @@ exports[`Imprint renders correctly 1`] = `
       </a>
     </p>
     <h4>
-      Privacy Policy
+      imprint.privacyPolicy
     </h4>
     <p>
       We are very delighted that you have shown interest in our enterprise. Data protection is of a particularly high priority for the management of 

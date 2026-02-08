@@ -120,6 +120,65 @@ exports[`Group renders correctly with a list of more 1`] = `
 }
 
 .emotion-2 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-2.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-2 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-2 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -147,29 +206,29 @@ exports[`Group renders correctly with a list of more 1`] = `
   z-index: 8;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   background: var(--background);
   color: var(--foreground);
 }
 
-.emotion-2.fullScreen {
+.emotion-3.fullScreen {
   opacity: 0.65;
 }
 
-.emotion-2 svg {
+.emotion-3 svg {
   fill: currentColor;
   height: 40px;
   width: 40px;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: clamp(16rem, 90vw, 70rem);
   margin: 170px auto 100px;
   padding: 0 1.5rem;
 }
 
-.emotion-3 h1,
-.emotion-3 h3 {
+.emotion-4 h1,
+.emotion-4 h3 {
   font-weight: 400;
   padding-bottom: 1em;
 }
@@ -227,7 +286,7 @@ exports[`Group renders correctly with a list of more 1`] = `
           <a
             href="/picture"
           >
-            Overview
+            navigation.overview
           </a>
         </li>
         <li>
@@ -269,24 +328,34 @@ exports[`Group renders correctly with a list of more 1`] = `
           <a
             href="/worldmap"
           >
-            Worldmap
+            navigation.worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            Contact
+            navigation.contact
           </a>
         </li>
       </ul>
       <div>
-        Menu
+        navigation.menu
       </div>
     </nav>
+    <div
+      class="emotion-2"
+    >
+      <button
+        title="Switch to German"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
     <button
       aria-label="Switch theme"
-      class="emotion-2"
+      class="emotion-3"
       type="button"
     >
       <svg
@@ -313,7 +382,7 @@ exports[`Group renders correctly with a list of more 1`] = `
     </button>
   </header>
   <main
-    class="emotion-3"
+    class="emotion-4"
   >
     <h1>
       plural
@@ -463,6 +532,65 @@ exports[`Group renders correctly with a list of one 1`] = `
 }
 
 .emotion-2 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-2.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-2 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-2 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -490,29 +618,29 @@ exports[`Group renders correctly with a list of one 1`] = `
   z-index: 8;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   background: var(--background);
   color: var(--foreground);
 }
 
-.emotion-2.fullScreen {
+.emotion-3.fullScreen {
   opacity: 0.65;
 }
 
-.emotion-2 svg {
+.emotion-3 svg {
   fill: currentColor;
   height: 40px;
   width: 40px;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: clamp(16rem, 90vw, 70rem);
   margin: 170px auto 100px;
   padding: 0 1.5rem;
 }
 
-.emotion-3 h1,
-.emotion-3 h3 {
+.emotion-4 h1,
+.emotion-4 h3 {
   font-weight: 400;
   padding-bottom: 1em;
 }
@@ -570,7 +698,7 @@ exports[`Group renders correctly with a list of one 1`] = `
           <a
             href="/picture"
           >
-            Overview
+            navigation.overview
           </a>
         </li>
         <li>
@@ -612,24 +740,34 @@ exports[`Group renders correctly with a list of one 1`] = `
           <a
             href="/worldmap"
           >
-            Worldmap
+            navigation.worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            Contact
+            navigation.contact
           </a>
         </li>
       </ul>
       <div>
-        Menu
+        navigation.menu
       </div>
     </nav>
+    <div
+      class="emotion-2"
+    >
+      <button
+        title="Switch to German"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
     <button
       aria-label="Switch theme"
-      class="emotion-2"
+      class="emotion-3"
       type="button"
     >
       <svg
@@ -656,7 +794,7 @@ exports[`Group renders correctly with a list of one 1`] = `
     </button>
   </header>
   <main
-    class="emotion-3"
+    class="emotion-4"
   >
     <h1>
       plural
@@ -798,6 +936,65 @@ exports[`Group renders correctly with a list of zero 1`] = `
 }
 
 .emotion-2 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-2.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-2 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-2 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-2 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -825,29 +1022,29 @@ exports[`Group renders correctly with a list of zero 1`] = `
   z-index: 8;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   background: var(--background);
   color: var(--foreground);
 }
 
-.emotion-2.fullScreen {
+.emotion-3.fullScreen {
   opacity: 0.65;
 }
 
-.emotion-2 svg {
+.emotion-3 svg {
   fill: currentColor;
   height: 40px;
   width: 40px;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: clamp(16rem, 90vw, 70rem);
   margin: 170px auto 100px;
   padding: 0 1.5rem;
 }
 
-.emotion-3 h1,
-.emotion-3 h3 {
+.emotion-4 h1,
+.emotion-4 h3 {
   font-weight: 400;
   padding-bottom: 1em;
 }
@@ -905,7 +1102,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
           <a
             href="/picture"
           >
-            Overview
+            navigation.overview
           </a>
         </li>
         <li>
@@ -947,24 +1144,34 @@ exports[`Group renders correctly with a list of zero 1`] = `
           <a
             href="/worldmap"
           >
-            Worldmap
+            navigation.worldmap
           </a>
         </li>
         <li>
           <a
             href="/imprint"
           >
-            Contact
+            navigation.contact
           </a>
         </li>
       </ul>
       <div>
-        Menu
+        navigation.menu
       </div>
     </nav>
+    <div
+      class="emotion-2"
+    >
+      <button
+        title="Switch to German"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
     <button
       aria-label="Switch theme"
-      class="emotion-2"
+      class="emotion-3"
       type="button"
     >
       <svg
@@ -991,7 +1198,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
     </button>
   </header>
   <main
-    class="emotion-3"
+    class="emotion-4"
   >
     <h1>
       plural

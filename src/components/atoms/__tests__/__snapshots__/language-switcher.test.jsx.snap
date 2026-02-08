@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`LanguageSwitcher renders correctly 1`] = `
+.emotion-0 {
+  cursor: pointer;
+  left: 180px;
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-0 {
+    line-height: 20px;
+    top: 120px;
+    width: 20px;
+  }
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-0 button {
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .emotion-0 button {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.emotion-0 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+<div>
+  <div
+    class="emotion-0"
+  >
+    <button
+      title="Switch to German"
+      type="button"
+    >
+      EN
+    </button>
+  </div>
+</div>
+`;
