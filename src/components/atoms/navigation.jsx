@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
+import {useTranslation} from 'react-i18next';
 
 import AssetTypes from '../../constants/asset-types.js';
 import {up} from '../../utils/theming.js';
@@ -78,6 +79,7 @@ const navigationStyle = css`
 `;
 
 function Navigation({isFullscreen = false}) {
+	const {t} = useTranslation();
 	const linkOverview = useRef(null);
 	const linkShuttered = useRef(null);
 	const linkArchitecture = useRef(null);
@@ -130,16 +132,16 @@ function Navigation({isFullscreen = false}) {
 	return (
 		<nav css={navigationStyle} className={classnames({open: menuOpen, isFullscreen})}>
 			<ul>
-				<li><a ref={linkOverview} href={`/${PICTURE.path}`}>Overview</a></li>
+				<li><a ref={linkOverview} href={`/${PICTURE.path}`}>{t('navigation.overview')}</a></li>
 				<li><a ref={linkShuttered} href={`/${SERIES.path}/shuttered`}>»Shuttered«</a></li>
 				<li><a ref={linkArchitecture} href={`/${CATEGORY.path}/architecture`}>Architecture</a></li>
 				<li><a ref={linkEnvironment} href={`/${CATEGORY.path}/environment`}>Environment</a></li>
 				<li><a ref={linkFloral} href={`/${CATEGORY.path}/floral`}>Floral</a></li>
 				<li><a ref={linkLight} href={`/${CATEGORY.path}/light`}>Light</a></li>
-				<li><a ref={linkWorldmap} href='/worldmap'>Worldmap</a></li>
-				<li><a ref={linkContact} href='/imprint'>Contact</a></li>
+				<li><a ref={linkWorldmap} href='/worldmap'>{t('navigation.worldmap')}</a></li>
+				<li><a ref={linkContact} href='/imprint'>{t('navigation.contact')}</a></li>
 			</ul>
-			<div onClick={toggleMenu}>Menu</div>
+			<div onClick={toggleMenu}>{t('navigation.menu')}</div>
 		</nav>
 	);
 }

@@ -1,17 +1,42 @@
-import PropTypes from 'prop-types';
 import React, {useState} from 'react';
-import {css, Global} from '@emotion/react';
-import {graphql} from 'gatsby';
-import {useTranslation} from 'react-i18next';
+import {css} from '@emotion/react';
 
 import Header from '../components/molecules/header.jsx';
 import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
-import Map from '../components/molecules/map.jsx';
-import Query from '../types/proptypes.js';
+import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import {userPrefersDark} from '../utils/theming.js';
 
-function Worldmap({data: {allPrismicPicture: {edges}}}) {
-	const {t} = useTranslation();
+const notFoundContent = css`
+	text-align: center;
+	padding: 40px 0;
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	p {
+		font-size: 1.2rem;
+		margin-bottom: 2rem;
+		color: var(--foreground);
+	}
+
+	a {
+		display: inline-block;
+		padding: 12px 24px;
+		background: var(--foreground);
+		color: var(--background);
+		text-decoration: none;
+		border-radius: 4px;
+		transition: opacity 0.3s ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+`;
+
+function NotFoundPage() {
 	const [isDark, setIsDark] = useState(() => {
 		// During SSR, we don't have access to localStorage, so use system preference
 		if (globalThis.window === undefined) {
@@ -43,44 +68,17 @@ function Worldmap({data: {allPrismicPicture: {edges}}}) {
 
 	return (
 		<>
-			<HelmetMetaTags title={t('navigation.worldmap')} path='worldmap'/>
-			<Global styles={css` body { overflow: hidden; } `}/>
+			<HelmetMetaTags title='404 - Page Not Found' path='404'/>
 			<Header isDark={isDark} switchTheme={switchTheme}/>
-			{edges.length > 0 && <Map data={edges} isDark={isDark}/>}
+			<MainWrapper>
+				<div css={notFoundContent}>
+					<h1>404 - Page Not Found</h1>
+					<p>The page you are looking for does not exist or has been moved.</p>
+					<a href='/'>Return to Home</a>
+				</div>
+			</MainWrapper>
 		</>
 	);
 }
 
-Worldmap.propTypes = {
-	data: PropTypes.shape(Query).isRequired,
-};
-
-export default Worldmap;
-
-export const pageQuery = graphql`
-	query Map {
-		allPrismicPicture(filter: {data: {coordinates: {latitude: {ne: 0}, longitude: {ne: 0}}}}) {
-			edges {
-				node {
-					data {
-						coordinates {
-							latitude
-							longitude
-						}
-						title
-						image {
-							alt
-							thumbnails {
-								thumbnail {
-									gatsbyImageData(width: 164)
-								}
-							}
-						}
-					}
-					id
-					uid
-				}
-			}
-		}
-	}
-`;
+export default NotFoundPage;

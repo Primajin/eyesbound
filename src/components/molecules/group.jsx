@@ -4,19 +4,38 @@ import React, {useState} from 'react';
 import HelmetMetaTags from '../atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../atoms/main-wrapper.jsx';
 import {ListDataNode} from '../../types/proptypes.js';
-import {fromLocalStorage} from '../../utils/local-storage.js';
 import {userPrefersDark} from '../../utils/theming.js';
 import List from './list.jsx';
 import Header from './header.jsx';
 
 function Group({edges: data, path, plural}) {
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(() => {
+		// During SSR, we don't have access to localStorage, so use system preference
+		if (globalThis.window === undefined) {
+			return userPrefersDark;
+		}
+
+		// On client, read from localStorage to match what the inline script set
+		try {
+			const stored = localStorage.getItem('userPrefersDark');
+			if (stored !== null) {
+				return JSON.parse(stored);
+			}
+		} catch {
+			// Fallback to system preference if localStorage fails
+		}
+
+		return userPrefersDark;
+	});
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;
 		setIsDark(flipPreference);
-		fromLocalStorage.setItem('userPrefersDark', flipPreference);
+		try {
+			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
+		} catch {
+			// Silently fail if localStorage is not available
+		}
 	};
 
 	return (

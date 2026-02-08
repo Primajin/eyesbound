@@ -145,6 +145,10 @@ exports[`Imprint renders correctly 1`] = `
   transition: background-color .333s,color .333s,opacity .333s;
   width: 50px;
   z-index: 8;
+  right: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .emotion-2:hover {
@@ -162,19 +166,66 @@ exports[`Imprint renders correctly 1`] = `
   width: 40px;
 }
 
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
 .emotion-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-3:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-3.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-3 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-4 {
   width: clamp(16rem, 90vw, 70rem);
   margin: 170px auto 100px;
   padding: 0 1.5rem;
 }
 
-.emotion-3 h1,
-.emotion-3 h3 {
+.emotion-4 h1,
+.emotion-4 h3 {
   font-weight: 400;
   padding-bottom: 1em;
 }
 
-.emotion-4 {
+.emotion-5 {
   background: transparent center center no-repeat;
   display: inline-block;
   height: 64px;
@@ -189,19 +240,19 @@ exports[`Imprint renders correctly 1`] = `
   width: 64px;
 }
 
-.emotion-4.icon-cc {
+.emotion-5.icon-cc {
   background-image: url("test-file-stub");
 }
 
-.emotion-4.icon-cc-by {
+.emotion-5.icon-cc-by {
   background-image: url("test-file-stub");
 }
 
-.emotion-4.icon-cc-nc-eu {
+.emotion-5.icon-cc-nc-eu {
   background-image: url("test-file-stub");
 }
 
-.emotion-4.icon-cc-sa {
+.emotion-5.icon-cc-sa {
   background-image: url("test-file-stub");
 }
 
@@ -316,8 +367,15 @@ exports[`Imprint renders correctly 1`] = `
       </div>
     </nav>
     <button
-      aria-label="Switch theme"
       class="emotion-2"
+      title="Switch to German"
+      type="button"
+    >
+      EN
+    </button>
+    <button
+      aria-label="Switch theme"
+      class="emotion-3"
       type="button"
     >
       <svg
@@ -344,7 +402,7 @@ exports[`Imprint renders correctly 1`] = `
     </button>
   </header>
   <main
-    class="emotion-3"
+    class="emotion-4"
   >
     <h1>
       Contact & Imprint
@@ -375,25 +433,25 @@ exports[`Imprint renders correctly 1`] = `
         target="_blank"
       >
         <i
-          class="icon-cc emotion-4"
+          class="icon-cc emotion-5"
           title="Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)"
         >
           Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
         </i>
         <i
-          class="icon-cc-by emotion-4"
+          class="icon-cc-by emotion-5"
           title="Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use."
         >
           Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
         </i>
         <i
-          class="icon-cc-nc-eu emotion-4"
+          class="icon-cc-nc-eu emotion-5"
           title="NonCommercial — You may not use the material for commercial purposes."
         >
           NonCommercial — You may not use the material for commercial purposes.
         </i>
         <i
-          class="icon-cc-sa emotion-4"
+          class="icon-cc-sa emotion-5"
           title="ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original."
         >
           ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.

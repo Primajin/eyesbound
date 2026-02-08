@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {css} from '@emotion/react';
 import {graphql} from 'gatsby';
+import {useTranslation} from 'react-i18next';
 
 import AssetTypes from '../constants/asset-types.js';
 import Fullscreen from '../components/atoms/fullscreen.jsx';
@@ -12,7 +13,6 @@ import Map from '../components/molecules/map.jsx';
 import PictureComponent from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 import TagLinks from '../components/atoms/tag-links.jsx';
-import {fromLocalStorage} from '../utils/local-storage.js';
 import {up, userPrefersDark} from '../utils/theming.js';
 
 const details = css`
@@ -48,19 +48,40 @@ TimeComponent.propTypes = {
 
 // eslint-disable-next-line complexity
 function Picture({data: {prismicPicture = defaultPictureData}}) {
+	const {t} = useTranslation();
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
 		setFullScreen(isFullscreen);
 	};
 
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(() => {
+		// During SSR, we don't have access to localStorage, so use system preference
+		if (globalThis.window === undefined) {
+			return userPrefersDark;
+		}
+
+		// On client, read from localStorage to match what the inline script set
+		try {
+			const stored = localStorage.getItem('userPrefersDark');
+			if (stored !== null) {
+				return JSON.parse(stored);
+			}
+		} catch {
+			// Fallback to system preference if localStorage fails
+		}
+
+		return userPrefersDark;
+	});
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;
 		setIsDark(flipPreference);
-		fromLocalStorage.setItem('userPrefersDark', flipPreference);
+		try {
+			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
+		} catch {
+			// Silently fail if localStorage is not available
+		}
 	};
 
 	const {data = {}} = prismicPicture;
@@ -83,7 +104,7 @@ function Picture({data: {prismicPicture = defaultPictureData}}) {
 		tagTitles = tags.map(tag => tag?.tag?.document?.data?.title);
 	}
 
-	const description = hasTags ? `Tags: ${tagTitles.join(' ')}` : undefined;
+	const description = hasTags ? `${t('picture.tags')}: ${tagTitles.join(' ')}` : undefined;
 
 	const {CATEGORY: {path: categoryPath}, PICTURE: {path: picturePath}, SERIES: {path: seriesPath}} = AssetTypes;
 
@@ -95,15 +116,15 @@ function Picture({data: {prismicPicture = defaultPictureData}}) {
 			<MainWrapper>
 				{hasTitle ? <h1>{title}</h1> : null}
 				<section>
-					{Boolean(categoryTitle) && <h3>Category: <a href={`/${categoryPath}/${categoryUID}`}>{categoryTitle}</a></h3>}
-					{Boolean(seriesTitle) && <h3>Series: <a href={`/${seriesPath}/${seriesUID}`}>{seriesTitle}</a></h3>}
+					{Boolean(categoryTitle) && <h3>{t('picture.category')}: <a href={`/${categoryPath}/${categoryUID}`}>{categoryTitle}</a></h3>}
+					{Boolean(seriesTitle) && <h3>{t('picture.series')}: <a href={`/${seriesPath}/${seriesUID}`}>{seriesTitle}</a></h3>}
 					<figure>
 						<PictureComponent data={data} size={{height: 715, width: 1072}}/>
 					</figure>
 					<div css={details}>
-						{hasTags ? <div>Tags: <TagLinks tags={tags}/></div> : null}
-						{hasDateTime ? <div>Captured: <TimeComponent datetime={datetime}/></div> : null}
-						{hasCoords ? <div>Location: {shortenedCoords.join(' | ')}</div> : null}
+						{hasTags ? <div>{t('picture.tags')}: <TagLinks tags={tags}/></div> : null}
+						{hasDateTime ? <div>{t('picture.captured')}: <TimeComponent datetime={datetime}/></div> : null}
+						{hasCoords ? <div>{t('picture.location')}: {shortenedCoords.join(' | ')}</div> : null}
 					</div>
 					{shortenedCoords.length > 0 && <Map hasNoInfoWindow center={coordinates} data={[{node: prismicPicture}]} height='500px' isDark={isDark} zoom={11}/>}
 				</section>
