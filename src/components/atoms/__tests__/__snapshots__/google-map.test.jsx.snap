@@ -1,5 +1,54 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`GoogleMap maintains correct InfoWindow position when clicking different markers 1`] = `
+<div>
+  <div
+    class="mock-google-map"
+    data-center-lat="52.473092"
+    data-center-lng="13.327628"
+    data-option-mapid="map-id"
+    data-option-streetviewcontrol="false"
+    data-style-height="100px"
+    zoom="1"
+  >
+    <div
+      class="mock-marker"
+      data-position-lat="52.123"
+      data-position-lng="13.123"
+      title="title1"
+    />
+    <div
+      class="mock-marker"
+      data-position-lat="52.456"
+      data-position-lng="13.456"
+      title="title2"
+    />
+    <div
+      class="mock-info-window"
+      data-option-maxwidth="200"
+      data-position-lat="52.456"
+      data-position-lng="13.456"
+    >
+      <a
+        href="/picture/uid-baz"
+      >
+        <h1>
+          title2
+        </h1>
+        <picture>
+          <img
+            alt="title2"
+            data-image-layout="CONSTRAINED"
+            height="110"
+            width="164"
+          />
+        </picture>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`GoogleMap renders correctly with props and a list of one 1`] = `
 <div>
   <div
