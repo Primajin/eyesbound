@@ -23,22 +23,22 @@ describe('Navigation', () => {
 
 	it('calls focus event handler when navigation link is focused', async () => {
 		const {container} = render(<Navigation/>);
-		
+
 		// Find a navigation link
 		const link = container.querySelector('a[href="/picture"]');
 		expect(link).toBeInTheDocument();
-		
+
 		// Set the link as the active element (simulating browser behavior)
 		link.focus();
-		
+
 		// Verify link is focused
 		expect(document.activeElement).toBe(link);
-		
+
 		// Trigger the focus event that the component listens for
 		// The handler will check if document.activeElement is one of the nav links
 		const focusEvent = new FocusEvent('focus', {bubbles: true});
 		document.dispatchEvent(focusEvent);
-		
+
 		// After the focus event, menu should be open (wait for state update)
 		await waitFor(() => {
 			const nav = container.querySelector('nav');

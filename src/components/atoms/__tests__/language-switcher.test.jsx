@@ -29,15 +29,21 @@ describe('LanguageSwitcher', () => {
 		// Mock i18n to start with German
 		const mockUseTranslation = require('react-i18next').useTranslation;
 		const originalImplementation = mockUseTranslation;
-		
+
 		jest.spyOn(require('react-i18next'), 'useTranslation').mockImplementation(() => ({
-			t: (key, options) => {
+			t(key, options) {
 				if (key === 'language.switchTo') {
 					return `Wechseln zu ${options?.language || ''}`;
 				}
 
-				if (key === 'language.english') return 'Englisch';
-				if (key === 'language.german') return 'Deutsch';
+				if (key === 'language.english') {
+					return 'Englisch';
+				}
+
+				if (key === 'language.german') {
+					return 'Deutsch';
+				}
+
 				return key;
 			},
 			i18n: {

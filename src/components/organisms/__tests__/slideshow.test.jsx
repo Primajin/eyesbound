@@ -34,7 +34,7 @@ describe('Slideshow', () => {
 		// Image without thumbnails property (already covered by existing tests)
 		// This test verifies the `null` branch is hit when thumbnailSource is undefined
 		const picture = {
-			coordinates: {latitude: 52.123, longitude: 13.123}, 
+			coordinates: {latitude: 52.123, longitude: 13.123},
 			image: {}, // No thumbnails
 			title: 'title1',
 		};
@@ -42,21 +42,21 @@ describe('Slideshow', () => {
 		const prismicPictureNode = {node: prismicPicture};
 		const images = [prismicPictureNode];
 		const {container} = render(<Slideshow isFullscreen images={images}/>);
-		
+
 		// Should render without background image style (style attribute should be null)
 		const slideLink = container.querySelector('a');
 		expect(slideLink).toBeInTheDocument();
-		
+
 		// When no thumbnail, style should be null (not set)
 		expect(slideLink.style.backgroundImage).toBeFalsy();
-		
+
 		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly when image has thumbnail source', () => {
 		// Image WITH thumbnails property - this covers the truthy branch
 		const picture = {
-			coordinates: {latitude: 52.123, longitude: 13.123}, 
+			coordinates: {latitude: 52.123, longitude: 13.123},
 			image: {
 				thumbnails: {
 					thumbnail: {
@@ -69,21 +69,21 @@ describe('Slideshow', () => {
 						},
 					},
 				},
-			}, 
+			},
 			title: 'title1',
 		};
 		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};
 		const prismicPictureNode = {node: prismicPicture};
 		const images = [prismicPictureNode];
 		const {container} = render(<Slideshow isFullscreen images={images}/>);
-		
+
 		// Should render WITH background image style
 		const slideLink = container.querySelector('a');
 		expect(slideLink).toBeInTheDocument();
-		
+
 		// When thumbnail exists, backgroundImage should be set
 		expect(slideLink.style.backgroundImage).toContain('/thumb-image.jpg');
-		
+
 		expect(container).toMatchSnapshot();
 	});
 });
