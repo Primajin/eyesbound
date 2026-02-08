@@ -44,15 +44,15 @@ describe('Picture Template', () => {
 
 	it('should display date correctly when datetime is provided', () => {
 		const {container} = render(<Picture data={mockPictureData}/>);
-		
+
 		// Check that the date is displayed and not "Invalid Date"
 		const timeElement = container.querySelector('time');
 		expect(timeElement).toBeTruthy();
-		
+
 		const displayedText = timeElement.textContent;
 		expect(displayedText).not.toContain('Invalid Date');
 		expect(displayedText).not.toBe('Invalid Date');
-		
+
 		// The date should be formatted correctly (e.g., "January 15, 2024")
 		// Using a regex to check for a valid date format
 		expect(displayedText).toMatch(/\w+\s+\d{2},\s+\d{4}/);
@@ -60,7 +60,7 @@ describe('Picture Template', () => {
 
 	it('should have correct datetime attribute on time element', () => {
 		const {container} = render(<Picture data={mockPictureData}/>);
-		
+
 		const timeElement = container.querySelector('time');
 		expect(timeElement).toBeTruthy();
 		expect(timeElement.getAttribute('datetime')).toBe('2024-01-15T10:30:00+0000');
@@ -92,7 +92,7 @@ describe('Picture Template', () => {
 		};
 
 		const {container} = render(<Picture data={dataWithoutDateTime}/>);
-		
+
 		// Should not have a time element when no datetime is provided
 		const timeElement = container.querySelector('time');
 		expect(timeElement).toBeFalsy();
