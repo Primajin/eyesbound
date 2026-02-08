@@ -1,0 +1,26 @@
+{
+  "navigation": {
+    "menu": "Menü",
+    "overview": "Übersicht",
+    "contact": "Kontakt",
+    "worldmap": "Weltkarte"
+  },
+  "picture": {
+    "category": "Kategorie",
+    "series": "Serie",
+    "tags": "Schlagwörter",
+    "captured": "Aufgenommen",
+    "location": "Ort"
+  },
+  "imprint": {
+    "title": "Kontakt & Impressum",
+    "metaTitle": "Impressum & Kontakt",
+    "design": "Design",
+    "privacyPolicy": "Datenschutzerklärung"
+  },
+  "language": {
+    "switchTo": "Wechseln zu {{language}}",
+    "english": "Englisch",
+    "german": "Deutsch"
+  }
+}

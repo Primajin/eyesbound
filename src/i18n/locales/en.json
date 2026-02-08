@@ -1,0 +1,26 @@
+{
+  "navigation": {
+    "menu": "Menu",
+    "overview": "Overview",
+    "contact": "Contact",
+    "worldmap": "Worldmap"
+  },
+  "picture": {
+    "category": "Category",
+    "series": "Series",
+    "tags": "Tags",
+    "captured": "Captured",
+    "location": "Location"
+  },
+  "imprint": {
+    "title": "Contact & Imprint",
+    "metaTitle": "Imprint & Contact",
+    "design": "Design",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "english": "English",
+    "german": "German"
+  }
+}

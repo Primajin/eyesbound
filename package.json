@@ -43,10 +43,12 @@
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-prismic": "^6.0.3",
+    "i18next": "^25.8.4",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-helmet": "^6.1.0",
+    "react-i18next": "^16.5.4",
     "react-slideshow-image": "^4.3.2"
   },
   "devDependencies": {
