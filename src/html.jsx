@@ -31,7 +31,16 @@ function HTML({
 								try {
 									var userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 									var storagePrefersDark = localStorage.getItem('userPrefersDark');
-									var isDark = storagePrefersDark !== null ? JSON.parse(storagePrefersDark) : userPrefersDark;
+									var isDark = userPrefersDark;
+									
+									if (storagePrefersDark !== null) {
+										try {
+											isDark = JSON.parse(storagePrefersDark);
+										} catch (parseError) {
+											// If parsing fails, fall back to system preference
+											isDark = userPrefersDark;
+										}
+									}
 									
 									if (isDark) {
 										document.documentElement.style.setProperty('--background', '#000');
@@ -44,7 +53,9 @@ function HTML({
 										document.documentElement.style.setProperty('--foreground', '#000');
 										document.documentElement.style.colorScheme = 'light';
 									}
-								} catch (e) {}
+								} catch (e) {
+									// Silently fail if localStorage is not available or script execution fails
+								}
 							})();
 						`,
 					}}
