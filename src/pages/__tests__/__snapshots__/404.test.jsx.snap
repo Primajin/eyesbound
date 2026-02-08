@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`404 Page renders correctly 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 div {
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .emotion-1 div {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 div:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open div {
+  cursor: default;
+}
+
+.emotion-1.open div:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 div,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-3 {
+  width: clamp(16rem, 90vw, 70rem);
+  margin: 170px auto 100px;
+  padding: 0 1.5rem;
+}
+
+.emotion-3 h1,
+.emotion-3 h3 {
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
+.emotion-4 {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.emotion-4 h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.emotion-4 p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+}
+
+.emotion-4 a {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--foreground);
+  color: var(--background);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 4px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.emotion-4 a:hover {
+  opacity: 0.8;
+}
+
+<div>
+  <div
+    class="mock-helmet"
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      404 - Page Not Found | EYESBOUND
+    </div>
+    <div
+      data-content="404 - Page Not Found | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="404 - Page Not Found | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="404 - Page Not Found | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+    <div
+      data-helmet-tag="link"
+      data-href="https://eyesbound.com/404/"
+      data-rel="canonical"
+    />
+    <div
+      data-content="https://eyesbound.com/404/"
+      data-helmet-tag="meta"
+      data-property="og:url"
+    />
+  </div>
+  <header>
+    <h1
+      class="emotion-0"
+    >
+      <a
+        href="/"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      class="emotion-1"
+    >
+      <ul>
+        <li>
+          <a
+            href="/picture"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div>
+        Menu
+      </div>
+    </nav>
+    <button
+      aria-label="Switch theme"
+      class="emotion-2"
+      type="button"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
+        />
+      </svg>
+      <div
+        class="mock-helmet"
+      >
+        <div
+          data-content="#000000"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
+    </button>
+  </header>
+  <main
+    class="emotion-3"
+  >
+    <div
+      class="emotion-4"
+    >
+      <h1>
+        404 - Page Not Found
+      </h1>
+      <p>
+        The page you are looking for does not exist or has been moved.
+      </p>
+      <a
+        href="/"
+      >
+        Return to Home
+      </a>
+    </div>
+  </main>
+</div>
+`;
