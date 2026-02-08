@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {css} from '@emotion/react';
 import {useTranslation} from 'react-i18next';
 
@@ -34,8 +34,15 @@ const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 function Imprint() {
 	const {t} = useTranslation();
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(userPrefersDark);
+
+	useEffect(() => {
+		const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+		if (storagePrefersDark !== null) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setIsDark(storagePrefersDark);
+		}
+	}, []);
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;

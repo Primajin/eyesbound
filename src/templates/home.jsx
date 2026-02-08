@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import {css, Global} from '@emotion/react';
 import {graphql} from 'gatsby';
@@ -19,8 +19,15 @@ function Home({data: {allPrismicPicture: {edges}}}) {
 		setFullScreen(isFullscreen);
 	};
 
-	const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
-	const [isDark, setIsDark] = useState(storagePrefersDark ?? userPrefersDark);
+	const [isDark, setIsDark] = useState(userPrefersDark);
+
+	useEffect(() => {
+		const storagePrefersDark = JSON.parse(fromLocalStorage.getItem('userPrefersDark'));
+		if (storagePrefersDark !== null) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setIsDark(storagePrefersDark);
+		}
+	}, []);
 
 	const switchTheme = () => {
 		const flipPreference = !isDark;
