@@ -43,7 +43,7 @@
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-prismic": "^6.0.3",
-    "i18next": "^25.8.10",
+    "i18next": "^25.8.11",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
