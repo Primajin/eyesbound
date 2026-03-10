@@ -3,6 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {Fade} from 'react-slideshow-image';
 import {css} from '@emotion/react';
+import {useTranslation} from 'react-i18next';
 import 'react-slideshow-image/dist/styles.css';
 
 import AssetTypes from '../../constants/asset-types.js';
@@ -89,6 +90,7 @@ const arrowButtons = css`
 `;
 
 function Slideshow({images, isFullscreen = false}) {
+	const {t} = useTranslation();
 	const properties = {
 		indicators(i) {
 			const {node: {data}} = images[i];
@@ -101,9 +103,9 @@ function Slideshow({images, isFullscreen = false}) {
 				</li>
 			);
 		},
-		nextArrow: <button aria-label='Next slide' css={arrowButtons} className={classnames({isFullscreen})} type='button'>»</button>,
+		nextArrow: <button aria-label={t('accessibility.nextSlide')} css={arrowButtons} className={classnames({isFullscreen})} type='button'>»</button>,
 		pauseOnHover: false,
-		prevArrow: <button aria-label='Previous slide' css={arrowButtons} className={classnames({isFullscreen})} type='button'>«</button>,
+		prevArrow: <button aria-label={t('accessibility.previousSlide')} css={arrowButtons} className={classnames({isFullscreen})} type='button'>«</button>,
 	};
 	const {PICTURE: {path}} = AssetTypes;
 

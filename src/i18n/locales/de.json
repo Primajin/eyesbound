@@ -22,5 +22,11 @@
     "switchTo": "Wechseln zu {{language}}",
     "english": "Englisch",
     "german": "Deutsch"
+  },
+  "accessibility": {
+    "nextSlide": "Nächstes Bild",
+    "previousSlide": "Vorheriges Bild",
+    "toggleFullscreen": "Vollbild umschalten",
+    "switchTheme": "Design wechseln"
   }
 }

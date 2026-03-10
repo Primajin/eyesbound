@@ -385,7 +385,7 @@ exports[`Group renders correctly with a list of more 1`] = `
     <ul>
       <li>
         <a
-          aria-label="link-to-path"
+          aria-label="List Data Title 1"
           href="/path/1234-5678-90"
         >
           List Data Title 1
@@ -393,7 +393,7 @@ exports[`Group renders correctly with a list of more 1`] = `
       </li>
       <li>
         <a
-          aria-label="link-to-path"
+          aria-label="List Data Title 2"
           href="/path/9876-5432-10"
         >
           List Data Title 2
@@ -789,7 +789,7 @@ exports[`Group renders correctly with a list of one 1`] = `
     <ul>
       <li>
         <a
-          aria-label="link-to-path"
+          aria-label="List Data Title"
           href="/path/1234-5678-90"
         >
           List Data Title
