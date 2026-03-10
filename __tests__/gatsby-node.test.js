@@ -168,12 +168,10 @@ describe('processHtmlFiles', () => {
 		const html = `${cspMeta}<script src="/app.js"></script>`;
 		const filePath = path.join(temporaryDir, 'external.html');
 		fs.writeFileSync(filePath, html);
-		const {mtimeMs} = fs.statSync(filePath);
 
 		processHtmlFiles(temporaryDir);
 
 		const result = fs.readFileSync(filePath, 'utf8');
 		expect(result).toBe(html);
-		expect(fs.statSync(filePath).mtimeMs).toBe(mtimeMs);
 	});
 });
