@@ -41,19 +41,23 @@ function injectScriptHashes(html) {
 	);
 }
 
-exports.onPostBuild = async () => {
-	const publicDir = path.join(__dirname, 'public');
-	for (const file of findHtmlFiles(publicDir)) {
+function processHtmlFiles(directory) {
+	for (const file of findHtmlFiles(directory)) {
 		const html = fs.readFileSync(file, 'utf8');
 		const updatedHtml = injectScriptHashes(html);
 		if (updatedHtml !== html) {
 			fs.writeFileSync(file, updatedHtml);
 		}
 	}
+}
+
+exports.onPostBuild = async () => {
+	processHtmlFiles(path.join(__dirname, 'public'));
 };
 
 exports.findHtmlFiles = findHtmlFiles;
 exports.injectScriptHashes = injectScriptHashes;
+exports.processHtmlFiles = processHtmlFiles;
 
 exports.createPages = async ({graphql, actions}) => {
 	const {createPage} = actions;

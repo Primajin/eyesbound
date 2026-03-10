@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import {findHtmlFiles, injectScriptHashes} from '../gatsby-node.js';
+import {findHtmlFiles, injectScriptHashes, processHtmlFiles} from '../gatsby-node.js';
 
 function sha256(content) {
 	return crypto.createHash('sha256').update(content).digest('base64');
@@ -126,5 +126,54 @@ describe('injectScriptHashes', () => {
 		const result = injectScriptHashes(html);
 		expect(result).toContain('style-src');
 		expect(result).toContain('script-src');
+	});
+});
+
+describe('processHtmlFiles', () => {
+	const temporaryDir = path.join(os.tmpdir(), 'gatsby-node-process-test');
+	const cspMeta = '<meta http-equiv="Content-Security-Policy" content="script-src &#x27;self&#x27;; style-src &#x27;self&#x27;"/>';
+
+	beforeEach(() => {
+		fs.mkdirSync(temporaryDir, {recursive: true});
+		fs.mkdirSync(path.join(temporaryDir, 'subdir'), {recursive: true});
+	});
+
+	afterEach(() => {
+		fs.rmSync(temporaryDir, {recursive: true, force: true});
+	});
+
+	it('injects hashes into HTML files on disk', () => {
+		const scriptContent = 'var x = 1;';
+		const html = `${cspMeta}<script>${scriptContent}</script>`;
+		fs.writeFileSync(path.join(temporaryDir, 'index.html'), html);
+
+		processHtmlFiles(temporaryDir);
+
+		const result = fs.readFileSync(path.join(temporaryDir, 'index.html'), 'utf8');
+		expect(result).toContain(`sha256-${sha256(scriptContent)}`);
+	});
+
+	it('processes files in subdirectories', () => {
+		const scriptContent = 'var y = 2;';
+		const html = `${cspMeta}<script>${scriptContent}</script>`;
+		fs.writeFileSync(path.join(temporaryDir, 'subdir', 'page.html'), html);
+
+		processHtmlFiles(temporaryDir);
+
+		const result = fs.readFileSync(path.join(temporaryDir, 'subdir', 'page.html'), 'utf8');
+		expect(result).toContain(`sha256-${sha256(scriptContent)}`);
+	});
+
+	it('skips files that do not need modification', () => {
+		const html = `${cspMeta}<script src="/app.js"></script>`;
+		const filePath = path.join(temporaryDir, 'external.html');
+		fs.writeFileSync(filePath, html);
+		const {mtimeMs} = fs.statSync(filePath);
+
+		processHtmlFiles(temporaryDir);
+
+		const result = fs.readFileSync(filePath, 'utf8');
+		expect(result).toBe(html);
+		expect(fs.statSync(filePath).mtimeMs).toBe(mtimeMs);
 	});
 });
