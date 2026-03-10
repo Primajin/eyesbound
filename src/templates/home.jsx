@@ -93,7 +93,7 @@ export const pageQuery = graphql`query Homepage {
           title
           image {
             alt
-            gatsbyImageData(width: 1280, imgixParams: {q: 100})
+            gatsbyImageData(width: 1280, imgixParams: {q: 80})
             thumbnails {
               thumbnail {
                 gatsbyImageData(width: 50)

@@ -87,7 +87,6 @@ module.exports = {
 		{resolve: 'gatsby-plugin-robots-txt'},
 		{resolve: 'gatsby-plugin-sitemap'},
 		{resolve: 'gatsby-plugin-react-helmet'},
-		{resolve: 'gatsby-plugin-web-font-loader'},
 		{resolve: 'gatsby-plugin-emotion'},
 		{resolve: 'gatsby-plugin-image'},
 	],

@@ -35,20 +35,21 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
   opacity: 0;
 }
 
-.emotion-0 div {
+.emotion-0 button {
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-0 div {
+  .emotion-0 button {
     line-height: 20px;
   }
 }
 
-.emotion-0 div:hover {
+.emotion-0 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -60,11 +61,11 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
   transform: translateY(0);
 }
 
-.emotion-0.open div {
+.emotion-0.open button {
   cursor: default;
 }
 
-.emotion-0.open div:hover {
+.emotion-0.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -83,7 +84,7 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
   opacity: 0.666;
 }
 
-.emotion-0 div,
+.emotion-0 button,
 .emotion-0 li {
   cursor: pointer;
   font-weight: 700;
@@ -152,9 +153,11 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
         </a>
       </li>
     </ul>
-    <div>
+    <button
+      type="button"
+    >
       Menu
-    </div>
+    </button>
   </nav>
 </div>
 `;
@@ -194,20 +197,21 @@ exports[`Navigation renders correctly with props 1`] = `
   opacity: 0;
 }
 
-.emotion-0 div {
+.emotion-0 button {
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-0 div {
+  .emotion-0 button {
     line-height: 20px;
   }
 }
 
-.emotion-0 div:hover {
+.emotion-0 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -219,11 +223,11 @@ exports[`Navigation renders correctly with props 1`] = `
   transform: translateY(0);
 }
 
-.emotion-0.open div {
+.emotion-0.open button {
   cursor: default;
 }
 
-.emotion-0.open div:hover {
+.emotion-0.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -242,7 +246,7 @@ exports[`Navigation renders correctly with props 1`] = `
   opacity: 0.666;
 }
 
-.emotion-0 div,
+.emotion-0 button,
 .emotion-0 li {
   cursor: pointer;
   font-weight: 700;
@@ -311,9 +315,11 @@ exports[`Navigation renders correctly with props 1`] = `
         </a>
       </li>
     </ul>
-    <div>
+    <button
+      type="button"
+    >
       Menu
-    </div>
+    </button>
   </nav>
 </div>
 `;
@@ -353,20 +359,21 @@ exports[`Navigation renders correctly without props 1`] = `
   opacity: 0;
 }
 
-.emotion-0 div {
+.emotion-0 button {
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-0 div {
+  .emotion-0 button {
     line-height: 20px;
   }
 }
 
-.emotion-0 div:hover {
+.emotion-0 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -378,11 +385,11 @@ exports[`Navigation renders correctly without props 1`] = `
   transform: translateY(0);
 }
 
-.emotion-0.open div {
+.emotion-0.open button {
   cursor: default;
 }
 
-.emotion-0.open div:hover {
+.emotion-0.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -401,7 +408,7 @@ exports[`Navigation renders correctly without props 1`] = `
   opacity: 0.666;
 }
 
-.emotion-0 div,
+.emotion-0 button,
 .emotion-0 li {
   cursor: pointer;
   font-weight: 700;
@@ -470,9 +477,11 @@ exports[`Navigation renders correctly without props 1`] = `
         </a>
       </li>
     </ul>
-    <div>
+    <button
+      type="button"
+    >
       Menu
-    </div>
+    </button>
   </nav>
 </div>
 `;

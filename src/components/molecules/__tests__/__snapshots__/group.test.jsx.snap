@@ -64,20 +64,21 @@ exports[`Group renders correctly with a list of more 1`] = `
   opacity: 0;
 }
 
-.emotion-1 div {
+.emotion-1 button {
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-1 div {
+  .emotion-1 button {
     line-height: 20px;
   }
 }
 
-.emotion-1 div:hover {
+.emotion-1 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -89,11 +90,11 @@ exports[`Group renders correctly with a list of more 1`] = `
   transform: translateY(0);
 }
 
-.emotion-1.open div {
+.emotion-1.open button {
   cursor: default;
 }
 
-.emotion-1.open div:hover {
+.emotion-1.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -112,7 +113,7 @@ exports[`Group renders correctly with a list of more 1`] = `
   opacity: 0.666;
 }
 
-.emotion-1 div,
+.emotion-1 button,
 .emotion-1 li {
   cursor: pointer;
   font-weight: 700;
@@ -331,9 +332,11 @@ exports[`Group renders correctly with a list of more 1`] = `
           </a>
         </li>
       </ul>
-      <div>
+      <button
+        type="button"
+      >
         Menu
-      </div>
+      </button>
     </nav>
     <button
       class="emotion-2"
@@ -465,20 +468,21 @@ exports[`Group renders correctly with a list of one 1`] = `
   opacity: 0;
 }
 
-.emotion-1 div {
+.emotion-1 button {
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-1 div {
+  .emotion-1 button {
     line-height: 20px;
   }
 }
 
-.emotion-1 div:hover {
+.emotion-1 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -490,11 +494,11 @@ exports[`Group renders correctly with a list of one 1`] = `
   transform: translateY(0);
 }
 
-.emotion-1.open div {
+.emotion-1.open button {
   cursor: default;
 }
 
-.emotion-1.open div:hover {
+.emotion-1.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -513,7 +517,7 @@ exports[`Group renders correctly with a list of one 1`] = `
   opacity: 0.666;
 }
 
-.emotion-1 div,
+.emotion-1 button,
 .emotion-1 li {
   cursor: pointer;
   font-weight: 700;
@@ -732,9 +736,11 @@ exports[`Group renders correctly with a list of one 1`] = `
           </a>
         </li>
       </ul>
-      <div>
+      <button
+        type="button"
+      >
         Menu
-      </div>
+      </button>
     </nav>
     <button
       class="emotion-2"
@@ -858,20 +864,21 @@ exports[`Group renders correctly with a list of zero 1`] = `
   opacity: 0;
 }
 
-.emotion-1 div {
+.emotion-1 button {
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-1 div {
+  .emotion-1 button {
     line-height: 20px;
   }
 }
 
-.emotion-1 div:hover {
+.emotion-1 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -883,11 +890,11 @@ exports[`Group renders correctly with a list of zero 1`] = `
   transform: translateY(0);
 }
 
-.emotion-1.open div {
+.emotion-1.open button {
   cursor: default;
 }
 
-.emotion-1.open div:hover {
+.emotion-1.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -906,7 +913,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
   opacity: 0.666;
 }
 
-.emotion-1 div,
+.emotion-1 button,
 .emotion-1 li {
   cursor: pointer;
   font-weight: 700;
@@ -1065,7 +1072,7 @@ exports[`Group renders correctly with a list of zero 1`] = `
       </a>
     </h1>
     <nav
-      class="emotion-1"
+      class="open emotion-1"
     >
       <ul>
         <li>
@@ -1125,9 +1132,11 @@ exports[`Group renders correctly with a list of zero 1`] = `
           </a>
         </li>
       </ul>
-      <div>
+      <button
+        type="button"
+      >
         Menu
-      </div>
+      </button>
     </nav>
     <button
       class="emotion-2"

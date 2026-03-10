@@ -161,7 +161,7 @@ export const pageQuery = graphql`
 				datetime
 				image {
 					alt
-					gatsbyImageData(imgixParams: {q: 100}, width: 1072)
+					gatsbyImageData(imgixParams: {q: 80}, width: 1072)
 					thumbnails {
 						thumbnail {
 							gatsbyImageData(width: 164)

@@ -30,10 +30,11 @@ const navigationStyle = css`
 		opacity: 0;
 	}
 
-	div {
+	button {
 		transition: background-color .333s, color .333s;
 		background-color: var(--background);
 		color: var(--foreground);
+		width: 100%;
 
 		${up('md')} {
 			line-height: 20px;
@@ -48,7 +49,7 @@ const navigationStyle = css`
 	&.open {
 		transform: translateY(0);
 
-		div {
+		button {
 			cursor: default;
 
 			&:hover {
@@ -71,7 +72,7 @@ const navigationStyle = css`
 		}
 	}
 
-	div, li {
+	button, li {
 		cursor: pointer;
 		font-weight: 700;
 		text-transform: uppercase;
@@ -141,7 +142,7 @@ function Navigation({isFullscreen = false}) {
 				<li><a ref={linkWorldmap} href='/worldmap'>{t('navigation.worldmap')}</a></li>
 				<li><a ref={linkContact} href='/imprint'>{t('navigation.contact')}</a></li>
 			</ul>
-			<div onClick={toggleMenu}>{t('navigation.menu')}</div>
+			<button type='button' onClick={toggleMenu}>{t('navigation.menu')}</button>
 		</nav>
 	);
 }

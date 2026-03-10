@@ -101,9 +101,9 @@ function Slideshow({images, isFullscreen = false}) {
 				</li>
 			);
 		},
-		nextArrow: <button css={arrowButtons} className={classnames({isFullscreen})} type='button'>»</button>,
+		nextArrow: <button aria-label='Next slide' css={arrowButtons} className={classnames({isFullscreen})} type='button'>»</button>,
 		pauseOnHover: false,
-		prevArrow: <button css={arrowButtons} className={classnames({isFullscreen})} type='button'>«</button>,
+		prevArrow: <button aria-label='Previous slide' css={arrowButtons} className={classnames({isFullscreen})} type='button'>«</button>,
 	};
 	const {PICTURE: {path}} = AssetTypes;
 
