@@ -38,11 +38,11 @@ describe('findHtmlFiles', () => {
 });
 
 describe('injectScriptHashes', () => {
-	const cspPrefix = '<meta http-equiv="Content-Security-Policy" content="script-src &#x27;self&#x27;;"/>';
+	const cspMeta = '<meta http-equiv="Content-Security-Policy" content="script-src &#x27;self&#x27;; style-src &#x27;self&#x27;"/>';
 
 	it('adds SHA256 hashes for inline scripts to the CSP meta tag', () => {
 		const scriptContent = 'console.log("hello")';
-		const html = `${cspPrefix}<script>${scriptContent}</script>`;
+		const html = `${cspMeta}<script>${scriptContent}</script>`;
 
 		const result = injectScriptHashes(html);
 		const expectedHash = sha256(scriptContent);
@@ -50,14 +50,14 @@ describe('injectScriptHashes', () => {
 	});
 
 	it('ignores external scripts with src attribute', () => {
-		const html = `${cspPrefix}<script src="/app.js"></script>`;
+		const html = `${cspMeta}<script src="/app.js"></script>`;
 
 		const result = injectScriptHashes(html);
 		expect(result).toBe(html);
 	});
 
 	it('ignores empty scripts', () => {
-		const html = `${cspPrefix}<script>  </script>`;
+		const html = `${cspMeta}<script>  </script>`;
 
 		const result = injectScriptHashes(html);
 		expect(result).toBe(html);
@@ -66,7 +66,7 @@ describe('injectScriptHashes', () => {
 	it('handles multiple inline scripts with unique hashes', () => {
 		const script1 = 'var a = 1;';
 		const script2 = 'var b = 2;';
-		const html = `${cspPrefix}<script>${script1}</script><script>${script2}</script>`;
+		const html = `${cspMeta}<script>${script1}</script><script>${script2}</script>`;
 
 		const result = injectScriptHashes(html);
 		expect(result).toContain(`sha256-${sha256(script1)}`);
@@ -75,7 +75,7 @@ describe('injectScriptHashes', () => {
 
 	it('deduplicates identical inline scripts', () => {
 		const scriptContent = 'var x = 1;';
-		const html = `${cspPrefix}<script>${scriptContent}</script><script>${scriptContent}</script>`;
+		const html = `${cspMeta}<script>${scriptContent}</script><script>${scriptContent}</script>`;
 
 		const result = injectScriptHashes(html);
 		const hash = `sha256-${sha256(scriptContent)}`;
@@ -85,7 +85,7 @@ describe('injectScriptHashes', () => {
 
 	it('handles scripts with type="module" attribute', () => {
 		const scriptContent = 'const e = document.body;';
-		const html = `${cspPrefix}<script type="module">${scriptContent}</script>`;
+		const html = `${cspMeta}<script type="module">${scriptContent}</script>`;
 
 		const result = injectScriptHashes(html);
 		expect(result).toContain(`sha256-${sha256(scriptContent)}`);
@@ -93,7 +93,7 @@ describe('injectScriptHashes', () => {
 
 	it('handles mixed inline and external scripts', () => {
 		const inlineContent = 'window.pagePath="/";';
-		const html = `${cspPrefix}<script>${inlineContent}</script><script src="/app.js"></script>`;
+		const html = `${cspMeta}<script>${inlineContent}</script><script src="/app.js"></script>`;
 
 		const result = injectScriptHashes(html);
 		expect(result).toContain(`sha256-${sha256(inlineContent)}`);
@@ -113,9 +113,18 @@ describe('injectScriptHashes', () => {
 				document.documentElement.style.colorScheme = 'dark';
 			})();
 		`;
-		const html = `${cspPrefix}<script>${scriptContent}</script>`;
+		const html = `${cspMeta}<script>${scriptContent}</script>`;
 
 		const result = injectScriptHashes(html);
 		expect(result).toContain(`sha256-${sha256(scriptContent)}`);
+	});
+
+	it('preserves other CSP directives when adding hashes', () => {
+		const scriptContent = 'var a = 1;';
+		const html = `${cspMeta}<script>${scriptContent}</script>`;
+
+		const result = injectScriptHashes(html);
+		expect(result).toContain('style-src');
+		expect(result).toContain('script-src');
 	});
 });

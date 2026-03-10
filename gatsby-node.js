@@ -21,7 +21,7 @@ function injectScriptHashes(html) {
 	for (const [fullMatch, , content] of html.matchAll(/<script(\s[^>]*)?>([^]*?)<\/script>/g)) {
 		if (!fullMatch.includes(' src=') && content.trim()) {
 			const hash = crypto.createHash('sha256').update(content).digest('base64');
-			hashes.add(`&#x27;sha256-${hash}&#x27;`);
+			hashes.add(`'sha256-${hash}'`);
 		}
 	}
 
@@ -30,7 +30,15 @@ function injectScriptHashes(html) {
 	}
 
 	const hashString = [...hashes].join(' ');
-	return html.replace(/(script-src\s[^;]*?)(;)/, `$1 ${hashString}$2`);
+
+	return html.replace(
+		/<meta[^>]*http-equiv="Content-Security-Policy"[^>]*>/i,
+		cspTag => cspTag.replace(/content="([^"]*)"/, (_, cspContent) => {
+			const decoded = cspContent.replaceAll('&#x27;', '\'');
+			const updated = decoded.replace(/(script-src\s[^;]*)/, `$1 ${hashString}`);
+			return `content="${updated.replaceAll('\'', '&#x27;')}"`;
+		}),
+	);
 }
 
 exports.onPostBuild = async () => {
