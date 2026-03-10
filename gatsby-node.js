@@ -18,7 +18,7 @@ function findHtmlFiles(directory) {
 
 function injectScriptHashes(html) {
 	const hashes = new Set();
-	for (const [fullMatch, , content] of html.matchAll(/<script(\s[^>]*)?>([^]*?)<\/script>/g)) {
+	for (const [fullMatch, content] of html.matchAll(/<script(?:\s[^>]*)?>([^]*?)<\/script[^>]*>/gi)) {
 		if (!fullMatch.includes(' src=') && content.trim()) {
 			const hash = crypto.createHash('sha256').update(content).digest('base64');
 			hashes.add(`'sha256-${hash}'`);
@@ -35,7 +35,7 @@ function injectScriptHashes(html) {
 		/<meta[^>]*http-equiv="Content-Security-Policy"[^>]*>/i,
 		cspTag => cspTag.replace(/content="([^"]*)"/, (_, cspContent) => {
 			const decoded = cspContent.replaceAll('&#x27;', '\'');
-			const updated = decoded.replace(/(script-src\s[^;]*)/, `$1 ${hashString}`);
+			const updated = decoded.replace(/(script-src\s+[^;]*?)(?=;|$)/, `$1 ${hashString}`);
 			return `content="${updated.replaceAll('\'', '&#x27;')}"`;
 		}),
 	);
