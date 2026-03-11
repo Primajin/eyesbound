@@ -27,7 +27,8 @@ export const getBrowserLanguage = () => {
 	return langCode === 'de' ? 'de' : 'en';
 };
 
-// Always init with 'en' to match SSR output and avoid hydration mismatches.
+// Always init with 'en' so server and initial client renders produce identical
+// text content, preventing React hydration error #418.
 // Browser language detection is deferred to onInitialClientRender in gatsby-browser.js.
 i18n
 	.use(initReactI18next)

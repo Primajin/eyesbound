@@ -14,14 +14,13 @@ import {hydrateRoot} from 'react-dom/client';
 import LanguageSwitcher from '../../components/atoms/language-switcher.jsx';
 import Navigation from '../../components/atoms/navigation.jsx';
 
-// Suppress Emotion SSR warnings (not relevant to this test)
+// Suppress Emotion SSR warnings — let hydration errors fail the test
+const originalConsoleError = console.error; // eslint-disable-line no-console
 beforeAll(() => {
 	jest.spyOn(console, 'error').mockImplementation((...arguments_) => {
 		const message = arguments_[0]?.toString?.() ?? '';
-		// Allow through only hydration-related errors
 		if (message.includes('Hydration') || message.includes('hydrat') || message.includes('did not match') || message.includes('#418') || message.includes('#425')) {
-			// eslint-disable-next-line no-console
-			console.warn('HYDRATION ERROR DETECTED:', ...arguments_);
+			originalConsoleError('HYDRATION ERROR DETECTED:', ...arguments_);
 		}
 	});
 });
