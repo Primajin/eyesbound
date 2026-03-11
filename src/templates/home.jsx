@@ -9,7 +9,7 @@ import Header from '../components/molecules/header.jsx';
 import Query from '../types/proptypes.js';
 import Slideshow from '../components/organisms/slideshow.jsx';
 import SocialImage from '../../static/social-image.png';
-import {userPrefersDark} from '../utils/theming.js';
+import useThemePreference from '../hooks/use-theme-preference.js';
 
 function Home({data: {allPrismicPicture: {edges}}}) {
 	const [fullScreen, setFullScreen] = useState(false);
@@ -18,34 +18,7 @@ function Home({data: {allPrismicPicture: {edges}}}) {
 		setFullScreen(isFullscreen);
 	};
 
-	const [isDark, setIsDark] = useState(() => {
-		// During SSR, we don't have access to localStorage, so use system preference
-		if (globalThis.window === undefined) {
-			return userPrefersDark;
-		}
-
-		// On client, read from localStorage to match what the inline script set
-		try {
-			const stored = localStorage.getItem('userPrefersDark');
-			if (stored !== null) {
-				return JSON.parse(stored);
-			}
-		} catch {
-			// Fallback to system preference if localStorage fails
-		}
-
-		return userPrefersDark;
-	});
-
-	const switchTheme = () => {
-		const flipPreference = !isDark;
-		setIsDark(flipPreference);
-		try {
-			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
-		} catch {
-			// Silently fail if localStorage is not available
-		}
-	};
+	const {isDark, switchTheme} = useThemePreference();
 
 	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 

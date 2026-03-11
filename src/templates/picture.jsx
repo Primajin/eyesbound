@@ -13,7 +13,8 @@ import Map from '../components/molecules/map.jsx';
 import PictureComponent from '../components/molecules/picture.jsx';
 import Query from '../types/proptypes.js';
 import TagLinks from '../components/atoms/tag-links.jsx';
-import {up, userPrefersDark} from '../utils/theming.js';
+import useThemePreference from '../hooks/use-theme-preference.js';
+import {up} from '../utils/theming.js';
 
 const details = css`
 	margin: 20px 0;
@@ -55,34 +56,7 @@ function Picture({data: {prismicPicture = defaultPictureData}}) {
 		setFullScreen(isFullscreen);
 	};
 
-	const [isDark, setIsDark] = useState(() => {
-		// During SSR, we don't have access to localStorage, so use system preference
-		if (globalThis.window === undefined) {
-			return userPrefersDark;
-		}
-
-		// On client, read from localStorage to match what the inline script set
-		try {
-			const stored = localStorage.getItem('userPrefersDark');
-			if (stored !== null) {
-				return JSON.parse(stored);
-			}
-		} catch {
-			// Fallback to system preference if localStorage fails
-		}
-
-		return userPrefersDark;
-	});
-
-	const switchTheme = () => {
-		const flipPreference = !isDark;
-		setIsDark(flipPreference);
-		try {
-			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
-		} catch {
-			// Silently fail if localStorage is not available
-		}
-	};
+	const {isDark, switchTheme} = useThemePreference();
 
 	const {data = {}} = prismicPicture;
 	const {category, coordinates, datetime, image, series, title, tags} = data;
