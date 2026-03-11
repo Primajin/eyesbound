@@ -39,7 +39,7 @@ const details = css`
 const defaultPictureData = {};
 
 function TimeComponent({datetime}) {
-	return <time dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time>;
+	return <time suppressHydrationWarning dateTime={datetime}>{new Date(datetime).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: '2-digit'})}</time>;
 }
 
 TimeComponent.propTypes = {

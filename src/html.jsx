@@ -21,7 +21,7 @@ function HTML({
 	preBodyComponents = fallBackValues.preBodyComponents,
 }) {
 	return (
-		<html lang='en' dir='ltr' {...(htmlAttributes)}>
+		<html lang='en' dir='ltr' {...(htmlAttributes)} suppressHydrationWarning>
 			<head>
 				<meta charSet='utf-8'/>
 				{/* eslint-disable react/no-danger */}
