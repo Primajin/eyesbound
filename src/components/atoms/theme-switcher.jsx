@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import classnames from 'classnames';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';
+import {useTranslation} from 'react-i18next';
 
 import buttonCSS from '../../styles/button.js';
 import BulbOff from './icons/bulb-off.jsx';
@@ -25,6 +26,7 @@ const lightStyles = css`
 `;
 
 function ThemeSwitcher({isFullscreen = false, isDark, switchTheme}) {
+	const {t} = useTranslation();
 	const fullScreen = isFullscreen;
 	const [darkmode, setDarkmode] = useState(false);
 
@@ -35,7 +37,7 @@ function ThemeSwitcher({isFullscreen = false, isDark, switchTheme}) {
 	if (darkmode) {
 		return (
 			<button
-				aria-label='Switch theme' css={buttonCSS}
+				aria-label={t('accessibility.switchTheme')} css={buttonCSS}
 				className={classnames({fullScreen})} type='button'
 				onClick={switchTheme}
 			>
@@ -50,7 +52,7 @@ function ThemeSwitcher({isFullscreen = false, isDark, switchTheme}) {
 
 	return (
 		<button
-			aria-label='Switch theme' css={buttonCSS}
+			aria-label={t('accessibility.switchTheme')} css={buttonCSS}
 			className={classnames({fullScreen})} type='button'
 			onClick={switchTheme}
 		>

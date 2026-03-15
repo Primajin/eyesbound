@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {css} from '@emotion/react';
 import {useTranslation} from 'react-i18next';
 
@@ -10,7 +10,7 @@ import HelmetMetaTags from '../components/atoms/helmet-meta-tags.jsx';
 import MainWrapper from '../components/atoms/main-wrapper.jsx';
 import NCEU from '../../static/creative-commons/nc-eu.svg';
 import SA from '../../static/creative-commons/sa.svg';
-import {userPrefersDark} from '../utils/theming.js';
+import useThemePreference from '../hooks/use-theme-preference.js';
 
 const icon = css`
 	background: transparent center center no-repeat;
@@ -33,34 +33,7 @@ const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
 function Imprint() {
 	const {t} = useTranslation();
-	const [isDark, setIsDark] = useState(() => {
-		// During SSR, we don't have access to localStorage, so use system preference
-		if (globalThis.window === undefined) {
-			return userPrefersDark;
-		}
-
-		// On client, read from localStorage to match what the inline script set
-		try {
-			const stored = localStorage.getItem('userPrefersDark');
-			if (stored !== null) {
-				return JSON.parse(stored);
-			}
-		} catch {
-			// Fallback to system preference if localStorage fails
-		}
-
-		return userPrefersDark;
-	});
-
-	const switchTheme = () => {
-		const flipPreference = !isDark;
-		setIsDark(flipPreference);
-		try {
-			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
-		} catch {
-			// Silently fail if localStorage is not available
-		}
-	};
+	const {isDark, switchTheme} = useThemePreference();
 
 	/* eslint-disable @stylistic/max-len */
 	return (

@@ -45,7 +45,7 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
   >
     <li>
       <a
-        aria-label="link-to-picture"
+        aria-label="title1"
         href="/picture/uid-1"
       >
         <picture>
@@ -60,7 +60,7 @@ exports[`Thumbnails renders correctly with a list of more 1`] = `
     </li>
     <li>
       <a
-        aria-label="link-to-picture"
+        aria-label="title2"
         href="/picture/uid-2"
       >
         <picture>
@@ -122,7 +122,7 @@ exports[`Thumbnails renders correctly with a list of one 1`] = `
   >
     <li>
       <a
-        aria-label="link-to-picture"
+        aria-label="title1"
         href="/picture/uid-bar"
       >
         <picture>

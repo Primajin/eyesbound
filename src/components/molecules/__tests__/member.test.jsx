@@ -37,4 +37,11 @@ describe('Member', () => {
 		const {container} = render(<Member edges={edges} title={title} name={name}/>);
 		expect(container).toMatchSnapshot();
 	});
+
+	it('hides title when it matches the plural asset type', () => {
+		const name = 'name';
+		const title = 'Pictures';
+		const {container} = render(<Member edges={[]} title={title} name={name}/>);
+		expect(container).toMatchSnapshot();
+	});
 });

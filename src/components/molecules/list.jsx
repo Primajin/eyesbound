@@ -12,7 +12,7 @@ function List({data, path, title}) {
 			<ul>
 				{data.map(({node: {uid, data: {title}}}) => (
 					<li key={uid}>
-						<a href={`/${path}/${uid}`} aria-label={`link-to-${path}`}>
+						<a href={`/${path}/${uid}`} aria-label={title}>
 							{title}
 						</a>
 					</li>
