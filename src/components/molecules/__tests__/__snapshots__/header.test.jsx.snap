@@ -65,6 +65,10 @@ exports[`Header renders correctly with props 1`] = `
 }
 
 .emotion-1 button {
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);
@@ -325,6 +329,10 @@ exports[`Header renders correctly without props 1`] = `
 }
 
 .emotion-1 button {
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
   background-color: var(--background);

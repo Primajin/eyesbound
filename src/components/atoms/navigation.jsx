@@ -31,6 +31,10 @@ const navigationStyle = css`
 	}
 
 	button {
+		border: none;
+		font: inherit;
+		margin: 0;
+		padding: 0;
 		transition: background-color .333s, color .333s;
 		background-color: var(--background);
 		color: var(--foreground);

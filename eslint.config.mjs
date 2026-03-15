@@ -8,6 +8,7 @@ const eslintConfig = [
 	globalIgnores([
 		'__mocks__',
 		'__snapshots__',
+		'csp-utils.js',
 		'gatsby-config.js',
 		'gatsby-node.js',
 		'jest-preprocess.js',

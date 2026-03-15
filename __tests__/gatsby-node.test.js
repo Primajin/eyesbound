@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import {findHtmlFiles, injectScriptHashes, processHtmlFiles} from '../gatsby-node.js';
+import {findHtmlFiles, injectScriptHashes, processHtmlFiles} from '../csp-utils.js';
 
 function sha256(content) {
 	return crypto.createHash('sha256').update(content).digest('base64');
