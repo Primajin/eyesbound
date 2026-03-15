@@ -97,4 +97,79 @@ describe('Picture Template', () => {
 		const timeElement = container.querySelector('time');
 		expect(timeElement).toBeFalsy();
 	});
+
+	it('should display tags when provided', () => {
+		const dataWithTags = {
+			prismicPicture: {
+				uid: 'test-picture',
+				data: {
+					title: 'Test Picture',
+					datetime: '2024-01-15T10:30:00+0000',
+					coordinates: {
+						latitude: 52.473_092,
+						longitude: 13.327_628,
+					},
+					image: {
+						alt: 'Test image',
+						gatsbyImageData: {
+							images: {
+								fallback: {
+									src: 'https://example.com/image.jpg',
+								},
+							},
+						},
+					},
+					tags: [
+						{tag: {document: {data: {title: 'Nature'}, uid: 'nature'}}},
+						{tag: {document: {data: {title: 'Urban'}, uid: 'urban'}}},
+					],
+					category: {
+						document: {data: {title: 'Environment'}, uid: 'environment'},
+					},
+					series: {
+						document: {data: {title: 'Berlin'}, uid: 'berlin'},
+					},
+				},
+			},
+		};
+
+		const {container} = render(<Picture data={dataWithTags}/>);
+		expect(container.textContent).toContain('Nature');
+		expect(container.textContent).toContain('Urban');
+		expect(container.textContent).toContain('Environment');
+		expect(container.textContent).toContain('Berlin');
+	});
+
+	it('should render without title', () => {
+		const dataWithoutTitle = {
+			prismicPicture: {
+				uid: 'test-picture',
+				data: {
+					datetime: '2024-01-15T10:30:00+0000',
+					coordinates: {
+						latitude: 52.473_092,
+						longitude: 13.327_628,
+					},
+					image: {
+						alt: 'Test image',
+						thumbnails: {
+							thumbnail: {
+								gatsbyImageData: {
+									images: {
+										fallback: {
+											src: 'https://example.com/thumb.jpg',
+										},
+									},
+								},
+							},
+						},
+					},
+					tags: [],
+				},
+			},
+		};
+
+		const {container} = render(<Picture data={dataWithoutTitle}/>);
+		expect(container.querySelector('main h1')).toBeFalsy();
+	});
 });

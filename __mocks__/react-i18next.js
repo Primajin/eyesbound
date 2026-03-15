@@ -24,6 +24,12 @@ const translations = {
 		english: 'English',
 		german: 'German',
 	},
+	accessibility: {
+		nextSlide: 'Next slide',
+		previousSlide: 'Previous slide',
+		toggleFullscreen: 'Toggle fullscreen',
+		switchTheme: 'Switch theme',
+	},
 };
 
 const translate = (key, options = {}) => {

@@ -1,5 +1,21 @@
 const path = require('node:path');
 
+const {processHtmlFiles} = require('./csp-utils.js');
+
+exports.onPostBuild = async () => {
+	processHtmlFiles(path.join(__dirname, 'public'));
+};
+
+// Disable Gatsby's built-in eslint-webpack-plugin — its options are incompatible
+// with ESLint v10. Linting is handled externally by XO.
+exports.onCreateWebpackConfig = ({actions, getConfig}) => {
+	const config = getConfig();
+	config.plugins = config.plugins.filter(
+		plugin => plugin.constructor.name !== 'ESLintWebpackPlugin',
+	);
+	actions.replaceWebpackConfig(config);
+};
+
 exports.createPages = async ({graphql, actions}) => {
 	const {createPage} = actions;
 

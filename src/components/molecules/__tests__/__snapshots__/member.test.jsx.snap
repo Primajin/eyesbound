@@ -1,5 +1,420 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`Member hides title when it matches the plural asset type 1`] = `
+.emotion-0 {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 27px;
+  font-weight: 700;
+  height: 100px;
+  left: 0;
+  line-height: 100px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+  top: 0;
+  width: 250px;
+  z-index: 10;
+}
+
+.emotion-0.isFullscreen {
+  opacity: 0.65;
+}
+
+@media (min-width: 576px) {
+  .emotion-0 {
+    font-size: 37px;
+    width: 400px;
+  }
+}
+
+.emotion-1 {
+  line-height: 40px;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  text-align: center;
+  top: 100px;
+  -webkit-transform: translateY(calc(-100% + 40px));
+  -moz-transform: translateY(calc(-100% + 40px));
+  -ms-transform: translateY(calc(-100% + 40px));
+  transform: translateY(calc(-100% + 40px));
+  -webkit-transition: -webkit-transform .333s,opacity .333s;
+  transition: transform .333s,opacity .333s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 180px;
+  z-index: 9;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    -webkit-transform: translateY(calc(-100% + 20px));
+    -moz-transform: translateY(calc(-100% + 20px));
+    -ms-transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + 20px));
+  }
+}
+
+.emotion-1.isFullscreen {
+  opacity: 0;
+}
+
+.emotion-1 button {
+  background-color: var(--background);
+  border: none;
+  color: var(--foreground);
+  display: block;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: background-color .333s,color .333s;
+  transition: background-color .333s,color .333s;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .emotion-1 button {
+    line-height: 20px;
+  }
+}
+
+.emotion-1 button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1.open {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1.open button {
+  cursor: default;
+}
+
+.emotion-1.open button:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-1 ul {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.emotion-1 li {
+  -webkit-transition: opacity .333s;
+  transition: opacity .333s;
+}
+
+.emotion-1 li:hover {
+  opacity: 0.666;
+}
+
+.emotion-1 button,
+.emotion-1 li {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+  right: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-2:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-2 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-2.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  top: 0;
+  -webkit-transition: background-color .333s,color .333s,opacity .333s;
+  transition: background-color .333s,color .333s,opacity .333s;
+  width: 50px;
+  z-index: 8;
+}
+
+.emotion-3:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.emotion-3.fullScreen {
+  opacity: 0.65;
+}
+
+.emotion-3 svg {
+  fill: currentColor;
+  height: 40px;
+  width: 40px;
+}
+
+.emotion-4 {
+  width: clamp(16rem, 90vw, 70rem);
+  margin: 170px auto 100px;
+  padding: 0 1.5rem;
+}
+
+.emotion-4 h1,
+.emotion-4 h3 {
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
+.emotion-5 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 420px) {
+  .emotion-5 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .emotion-5 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .emotion-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+.emotion-5 li {
+  content-visibility: auto;
+}
+
+<div>
+  <div
+    class="mock-helmet"
+  >
+    <div
+      data-helmet-tag="title"
+    >
+      Pictures | EYESBOUND
+    </div>
+    <div
+      data-content="Pictures | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="title"
+    />
+    <div
+      data-content="Pictures | EYESBOUND"
+      data-helmet-tag="meta"
+      data-property="og:title"
+    />
+    <div
+      data-content="Pictures | EYESBOUND"
+      data-helmet-tag="meta"
+      data-name="twitter:title"
+    />
+  </div>
+  <header>
+    <h1
+      class="emotion-0"
+    >
+      <a
+        href="/"
+      >
+        EYESBOUND
+      </a>
+    </h1>
+    <nav
+      class="emotion-1"
+    >
+      <ul>
+        <li>
+          <a
+            href="/picture"
+          >
+            Overview
+          </a>
+        </li>
+        <li>
+          <a
+            href="/series/shuttered"
+          >
+            »Shuttered«
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/architecture"
+          >
+            Architecture
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/environment"
+          >
+            Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/floral"
+          >
+            Floral
+          </a>
+        </li>
+        <li>
+          <a
+            href="/category/light"
+          >
+            Light
+          </a>
+        </li>
+        <li>
+          <a
+            href="/worldmap"
+          >
+            Worldmap
+          </a>
+        </li>
+        <li>
+          <a
+            href="/imprint"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <button
+        type="button"
+      >
+        Menu
+      </button>
+    </nav>
+    <button
+      class="emotion-2"
+      title="Switch to German"
+      type="button"
+    >
+      EN
+    </button>
+    <button
+      aria-label="Switch theme"
+      class="emotion-3"
+      type="button"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
+        />
+      </svg>
+      <div
+        class="mock-helmet"
+      >
+        <div
+          data-content="#ffffff"
+          data-helmet-tag="meta"
+          data-name="theme-color"
+        />
+      </div>
+    </button>
+  </header>
+  <main
+    class="emotion-4"
+  >
+    <h1>
+      name
+      : 
+       (
+      0
+      )
+    </h1>
+    <ul
+      class="emotion-5"
+    />
+  </main>
+</div>
+`;
+
 exports[`Member renders correctly with a list of more 1`] = `
 .emotion-0 {
   background-color: var(--foreground);
@@ -64,20 +479,26 @@ exports[`Member renders correctly with a list of more 1`] = `
   opacity: 0;
 }
 
-.emotion-1 div {
+.emotion-1 button {
+  background-color: var(--background);
+  border: none;
+  color: var(--foreground);
+  display: block;
+  font: inherit;
+  margin: 0;
+  padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
-  background-color: var(--background);
-  color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-1 div {
+  .emotion-1 button {
     line-height: 20px;
   }
 }
 
-.emotion-1 div:hover {
+.emotion-1 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -89,11 +510,11 @@ exports[`Member renders correctly with a list of more 1`] = `
   transform: translateY(0);
 }
 
-.emotion-1.open div {
+.emotion-1.open button {
   cursor: default;
 }
 
-.emotion-1.open div:hover {
+.emotion-1.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -112,7 +533,7 @@ exports[`Member renders correctly with a list of more 1`] = `
   opacity: 0.666;
 }
 
-.emotion-1 div,
+.emotion-1 button,
 .emotion-1 li {
   cursor: pointer;
   font-weight: 700;
@@ -351,9 +772,11 @@ exports[`Member renders correctly with a list of more 1`] = `
           </a>
         </li>
       </ul>
-      <div>
+      <button
+        type="button"
+      >
         Menu
-      </div>
+      </button>
     </nav>
     <button
       class="emotion-2"
@@ -376,14 +799,14 @@ exports[`Member renders correctly with a list of more 1`] = `
           fill="none"
         />
         <path
-          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
         />
       </svg>
       <div
         class="mock-helmet"
       >
         <div
-          data-content="#000000"
+          data-content="#ffffff"
           data-helmet-tag="meta"
           data-name="theme-color"
         />
@@ -406,7 +829,7 @@ exports[`Member renders correctly with a list of more 1`] = `
     >
       <li>
         <a
-          aria-label="link-to-picture"
+          aria-label="title1"
           href="/picture/uid-1"
         >
           <picture>
@@ -421,7 +844,7 @@ exports[`Member renders correctly with a list of more 1`] = `
       </li>
       <li>
         <a
-          aria-label="link-to-picture"
+          aria-label="title2"
           href="/picture/uid-2"
         >
           <picture>
@@ -503,20 +926,26 @@ exports[`Member renders correctly with a list of one 1`] = `
   opacity: 0;
 }
 
-.emotion-1 div {
+.emotion-1 button {
+  background-color: var(--background);
+  border: none;
+  color: var(--foreground);
+  display: block;
+  font: inherit;
+  margin: 0;
+  padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
-  background-color: var(--background);
-  color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-1 div {
+  .emotion-1 button {
     line-height: 20px;
   }
 }
 
-.emotion-1 div:hover {
+.emotion-1 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -528,11 +957,11 @@ exports[`Member renders correctly with a list of one 1`] = `
   transform: translateY(0);
 }
 
-.emotion-1.open div {
+.emotion-1.open button {
   cursor: default;
 }
 
-.emotion-1.open div:hover {
+.emotion-1.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -551,7 +980,7 @@ exports[`Member renders correctly with a list of one 1`] = `
   opacity: 0.666;
 }
 
-.emotion-1 div,
+.emotion-1 button,
 .emotion-1 li {
   cursor: pointer;
   font-weight: 700;
@@ -790,9 +1219,11 @@ exports[`Member renders correctly with a list of one 1`] = `
           </a>
         </li>
       </ul>
-      <div>
+      <button
+        type="button"
+      >
         Menu
-      </div>
+      </button>
     </nav>
     <button
       class="emotion-2"
@@ -815,14 +1246,14 @@ exports[`Member renders correctly with a list of one 1`] = `
           fill="none"
         />
         <path
-          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
         />
       </svg>
       <div
         class="mock-helmet"
       >
         <div
-          data-content="#000000"
+          data-content="#ffffff"
           data-helmet-tag="meta"
           data-name="theme-color"
         />
@@ -845,7 +1276,7 @@ exports[`Member renders correctly with a list of one 1`] = `
     >
       <li>
         <a
-          aria-label="link-to-picture"
+          aria-label="title1"
           href="/picture/uid-bar"
         >
           <picture>
@@ -927,20 +1358,26 @@ exports[`Member renders correctly with a list of zero 1`] = `
   opacity: 0;
 }
 
-.emotion-1 div {
+.emotion-1 button {
+  background-color: var(--background);
+  border: none;
+  color: var(--foreground);
+  display: block;
+  font: inherit;
+  margin: 0;
+  padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
-  background-color: var(--background);
-  color: var(--foreground);
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-  .emotion-1 div {
+  .emotion-1 button {
     line-height: 20px;
   }
 }
 
-.emotion-1 div:hover {
+.emotion-1 button:hover {
   background: var(--foreground);
   color: var(--background);
 }
@@ -952,11 +1389,11 @@ exports[`Member renders correctly with a list of zero 1`] = `
   transform: translateY(0);
 }
 
-.emotion-1.open div {
+.emotion-1.open button {
   cursor: default;
 }
 
-.emotion-1.open div:hover {
+.emotion-1.open button:hover {
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -975,7 +1412,7 @@ exports[`Member renders correctly with a list of zero 1`] = `
   opacity: 0.666;
 }
 
-.emotion-1 div,
+.emotion-1 button,
 .emotion-1 li {
   cursor: pointer;
   font-weight: 700;
@@ -1154,7 +1591,7 @@ exports[`Member renders correctly with a list of zero 1`] = `
       </a>
     </h1>
     <nav
-      class="emotion-1"
+      class="open emotion-1"
     >
       <ul>
         <li>
@@ -1214,9 +1651,11 @@ exports[`Member renders correctly with a list of zero 1`] = `
           </a>
         </li>
       </ul>
-      <div>
+      <button
+        type="button"
+      >
         Menu
-      </div>
+      </button>
     </nav>
     <button
       class="emotion-2"
@@ -1239,14 +1678,14 @@ exports[`Member renders correctly with a list of zero 1`] = `
           fill="none"
         />
         <path
-          d="M9 21c0 .6.5 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .6.5 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2zm2.9 11.1l-.9.6V16h-4v-2.3l-.8-.6a5 5 0 115.7 0z"
+          d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19a7 7 0 00-4 12.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3A7 7 0 0012 2z"
         />
       </svg>
       <div
         class="mock-helmet"
       >
         <div
-          data-content="#000000"
+          data-content="#ffffff"
           data-helmet-tag="meta"
           data-name="theme-color"
         />

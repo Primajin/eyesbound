@@ -16,8 +16,8 @@ describe('Navigation', () => {
 
 	it('renders correctly when menu is toggled', () => {
 		const {container} = render(<Navigation/>);
-		const div = container.querySelector('div');
-		fireEvent.click(div);
+		const button = container.querySelector('nav > button');
+		fireEvent.click(button);
 		expect(container).toMatchSnapshot();
 	});
 

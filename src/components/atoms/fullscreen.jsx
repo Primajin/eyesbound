@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
+import {useTranslation} from 'react-i18next';
 
 import buttonCSS from '../../styles/button.js';
 import {fullscreenElement, toggleFullscreen} from '../../utils/fullscreen.js';
@@ -25,6 +26,7 @@ const defaultCallback = () => {
 };
 
 function Fullscreen({callback = defaultCallback, selector = ''}) {
+	const {t} = useTranslation();
 	const [fullScreen, setFullScreen] = useState(false);
 
 	useEffect(() => {
@@ -46,7 +48,7 @@ function Fullscreen({callback = defaultCallback, selector = ''}) {
 
 	return (
 		<button
-			aria-label='Toggle fullscreen'
+			aria-label={t('accessibility.toggleFullscreen')}
 			type='button' css={buttonClass} className={classnames({fullScreen})}
 			onClick={() => toggleFullscreen(selector)}
 		>

@@ -18,9 +18,9 @@ export const toggleFullscreen = selector => {
 	element.requestFullscreen = (element.requestFullscreen || element.mozRequestFullscreen || element.msRequestFullscreen || element.webkitRequestFullscreen) ?? fullscreenNotSupported;
 
 	const fullscreenElement = document.fullscreenElement || document.mozFullscreenElement || document.msFullscreenElement || document.webkitFullscreenDocument;
-	if (!fullscreenElement) {
-		element.requestFullscreen();
-	} else if (document.exitFullscreen) {
+	if (fullscreenElement) {
 		document.exitFullscreen();
+	} else {
+		element.requestFullscreen();
 	}
 };

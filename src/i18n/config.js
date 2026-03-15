@@ -13,8 +13,8 @@ const resources = {
 	},
 };
 
-// Detect browser language
-const getBrowserLanguage = () => {
+// Detect browser language - exported for use after hydration
+export const getBrowserLanguage = () => {
 	if (typeof navigator === 'undefined') {
 		return 'en'; // Default for SSR
 	}
@@ -27,11 +27,14 @@ const getBrowserLanguage = () => {
 	return langCode === 'de' ? 'de' : 'en';
 };
 
+// Always init with 'en' so server and initial client renders produce identical
+// text content, preventing React hydration error #418.
+// Browser language detection is deferred to onInitialClientRender in gatsby-browser.js.
 i18n
 	.use(initReactI18next)
 	.init({
 		resources,
-		lng: getBrowserLanguage(),
+		lng: 'en',
 		fallbackLng: 'en',
 		interpolation: {
 			escapeValue: false, // React already escapes
