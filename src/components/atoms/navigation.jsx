@@ -31,13 +31,14 @@ const navigationStyle = css`
 	}
 
 	button {
+		background-color: var(--background);
 		border: none;
+		color: var(--foreground);
+		display: block;
 		font: inherit;
 		margin: 0;
 		padding: 0;
 		transition: background-color .333s, color .333s;
-		background-color: var(--background);
-		color: var(--foreground);
 		width: 100%;
 
 		${up('md')} {
