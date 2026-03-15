@@ -36,14 +36,15 @@ exports[`Navigation renders correctly when menu is toggled 1`] = `
 }
 
 .emotion-0 button {
+  background-color: var(--background);
   border: none;
+  color: var(--foreground);
+  display: block;
   font: inherit;
   margin: 0;
   padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
-  background-color: var(--background);
-  color: var(--foreground);
   width: 100%;
 }
 
@@ -202,14 +203,15 @@ exports[`Navigation renders correctly with props 1`] = `
 }
 
 .emotion-0 button {
+  background-color: var(--background);
   border: none;
+  color: var(--foreground);
+  display: block;
   font: inherit;
   margin: 0;
   padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
-  background-color: var(--background);
-  color: var(--foreground);
   width: 100%;
 }
 
@@ -368,14 +370,15 @@ exports[`Navigation renders correctly without props 1`] = `
 }
 
 .emotion-0 button {
+  background-color: var(--background);
   border: none;
+  color: var(--foreground);
+  display: block;
   font: inherit;
   margin: 0;
   padding: 0;
   -webkit-transition: background-color .333s,color .333s;
   transition: background-color .333s,color .333s;
-  background-color: var(--background);
-  color: var(--foreground);
   width: 100%;
 }
 
