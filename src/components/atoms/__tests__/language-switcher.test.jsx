@@ -3,7 +3,38 @@ import {render, screen, fireEvent} from '@testing-library/react';
 
 import LanguageSwitcher from '../language-switcher.jsx';
 
+const translations = {
+	'language.switchTo': 'Switch to {{language}}',
+	'language.english': 'English',
+	'language.german': 'German',
+};
+
+let mockLanguage = 'en';
+
+jest.mock('react-i18next', () => ({
+	useTranslation: () => ({
+		t(key, options = {}) {
+			let value = translations[key] ?? key;
+			if (typeof value === 'string' && options) {
+				value = value.replaceAll(/{{(\w+)}}/g, (_, variable) => options[variable] || '');
+			}
+
+			return value;
+		},
+		i18n: {
+			get language() {
+				return mockLanguage;
+			},
+			changeLanguage: jest.fn(),
+		},
+	}),
+}));
+
 describe('LanguageSwitcher', () => {
+	beforeEach(() => {
+		mockLanguage = 'en';
+	});
+
 	it('renders correctly', () => {
 		const {container} = render(<LanguageSwitcher/>);
 		expect(container).toMatchSnapshot();
@@ -13,11 +44,21 @@ describe('LanguageSwitcher', () => {
 		render(<LanguageSwitcher/>);
 		const button = screen.getByRole('button');
 
-		expect(button.textContent).toMatch(/EN|DE/);
+		expect(button.textContent).toBe('EN');
 
 		fireEvent.click(button);
 
 		expect(button.textContent).toMatch(/EN|DE/);
+	});
+
+	it('displays DE when language is German', () => {
+		mockLanguage = 'de';
+
+		render(<LanguageSwitcher/>);
+		const button = screen.getByRole('button');
+		expect(button.textContent).toBe('DE');
+
+		fireEvent.click(button);
 	});
 
 	it('renders with isFullscreen prop', () => {
@@ -26,15 +67,10 @@ describe('LanguageSwitcher', () => {
 	});
 
 	it('displays correct text for current language', () => {
-		// The language switcher displays the current language and allows switching
-		// The default mock has language set to 'en', so it should display 'EN'
 		render(<LanguageSwitcher/>);
 		const button = screen.getByRole('button');
 
-		// Button should display the current language code in uppercase
-		expect(button.textContent).toMatch(/EN|DE/);
-
-		// Button should have a title attribute for accessibility
+		expect(button.textContent).toBe('EN');
 		expect(button).toHaveAttribute('title');
 	});
 });

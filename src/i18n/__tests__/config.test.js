@@ -46,4 +46,13 @@ describe('getBrowserLanguage', () => {
 		});
 		expect(getBrowserLanguage()).toBe('en');
 	});
+
+	it('falls back to userLanguage when language is not available', () => {
+		Object.defineProperty(globalThis, 'navigator', {
+			value: {language: undefined, userLanguage: 'de-AT'},
+			writable: true,
+			configurable: true,
+		});
+		expect(getBrowserLanguage()).toBe('de');
+	});
 });
