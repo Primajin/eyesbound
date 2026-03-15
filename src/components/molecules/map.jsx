@@ -71,6 +71,7 @@ function Map({center = centerOfGermany, data, height = '100vh', hasNoInfoWindow 
 	);
 }
 
+// eslint-disable-next-line no-use-extend-native/no-use-extend-native
 Map.propTypes = {
 	center: PropTypes.exact({latitude: PropTypes.number, longitude: PropTypes.number}),
 	data: PropTypes.arrayOf(PropTypes.exact(prismicPictureNode)).isRequired,

@@ -1,5 +1,4 @@
 import xo from 'xo';
-import xoReactConfig from 'eslint-config-xo-react';
 import {globalIgnores} from 'eslint/config';
 import pluginJest from 'eslint-plugin-jest';
 
@@ -16,7 +15,6 @@ const eslintConfig = [
 		'loadershim.js',
 		'package-lock.json',
 	]),
-	...xoReactConfig,
 	{
 		files: ['**/*.test.{js,jsx,ts,tsx}'],
 		...pluginJest.configs['flat/recommended'],
@@ -28,6 +26,7 @@ const eslintConfig = [
 		},
 	},
 	{
+		react: true,
 		files: ['**/*.{js,jsx,ts,tsx}'],
 		rules: {
 			'import-x/order': [
@@ -41,7 +40,7 @@ const eslintConfig = [
 					],
 				},
 			],
-			'n/prefer-global/process': 'off', // ?
+			'n/prefer-global/process': 'off',
 			'react/react-in-jsx-scope': 'off',
 			'react/require-default-props': [
 				'error',
@@ -60,12 +59,7 @@ const eslintConfig = [
 				},
 			],
 		},
-	},
-	{
 		settings: {
-			// Fix for ESLint 10+: eslint-plugin-react uses context.getFilename() (legacy API)
-			// which was removed in ESLint 10 flat config. Declaring the version explicitly
-			// prevents the plugin from trying to auto-detect it and failing.
 			react: {version: '19'},
 		},
 	},

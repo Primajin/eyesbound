@@ -55,7 +55,7 @@ describe('Picture Template', () => {
 
 		// The date should be formatted correctly (e.g., "January 15, 2024")
 		// Using a regex to check for a valid date format
-		expect(displayedText).toMatch(/\w+\s+\d{2},\s+\d{4}/);
+		expect(displayedText).toMatch(/\w+\s+\d{2},\s+\d{4}/v);
 	});
 
 	it('should have correct datetime attribute on time element', () => {

@@ -16,7 +16,7 @@ jest.mock('react-i18next', () => ({
 		t(key, options = {}) {
 			let value = translations[key] ?? key;
 			if (typeof value === 'string' && options) {
-				value = value.replaceAll(/{{(\w+)}}/g, (_, variable) => options[variable] || '');
+				value = value.replaceAll(/\{\{(\w+)\}\}/gv, (_, variable) => options[variable] || '');
 			}
 
 			return value;
@@ -48,7 +48,7 @@ describe('LanguageSwitcher', () => {
 
 		fireEvent.click(button);
 
-		expect(button.textContent).toMatch(/EN|DE/);
+		expect(button.textContent).toMatch(/EN|DE/v);
 	});
 
 	it('displays DE when language is German', () => {
