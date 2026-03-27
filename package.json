@@ -42,7 +42,7 @@
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-source-prismic": "^6.0.3",
-    "i18next": "^25.10.9",
+    "i18next": "^25.10.10",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
