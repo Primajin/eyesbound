@@ -1,5 +1,6 @@
 const path = require('node:path');
 
+const {codecovWebpackPlugin} = require('@codecov/webpack-plugin');
 const {processHtmlFiles} = require('./csp-utils.js');
 
 exports.onPostBuild = async () => {
@@ -12,6 +13,15 @@ exports.onCreateWebpackConfig = ({actions, getConfig}) => {
 	const config = getConfig();
 	config.plugins = config.plugins.filter(
 		plugin => plugin.constructor.name !== 'ESLintWebpackPlugin',
+	);
+	// Put the Codecov webpack plugin after all other plugins
+	config.plugins.push(
+		codecovWebpackPlugin({
+			enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+			bundleName: 'eyesbound',
+			uploadToken: process.env.CODECOV_TOKEN,
+			gitService: 'github',
+		}),
 	);
 	actions.replaceWebpackConfig(config);
 };
