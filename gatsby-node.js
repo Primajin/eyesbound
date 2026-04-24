@@ -14,7 +14,7 @@ exports.onCreateWebpackConfig = ({actions, getConfig}) => {
 	config.plugins = config.plugins.filter(
 		plugin => plugin.constructor.name !== 'ESLintWebpackPlugin',
 	);
-	// Put the Codecov webpack plugin after all other plugins
+	// Add the Codecov webpack plugin after all other plugins
 	config.plugins.push(
 		codecovWebpackPlugin({
 			enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
