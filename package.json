@@ -42,7 +42,7 @@
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-source-prismic": "^6.0.3",
-    "i18next": "^26.0.7",
+    "i18next": "^26.0.8",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -65,7 +65,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
-    "jest-junit": "^16.0.0",
+    "jest-junit": "^17.0.0",
     "typescript": "^6.0.3",
     "xo": "^2.0.2"
   },
