@@ -67,7 +67,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "jest-junit": "^17.0.0",
     "typescript": "^6.0.3",
-    "xo": "^2.0.2"
+    "xo": "^3.0.0"
   },
   "overrides": {
     "@codecov/webpack-plugin": {
