@@ -121,7 +121,7 @@ function Navigation({isFullscreen = false}) {
 		}
 
 		// Register eventListener once
-		document.addEventListener('focus', openMenu, true);
+		document.addEventListener('focus', openMenu, {capture: true});
 
 		return () => {
 			// Unregister eventListener once

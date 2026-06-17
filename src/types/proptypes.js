@@ -1,8 +1,16 @@
 import {
-	array, arrayOf, bool, exact, node, number, object, oneOfType, string,
+	array,
+	arrayOf,
+	bool,
+	exact,
+	node,
+	number,
+	object,
+	oneOfType,
+	string,
 } from 'prop-types';
 
-/* eslint-disable camelcase,capitalized-comments */
+/* eslint-disable camelcase,capitalized-comments -- Prismic API uses snake_case field names */
 
 const genericResponse = {
 	edges: arrayOf(object),

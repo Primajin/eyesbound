@@ -10,7 +10,8 @@ import Map from '../components/molecules/map.jsx';
 import Query from '../types/proptypes.js';
 import useThemePreference from '../hooks/use-theme-preference.js';
 
-function Worldmap({data: {allPrismicPicture: {edges}}}) {
+function Worldmap({data}) {
+	const {edges} = data.allPrismicPicture;
 	const {t} = useTranslation();
 	const {isDark, switchTheme} = useThemePreference();
 

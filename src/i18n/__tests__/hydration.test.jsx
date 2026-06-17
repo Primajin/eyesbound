@@ -1,11 +1,11 @@
 /* global document */
 /**
- * Hydration safety test — verifies SSR output matches client initial render.
- *
- * Simulates the exact sequence that happens in production:
- * 1. Render component to static HTML (SSR)
- * 2. Put that HTML into jsdom
- * 3. Hydrate with React — check for hydration errors
+ Hydration safety test — verifies SSR output matches client initial render.
+
+ Simulates the exact sequence that happens in production:
+ 1. Render component to static HTML (SSR)
+ 2. Put that HTML into jsdom
+ 3. Hydrate with React — check for hydration errors
  */
 import React from 'react';
 import {renderToString} from 'react-dom/server';
@@ -54,7 +54,7 @@ describe('Hydration safety', () => {
 	it('LanguageSwitcher SSR matches even with German browser locale', () => {
 		// Simulate German browser — getBrowserLanguage() would return 'de'
 		// But i18n is always initialized with 'en', so initial render should still match
-		const originalNavigator = globalThis.navigator;
+		const originalNavigator = navigator;
 		Object.defineProperty(globalThis, 'navigator', {
 			value: {language: 'de-DE'},
 			writable: true,

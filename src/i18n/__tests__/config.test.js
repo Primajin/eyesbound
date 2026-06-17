@@ -1,7 +1,7 @@
 import {getBrowserLanguage} from '../config.js';
 
 describe('getBrowserLanguage', () => {
-	const originalNavigator = globalThis.navigator;
+	const originalNavigator = navigator;
 
 	afterEach(() => {
 		Object.defineProperty(globalThis, 'navigator', {

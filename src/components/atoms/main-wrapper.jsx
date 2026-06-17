@@ -1,7 +1,7 @@
 import React from 'react';
 import {css} from '@emotion/react';
 
-import {children} from '../../types/proptypes.js';
+import {children as childrenPropType} from '../../types/proptypes.js';
 
 const mainWrapper = css`
 	width: clamp(16rem, 90vw, 70rem);
@@ -19,7 +19,7 @@ function MainWrapper({children = undefined}) {
 }
 
 MainWrapper.propTypes = {
-	children,
+	children: childrenPropType,
 };
 
 export default MainWrapper;

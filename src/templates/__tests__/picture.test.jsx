@@ -24,8 +24,8 @@ describe('Picture Template', () => {
 				title: 'Test Picture',
 				datetime: '2024-01-15T10:30:00+0000',
 				coordinates: {
-					latitude: 52.473_092,
-					longitude: 13.327_628,
+					latitude: 52.473092,
+					longitude: 13.327628,
 				},
 				image: {
 					alt: 'Test image',
@@ -55,7 +55,7 @@ describe('Picture Template', () => {
 
 		// The date should be formatted correctly (e.g., "January 15, 2024")
 		// Using a regex to check for a valid date format
-		expect(displayedText).toMatch(/\w+\s+\d{2},\s+\d{4}/v);
+		expect(displayedText).toMatch(/[A-Z][a-z]+\s+\d{2},\s+\d{4}/v);
 	});
 
 	it('should have correct datetime attribute on time element', () => {
@@ -73,8 +73,8 @@ describe('Picture Template', () => {
 				data: {
 					title: 'Test Picture',
 					coordinates: {
-						latitude: 52.473_092,
-						longitude: 13.327_628,
+						latitude: 52.473092,
+						longitude: 13.327628,
 					},
 					image: {
 						alt: 'Test image',
@@ -106,8 +106,8 @@ describe('Picture Template', () => {
 					title: 'Test Picture',
 					datetime: '2024-01-15T10:30:00+0000',
 					coordinates: {
-						latitude: 52.473_092,
-						longitude: 13.327_628,
+						latitude: 52.473092,
+						longitude: 13.327628,
 					},
 					image: {
 						alt: 'Test image',
@@ -147,8 +147,8 @@ describe('Picture Template', () => {
 				data: {
 					datetime: '2024-01-15T10:30:00+0000',
 					coordinates: {
-						latitude: 52.473_092,
-						longitude: 13.327_628,
+						latitude: 52.473092,
+						longitude: 13.327628,
 					},
 					image: {
 						alt: 'Test image',
@@ -170,6 +170,6 @@ describe('Picture Template', () => {
 		};
 
 		const {container} = render(<Picture data={dataWithoutTitle}/>);
-		expect(container.querySelector('main h1')).toBeFalsy();
+		expect(container.querySelector(':scope main h1')).toBeFalsy();
 	});
 });

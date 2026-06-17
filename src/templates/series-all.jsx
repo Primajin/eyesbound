@@ -8,7 +8,8 @@ import Query from '../types/proptypes.js';
 
 const {SERIES: {path, plural}} = AssetTypes;
 
-function Series({data: {allPrismicSeries: {edges}}}) {
+function Series({data}) {
+	const {edges} = data.allPrismicSeries;
 	return <Group edges={edges} path={path} plural={plural}/>;
 }
 

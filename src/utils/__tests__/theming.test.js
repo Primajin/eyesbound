@@ -1,5 +1,9 @@
 import {
-	breakpoints, deviceSpecs, forDevice, up, userPrefersDark,
+	breakpoints,
+	deviceSpecs,
+	forDevice,
+	up,
+	userPrefersDark,
 } from '../theming.js';
 
 describe('theming', () => {

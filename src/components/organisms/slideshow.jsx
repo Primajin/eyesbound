@@ -112,7 +112,9 @@ function Slideshow({images, isFullscreen = false}) {
 	return (
 		<div className='slide-container'>
 			<Fade {...properties}>
-				{images.map(({node: {data: {title, image}, id, uid}}) => {
+				{images.map(({node}) => {
+					const {id, uid, data: nodeData} = node;
+					const {title, image} = nodeData;
 					const thumbnailSource = image.thumbnails?.thumbnail.gatsbyImageData.images.fallback.src;
 					return (
 						<a

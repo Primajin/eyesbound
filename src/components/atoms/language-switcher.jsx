@@ -27,7 +27,7 @@ function LanguageSwitcher({isFullscreen = false}) {
 	};
 
 	const currentLang = i18n.language === 'en' ? 'EN' : 'DE';
-	const targetLang = i18n.language === 'en' ? t('language.german') : t('language.english');
+	const targetLang = t(i18n.language === 'en' ? 'language.german' : 'language.english');
 
 	return (
 		<button

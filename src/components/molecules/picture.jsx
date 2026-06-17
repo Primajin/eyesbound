@@ -17,8 +17,8 @@ const normal = css`
 `;
 
 /**
- * Default size for the image.
- * @type {{width: number | undefined, height: number | undefined}}
+ Default size for the image.
+ @type {{width: number | undefined, height: number | undefined}}
  */
 const defaultSize = {
 	width: undefined,
@@ -36,11 +36,11 @@ function Picture({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails
 		}
 
 		if (Object.hasOwn(image, 'thumbnails')) {
-			({thumbnails: {thumbnail: {gatsbyImageData}}} = image);
+			({gatsbyImageData} = image.thumbnails.thumbnail);
 		}
 	} else {
 		if (Object.hasOwn(image, 'thumbnails')) {
-			({thumbnails: {thumbnail: {gatsbyImageData}}} = image);
+			({gatsbyImageData} = image.thumbnails.thumbnail);
 		}
 
 		if (Object.hasOwn(image, 'gatsbyImageData')) {
