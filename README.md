@@ -26,13 +26,13 @@ npm start
 
 You can now view eyesbound in the browser.
 
-```
+```text
 http://localhost:8000/
 ```
 
 View GraphiQL, an in-browser IDE, to explore your site's data and schema
 
-```⠀
+```text
 http://localhost:8000/___graphql
 ```
 
@@ -45,7 +45,7 @@ This will update the `schema.graphql` file and offer better code completion when
 Furthermore, reusable components are stored in `src/components` in an atomic design structure.
 
 ## Structure
-```
+```text
 src
 ├───components      All HTML components go here
 │   ├───atoms       All tiny / non dividable components

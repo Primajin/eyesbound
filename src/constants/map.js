@@ -1,6 +1,6 @@
 export const centerOfGermany = {
-	latitude: 51.164_229_2,
-	longitude: 10.454_119_4,
+	latitude: 51.1642292,
+	longitude: 10.4541194,
 };
 
 export const mapIdDark = '3337a3a753e88572';

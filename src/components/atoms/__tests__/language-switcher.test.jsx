@@ -16,7 +16,7 @@ jest.mock('react-i18next', () => ({
 		t(key, options = {}) {
 			let value = translations[key] ?? key;
 			if (typeof value === 'string' && options) {
-				value = value.replaceAll(/\{\{(\w+)\}\}/gv, (_, variable) => options[variable] || '');
+				value = value.replaceAll(/\{\{(?<variable>\w+)\}\}/gv, (_, variable) => options[variable] ?? '');
 			}
 
 			return value;

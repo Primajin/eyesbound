@@ -8,7 +8,8 @@ import Query from '../types/proptypes.js';
 
 const {PICTURE: {path, plural}} = AssetTypes;
 
-function Pictures({data: {allPrismicPicture: {edges}}}) {
+function Pictures({data}) {
+	const {edges} = data.allPrismicPicture;
 	return <Member edges={edges} name={plural} path={path} title={plural}/>;
 }
 

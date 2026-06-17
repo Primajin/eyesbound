@@ -13,14 +13,14 @@ describe('404 Page', () => {
 
 	it('displays the correct heading', () => {
 		const {container} = render(<NotFoundPage/>);
-		const heading = container.querySelector('main h1');
+		const heading = container.querySelector(':scope main h1');
 		expect(heading).toBeTruthy();
 		expect(heading.textContent).toBe('404 - Page Not Found');
 	});
 
 	it('has a link back to home', () => {
 		const {container} = render(<NotFoundPage/>);
-		const link = container.querySelector('main a[href="/"]');
+		const link = container.querySelector(':scope main a[href="/"]');
 		expect(link).toBeTruthy();
 		expect(link.textContent).toBe('Return to Home');
 	});

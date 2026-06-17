@@ -473,11 +473,11 @@ exports[`Imprint renders correctly 1`] = `
       Julia Hell
       <br />
       <a
-        href="http://www.julia-hell.com"
+        href="https://www.julia-hell.com"
         rel="noreferrer"
         target="_blank"
       >
-        http://www.julia-hell.com
+        https://www.julia-hell.com
       </a>
     </p>
     <p>

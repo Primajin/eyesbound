@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';
@@ -28,13 +28,8 @@ const lightStyles = css`
 function ThemeSwitcher({isFullscreen = false, isDark, switchTheme}) {
 	const {t} = useTranslation();
 	const fullScreen = isFullscreen;
-	const [darkmode, setDarkmode] = useState(false);
 
-	useEffect(() => {
-		setDarkmode(isDark);
-	}, [isDark]);
-
-	if (darkmode) {
+	if (isDark) {
 		return (
 			<button
 				aria-label={t('accessibility.switchTheme')} css={buttonCSS}

@@ -1,5 +1,5 @@
 /* global jest */
-/* eslint-disable unicorn/prefer-module */
+/* eslint-disable unicorn/prefer-module -- Jest config requires CommonJS */
 jest.mock('gatsby-plugin-image', () => {
 	const React = require('react');
 	const plugin = jest.requireActual('gatsby-plugin-image');
@@ -47,9 +47,9 @@ jest.mock('react-helmet', () => {
 			};
 
 			// Copy relevant attributes
-			for (const key of Object.keys(childProps)) {
+			for (const [key, value] of Object.entries(childProps)) {
 				if (key !== 'children') {
-					attrs[`data-${key}`] = String(childProps[key]);
+					attrs[`data-${key}`] = String(value);
 				}
 			}
 

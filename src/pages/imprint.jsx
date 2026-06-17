@@ -35,7 +35,7 @@ function Imprint() {
 	const {t} = useTranslation();
 	const {isDark, switchTheme} = useThemePreference();
 
-	/* eslint-disable @stylistic/max-len */
+	/* eslint-disable @stylistic/max-len -- Long address/legal text cannot be split */
 	return (
 		<>
 			<HelmetMetaTags title={t('imprint.metaTitle')} path='imprint'/>
@@ -52,7 +52,7 @@ function Imprint() {
 					</a>
 				</p>
 				<h2>{t('imprint.design')}</h2>
-				<p>Julia Hell<br/><a href='http://www.julia-hell.com' target='_blank' rel='noreferrer'>http://www.julia-hell.com</a></p>
+				<p>Julia Hell<br/><a href='https://www.julia-hell.com' target='_blank' rel='noreferrer'>https://www.julia-hell.com</a></p>
 				<p>
 					<a href='https://competition.adesignaward.com/design.php?ID=45698' target='_blank' rel='noreferrer'>
 						<img alt='A Design Award 2016 - Silver' height='237' src={ADesignAwardBadge} width='150'/>

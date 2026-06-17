@@ -66,7 +66,7 @@ function Picture({data: {prismicPicture = defaultPictureData}}) {
 	const imageSource = image?.gatsbyImageData?.images.fallback.src ?? image?.thumbnails?.thumbnail.gatsbyImageData?.images.fallback.src;
 	const seriesTitle = series?.document?.data?.title;
 	const seriesUID = series?.document?.uid;
-	const shortenedCoords = coordinates && Object.keys(coordinates).map(key => coordinates[key].toFixed(5));
+	const shortenedCoords = coordinates && Object.values(coordinates).map(value => value.toFixed(5));
 
 	const hasCoords = shortenedCoords?.length > 0;
 	const hasDateTime = datetime?.length > 0;

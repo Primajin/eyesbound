@@ -12,13 +12,13 @@ function GoogleMap({center, data, height, hasNoInfoWindow, mapId, zoom}) {
 	const {image, position, title, uid} = properties;
 	const mapCenter = useMemo(() => ({lat: center.latitude, lng: center.longitude}), [center.latitude, center.longitude]);
 
-	const toggleInfoWindow = properties => () => {
+	const toggleInfoWindow = markerProperties => () => {
 		if (hasNoInfoWindow) {
 			return;
 		}
 
 		setInfoWindowOpen(true);
-		setProperties(properties);
+		setProperties(markerProperties);
 	};
 
 	const options = useMemo(() => ({mapId, streetViewControl: false}), [mapId]);
@@ -30,12 +30,14 @@ function GoogleMap({center, data, height, hasNoInfoWindow, mapId, zoom}) {
 	return (
 		<ReactGoogleMap center={mapCenter} mapContainerStyle={mapContainerStyle} options={options} zoom={zoom}>
 			<>
-				{data.map(({node: {data: {coordinates: {latitude, longitude}, image, title}, id, uid}}) => {
-					const position = {lat: latitude, lng: longitude};
-					const properties = {
-						image, position, title, uid,
+				{data.map(({node}) => {
+					const {id, uid: markerUid, data: markerData} = node;
+					const {image: markerImage, title: markerTitle, coordinates: {latitude, longitude}} = markerData;
+					const markerPosition = {lat: latitude, lng: longitude};
+					const markerProperties = {
+						image: markerImage, position: markerPosition, title: markerTitle, uid: markerUid,
 					};
-					return <Marker key={id} position={position} title={title} clickable={!hasNoInfoWindow} onClick={toggleInfoWindow(properties)}/>;
+					return <Marker key={id} position={markerPosition} title={markerTitle} clickable={!hasNoInfoWindow} onClick={toggleInfoWindow(markerProperties)}/>;
 				})}
 				{ infoWindowOpen && title
 					? (

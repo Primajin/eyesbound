@@ -5,7 +5,7 @@ import GoogleMap from '../google-map.jsx';
 
 describe('GoogleMap', () => {
 	it('renders correctly with props and a list of zero', () => {
-		const center = {latitude: 52.473_092, longitude: 13.327_628};
+		const center = {latitude: 52.473092, longitude: 13.327628};
 
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};
@@ -21,7 +21,7 @@ describe('GoogleMap', () => {
 	});
 
 	it('renders correctly with props and a list of one', () => {
-		const center = {latitude: 52.473_092, longitude: 13.327_628};
+		const center = {latitude: 52.473092, longitude: 13.327628};
 
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};
@@ -45,7 +45,7 @@ describe('GoogleMap', () => {
 	});
 
 	it('renders correctly with props and a list of two', () => {
-		const center = {latitude: 52.473_092, longitude: 13.327_628};
+		const center = {latitude: 52.473092, longitude: 13.327628};
 
 		const picture1 = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const prismicPicture1 = {data: picture1, id: 'id-foo', uid: 'uid-bar'};
@@ -68,7 +68,7 @@ describe('GoogleMap', () => {
 	});
 
 	it('maintains correct InfoWindow position when clicking different markers', () => {
-		const center = {latitude: 52.473_092, longitude: 13.327_628};
+		const center = {latitude: 52.473092, longitude: 13.327628};
 
 		const picture1 = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const prismicPicture1 = {data: picture1, id: 'id-foo', uid: 'uid-bar'};
@@ -108,7 +108,7 @@ describe('GoogleMap', () => {
 	});
 
 	it('closes InfoWindow when close button is clicked', () => {
-		const center = {latitude: 52.473_092, longitude: 13.327_628};
+		const center = {latitude: 52.473092, longitude: 13.327628};
 
 		const picture = {coordinates: {latitude: 52.123, longitude: 13.123}, image: {}, title: 'title1'};
 		const prismicPicture = {data: picture, id: 'id-foo', uid: 'uid-bar'};

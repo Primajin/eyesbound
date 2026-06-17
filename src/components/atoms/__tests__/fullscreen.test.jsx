@@ -26,7 +26,7 @@ describe('Fullscreen', () => {
 		const {container} = render(<Fullscreen callback={callback} selector={selector}/>);
 		const button = container.querySelector('button');
 		fireEvent.click(button);
-		globalThis.document.dispatchEvent(new Event('fullscreenchange'));
+		document.dispatchEvent(new Event('fullscreenchange'));
 		expect(callback).toHaveBeenCalledTimes(1);
 	});
 });

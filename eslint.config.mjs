@@ -1,10 +1,12 @@
-import xo from 'xo';
+import {fixupConfigRules} from '@eslint/compat';
 import {globalIgnores} from 'eslint/config';
 import pluginJest from 'eslint-plugin-jest';
+import xoReact from 'eslint-config-xo-react';
 
 /** @type {import('xo').FlatXoConfig} */
 const eslintConfig = [
 	globalIgnores([
+		'.github/agents/**',
 		'__mocks__',
 		'__snapshots__',
 		'csp-utils.js',
@@ -15,6 +17,7 @@ const eslintConfig = [
 		'loadershim.js',
 		'package-lock.json',
 	]),
+	...fixupConfigRules(xoReact().map(config => ({...config, files: ['**/*.{js,jsx,ts,tsx}']}))),
 	{
 		files: ['**/*.test.{js,jsx,ts,tsx}'],
 		...pluginJest.configs['flat/recommended'],
@@ -23,10 +26,16 @@ const eslintConfig = [
 			...pluginJest.configs['flat/recommended'].rules,
 			...pluginJest.configs['flat/style'].rules,
 			'unicorn/prefer-global-this': 'off',
+			'unicorn/no-global-object-property-assignment': 'off',
 		},
 	},
 	{
-		react: true,
+		files: ['src/i18n/config.js'],
+		rules: {
+			'unicorn/no-top-level-side-effects': 'off',
+		},
+	},
+	{
 		files: ['**/*.{js,jsx,ts,tsx}'],
 		rules: {
 			'import-x/order': [
@@ -41,7 +50,6 @@ const eslintConfig = [
 				},
 			],
 			'n/prefer-global/process': 'off',
-			'react/react-in-jsx-scope': 'off',
 			'react/require-default-props': [
 				'error',
 				{
@@ -58,11 +66,14 @@ const eslintConfig = [
 					],
 				},
 			],
-		},
-		settings: {
-			react: {version: '19'},
+			'unicorn/filename-case': [
+				'error',
+				{
+					ignore: [/^__\w+__$/v],
+				},
+			],
 		},
 	},
 ];
 
-export default xo.xoToEslintConfig(eslintConfig);
+export default eslintConfig;

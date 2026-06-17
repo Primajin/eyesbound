@@ -10,13 +10,17 @@ function List({data, path, title}) {
 				{title} ({data.length})
 			</h1>
 			<ul>
-				{data.map(({node: {uid, data: {title}}}) => (
-					<li key={uid}>
-						<a href={`/${path}/${uid}`} aria-label={title}>
-							{title}
-						</a>
-					</li>
-				))}
+				{data.map(({node}) => {
+					const {uid, data: nodeData} = node;
+					const {title: itemTitle} = nodeData;
+					return (
+						<li key={uid}>
+							<a href={`/${path}/${uid}`} aria-label={itemTitle}>
+								{itemTitle}
+							</a>
+						</li>
+					);
+				})}
 			</ul>
 		</>
 	);

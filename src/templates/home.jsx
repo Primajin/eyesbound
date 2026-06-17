@@ -11,7 +11,8 @@ import Slideshow from '../components/organisms/slideshow.jsx';
 import SocialImage from '../../static/social-image.png';
 import useThemePreference from '../hooks/use-theme-preference.js';
 
-function Home({data: {allPrismicPicture: {edges}}}) {
+function Home({data}) {
+	const {edges} = data.allPrismicPicture;
 	const [fullScreen, setFullScreen] = useState(false);
 
 	const fullscreenCallback = isFullscreen => {
@@ -22,7 +23,7 @@ function Home({data: {allPrismicPicture: {edges}}}) {
 
 	const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
-	/* eslint-disable @stylistic/max-len */
+	/* eslint-disable @stylistic/max-len -- Long SEO description content cannot be split */
 	return (
 		<>
 			<Helmet>

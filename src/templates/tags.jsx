@@ -8,7 +8,8 @@ import Query from '../types/proptypes.js';
 
 const {TAG: {path, plural}} = AssetTypes;
 
-function Tags({data: {allPrismicTags: {edges}}}) {
+function Tags({data}) {
+	const {edges} = data.allPrismicTags;
 	return <Group edges={edges} path={path} plural={plural}/>;
 }
 

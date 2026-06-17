@@ -24,7 +24,7 @@ function HTML({
 		<html lang='en' dir='ltr' {...(htmlAttributes)}>
 			<head>
 				<meta charSet='utf-8'/>
-				{/* eslint-disable react/no-danger */}
+				{/* eslint-disable react/no-danger -- Inline script needed for theme initialization before React hydrates */}
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
@@ -72,7 +72,7 @@ function HTML({
 				<meta name='twitter:site' content='@helljannis'/>
 				<meta name='twitter:creator' content='@helljannis'/>
 				{/* General */}
-				{/* eslint-disable @stylistic/max-len */}
+				{/* eslint-disable @stylistic/max-len -- Long meta description content cannot be split */}
 				<meta name='description' content='Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.'/>
 				<meta name='abstract' content='Portfolio Website for Eyesbound Photography – Berlin based photographer Jannis Hell. The focus lies on fine art photography with architecture and environmental images. Founded in 2005, Eyesbound switched from analogue to digital photography, using hdr and infrared techniques as well as extreme bulb exposure.'/>
 				{/* eslint-enable @stylistic/max-len */}

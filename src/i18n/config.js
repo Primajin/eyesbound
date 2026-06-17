@@ -21,7 +21,7 @@ export const getBrowserLanguage = () => {
 
 	const browserLang = navigator.language || navigator.userLanguage;
 	// Extract the language code (e.g., 'en' from 'en-US')
-	const langCode = browserLang?.split('-')[0];
+	const langCode = browserLang?.split('-', 1)[0];
 
 	// Check if we support this language
 	return langCode === 'de' ? 'de' : 'en';
