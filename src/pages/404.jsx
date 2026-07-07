@@ -36,7 +36,7 @@ const notFoundContent = css`
 	}
 `;
 
-function NotFoundPage() {
+export default function NotFoundPage() {
 	const {isDark, switchTheme} = useThemePreference();
 
 	return (
@@ -53,5 +53,3 @@ function NotFoundPage() {
 		</>
 	);
 }
-
-export default NotFoundPage;

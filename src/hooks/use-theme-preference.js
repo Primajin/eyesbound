@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import {userPrefersDark} from '../utils/theming.js';
 
-function useThemePreference() {
+export default function useThemePreference() {
 	const [isDark, setIsDark] = useState(() => {
 		// During SSR, we don't have access to localStorage, so use system preference
 		if (globalThis.window === undefined) {
@@ -23,10 +23,10 @@ function useThemePreference() {
 	});
 
 	const switchTheme = () => {
-		const flipPreference = !isDark;
-		setIsDark(flipPreference);
+		const isFlipPreference = !isDark;
+		setIsDark(isFlipPreference);
 		try {
-			localStorage.setItem('userPrefersDark', JSON.stringify(flipPreference));
+			localStorage.setItem('userPrefersDark', JSON.stringify(isFlipPreference));
 		} catch {
 			// Silently fail if localStorage is not available
 		}
@@ -34,5 +34,3 @@ function useThemePreference() {
 
 	return {isDark, switchTheme};
 }
-
-export default useThemePreference;
