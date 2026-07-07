@@ -13,24 +13,24 @@ describe('Picture', () => {
 	it('renders correctly with preferThumbnails true', () => {
 		let data = {title: 'title', image: {gatsbyImageData: {}}};
 		const layout = 'FIXED';
-		const preferThumbnails = true;
+		const isPreferThumbnails = true;
 		const size = {height: 123, width: 456};
-		const {container, rerender} = render(<Picture data={data} layout={layout} preferThumbnails={preferThumbnails} size={size}/>);
+		const {container, rerender} = render(<Picture data={data} layout={layout} preferThumbnails={isPreferThumbnails} size={size}/>);
 		expect(container).toMatchSnapshot();
 		data = {title: 'title', image: {thumbnails: {thumbnail: {gatsbyImageData: {}}}}};
-		rerender(<Picture data={data} layout={layout} preferThumbnails={preferThumbnails} size={size}/>);
+		rerender(<Picture data={data} layout={layout} preferThumbnails={isPreferThumbnails} size={size}/>);
 		expect(container).toMatchSnapshot();
 	});
 
 	it('renders correctly with preferThumbnails false', () => {
 		let data = {title: 'title', image: {gatsbyImageData: {}}};
 		const layout = 'FIXED';
-		const preferThumbnails = false;
+		const isPreferThumbnails = false;
 		const size = {height: 123, width: 456};
-		const {container, rerender} = render(<Picture data={data} layout={layout} preferThumbnails={preferThumbnails} size={size}/>);
+		const {container, rerender} = render(<Picture data={data} layout={layout} preferThumbnails={isPreferThumbnails} size={size}/>);
 		expect(container).toMatchSnapshot();
 		data = {title: 'title', image: {thumbnails: {thumbnail: {gatsbyImageData: {}}}}};
-		rerender(<Picture data={data} layout={layout} preferThumbnails={preferThumbnails} size={size}/>);
+		rerender(<Picture data={data} layout={layout} preferThumbnails={isPreferThumbnails} size={size}/>);
 		expect(container).toMatchSnapshot();
 	});
 });

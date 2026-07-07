@@ -31,7 +31,7 @@ const icon = css`
 
 const {GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
-function Imprint() {
+export default function Imprint() {
 	const {t} = useTranslation();
 	const {isDark, switchTheme} = useThemePreference();
 
@@ -203,5 +203,3 @@ function Imprint() {
 	);
 	/* eslint-enable @stylistic/max-len */
 }
-
-export default Imprint;
