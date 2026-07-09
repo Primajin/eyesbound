@@ -17,9 +17,9 @@ const eslintConfig = [
 		'loadershim.js',
 		'package-lock.json',
 	]),
-	...fixupConfigRules(xoReact().map(config => ({...config, files: ['**/*.{js,jsx,ts,tsx}']}))),
+	...fixupConfigRules(xoReact().map(config => ({...config, files: ['**/*.{js,jsx}']}))),
 	{
-		files: ['**/*.test.{js,jsx,ts,tsx}'],
+		files: ['**/*.test.{js,jsx}'],
 		...pluginJest.configs['flat/recommended'],
 		...pluginJest.configs['flat/style'],
 		rules: {
@@ -36,7 +36,7 @@ const eslintConfig = [
 		},
 	},
 	{
-		files: ['**/*.{js,jsx,ts,tsx}'],
+		files: ['**/*.{js,jsx}'],
 		rules: {
 			'import-x/order': [
 				'error',
