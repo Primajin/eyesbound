@@ -42,7 +42,7 @@
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-source-prismic": "^6.0.3",
-    "i18next": "^26.3.4",
+    "i18next": "^26.3.5",
     "prop-types": "^15.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -68,7 +68,7 @@
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
     "jest-junit": "^17.0.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "xo": "^4.0.0"
   },
   "overrides": {
