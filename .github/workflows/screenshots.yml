@@ -32,7 +32,7 @@ jobs:
         env:
           CI: 'true'
       - name: screenshots-ci-action
-        uses: flameddd/screenshots-ci-action@master
+        uses: Primajin/screenshots-ci-action@v3
         with:
           url: ${{ steps.waitFor200.outputs.url }}/picture/
           releaseId: 357373231
