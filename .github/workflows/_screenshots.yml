@@ -1,0 +1,41 @@
+name: "CI · Screenshots"
+
+on:
+  workflow_call:
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    name: Get screenshots of picture page
+    permissions: write-all
+    steps:
+      - name: Wait for Pages changed to neutral
+        uses: fountainhead/action-wait-for-check@v1.2.0
+        id: wait-for-Netlify
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          checkName: 'Pages changed - eyesbound'
+      - name: Get Preview URL and generate screenshot after Netlify check done
+        if: steps.wait-for-Netlify.outputs.conclusion == 'neutral'
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: waitFor200
+        with:
+          site_name: 'eyesbound'
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - name: install puppeteer-headful
+        uses: mujo-code/puppeteer-headful@master
+        env:
+          CI: 'true'
+      - name: screenshots-ci-action
+        uses: Primajin/screenshots-ci-action@v3
+        with:
+          url: ${{ steps.waitFor200.outputs.url }}/picture/
+          releaseId: 357373231
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v7
+        with:
+          path: screenshots
+          name: Download-screenshots
