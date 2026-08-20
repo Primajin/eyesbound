@@ -6,213 +6,52 @@ on:
   pull_request:
     types: [ opened, reopened, synchronize, closed ]
 
+# Least privilege by default; each caller job grants what its reusable
+# workflow needs. The heavy jobs live in reusable `_*.yml` workflows; this file
+# orchestrates them and aggregates their results into one `All checks green`
+# gate.
+permissions: {}
+
 jobs:
   build:
     if: github.event_name == 'push' || github.event.action != 'closed'
-    runs-on: ubuntu-latest
-    name: Make sure it builds.
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-          cache: 'npm'
-      - name: Cache dependencies
-        uses: actions/cache@v6
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
-      - name: Install dependencies
-        run: npm ci
-      - name: Run build
-        run: npm run build
-        env:
-          GATSBY_API_KEY: ${{ secrets.GATSBY_API_KEY }}
-          GATSBY_G_MAPS: ${{ secrets.GATSBY_G_MAPS }}
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_build.yml
+    secrets: inherit
 
   build-matrix:
     if: github.event.action != 'closed' && contains(github.event.pull_request.labels.*.name, 'dependabot')
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ windows-latest, ubuntu-latest, macos-latest ]
-    runs-on: ${{ matrix.os }}
-    name: Make sure it builds.
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-          cache: 'npm'
-      - name: Cache dependencies
-        uses: actions/cache@v6
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
-      - name: Install dependencies
-        shell: bash
-        timeout-minutes: 20
-        run: |
-          for attempt in 1 2 3; do
-            npm ci && break
-            if [ "$attempt" -eq 3 ]; then
-              echo "npm ci failed after ${attempt} attempts."
-              exit 1
-            fi
-            echo "npm ci failed on attempt ${attempt}. Retrying in 15 seconds..."
-            sleep 15
-          done
-      - name: Run build
-        run: npm run build
-        env:
-          GATSBY_API_KEY: ${{ secrets.GATSBY_API_KEY }}
-          GATSBY_G_MAPS: ${{ secrets.GATSBY_G_MAPS }}
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_build-matrix.yml
+    secrets: inherit
 
   lint:
     if: github.event_name == 'push' || github.event.action != 'closed'
-    runs-on: ubuntu-latest
-    name: Make sure the code adheres to the XO coding standard.
     permissions: write-all
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-          cache: 'npm'
-      - name: Cache dependencies
-        uses: actions/cache@v6
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
-      - name: Install dependencies
-        run: npm ci
-      - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v7
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          fingerprint: "38E6EABC680CCFCE10EA0454372717D2D3474974"
-          git_user_signingkey: true
-          git_commit_gpgsign: true
-          git_config_global: true
-      - name: List keys
-        run: gpg -K
-      - name: Run linter
-        uses: wearerequired/lint-action@v3
-        with:
-          auto_fix: true
-          xo: true
-          xo_args: "--config eslint.config.mjs"
-          commit_message: ":sparkles: fix code style issues with ${linter}"
-          git_email: Primajin@users.noreply.github.com
+    uses: ./.github/workflows/_lint.yml
+    secrets: inherit
 
   test:
     if: github.event_name == 'push' || github.event.action != 'closed'
-    runs-on: ubuntu-latest
-    name: Make sure the unit tests pass.
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-          cache: 'npm'
-      - name: Cache dependencies
-        uses: actions/cache@v6
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
-      - name: Install dependencies
-        run: npm ci
-      - name: Run coverage
-        run: npm run coverage
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v7
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_test.yml
+    secrets: inherit
 
   console:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    runs-on: ubuntu-latest
-    name: Get console logs
     permissions:
       pull-requests: write
-    steps:
-      - name: Wait for Pages changed to neutral
-        uses: fountainhead/action-wait-for-check@v1.2.0
-        id: wait-for-Netlify
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          checkName: 'Pages changed - eyesbound'
-      - name: Get Preview URL after Netlify check done
-        if: steps.wait-for-Netlify.outputs.conclusion == 'neutral'
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: waitFor200
-        with:
-          site_name: 'eyesbound'
-      - name: Checkout code
-        uses: actions/checkout@v7
-      - name: Use WebApp Console Log Action
-        uses: Primajin/webapp-console-log-action@v1
-        with:
-          webapp-url: ${{ steps.waitFor200.outputs.url }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    uses: ./.github/workflows/_console.yml
+    secrets: inherit
 
   screenshots:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    runs-on: ubuntu-latest
-    name: Get screenshots of picture page
     permissions: write-all
-    steps:
-      - name: Wait for Pages changed to neutral
-        uses: fountainhead/action-wait-for-check@v1.2.0
-        id: wait-for-Netlify
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          checkName: 'Pages changed - eyesbound'
-      - name: Get Preview URL and generate screenshot after Netlify check done
-        if: steps.wait-for-Netlify.outputs.conclusion == 'neutral'
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: waitFor200
-        with:
-          site_name: 'eyesbound'
-      - name: Checkout code
-        uses: actions/checkout@v7
-      - name: install puppeteer-headful
-        uses: mujo-code/puppeteer-headful@master
-        env:
-          CI: 'true'
-      - name: screenshots-ci-action
-        uses: Primajin/screenshots-ci-action@v3
-        with:
-          url: ${{ steps.waitFor200.outputs.url }}/picture/
-          releaseId: 357373231
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v7
-        with:
-          path: screenshots
-          name: Download-screenshots
+    uses: ./.github/workflows/_screenshots.yml
+    secrets: inherit
 
   all-green:
     name: All checks green
