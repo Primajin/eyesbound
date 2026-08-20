@@ -24,7 +24,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run build
-        run: npm run build
+        shell: bash
+        # Gatsby's GraphQL data layer occasionally dies mid-build with
+        # "Unexpected end of JSON input" / "Worker exited before finishing task".
+        # Retry a few times, clearing the Gatsby cache between attempts.
+        run: |
+          for attempt in 1 2 3; do
+            npm run build && exit 0
+            echo "::warning::Gatsby build failed on attempt ${attempt}."
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::Gatsby build failed after ${attempt} attempts."
+              exit 1
+            fi
+            echo "Clearing Gatsby cache and retrying in 15s..."
+            rm -rf .cache public
+            sleep 15
+          done
         env:
           GATSBY_API_KEY: ${{ secrets.GATSBY_API_KEY }}
           GATSBY_G_MAPS: ${{ secrets.GATSBY_G_MAPS }}
