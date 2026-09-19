@@ -47,7 +47,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^17.0.13",
+    "react-i18next": "^17.0.14",
     "react-slideshow-image": "^4.4.0"
   },
   "devDependencies": {
@@ -55,7 +55,7 @@
     "@emotion/babel-plugin": "^11.13.5",
     "@emotion/jest": "^11.14.2",
     "@eslint/compat": "^2.1.1",
-    "@testing-library/dom": "^10.4.1",
+    "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "ajv": "^8.20.0",
