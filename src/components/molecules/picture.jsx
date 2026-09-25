@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import {css} from '@emotion/react';
 
@@ -65,7 +64,7 @@ function Picture({data: {title, image}, layout = 'CONSTRAINED', preferThumbnails
 Picture.propTypes = {
 	data: PropTypes.shape(PictureType).isRequired,
 	layout: PropTypes.oneOf(['CONSTRAINED', 'FIXED', 'FULL_WIDTH']),
-	preferThumbnails: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
+	preferThumbnails: PropTypes.bool,
 	size: PropTypes.shape(SizeType),
 };
 

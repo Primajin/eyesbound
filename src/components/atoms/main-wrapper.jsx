@@ -1,4 +1,3 @@
-import React from 'react';
 import {css} from '@emotion/react';
 
 import {children as childrenPropType} from '../../types/proptypes.js';

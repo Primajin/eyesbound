@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {memo} from 'react';
+import {memo} from 'react';
 import {LoadScript} from '@react-google-maps/api';
 import {css, Global} from '@emotion/react';
 

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import {Global, css} from '@emotion/react';
 import {Helmet} from 'react-helmet';

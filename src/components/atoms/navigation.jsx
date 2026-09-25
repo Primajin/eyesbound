@@ -1,7 +1,7 @@
 /* global document */
 // document may be used inside useEffects - they only run in a browser
 import PropTypes from 'prop-types';
-import React, {useEffect, useState, useRef} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {css} from '@emotion/react';
 import {useTranslation} from 'react-i18next';
@@ -86,27 +86,27 @@ const navigationStyle = css`
 
 function Navigation({isFullscreen = false}) {
 	const {t} = useTranslation();
-	const linkOverview = useRef(null);
-	const linkShuttered = useRef(null);
-	const linkArchitecture = useRef(null);
-	const linkEnvironment = useRef(null);
-	const linkFloral = useRef(null);
-	const linkLight = useRef(null);
-	const linkWorldmap = useRef(null);
-	const linkContact = useRef(null);
+	const linkOverviewRef = useRef(null);
+	const linkShutteredRef = useRef(null);
+	const linkArchitectureRef = useRef(null);
+	const linkEnvironmentRef = useRef(null);
+	const linkFloralRef = useRef(null);
+	const linkLightRef = useRef(null);
+	const linkWorldmapRef = useRef(null);
+	const linkContactRef = useRef(null);
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const openMenu = () => {
 			const links = [
-				linkOverview.current,
-				linkShuttered.current,
-				linkArchitecture.current,
-				linkEnvironment.current,
-				linkFloral.current,
-				linkLight.current,
-				linkWorldmap.current,
-				linkContact.current,
+				linkOverviewRef.current,
+				linkShutteredRef.current,
+				linkArchitectureRef.current,
+				linkEnvironmentRef.current,
+				linkFloralRef.current,
+				linkLightRef.current,
+				linkWorldmapRef.current,
+				linkContactRef.current,
 			];
 
 			if (links.includes(document.activeElement)) {
@@ -138,14 +138,14 @@ function Navigation({isFullscreen = false}) {
 	return (
 		<nav css={navigationStyle} className={classnames({open: menuOpen, isFullscreen})}>
 			<ul>
-				<li><a ref={linkOverview} href={`/${PICTURE.path}`}>{t('navigation.overview')}</a></li>
-				<li><a ref={linkShuttered} href={`/${SERIES.path}/shuttered`}>»Shuttered«</a></li>
-				<li><a ref={linkArchitecture} href={`/${CATEGORY.path}/architecture`}>Architecture</a></li>
-				<li><a ref={linkEnvironment} href={`/${CATEGORY.path}/environment`}>Environment</a></li>
-				<li><a ref={linkFloral} href={`/${CATEGORY.path}/floral`}>Floral</a></li>
-				<li><a ref={linkLight} href={`/${CATEGORY.path}/light`}>Light</a></li>
-				<li><a ref={linkWorldmap} href='/worldmap'>{t('navigation.worldmap')}</a></li>
-				<li><a ref={linkContact} href='/imprint'>{t('navigation.contact')}</a></li>
+				<li><a ref={linkOverviewRef} href={`/${PICTURE.path}`}>{t('navigation.overview')}</a></li>
+				<li><a ref={linkShutteredRef} href={`/${SERIES.path}/shuttered`}>»Shuttered«</a></li>
+				<li><a ref={linkArchitectureRef} href={`/${CATEGORY.path}/architecture`}>Architecture</a></li>
+				<li><a ref={linkEnvironmentRef} href={`/${CATEGORY.path}/environment`}>Environment</a></li>
+				<li><a ref={linkFloralRef} href={`/${CATEGORY.path}/floral`}>Floral</a></li>
+				<li><a ref={linkLightRef} href={`/${CATEGORY.path}/light`}>Light</a></li>
+				<li><a ref={linkWorldmapRef} href='/worldmap'>{t('navigation.worldmap')}</a></li>
+				<li><a ref={linkContactRef} href='/imprint'>{t('navigation.contact')}</a></li>
 			</ul>
 			<button type='button' onClick={toggleMenu}>{t('navigation.menu')}</button>
 		</nav>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {memo, useMemo, useState} from 'react';
+import {memo, useMemo, useState} from 'react';
 import {GoogleMap as ReactGoogleMap, InfoWindow, Marker} from '@react-google-maps/api';
 
 import AssetTypes from '../../constants/asset-types.js';
