@@ -1,4 +1,3 @@
-import React from 'react';
 import {render} from '@testing-library/react';
 
 import HelmetMetaTags from '../helmet-meta-tags.jsx';

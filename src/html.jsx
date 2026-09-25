@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const {GATSBY_SERVER_URL = 'https://eyesbound.com', GATSBY_SITE_NAME = 'EYESBOUND'} = process.env;
 
@@ -24,7 +23,7 @@ function HTML({
 		<html lang='en' dir='ltr' {...(htmlAttributes)}>
 			<head>
 				<meta charSet='utf-8'/>
-				{/* eslint-disable react/no-danger -- Inline script needed for theme initialization before React hydrates */}
+				{/* eslint-disable @eslint-react/dom-no-dangerously-set-innerhtml -- Inline script needed for theme initialization before React hydrates */}
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
@@ -90,11 +89,11 @@ function HTML({
 				<meta name='msapplication-wide310x150logo' content='/wide_310x150.png'/>
 				<meta name='msapplication-square310x310logo' content='/large_310x310.png'/>
 				{headComponents}
-				{/* eslint-enable react/no-danger */}
+				{/* eslint-enable @eslint-react/dom-no-dangerously-set-innerhtml */}
 			</head>
 			<body {...(bodyAttributes)}>
 				{preBodyComponents}
-				{/* eslint-disable-next-line react/no-danger */}
+				{/* eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml */}
 				<div key='body' dangerouslySetInnerHTML={{__html: body}} id='___gatsby'/>
 				{postBodyComponents}
 			</body>

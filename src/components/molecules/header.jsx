@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import LanguageSwitcher from '../atoms/language-switcher.jsx';
 import Logo from '../atoms/logo.jsx';

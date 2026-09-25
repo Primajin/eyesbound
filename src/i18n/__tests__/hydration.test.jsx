@@ -7,7 +7,6 @@
  2. Put that HTML into jsdom
  3. Hydrate with React — check for hydration errors
  */
-import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {hydrateRoot} from 'react-dom/client';
 
