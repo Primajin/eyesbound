@@ -67,7 +67,7 @@
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
     "jest-junit": "^17.0.0",
-    "typescript": "^7.0.2",
+    "typescript": "^6.0.3",
     "xo": "^5.0.1"
   },
   "overrides": {
