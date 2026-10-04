@@ -18,7 +18,7 @@ jobs:
           checkName: 'Pages changed - eyesbound'
       - name: Get Preview URL and generate screenshot after Netlify check done
         if: steps.wait-for-Netlify.outputs.conclusion == 'neutral'
-        uses: jakepartusch/wait-for-netlify-action@v1
+        uses: jakepartusch/wait-for-netlify-action@v1.4
         id: waitFor200
         with:
           site_name: 'eyesbound'
