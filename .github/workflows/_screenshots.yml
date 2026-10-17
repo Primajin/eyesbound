@@ -29,7 +29,7 @@ jobs:
         env:
           CI: 'true'
       - name: screenshots-ci-action
-        uses: Primajin/screenshots-ci-action@v3
+        uses: Primajin/screenshots-ci-action@v4
         with:
           url: ${{ steps.waitFor200.outputs.url }}/picture/
           releaseId: 357373231
