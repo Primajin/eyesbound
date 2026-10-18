@@ -49,7 +49,10 @@ jobs:
 
   screenshots:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    permissions: write-all
+    permissions:
+      checks: read
+      contents: write
+      pull-requests: write
     uses: ./.github/workflows/_screenshots.yml
     secrets: inherit
 

@@ -7,7 +7,10 @@ jobs:
   screenshots:
     runs-on: ubuntu-latest
     name: Get screenshots of picture page
-    permissions: write-all
+    permissions:
+      checks: read # fountainhead/action-wait-for-check lists the check runs of the commit
+      contents: write # checkout, and screenshots-ci-action uploads the release assets
+      pull-requests: write # screenshots-ci-action posts and edits the PR comment
     steps:
       - name: Wait for Pages changed to neutral
         uses: fountainhead/action-wait-for-check@v1.2.0
