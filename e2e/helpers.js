@@ -4,20 +4,27 @@ import path from 'node:path';
 const dist = path.resolve('dist');
 
 /**
- Reads the STRICT policy (the `/*` rule) from the built `_headers`, so the test enforces what Cloudflare will send.
+ Reads the Content-Security-Policy of one rule from the built `_headers`, so tests enforce what Cloudflare will send.
  `astro preview` does not serve `_headers`.
+ @param {string} rule Rule pattern exactly as written in `_headers`, for example `/*` or `/worldmap/*`.
  @returns {string} The Content-Security-Policy value.
  */
-export const strictPolicy = () => {
+export const policyFor = rule => {
 	const headers = readFileSync(path.join(dist, '_headers'), 'utf8');
-	const block = headers.split('\n\n').find(part => part.split('\n').some(line => line.trim() === '/*'));
+	const block = headers.split('\n\n').find(part => part.split('\n').some(line => line.trim() === rule));
 	const line = block?.split('\n').find(candidate => candidate.trimStart().startsWith('Content-Security-Policy:'));
 	if (!line) {
-		throw new Error('No STRICT Content-Security-Policy for /* found in dist/_headers');
+		throw new Error(`No Content-Security-Policy for ${rule} found in dist/_headers`);
 	}
 
 	return line.trim().slice('Content-Security-Policy:'.length).trim();
 };
+
+/**
+ Reads the STRICT policy (the `/*` rule) from the built `_headers`.
+ @returns {string} The Content-Security-Policy value.
+ */
+export const strictPolicy = () => policyFor('/*');
 
 /**
  Picks a built picture detail page from the sitemap.
@@ -34,12 +41,12 @@ export const firstPicturePath = () => {
 };
 
 /**
- Applies the STRICT policy to every document response and records violations.
+ Applies a policy to every document response and records violations.
  @param {import('@playwright/test').Page} page Page to instrument.
+ @param {string} policy Content-Security-Policy value to send with documents.
  @returns {Promise<string[]>} Live list of violation descriptions.
  */
-export const enforceStrictCsp = async page => {
-	const policy = strictPolicy();
+export const enforcePolicy = async (page, policy) => {
 	const violations = [];
 	await page.route('**/*', async route => {
 		const response = await route.fetch();
@@ -63,3 +70,10 @@ export const enforceStrictCsp = async page => {
 	});
 	return violations;
 };
+
+/**
+ Applies the STRICT policy to every document response and records violations.
+ @param {import('@playwright/test').Page} page Page to instrument.
+ @returns {Promise<string[]>} Live list of violation descriptions.
+ */
+export const enforceStrictCsp = page => enforcePolicy(page, strictPolicy());

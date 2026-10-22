@@ -16,7 +16,9 @@ const {pictures, title, type} = Astro.props;
 	{pictures.map(({uid, title: pictureTitle, image, thumbnail}) => (
 		<li>
 			<a href={routes.picture(uid)} aria-label={pictureTitle ?? uid}>
-				<PictureImage image={thumbnail ?? image} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" />
+				{(thumbnail ?? image)
+					? <PictureImage image={thumbnail ?? image} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" />
+					: <span class="missing">{pictureTitle ?? uid}</span>}
 			</a>
 		</li>
 	))}

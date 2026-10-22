@@ -1,11 +1,25 @@
 ---
-import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
-
+import Fullscreen from '../components/Fullscreen.astro';
+import Slideshow from '../components/Slideshow.astro';
 import Base from '../layouts/Base.astro';
+import {getHomepagePictures} from '../lib/prismic.js';
+
+const pictures = await getHomepagePictures();
+if (pictures.length === 0) {
+	throw new Error('No picture is flagged for the homepage: the slideshow would be empty.');
+}
 ---
 
-<Base>
+<Base imageSource={new URL('/social-image.png', Astro.site).href}>
+	<Fullscreen selector="[data-slideshow]" />
 	<main>
-		<h1>{siteName}</h1>
+		<Slideshow pictures={pictures} />
 	</main>
 </Base>
+
+<style is:global>
+	body {
+		block-size: 100dvh;
+		overflow: hidden;
+	}
+</style>

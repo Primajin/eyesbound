@@ -1,0 +1,49 @@
+/* Google Maps chrome, ported from src/components/molecules/map.jsx. Selectors target markup the Maps API injects. */
+
+.gm-style * {
+	font-family: Montserrat, sans-serif !important;
+}
+
+.gm-style .gm-style-iw-d,
+.gm-style .gm-style-iw-c {
+	background: var(--background);
+	color: var(--foreground);
+	overflow: hidden !important;
+	padding-bottom: 12px;
+}
+
+.gm-style .gm-style-iw-d > div,
+.gm-style .gm-style-iw-c > div {
+	line-break: anywhere;
+	padding-inline-end: 12px;
+	width: 185px;
+}
+
+.gm-style .gm-style-iw-a {
+	transform: translate(-0.5px, -30px);
+}
+
+.gm-style .gm-style-iw-t::after {
+	background: var(--background);
+	box-shadow: -2px 2px 2px 0 rgba(var(--backgroundRGB), 0.4);
+}
+
+.gm-style .gm-ui-hover-effect > span {
+	background-color: var(--foreground);
+}
+
+.gm-style .gm-style-iw h1 {
+	padding-block-end: 0.5em;
+}
+
+.gm-style .gm-style-iw img {
+	block-size: auto;
+	max-inline-size: 100%;
+}
+
+.gm-fullscreen-control {
+	block-size: 50px !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	width: 50px !important;
+}

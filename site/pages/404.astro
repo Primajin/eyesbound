@@ -1,0 +1,48 @@
+---
+import MainWrapper from '../components/MainWrapper.astro';
+import T from '../components/T.astro';
+import {t} from '../i18n/index.js';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title={t('notFound.metaTitle', 'en')}>
+	<MainWrapper>
+		<div class="not-found">
+			<h1><T key="notFound.title" /></h1>
+			<p><T key="notFound.message" /></p>
+			<a href="/"><T key="notFound.home" /></a>
+		</div>
+	</MainWrapper>
+</Base>
+
+<style>
+	.not-found {
+		padding: 40px 0;
+		text-align: center;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	p {
+		color: var(--foreground);
+		font-size: 1.2rem;
+		margin-bottom: 2rem;
+	}
+
+	a {
+		background: var(--foreground);
+		border-radius: 4px;
+		color: var(--background);
+		display: inline-block;
+		padding: 12px 24px;
+		text-decoration: none;
+		transition: opacity 0.3s ease;
+	}
+
+	a:hover {
+		opacity: 0.8;
+	}
+</style>

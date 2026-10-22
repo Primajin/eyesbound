@@ -1,0 +1,90 @@
+---
+import {getImage} from 'astro:assets';
+import {GATSBY_G_MAPS as apiKey} from 'astro:env/client';
+
+import {centerOfGermany} from '../constants/map.js';
+import {isUsingFixtures, routes} from '../lib/prismic.js';
+import {planImage} from '../utils/image.js';
+import '../styles/map.css';
+
+interface Props {
+	/** Pictures with usable coordinates (see getMapPictures) */
+	pictures: {uid: string; title: string | null; coordinates: {latitude: number; longitude: number}; image: any; thumbnail: any}[];
+	center?: {latitude: number; longitude: number};
+	zoom?: number;
+	/** Markers open a window linking to the picture */
+	hasInfoWindow?: boolean;
+	/** Id of the element that names the map for assistive technology */
+	labelledBy: string;
+	fullscreen?: boolean;
+}
+
+const {pictures, center = centerOfGermany, zoom = 5, hasInfoWindow = false, labelledBy, fullscreen = false} = Astro.props;
+if (pictures.length === 0) {
+	throw new TypeError('Map rendered without pictures.');
+}
+
+if (!apiKey && !isUsingFixtures()) {
+	throw new Error('GATSBY_G_MAPS is missing. Set it for a real build (the maps key is public and referrer-restricted), or set PRISMIC_FIXTURES=1 for a local fixture build.');
+}
+
+const infoImage = async picture => {
+	const source = picture.thumbnail ?? picture.image;
+	if (!source) {
+		return null;
+	}
+
+	const shown = planImage(source, 164, picture.title ?? '');
+	const {src} = await getImage({
+		src: shown.src, alt: shown.alt, width: Math.min(328, source.width), height: Math.round(Math.min(328, source.width) * source.height / source.width), format: 'webp',
+	});
+	return {src, width: shown.width, height: shown.height, alt: shown.alt};
+};
+
+const data = await Promise.all(pictures.map(async picture => ({
+	uid: picture.uid,
+	title: picture.title ?? picture.uid,
+	href: routes.picture(picture.uid),
+	latitude: picture.coordinates.latitude,
+	longitude: picture.coordinates.longitude,
+	image: hasInfoWindow ? await infoImage(picture) : null,
+})));
+---
+
+<div
+	class:list={['map', {fullscreen}]}
+	role="region"
+	aria-labelledby={labelledBy}
+	data-map
+	data-api-key={apiKey}
+	data-pictures={JSON.stringify(data)}
+	data-latitude={center.latitude}
+	data-longitude={center.longitude}
+	data-zoom={zoom}
+	data-info-window={hasInfoWindow ? '' : undefined}
+>
+</div>
+
+<script>
+	import '../scripts/map-init.js';
+</script>
+
+<style>
+	.map {
+		background: var(--background);
+		block-size: 500px;
+		inline-size: 100%;
+		position: relative;
+	}
+
+	.map.fullscreen {
+		block-size: 100dvh;
+		inset: 0;
+		position: fixed;
+	}
+
+	.map :global(.map-layer) {
+		inset: 0;
+		position: absolute;
+	}
+</style>

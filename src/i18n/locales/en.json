@@ -28,5 +28,11 @@
     "previousSlide": "Previous slide",
     "toggleFullscreen": "Toggle fullscreen",
     "switchTheme": "Switch theme"
+  },
+  "notFound": {
+    "metaTitle": "404 - Page Not Found",
+    "title": "404 - Page Not Found",
+    "message": "The page you are looking for does not exist or has been moved.",
+    "home": "Return to Home"
   }
 }

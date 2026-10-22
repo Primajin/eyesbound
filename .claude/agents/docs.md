@@ -39,11 +39,11 @@ npm install && npm start
 ### Test
 npm test
 ### Architecture
-How it fits into the site (Prismic -> Astro build -> Cloudflare Pages).
+How it fits into the site (Prismic -> Astro build -> Cloudflare Workers static assets).
 ```
 
 ## Before Completing
 For ADRs, `.claude/agents/` edits and architecture docs, dispatch `reviewer`. Skip for typo fixes and content-identical reformatting.
 
-## Factory Protocol
+## Team Protocol
 Peers: orchestrator, architect, developer, designer, tester, reviewer, devops. Call them to confirm facts in their domain rather than guessing. Never move or delete files; destructive commands are presented to the user, never run. Every file ends with a newline.

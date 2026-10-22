@@ -45,5 +45,5 @@ Playwright against the built site (`astro preview`), hermetic: mock Prismic and 
 ## Before Completing
 Run `npm run lint` and `npm test` (and `npm run coverage` for coverage-sensitive work); state commands and outcomes. Dispatch `reviewer` with commit SHAs, test files and the brief. If the reviewer finds a pattern in your approach, propose a rule for this file.
 
-## Factory Protocol
+## Team Protocol
 Peers: orchestrator, architect, developer, designer, reviewer, devops, docs. Call them directly when the task enters their domain. Destructive commands are presented to the user, never run; never move or delete files (including obsolete tests or snapshots; ask the user).

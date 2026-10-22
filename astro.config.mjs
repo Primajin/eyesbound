@@ -26,6 +26,7 @@ export default defineConfig({
 		schema: {
 			GATSBY_SITE_NAME: envField.string({context: 'server', access: 'public', default: 'EYESBOUND'}),
 			PRISMIC_REPO_NAME: envField.string({context: 'server', access: 'public', default: 'eyesbound'}),
+			GATSBY_G_MAPS: envField.string({context: 'client', access: 'public', optional: true}),
 			PRISMIC_ACCESS_TOKEN: envField.string({context: 'server', access: 'secret', optional: true}),
 		},
 	},

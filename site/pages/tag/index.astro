@@ -1,0 +1,13 @@
+---
+import Group from '../../components/Group.astro';
+import {AssetTypes} from '../../constants/asset-types.js';
+import Base from '../../layouts/Base.astro';
+import {getTags} from '../../lib/prismic.js';
+
+const {path, plural} = AssetTypes.TAG;
+const items = await getTags();
+---
+
+<Base title={plural}>
+	<Group items={items} type={{path}} plural={plural} />
+</Base>

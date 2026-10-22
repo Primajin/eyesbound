@@ -57,7 +57,7 @@ typings/
 
 # gatsby files
 .cache/
-public
+/public
 
 # Mac files
 .DS_Store
@@ -85,3 +85,6 @@ dist/
 # playwright
 test-results/
 playwright-report/
+
+# Lighthouse CI reports
+.lighthouseci/

@@ -1,6 +1,6 @@
-# AI Factory agents for eyesbound
+# Agent team for eyesbound
 
-Role-based Claude Code subagents for this repo: a Gatsby 5 + Prismic + Emotion + Jest static site being migrated to Astro (https://github.com/Primajin/eyesbound/issues/987) and hosted on Cloudflare Pages.
+Role-based Claude Code subagents for this repo: a Gatsby 5 + Prismic + Emotion + Jest static site being migrated to Astro (https://github.com/Primajin/eyesbound/issues/987) and hosted on Cloudflare Workers (static assets).
 
 | Agent | Model | Edits files | Role |
 |---|---|---|---|
@@ -10,7 +10,7 @@ Role-based Claude Code subagents for this repo: a Gatsby 5 + Prismic + Emotion +
 | designer | sonnet | CSS/ARIA only | Plain/scoped CSS, tokens, accessibility, Lighthouse-minded design |
 | tester | sonnet | yes | Jest now, Vitest later, e2e and Lighthouse checks |
 | reviewer | opus | read-only by convention | Final gate; proposes codifications |
-| devops | sonnet | yes | GitHub Actions, Cloudflare Pages, `_headers`/CSP, Lighthouse CI |
+| devops | sonnet | yes | GitHub Actions, Cloudflare Workers static assets, `_headers`/CSP, Lighthouse CI |
 | docs | haiku | yes | README, ADRs, migration notes |
 
 ## Invoking
@@ -30,6 +30,3 @@ Or call a specialist directly (for example "use the reviewer agent on my current
 - Destructive commands and file moves/deletes are presented to the user, never run.
 - Agents are plain Markdown; edit them directly. Propose generalizable one-line rules when a mistake repeats.
 
-## Not ported
-
-Workflows use GitHub-native equivalents; no external announcements or chat posts are made.

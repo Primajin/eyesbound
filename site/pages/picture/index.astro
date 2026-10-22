@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import Member from '../../components/Member.astro';
+import {AssetTypes} from '../../constants/asset-types.js';
+import {getAllPictures} from '../../lib/prismic.js';
+
+const {plural} = AssetTypes.PICTURE;
+const pictures = await getAllPictures();
+---
+
+<Base title={plural}>
+	<Member pictures={pictures} name={plural} title="" />
+</Base>

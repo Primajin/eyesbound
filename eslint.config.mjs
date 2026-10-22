@@ -19,6 +19,8 @@ const eslintConfig = [
 		'jest.config.js',
 		'loadershim.js',
 		'package-lock.json',
+		// Classic pre-paint scripts copied verbatim to dist/ (not bundled); theme-init.js is tested in site/scripts/__tests__/theme.test.js
+		'site/public/**',
 	]),
 	// Only the base `xo/react` block's `files` is narrowed to `.js`/`.jsx` (this repo has no `.mjs`/`.cjs`/`.ts` sources
 	// besides this config file itself). The `xo/react/typescript` block must keep its own `**/*.{ts,tsx,mts,cts}`

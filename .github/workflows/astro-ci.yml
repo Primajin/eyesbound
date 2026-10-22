@@ -1,0 +1,231 @@
+name: Astro CI
+
+# Astro-side checks that run next to the legacy Gatsby/Netlify workflows (ci.yml).
+# They are intentionally NOT part of the `All checks green` job in ci.yml until
+# cutover (issue #987). Third-party actions are pinned to a full commit SHA.
+# First-party actions/* are pinned too (new file), with the version in a comment.
+
+on:
+  push:
+    branches: [ main, astro-migration ]
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+  workflow_dispatch:
+
+# Least privilege: nothing by default, each job grants what it needs.
+permissions: {}
+
+concurrency:
+  group: astro-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+  # Fork PRs never receive secrets, so every job that needs the Prismic token
+  # is skipped for them (see `if:` on build and route-parity).
+  CI: 'true'
+
+jobs:
+  lint:
+    name: Lint (XO, read-only)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      # No auto_fix / signed commits here: Astro CI only reports.
+      - run: npm run lint
+
+  unit:
+    name: Vitest with coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      # Unit tests use fixtures and stub env themselves; no secrets needed.
+      - run: npm run test:astro:coverage
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: vitest-coverage
+          path: coverage/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  build:
+    name: Astro build (real Prismic data)
+    # Forks get no secrets, so the real-data build cannot run for them.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      # Astro's image/content cache: cold build ~6 min, warm 1-9 s.
+      - name: Cache Astro build cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: node_modules/.astro
+          key: astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
+          restore-keys: |
+            astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
+            astro-${{ runner.os }}-
+      - name: Build
+        run: npm run astro:build
+        env:
+          PRISMIC_ACCESS_TOKEN: ${{ secrets.PRISMIC_ACCESS_TOKEN }}
+          PRISMIC_REPO_NAME: ${{ vars.PRISMIC_REPO_NAME || 'eyesbound' }}
+          GATSBY_G_MAPS: ${{ secrets.GATSBY_G_MAPS }}
+      - name: Assert output looks sane
+        run: |
+          test -f dist/index.html
+          test -f dist/sitemap-0.xml
+          test -f dist/_headers
+          echo "files in dist: $(find dist -type f | wc -l) (Workers static assets limit: 20000)"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+          if-no-files-found: error
+
+  e2e:
+    name: Playwright e2e (chromium)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      # playwright.config.mjs starts `astro preview` against the downloaded dist/.
+      - run: npx playwright test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ failure() }}
+        with:
+          name: playwright-traces
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  route-parity:
+    name: Route parity vs live sitemap
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Compare Prismic routes with https://eyesbound.com/sitemap-0.xml
+        run: node scripts/route-parity.mjs
+        env:
+          PRISMIC_ACCESS_TOKEN: ${{ secrets.PRISMIC_ACCESS_TOKEN }}
+          PRISMIC_REPO_NAME: ${{ vars.PRISMIC_REPO_NAME || 'eyesbound' }}
+
+  lighthouse:
+    name: Lighthouse CI (mobile, budgets 100, non-blocking)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Non-blocking until promoted: enforced here, not just by convention.
+    continue-on-error: true
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+      - name: Run Lighthouse CI
+        # Pinned CLI via npx only (no repo dependency). lighthouserc.json holds
+        # the mobile settings, 5 runs (median) and the 100 budgets; it serves
+        # dist/ with `astro preview`. URLs: home, listing and the first detail page.
+        run: |
+          detail="$(grep -o '/picture/[^/<]*/' dist/sitemap-0.xml | head -n 1)"
+          test -n "$detail"
+          npx --yes @lhci/cli@0.15.1 autorun \
+            --collect.url=http://localhost:4323/ \
+            --collect.url=http://localhost:4323/picture/ \
+            --collect.url="http://localhost:4323${detail}"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  astro-green:
+    name: Astro checks green
+    if: always()
+    needs: [ lint, unit, build, e2e, route-parity, lighthouse ]
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Fail if a required job failed or was cancelled
+        shell: bash
+        # `lighthouse` is deliberately excluded (non-blocking); skipped jobs
+        # (fork PRs without secrets) are tolerated.
+        run: |
+          results="${{ join(needs.*.result, ' ') }} "
+          echo "Results: ${results}(lighthouse is advisory: ${{ needs.lighthouse.result }})"
+          for r in "${{ needs.lint.result }}" "${{ needs.unit.result }}" "${{ needs.build.result }}" "${{ needs.e2e.result }}" "${{ needs.route-parity.result }}"; do
+            if [ "$r" = "failure" ] || [ "$r" = "cancelled" ]; then
+              echo "::error::A required Astro job did not pass (result=$r)."
+              exit 1
+            fi
+          done

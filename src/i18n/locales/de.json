@@ -28,5 +28,11 @@
     "previousSlide": "Vorheriges Bild",
     "toggleFullscreen": "Vollbild umschalten",
     "switchTheme": "Design wechseln"
+  },
+  "notFound": {
+    "metaTitle": "404 - Seite nicht gefunden",
+    "title": "404 - Seite nicht gefunden",
+    "message": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "home": "Zur Startseite"
   }
 }

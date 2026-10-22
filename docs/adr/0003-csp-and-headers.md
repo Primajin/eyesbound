@@ -1,6 +1,6 @@
 # 0003. CSP, headers and trailing slashes on Cloudflare (Workers static assets)
 
-- Status: Accepted (2026-10-22, owner approved recommendations)
+- Status: Accepted (2026-10-22, owner approved recommendations); map policy validated by S9 (raster path)
 - Date: 2026-10-22
 - Deciders: Jannis Hell (pending)
 - Spike: S0b, Gatsby to Astro migration ([#987](https://github.com/Primajin/eyesbound/issues/987))
@@ -76,15 +76,17 @@ Assumptions that must be enforced by build settings and the Playwright smoke sui
 ### 3. MAP policy (`/worldmap/*` and `/picture/:uid/`)
 
 ```text
-default-src 'none'; script-src 'self' https://maps.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com 'unsafe-eval' blob: __INLINE_SCRIPT_HASHES__; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.google.com data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 ```
+
+This is the final policy, narrowed from the first proposal by the S9 render test (see "S9 results" below). No inline-script hash is needed: the map island is an external module and the Maps API is loaded through a script element.
 
 Notes:
 
-- The origin set is Google's documented allowlist. The old config had `*.googleapis.com`, `www.gstatic.com`, `maps.gstatic.com` and `*.ggpht`, which the proposal widens only slightly (`gstatic`, `google.com`, `googleusercontent.com`). Each extra host should be dropped again if the report-only run (Follow-up) shows it is unused. `blob:` in `script-src` and the `google.com` hosts are likewise unverified.
+- Every host and keyword is classified in "S9 results": most are verified as needed, three entries (`'unsafe-eval'`, and `blob:` in `img-src` and `connect-src`) are kept without proof because they only matter for the WebGL vector renderer, which could not be run.
 - `style-src 'unsafe-inline'` is required on map routes. The Maps API injects `<style>` elements, and without a nonce there is no alternative.
 - `frame-src` is not set, so it falls back to `default-src 'none'`. `streetViewControl` is false and the InfoWindow is not an iframe. The old Prismic and Netlify frame origins are dropped.
-- Load Maps from the island's bundled JS (as `LoadScript` does today), not from an inline script. That keeps the map routes free of an inline-script hash and of `'unsafe-inline'` in `script-src`.
+- The island (`site/scripts/map.js`) appends the Maps script element itself, so the map routes need no inline-script hash and no `'unsafe-inline'` in `script-src`.
 
 ### 4. `csp-utils.js` and hashing
 
@@ -180,14 +182,65 @@ Estimate to check at build time: 239 pages plus Astro's generated image variants
 - Static-asset requests are free, with no per-request limit, on the free plan.
 
 **Negative / risks**
-- The map CSP could not be validated at render time because of the referrer-restricted key. Permissive entries (`'unsafe-eval'`, `blob:` in `script-src`, extra Google hosts) are kept on documentation alone.
+- The map CSP was validated at render time on the raster path only. Three entries (`'unsafe-eval'`, `blob:` in `img-src` and `connect-src`) are kept on Google's documentation alone because no GPU was available for the vector path.
 - 307 instead of 301 for trailing-slash redirects, and no control over it.
 - Overlapping `_headers` rules are easy to get wrong (silent double CSP). A CI test must fetch the built routes through the Worker (or `wrangler dev`) and assert exactly one CSP header per route.
 - `/sw.js` kill-switch is required to avoid stale Gatsby caches for returning visitors.
 
-## Follow-up (not done in this spike)
+## S9 results: real render test (2026-10-22)
 
-1. Re-run variants a and c (with and without `'unsafe-eval'`) with a key that allows the test origin. Add `https://eyesbound-csp-spike.eyesbound.workers.dev/*` to the key's allowed referrers temporarily, or use a separate test key. Then drop `'unsafe-eval'`, `blob:` and extra hosts if there are no violations. Run the policy as `Content-Security-Policy-Report-Only` first, in line with the CSP rollout rule.
+The user added `https://eyesbound-csp-spike.eyesbound.workers.dev` to the Maps key's allowed referrers. The built site (`site/pages/worldmap.astro`, picture pages, vanilla map island) was deployed three times to the same assets-only Worker with the config from section 7 (free plan, no `main`, no bindings, no custom domain). Headless Chromium (Playwright, `--use-angle=gl --use-gl=angle --ignore-gpu-blocklist`) loaded the deployed URLs and recorded `securitypolicyviolation` events and console errors.
+
+What was verified on the deployed Worker:
+
+- `/worldmap/` and `/picture/<uid>/` deliver exactly one `content-security-policy` header (the MAP policy), `/` and `/picture/` deliver STRICT. The `_headers` rules from section 1 behave as claimed.
+- The Maps JS API loads, the map renders real tiles, with no `RefererNotAllowedMapError` and no `.gm-err-container`. All 158 markers appear, a marker click opens an info window with a link `/picture/<uid>/` and a same-origin thumbnail, and switching the site theme creates the second map with the other `mapId`. Zero CSP violations in all of it, for the picture map as well.
+- `X-Robots-Tag: noindex` on `*.workers.dev` works (Lighthouse reports "page is blocked from indexing" there, which is expected on the preview host).
+
+What could not be verified: the **WebGL vector renderer**. The sandbox has no GPU (Mesa llvmpipe only) and Google answers "Attempted to load a Vector Map, but failed. Falling back to Raster". The live Gatsby site behaves identically in the same browser, and the result is the same with no CSP at all, so it is the environment and not the policy. The rendering tested above is the raster fallback of the same two `mapId`s. Anything only the vector path needs is unproven.
+
+Per-entry result of the MAP policy (each reduction was tested enforced and as report-only):
+
+| Entry | Result |
+|---|---|
+| `script-src https://maps.googleapis.com` | needed (API loader and main script) |
+| `script-src 'unsafe-eval'` | **not needed for raster**: zero violations without it. Kept for the unverified vector path |
+| `script-src` `blob:`, `*.gstatic.com`, `*.ggpht.com`, `*.google.com`, `*.googleusercontent.com` | not requested, dropped |
+| `style-src 'unsafe-inline'` | needed (the API injects `<style>`) |
+| `style-src https://fonts.googleapis.com`, `font-src https://fonts.gstatic.com` | requested by the Maps UI, kept |
+| `img-src https://maps.gstatic.com` | needed (logo, marker assets) |
+| `img-src https://*.googleapis.com` | needed (tiles come from `mapsresources-pa.googleapis.com`; the wildcard also covers satellite tiles and future subdomains) |
+| `img-src` `*.gstatic.com`, `*.ggpht.com`, `*.google.com`, `*.googleusercontent.com` | not requested, dropped (these are Street View and Places photo hosts, both unused) |
+| `img-src blob:`, `connect-src blob:` | not needed for raster, kept unverified (vector tiles are decoded from blobs) |
+| `connect-src https://*.googleapis.com` | needed (`maps.googleapis.com`, `mapsresources-pa.googleapis.com`) |
+| `worker-src blob:` | **needed even for raster**: the API creates blob workers, and removing it gives `worker-src` violations. The first proposal had `'self' blob:`, `'self'` is not needed |
+| `font-src 'self'` | needed for the self-hosted Montserrat (an early test run without it produced violations, which also shows the check is live) |
+
+So the policy shrank from five Google wildcard hosts in four directives to `maps.googleapis.com`, `maps.gstatic.com`, `*.googleapis.com`, `fonts.googleapis.com` and `fonts.gstatic.com`.
+
+### Open item: prove or drop the three unverified entries
+
+On a machine with a GPU, open `https://eyesbound-csp-spike.eyesbound.workers.dev/worldmap/` (or the production map routes after cutover) in Chrome with the console open. The spike deployment additionally sends a `Content-Security-Policy-Report-Only` header with the tight variant (no `'unsafe-eval'`, no `blob:` in `img-src` and `connect-src`). If the console shows no "Report Only" violation while the map is a smooth vector map and you click a marker, drop those three entries from `site/public/_headers`. If it shows one, the entry stays. `e2e/map-live.spec.js` (`MAP_LIVE_URL=<origin> npx playwright test e2e/map-live.spec.js`) repeats the whole check and can run on that machine, where a GPU makes it cover the vector path too. The spike Worker is deleted afterwards, so use a deployment whose origin the key allows.
+
+### Island design (what the policy relies on)
+
+- No inline script and no `style=""`: the map island is a bundled module (`site/scripts/map.js`). It builds the Maps URL with `loading=async` and a one-shot global callback, then uses `importLibrary` and `AdvancedMarkerElement`. Picture data is a JSON `data-pictures` attribute, not a script block.
+- The Maps script is requested only when the map element is within 200px of the viewport (`IntersectionObserver`). On picture pages the map is below the fold, so nothing from Google loads for visitors who do not scroll there. The worldmap is the page, so it loads at once.
+- One map per theme, the second one created on the first theme switch (a `mapId` cannot change after creation).
+- The key is `GATSBY_G_MAPS`, declared in `astro.config.mjs` as a public client variable. A real build without it fails; fixture builds (`PRISMIC_FIXTURES=1`) tolerate its absence and the island then marks the element `data-map-error`.
+
+### Lighthouse, deployed spike URL, mobile preset
+
+| Page | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|---|
+| `/` | 99 | 100 | 100 | 69 | 1.9 s | 0 ms | 0 |
+| `/worldmap/` | 77 | 100 | 96 | 69 | 6.0 s | 90 ms | 0 |
+
+SEO 69 is the `noindex` header on `workers.dev` (the `is-crawlable` audit), not a page problem. On `/worldmap/` the LCP element is a Google map tile, loaded over Lighthouse's throttled connection after the Maps script, and best practices lose points for the vector-fallback console error that only exists without a GPU. The worldmap preconnects to the three Google origins, which did not move the number; the rest is Google's payload.
+
+## Follow-up
+
+1. Prove or drop the three unverified MAP entries (see "Open item" above). Run the tightened policy as `Content-Security-Policy-Report-Only` first, in line with the CSP rollout rule.
 2. Test `_redirects` 301 rules against `html_handling`, `not_found_handling: "404-page"`, and the `X-Robots-Tag` rule.
 3. Cutover, DNS, HSTS preload and CSP enforcement need explicit human confirmation.
 
@@ -214,12 +267,12 @@ Estimate to check at build time: 239 pages plus Astro's generated image variants
 # Map routes: replace STRICT with MAP (detach first, otherwise two CSP headers are sent)
 /worldmap/*
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com 'unsafe-eval' blob: __INLINE_SCRIPT_HASHES__; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.google.com data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 # Placeholder form matches /picture/<uid>/ only, so the /picture/ listing keeps STRICT
 /picture/:uid/
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com 'unsafe-eval' blob: __INLINE_SCRIPT_HASHES__; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.google.com data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 # Keep workers.dev hostnames out of search results (untested)
 https://:version.:subdomain.workers.dev/*

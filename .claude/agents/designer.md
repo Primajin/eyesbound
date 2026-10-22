@@ -41,5 +41,5 @@ You may edit CSS/style-only files, token definitions and ARIA/semantic attribute
 ## Before Completing
 For non-trivial token, layout or a11y changes dispatch `reviewer` with commit SHAs and files. Skip only for single-value token tweaks.
 
-## Factory Protocol
+## Team Protocol
 Peers: orchestrator, architect, developer, tester, reviewer, devops, docs. Call them directly when a task enters their domain. Never move or delete files and never run destructive commands; present them to the user. Never invent copy; take text from the ticket or `src/i18n/locales`.

@@ -130,6 +130,13 @@ describe('images', () => {
 		expect(html).toContain('width="261"');
 	});
 
+	test('Thumbnails show the title instead of an image for a picture without one', async () => {
+		const html = await render(Thumbnails, {pictures: [{...picture, image: null, thumbnail: null}], title: 'Floral', type: 'Category'});
+		expect(html).toContain('href="/picture/a/"');
+		expect(html).toMatch(/<span class="missing"[^>]*>A<\/span>/v);
+		expect(html).not.toContain('<img');
+	});
+
 	test('Member wraps thumbnails in main', async () => {
 		const html = await render(Member, {pictures: [picture], name: 'Series', title: 'Berlin'});
 		expect(html).toContain('<main');
