@@ -81,3 +81,7 @@ dist/
 
 # wrangler
 .wrangler/
+
+# playwright
+test-results/
+playwright-report/

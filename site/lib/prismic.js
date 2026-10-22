@@ -1,6 +1,5 @@
 import * as prismic from '@prismicio/client';
 
-import {AssetTypes} from '../constants/asset-types.js';
 import categoryFixtures from './__fixtures__/categories.json' with {type: 'json'};
 import pictureFixtures from './__fixtures__/pictures.json' with {type: 'json'};
 import seriesFixtures from './__fixtures__/series.json' with {type: 'json'};
@@ -16,7 +15,7 @@ import {
 	sortByTitle,
 	sortPictures,
 } from './pictures.js';
-import {buildRoutes, detailPath} from './routes.js';
+import {buildRoutes} from './routes.js';
 
 const fixtures = {
 	picture: pictureFixtures, category: categoryFixtures, series: seriesFixtures, tags: tagFixtures,
@@ -147,9 +146,4 @@ export const getRoutes = async () => {
 	});
 };
 
-export const routes = {
-	picture: uid => detailPath(AssetTypes.PICTURE, uid),
-	category: uid => detailPath(AssetTypes.CATEGORY, uid),
-	series: uid => detailPath(AssetTypes.SERIES, uid),
-	tag: uid => detailPath(AssetTypes.TAG, uid),
-};
+export {routes} from './routes.js';

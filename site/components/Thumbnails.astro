@@ -1,0 +1,55 @@
+---
+import {routes} from '../lib/routes.js';
+import PictureImage from './PictureImage.astro';
+
+interface Props {
+	pictures: {uid: string; title: string | null; image: any; thumbnail: any}[];
+	title: string;
+	type: string;
+}
+
+const {pictures, title, type} = Astro.props;
+---
+
+<h1>{type}: {title} ({pictures.length})</h1>
+<ul class="thumbnails">
+	{pictures.map(({uid, title: pictureTitle, image, thumbnail}) => (
+		<li>
+			<a href={routes.picture(uid)} aria-label={pictureTitle ?? uid}>
+				<PictureImage image={thumbnail ?? image} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" />
+			</a>
+		</li>
+	))}
+</ul>
+
+<style>
+	.thumbnails {
+		display: grid;
+		gap: 5px;
+		grid-template-columns: 1fr;
+	}
+
+	li {
+		content-visibility: auto;
+	}
+
+	@media (min-width: 420px) {
+		.thumbnails {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (min-width: 576px) {
+		.thumbnails {
+			gap: 10px;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.thumbnails {
+			gap: 15px;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+</style>

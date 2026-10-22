@@ -18,6 +18,9 @@ export default defineConfig({
 		format: 'directory',
 		inlineStylesheets: 'never',
 	},
+	image: {
+		domains: ['images.prismic.io'],
+	},
 	integrations: [react(), sitemap()],
 	env: {
 		schema: {

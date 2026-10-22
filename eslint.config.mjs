@@ -37,7 +37,7 @@ const eslintConfig = [
 		},
 	},
 	{
-		files: ['astro.config.mjs', 'vitest.config.mjs'],
+		files: ['astro.config.mjs', 'vitest.config.mjs', 'playwright.config.mjs'],
 		rules: {
 			'n/prefer-global/process': 'off',
 			'unicorn/no-top-level-side-effects': 'off',

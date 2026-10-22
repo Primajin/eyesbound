@@ -4,6 +4,7 @@ import pictureFixtures from '../__fixtures__/pictures.json' with {type: 'json'};
 import tagFixtures from '../__fixtures__/tags.json' with {type: 'json'};
 import {
 	homepagePictures,
+	hasLocation,
 	mapPictures,
 	normalizePicture,
 	normalizeTitled,
@@ -100,5 +101,16 @@ describe('filters', () => {
 	test('returns an empty list for unknown or unused uids', () => {
 		expect(picturesByTag(pictures, 'unused')).toEqual([]);
 		expect(picturesByCategory(pictures, 'nope')).toEqual([]);
+	});
+});
+
+describe('hasLocation', () => {
+	test.each([
+		[{latitude: 52.5, longitude: 13.4}, true],
+		[{latitude: 0, longitude: 13.4}, true],
+		[{latitude: 0, longitude: 0}, false],
+		[null, false],
+	])('%j gives %s', (coordinates, expected) => {
+		expect(hasLocation(coordinates)).toBe(expected);
 	});
 });

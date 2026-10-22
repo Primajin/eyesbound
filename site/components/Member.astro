@@ -1,0 +1,16 @@
+---
+import MainWrapper from './MainWrapper.astro';
+import Thumbnails from './Thumbnails.astro';
+
+interface Props {
+	pictures: {uid: string; title: string | null; image: any; thumbnail: any}[];
+	name: string;
+	title: string;
+}
+
+const {pictures, name, title} = Astro.props;
+---
+
+<MainWrapper>
+	<Thumbnails pictures={pictures} title={title} type={name} />
+</MainWrapper>

@@ -14,3 +14,44 @@ const title = (lang: 'en' | 'de') => t('language.switchTo', lang, {language: t(l
 
 	initLanguageSwitcher(document);
 </script>
+
+<style>
+	.language-switcher {
+		align-items: center;
+		background-color: var(--foreground);
+		color: var(--background);
+		cursor: pointer;
+		display: flex;
+		font-size: 14px;
+		font-weight: 700;
+		height: var(--control-size);
+		inset-block-start: 0;
+		inset-inline-end: calc(var(--control-size) * 2);
+		justify-content: center;
+		opacity: 1;
+		padding: 0;
+		position: fixed;
+		text-transform: uppercase;
+		transition: background-color var(--theme-duration), color var(--theme-duration), opacity var(--theme-duration);
+		width: var(--control-size);
+		z-index: var(--z-controls);
+	}
+
+	.language-switcher:hover {
+		background: var(--background);
+		color: var(--foreground);
+	}
+
+	.language-switcher:focus-visible {
+		outline: 2px solid var(--background);
+		outline-offset: -4px;
+	}
+
+	.language-switcher:hover:focus-visible {
+		outline-color: var(--foreground);
+	}
+
+	:global(:root[data-fullscreen]) .language-switcher:not(:hover, :focus-visible) {
+		opacity: 0.65;
+	}
+</style>

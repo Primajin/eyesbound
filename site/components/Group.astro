@@ -1,0 +1,16 @@
+---
+import List from './List.astro';
+import MainWrapper from './MainWrapper.astro';
+
+interface Props {
+	items: {uid: string; title: string | null}[];
+	type: {path: string};
+	plural: string;
+}
+
+const {items, type, plural} = Astro.props;
+---
+
+<MainWrapper>
+	<List items={items} type={type} title={plural} />
+</MainWrapper>

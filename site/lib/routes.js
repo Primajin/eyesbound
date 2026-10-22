@@ -2,7 +2,12 @@ import {AssetTypes} from '../constants/asset-types.js';
 
 const staticPaths = ['/', '/worldmap/', '/imprint/'];
 
-const listPath = type => `/${type.path}/`;
+/**
+Builds a list path.
+ @param {{path: string}} type Asset type.
+ @returns {string} Path with trailing slash.
+ */
+export const listPath = type => `/${type.path}/`;
 
 /**
 Builds a detail path; the uid is used unchanged, never slugified.
@@ -11,6 +16,13 @@ Builds a detail path; the uid is used unchanged, never slugified.
  @returns {string} Path with trailing slash.
  */
 export const detailPath = (type, uid) => `/${type.path}/${uid}/`;
+
+export const routes = {
+	picture: uid => detailPath(AssetTypes.PICTURE, uid),
+	category: uid => detailPath(AssetTypes.CATEGORY, uid),
+	series: uid => detailPath(AssetTypes.SERIES, uid),
+	tag: uid => detailPath(AssetTypes.TAG, uid),
+};
 
 /**
 Lists every route the site generates, matching gatsby-node.js (with trailing slashes).

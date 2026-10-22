@@ -1,13 +1,15 @@
 ---
-import '@fontsource/montserrat/latin-400.css';
-import '@fontsource/montserrat/latin-700.css';
+import '../styles/fonts.css';
 import '../../static/reset.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import '../styles/i18n.css';
+import montserrat400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
+import montserrat700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
 
 import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
 
+import Header from '../components/Header.astro';
 import {defaultDescription, keywords} from '../constants/site.js';
 import {buildCanonicalUrl, buildTitle} from '../utils/seo.js';
 
@@ -32,6 +34,8 @@ const hasCoordinates = coordinates.length > 0;
 		<meta charset="utf-8">
 		<script is:inline src="/theme-init.js"></script>
 		<script is:inline src="/lang-init.js"></script>
+		<link rel="preload" href={montserrat400} as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href={montserrat700} as="font" type="font/woff2" crossorigin>
 		<title>{fullTitle}</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,6 +71,7 @@ const hasCoordinates = coordinates.length > 0;
 		<meta name="msapplication-square310x310logo" content="/large_310x310.png">
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>

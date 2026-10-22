@@ -1,0 +1,11 @@
+---
+import {routes} from '../lib/routes.js';
+
+interface Props {
+	tags: {uid: string; title: string | null}[];
+}
+
+const {tags} = Astro.props;
+---
+
+{tags.map(({uid, title}, index) => <Fragment><a href={routes.tag(uid)}>{title ?? uid}</a>{index < tags.length - 1 && ' | '}</Fragment>)}

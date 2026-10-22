@@ -96,11 +96,18 @@ Latest pictures promoted to the homepage.
 export const homepagePictures = (pictures, limit = 5) => pictures.filter(picture => picture.homepage).slice(0, limit);
 
 /**
+Tells whether coordinates are usable: known and not the 0/0 that Prismic stores for "unset".
+ @param {{latitude: number, longitude: number}|null} coordinates Normalised coordinates.
+ @returns {boolean} True when the position can be shown.
+ */
+export const hasLocation = coordinates => Boolean(coordinates) && !(coordinates.latitude === 0 && coordinates.longitude === 0);
+
+/**
 Pictures with usable coordinates (known and not 0/0).
  @param {object[]} pictures Normalised pictures.
  @returns {object[]} Pictures that can be placed on the map.
  */
-export const mapPictures = pictures => pictures.filter(({coordinates}) => coordinates && !(coordinates.latitude === 0 && coordinates.longitude === 0));
+export const mapPictures = pictures => pictures.filter(({coordinates}) => hasLocation(coordinates));
 
 /**
 Pictures in a category.

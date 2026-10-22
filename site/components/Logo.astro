@@ -1,0 +1,39 @@
+---
+import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
+---
+
+<h1 class="logo"><a href="/">{siteName}</a></h1>
+
+<style>
+	.logo {
+		background-color: var(--foreground);
+		color: var(--background);
+		font-size: 27px;
+		font-weight: 700;
+		height: 100px;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		line-height: 100px;
+		opacity: 1;
+		position: fixed;
+		text-align: center;
+		transition: opacity var(--theme-duration);
+		width: 250px;
+		z-index: 10;
+	}
+
+	.logo a {
+		display: block;
+	}
+
+	:global(:root[data-fullscreen]) .logo {
+		opacity: 0.65;
+	}
+
+	@media (min-width: 576px) {
+		.logo {
+			font-size: 37px;
+			width: 400px;
+		}
+	}
+</style>

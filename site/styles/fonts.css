@@ -1,0 +1,20 @@
+/*
+ Self-hosted Montserrat (same files as @fontsource/montserrat latin-400/700, woff2 only).
+ font-display: optional avoids the layout shift a late swap causes; Base.astro preloads both files,
+ so the web font is normally used on the first paint and always on repeat visits.
+*/
+@font-face {
+	font-display: optional;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../../node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: optional;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../../node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2') format('woff2');
+}

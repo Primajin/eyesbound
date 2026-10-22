@@ -1,0 +1,16 @@
+---
+import {detailPath} from '../lib/routes.js';
+
+interface Props {
+	items: {uid: string; title: string | null}[];
+	type: {path: string};
+	title: string;
+}
+
+const {items, type, title} = Astro.props;
+---
+
+<h1>{title} ({items.length})</h1>
+<ul>
+	{items.map(({uid, title: itemTitle}) => <li><a href={detailPath(type, uid)}>{itemTitle ?? uid}</a></li>)}
+</ul>
