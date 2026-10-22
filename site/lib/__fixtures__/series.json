@@ -1,0 +1,4 @@
+[
+	{"id": "ser-1", "uid": "holland", "type": "series", "data": {"title": "Holland"}},
+	{"id": "ser-2", "uid": "berlin", "type": "series", "data": {"title": "Berlin"}}
+]

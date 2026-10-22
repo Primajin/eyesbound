@@ -2,7 +2,9 @@
 import '@fontsource/montserrat/latin-400.css';
 import '@fontsource/montserrat/latin-700.css';
 import '../../static/reset.css';
-import '../../static/global.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import '../styles/i18n.css';
 
 import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
 
@@ -29,6 +31,7 @@ const hasCoordinates = coordinates.length > 0;
 	<head>
 		<meta charset="utf-8">
 		<script is:inline src="/theme-init.js"></script>
+		<script is:inline src="/lang-init.js"></script>
 		<title>{fullTitle}</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">

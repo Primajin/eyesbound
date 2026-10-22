@@ -1,0 +1,16 @@
+---
+import {t} from '../i18n/index.js';
+
+const title = (lang: 'en' | 'de') => t('language.switchTo', lang, {language: t(lang === 'en' ? 'language.german' : 'language.english', lang)});
+---
+
+<button type="button" class="language-switcher" data-language-switcher data-title-en={title('en')} data-title-de={title('de')} title={title('en')}>
+	<span data-lang="en">EN</span>
+	<span data-lang="de">DE</span>
+</button>
+
+<script>
+	import {initLanguageSwitcher} from '../i18n/switcher.js';
+
+	initLanguageSwitcher(document);
+</script>

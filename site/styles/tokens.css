@@ -1,0 +1,60 @@
+/*
+ Design tokens (converted from src/utils/theming.js, static/global.css and src/styles/button.js).
+
+ Theme resolution order:
+ 1. [data-theme] on <html>, set pre-paint by /theme-init.js and by the ThemeSwitcher
+ 2. prefers-color-scheme, only while no data-theme is present (no-JS fallback)
+
+ Breakpoints (min-width, "up"). Custom properties cannot be used inside @media,
+ so these are documented here and must be written literally in media queries:
+   sm 576px | md 768px | lg 992px | xl 1200px
+ Device queries (forDevice):
+   touchscreen: (hover: none) and (pointer: coarse)
+   stylus:      (hover: none) and (pointer: fine)
+   motion-sense:(hover: hover) and (pointer: coarse)
+   mouse:       (hover: hover) and (pointer: fine)
+*/
+
+:root {
+	--background: #fff;
+	--backgroundRGB: 255, 255, 255;
+	--foreground: #000;
+
+	--bp-sm: 576px; /* Reference only, see note above */
+	--bp-md: 768px;
+	--bp-lg: 992px;
+	--bp-xl: 1200px;
+
+	--theme-duration: 0.333s;
+	--control-size: 50px;
+	--icon-size: 40px;
+	--z-controls: 8;
+
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--background: #000;
+		--backgroundRGB: 0, 0, 0;
+		--foreground: #fff;
+
+		color-scheme: dark;
+	}
+}
+
+:root[data-theme='light'] {
+	--background: #fff;
+	--backgroundRGB: 255, 255, 255;
+	--foreground: #000;
+
+	color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+	--background: #000;
+	--backgroundRGB: 0, 0, 0;
+	--foreground: #fff;
+
+	color-scheme: dark;
+}

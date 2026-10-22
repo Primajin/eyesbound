@@ -1,0 +1,12 @@
+---
+import {languages, t} from '../i18n/index.js';
+
+interface Props {
+	key: string;
+	params?: Record<string, string>;
+}
+
+const {key, params = {}} = Astro.props;
+---
+
+{languages.map(lang => <span data-lang={lang} lang={lang}>{t(key, lang, params)}</span>)}

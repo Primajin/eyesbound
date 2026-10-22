@@ -1,0 +1,5 @@
+[
+	{"id": "tag-1", "uid": "infrared", "type": "tags", "data": {"title": "Infrared"}},
+	{"id": "tag-2", "uid": "hdr", "type": "tags", "data": {"title": "HDR"}},
+	{"id": "tag-3", "uid": "unused", "type": "tags", "data": {"title": "Unused"}}
+]

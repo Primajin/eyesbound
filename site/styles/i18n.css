@@ -1,0 +1,8 @@
+html[lang='en'] [data-lang]:not([data-lang='en']),
+html[lang='de'] [data-lang]:not([data-lang='de']) {
+	display: none;
+}
+
+html:not([lang='en'], [lang='de']) [data-lang]:not([data-lang='en']) {
+	display: none;
+}
