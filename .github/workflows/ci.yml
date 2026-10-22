@@ -50,20 +50,107 @@ jobs:
     uses: ./.github/workflows/astro-ci.yml
     secrets: inherit
 
+  # Cloudflare preview: uploads the dist artifact that `astro` already built
+  # (no rebuild) as a Workers version with alias pr-<number>. Only runs after the
+  # whole `astro` gate passed, for same-repo PRs (Renovate and Dependabot
+  # included), and only once the owner flips PREVIEW_PROVIDER=cloudflare.
+  # Fork PRs never get secrets and never reach this job.
+  # Not pull_request_target: the job runs the PR's own (same-repo) workflow file.
+  preview:
+    name: Cloudflare preview
+    if: >-
+      github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      vars.PREVIEW_PROVIDER == 'cloudflare' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    needs: astro
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_deploy-cloudflare.yml
+    with:
+      mode: preview
+      pr-number: ${{ github.event.pull_request.number }}
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # Sticky PR comment with the preview URL. The URL is always also in the
+  # `preview` job summary and its `url` output. Dependabot PRs get a read-only
+  # GITHUB_TOKEN regardless of the grant below, so this job is best-effort:
+  # `continue-on-error` keeps a 403 from failing the run (it is not in
+  # `All checks green` either).
+  preview-comment:
+    name: Preview comment (best-effort)
+    if: ${{ !cancelled() && needs.preview.outputs.url != '' }}
+    needs: preview
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 5
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Create or update the sticky comment
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          URL: ${{ needs.preview.outputs.url }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          marker='<!-- eyesbound-cloudflare-preview -->'
+          body="$(printf '%s\n**Cloudflare preview:** %s\n\nCommit `%s`. Updated on every push.' "$marker" "$URL" "${HEAD_SHA:0:7}")"
+          id="$(gh api --paginate "repos/${REPO}/issues/${PR_NUMBER}/comments" \
+            --jq "[.[] | select(.user.login==\"github-actions[bot]\" and (.body | contains(\"${marker}\")))] | first | .id // empty" | head -n 1)"
+          if [ -n "$id" ]; then
+            gh api -X PATCH "repos/${REPO}/issues/comments/${id}" -f body="$body" > /dev/null
+          else
+            gh api -X POST "repos/${REPO}/issues/${PR_NUMBER}/comments" -f body="$body" > /dev/null
+          fi
+
+  # PRODUCTION deploy: present but DISABLED (`if: false`) until cutover. At
+  # cutover remove `false &&`. Needs the same gate as the preview.
+  deploy-production:
+    name: Cloudflare production deploy (disabled until cutover)
+    if: ${{ false && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: astro
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_deploy-cloudflare.yml
+    with:
+      mode: production
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # Same `if` as the internals of the called workflow (a skipped internal job
+  # would otherwise report success). With PREVIEW_PROVIDER=cloudflare they need
+  # the preview URL, and are skipped when there is none (fork PRs, missing
+  # secrets, failed deploy). `!cancelled()` lets them run although `preview` is
+  # skipped when the provider is netlify.
   console:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    if: >-
+      !cancelled() && github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      (vars.PREVIEW_PROVIDER != 'cloudflare' || needs.preview.outputs.url != '')
+    needs: preview
     permissions:
       pull-requests: write
     uses: ./.github/workflows/_console.yml
+    with:
+      preview-url: ${{ needs.preview.outputs.url }}
     secrets: inherit
 
   screenshots:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    if: >-
+      !cancelled() && github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      (vars.PREVIEW_PROVIDER != 'cloudflare' || needs.preview.outputs.url != '')
+    needs: preview
     permissions:
       checks: read
       contents: write
       pull-requests: write
     uses: ./.github/workflows/_screenshots.yml
+    with:
+      preview-url: ${{ needs.preview.outputs.url }}
     secrets: inherit
 
   all-green:
@@ -75,6 +162,8 @@ jobs:
       - lint
       - test
       - astro
+      - preview
+      - deploy-production
       - console
       - screenshots
     runs-on: ubuntu-latest
