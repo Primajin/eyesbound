@@ -121,13 +121,20 @@ describe('images', () => {
 		await expect(render(PictureImage, {...props, image: {...image, width: null}})).rejects.toThrow('has no dimensions');
 	});
 
-	test('Thumbnails link to the picture and use the thumbnail source, lazily', async () => {
+	test('Thumbnails link to the picture and prefer the full image for sharp high-density thumbnails, lazily', async () => {
 		const html = await render(Thumbnails, {pictures: [picture], title: 'Floral', type: 'Category'});
 		expect(html).toContain('Category: Floral (1)');
 		expect(html).toContain('href="/picture/a/"');
 		expect(html).toContain('aria-label="A"');
 		expect(html).toContain('loading="lazy"');
 		expect(html).toContain('width="261"');
+		expect(html).toContain('522w');
+	});
+
+	test('Thumbnails fall back to the thumbnail when there is no full image', async () => {
+		const html = await render(Thumbnails, {pictures: [{...picture, image: null}], title: 'Floral', type: 'Category'});
+		expect(html).toContain('<img');
+		expect(html).not.toContain('522w');
 	});
 
 	test('Thumbnails show the title instead of an image for a picture without one', async () => {

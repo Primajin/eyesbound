@@ -194,13 +194,22 @@ jobs:
         # Pinned CLI via npx only (no repo dependency). lighthouserc.json holds
         # the mobile settings, 5 runs (median) and the 100 budgets; it serves
         # dist/ with `astro preview`. URLs: home, listing and the first detail page.
+        # The detail page embeds Google Maps, whose key is referrer-restricted: on
+        # http://localhost Google rejects it and logs console errors, so only that
+        # run skips `errors-in-console` (maps are covered by the e2e job).
         run: |
           detail="$(grep -o '/picture/[^/<]*/' dist/sitemap-0.xml | head -n 1)"
           test -n "$detail"
+          status=0
           npx --yes @lhci/cli@0.15.1 autorun \
             --collect.url=http://localhost:4323/ \
             --collect.url=http://localhost:4323/picture/ \
-            --collect.url="http://localhost:4323${detail}"
+            --upload.outputDir=.lighthouseci/lists || status=1
+          npx --yes @lhci/cli@0.15.1 autorun \
+            --collect.url="http://localhost:4323${detail}" \
+            --collect.settings.skipAudits=errors-in-console \
+            --upload.outputDir=.lighthouseci/detail || status=1
+          exit "$status"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
         with:

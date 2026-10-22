@@ -8,6 +8,7 @@ interface Props {
 	type: string;
 }
 
+// The Prismic thumbnail is only 280px wide: too small for high-density screens, so the full image (resized by imgix) is preferred.
 const {pictures, title, type} = Astro.props;
 ---
 
@@ -16,8 +17,8 @@ const {pictures, title, type} = Astro.props;
 	{pictures.map(({uid, title: pictureTitle, image, thumbnail}) => (
 		<li>
 			<a href={routes.picture(uid)} aria-label={pictureTitle ?? uid}>
-				{(thumbnail ?? image)
-					? <PictureImage image={thumbnail ?? image} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" />
+				{(image ?? thumbnail)
+					? <PictureImage image={image ?? thumbnail} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" />
 					: <span class="missing">{pictureTitle ?? uid}</span>}
 			</a>
 		</li>
