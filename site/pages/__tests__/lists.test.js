@@ -43,13 +43,13 @@ const renderDetail = async (page, getPaths, family, uid) => {
 };
 
 describe('list pages', () => {
-	test('picture list shows every picture with lazy sized thumbnails and a trailing-slash canonical', async () => {
+	test('picture list shows every picture with an eager first and lazy other thumbnails and a trailing-slash canonical', async () => {
 		const html = await render(PictureList, '/picture/');
 		expect(html).toContain('<link rel="canonical" href="https://eyesbound.com/picture/">');
 		expect(html).toContain('<title>Pictures | ');
 		expect(html).toContain('href="/picture/exoplanet/"');
 		expect(html).toMatch(/<img[^>]*loading="lazy"/v);
-		expect(html).not.toContain('loading="eager"');
+		expect(html.match(/loading="eager"/gv)).toHaveLength(1);
 		expect(html).toMatch(/<span class="missing"[^>]*>No image<\/span>/v);
 		expect(html).toMatch(/<ul class="thumbnails cropped-photo"/v);
 		expect(html).toMatch(/<img[^>]*width="\d+"[^>]*height="\d+"|<img[^>]*height="\d+"[^>]*width="\d+"/v);

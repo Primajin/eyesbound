@@ -46,7 +46,7 @@ test.describe('list, detail and static pages', () => {
 		});
 	}
 
-	test('thumbnails are lazy, sized, same-origin and link to picture pages', async ({page}) => {
+	test('only the first thumbnail is eager; all are sized, same-origin and link to picture pages', async ({page}) => {
 		await page.goto('/picture/');
 		const images = page.locator('main img');
 		expect(await images.count()).toBeGreaterThan(1);
@@ -56,8 +56,8 @@ test.describe('list, detail and static pages', () => {
 			height: element.getAttribute('height'),
 			alt: element.getAttribute('alt'),
 		})));
-		for (const {loading, width, height, alt} of attributes) {
-			expect(loading).toBe('lazy');
+		for (const [index, {loading, width, height, alt}] of attributes.entries()) {
+			expect(loading).toBe(index === 0 ? 'eager' : 'lazy');
 			expect(width).toMatch(/^\d+$/v);
 			expect(height).toMatch(/^\d+$/v);
 			expect(alt).toBeTruthy();

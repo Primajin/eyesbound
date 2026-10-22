@@ -8,17 +8,18 @@ interface Props {
 	type: string;
 }
 
+// The first thumbnail is the LCP element on every viewport (top of the first row), so it must not be lazy.
 // The Prismic thumbnail is only 280px wide: too small for high-density screens, so the full image (resized by imgix) is preferred.
 const {pictures, title, type} = Astro.props;
 ---
 
 <h1>{type}: {title} ({pictures.length})</h1>
 <ul class="thumbnails cropped-photo">
-	{pictures.map(({uid, title: pictureTitle, image, thumbnail}) => (
+	{pictures.map(({uid, title: pictureTitle, image, thumbnail}, index) => (
 		<li>
 			<a href={routes.picture(uid)} aria-label={pictureTitle ?? uid}>
 				{(image ?? thumbnail)
-					? <PictureImage image={image ?? thumbnail} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" />
+					? <PictureImage image={image ?? thumbnail} title={pictureTitle ?? uid} displayWidth={261} sizes="(min-width: 992px) 261px, (min-width: 576px) 30vw, (min-width: 420px) 45vw, 90vw" priority={index === 0} />
 					: <span class="missing">{pictureTitle ?? uid}</span>}
 			</a>
 		</li>

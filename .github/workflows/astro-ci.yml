@@ -222,6 +222,8 @@ jobs:
         with:
           name: lighthouse-reports
           path: .lighthouseci/
+          # upload-artifact skips dot-directories by default, which dropped the whole report
+          include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 7
 

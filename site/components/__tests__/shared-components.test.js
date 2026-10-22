@@ -121,14 +121,21 @@ describe('images', () => {
 		await expect(render(PictureImage, {...props, image: {...image, width: null}})).rejects.toThrow('has no dimensions');
 	});
 
-	test('Thumbnails link to the picture and prefer the full image for sharp high-density thumbnails, lazily', async () => {
+	test('Thumbnails link to the picture and prefer the full image for sharp high-density thumbnails', async () => {
 		const html = await render(Thumbnails, {pictures: [picture], title: 'Floral', type: 'Category'});
 		expect(html).toContain('Category: Floral (1)');
 		expect(html).toContain('href="/picture/a/"');
 		expect(html).toContain('aria-label="A"');
-		expect(html).toContain('loading="lazy"');
 		expect(html).toContain('width="261"');
 		expect(html).toContain('522w');
+	});
+
+	test('Thumbnails load only the first thumbnail eagerly with high priority', async () => {
+		const html = await render(Thumbnails, {pictures: [picture, {...picture, uid: 'b'}], title: 'Floral', type: 'Category'});
+		expect(html.match(/loading="eager"/gv)).toHaveLength(1);
+		expect(html.match(/fetchpriority="high"/gv)).toHaveLength(1);
+		expect(html.match(/loading="lazy"/gv)).toHaveLength(1);
+		expect(html.indexOf('loading="eager"')).toBeLessThan(html.indexOf('loading="lazy"'));
 	});
 
 	test('Thumbnails fall back to the thumbnail when there is no full image', async () => {
