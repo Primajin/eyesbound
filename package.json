@@ -10,6 +10,7 @@
     "node": ">=22.4.0"
   },
   "scripts": {
+    "preastro:build": "node --env-file-if-exists=.env.local scripts/check-env.mjs",
     "astro:build": "astro build",
     "astro:dev": "astro dev",
     "astro:preview": "astro preview",
