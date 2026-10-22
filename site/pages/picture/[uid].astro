@@ -48,7 +48,7 @@ const shortCoordinates = hasLocation(coordinates) ? [coordinates.latitude, coord
 		<section>
 			{category && <h2 class="taxonomy"><T key="picture.category" />: <a href={routes.category(category.uid)}>{category.title ?? category.uid}</a></h2>}
 			{series && <h2 class="taxonomy"><T key="picture.series" />: <a href={routes.series(series.uid)}>{series.title ?? series.uid}</a></h2>}
-			<figure data-fullscreen-target>
+			<figure class="cropped-photo" data-fullscreen-target>
 				<PictureImage image={image} title={title ?? uid} displayWidth={1072} sizes="(min-width: 1200px) 1072px, 90vw" priority />
 			</figure>
 			{(tags.length > 0 || datetime || shortCoordinates.length > 0) && (

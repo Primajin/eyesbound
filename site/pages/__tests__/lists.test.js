@@ -51,6 +51,7 @@ describe('list pages', () => {
 		expect(html).toMatch(/<img[^>]*loading="lazy"/v);
 		expect(html).not.toContain('loading="eager"');
 		expect(html).toMatch(/<span class="missing"[^>]*>No image<\/span>/v);
+		expect(html).toMatch(/<ul class="thumbnails cropped-photo"/v);
 		expect(html).toMatch(/<img[^>]*width="\d+"[^>]*height="\d+"|<img[^>]*height="\d+"[^>]*width="\d+"/v);
 	});
 

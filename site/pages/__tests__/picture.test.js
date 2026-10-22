@@ -50,6 +50,7 @@ describe('picture page', () => {
 		expect(html).toContain('May 01, 2020');
 		expect(html).toContain('<meta property="og:image" content="https://eyesbound.com/');
 		expect(html).toContain('data-fullscreen-toggle');
+		expect(html).toMatch(/<figure class="cropped-photo"/v);
 		expect(html).not.toMatch(/picture\.\w+/v);
 	});
 

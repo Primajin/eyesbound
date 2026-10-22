@@ -71,6 +71,11 @@ describe('sorting', () => {
 		expect(uids(sortByTitle([{uid: 'z', title: null}, ...items, {uid: 'y', title: null}]))).toEqual(['hdr', 'infrared', 'unused', 'y', 'z']);
 	});
 
+	test('sorts titles by code point like the live site: upper case, then lower case, umlauts after plain letters', () => {
+		const titles = ['digital', 'Dänemark', 'Dresden', 'Zons', 'Dessau'].map(title => ({uid: title, title}));
+		expect(uids(sortByTitle(titles))).toEqual(['Dessau', 'Dresden', 'Dänemark', 'Zons', 'digital']);
+	});
+
 	test('does not mutate its input', () => {
 		const input = [{uid: 'b', datetime: null}, {uid: 'a', datetime: null}];
 		sortPictures(input);

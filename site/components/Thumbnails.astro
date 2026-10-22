@@ -13,7 +13,7 @@ const {pictures, title, type} = Astro.props;
 ---
 
 <h1>{type}: {title} ({pictures.length})</h1>
-<ul class="thumbnails">
+<ul class="thumbnails cropped-photo">
 	{pictures.map(({uid, title: pictureTitle, image, thumbnail}) => (
 		<li>
 			<a href={routes.picture(uid)} aria-label={pictureTitle ?? uid}>

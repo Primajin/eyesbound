@@ -39,7 +39,7 @@ if (pictures.length === 0) {
 		{pictures.map(({uid, title, image, thumbnail}, index) => (
 			<li>
 				<button type="button" class="indicator" data-slide-to={index} aria-current={index === 0 ? 'true' : 'false'} aria-label={title ?? uid} title={title ?? uid}>
-					<PictureImage image={thumbnail ?? image} title={title ?? uid} displayWidth={46} sizes="46px" />
+					<PictureImage image={thumbnail ?? image} title={title ?? uid} displayWidth={50} sizes="50px" />
 					<span class="caption" aria-hidden="true">{title ?? uid}</span>
 				</button>
 			</li>
@@ -91,12 +91,57 @@ if (pictures.length === 0) {
 		block-size: 100%;
 		display: block;
 		inline-size: 100%;
-		object-fit: contain;
+		object-fit: cover;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
 		.slides {
 			scroll-behavior: smooth;
+		}
+
+		/*
+		 Progressive enhancement (scroll-driven animations): turns the horizontal scroll into the live site's cross-fade.
+		 Each slide's link is pinned to the viewport while its slide scrolls past and fades with its visibility;
+		 the snap box (the li) is never transformed, so scroll snapping is unaffected.
+		*/
+		@supports (animation-timeline: view(inline)) {
+			.slide {
+				view-timeline: --slide inline;
+			}
+
+			.slide a {
+				animation-fill-mode: both;
+				animation-name: cross-fade;
+				animation-timeline: --slide;
+				animation-timing-function: linear;
+			}
+		}
+	}
+
+	@keyframes cross-fade {
+		0% {
+			opacity: 0;
+			pointer-events: none;
+			transform: translateX(-100%);
+		}
+
+		49.9% {
+			pointer-events: none;
+		}
+
+		50% {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		50.1% {
+			pointer-events: none;
+		}
+
+		100% {
+			opacity: 0;
+			pointer-events: none;
+			transform: translateX(100%);
 		}
 	}
 
@@ -153,34 +198,41 @@ if (pictures.length === 0) {
 		inline-size: 100%;
 		inset-block-end: 0;
 		inset-inline-start: 0;
+		justify-content: safe center;
 		margin: 0;
-		padding: 0 5px;
+		overflow-x: auto;
+		padding: 0;
 		position: absolute;
+		scrollbar-width: none;
 		z-index: 1;
 	}
 
 	.indicators li {
+		flex: none;
 		list-style: none;
-		margin-inline-end: 5px;
+		margin-inline-start: 5px;
 	}
 
 	.indicator {
 		background: none;
-		border: 2px solid transparent;
 		cursor: pointer;
 		display: block;
 		padding: 0;
-		transition: border-color 0.25s;
-	}
-
-	.indicator[aria-current='true'],
-	.indicator:hover {
-		border-color: var(--background);
 	}
 
 	.indicator :global(img) {
+		aspect-ratio: 7360 / 4912;
+		block-size: auto;
+		border: 2px solid transparent;
 		display: block;
-		inline-size: 46px;
+		inline-size: 50px;
+		object-fit: cover;
+		transition: border-color 0.25s;
+	}
+
+	.indicator[aria-current='true'] :global(img),
+	.indicator:hover :global(img) {
+		border-color: var(--background);
 	}
 
 	.caption {

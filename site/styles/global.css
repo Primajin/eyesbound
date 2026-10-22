@@ -3,7 +3,7 @@
 body {
 	background: var(--background);
 	color: var(--foreground);
-	font-family: Montserrat, sans-serif;
+	font-family: Montserrat, 'Montserrat Fallback', sans-serif;
 }
 
 a {
@@ -23,6 +23,11 @@ p:empty {
 	display: none;
 }
 
+/* reset.css sets span { font-weight: 400 }, which flattened bold text wrapped in <T> and arrow glyph spans (live has no inner spans) */
+span {
+	font-weight: inherit;
+}
+
 h1,
 h2,
 h3 {
@@ -39,6 +44,14 @@ h2 {
 
 h3 {
 	font-size: 110%;
+}
+
+/* The live site crops every photo to the camera frame (7360x4912) and stretches it to its container */
+.cropped-photo img {
+	aspect-ratio: 7360 / 4912;
+	display: block;
+	inline-size: 100%;
+	object-fit: cover;
 }
 
 button {
