@@ -1,23 +1,26 @@
 name: Astro CI
 
-# Astro-side checks that run next to the legacy Gatsby/Netlify workflows (ci.yml).
-# They are intentionally NOT part of the `All checks green` job in ci.yml until
-# cutover (issue #987). Third-party actions are pinned to a full commit SHA.
-# First-party actions/* are pinned too (new file), with the version in a comment.
+# Astro-side checks, called from ci.yml (job `astro`) so that the required
+# `All checks green` status covers them (issue #987). No push/pull_request
+# triggers here: ci.yml is the entry point, so nothing runs twice.
+# workflow_dispatch stays for manual runs. Third-party actions are pinned to a
+# full commit SHA. First-party actions/* are pinned too, version in a comment.
+# When called, `github.event*` is the caller's event, so the fork guards below
+# keep working; the caller must grant contents: read and pass `secrets: inherit`.
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    types: [ opened, reopened, synchronize ]
+  workflow_call:
   workflow_dispatch:
 
 # Least privilege: nothing by default, each job grants what it needs.
 permissions: {}
 
+# In a called workflow `github.workflow` is the CALLER's name, so a group that
+# reuses it could collide with the caller's own group; use a literal prefix.
+# Only superseded PR runs are cancelled; runs on main always finish.
 concurrency:
-  group: astro-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  group: astro-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
   NODE_VERSION: '24'
@@ -71,6 +74,9 @@ jobs:
 
   build:
     name: Astro build (real Prismic data)
+    # Fail early and cheaply: lint and unit tests need no build, so the 6 minute
+    # real-data build (and e2e/lighthouse behind it) only starts once they pass.
+    needs: [ lint, unit ]
     # Forks get no secrets, so the real-data build cannot run for them.
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest

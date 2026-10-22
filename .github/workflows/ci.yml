@@ -40,6 +40,16 @@ jobs:
     uses: ./.github/workflows/_test.yml
     secrets: inherit
 
+  # Astro site checks (lint, unit, build, e2e, route parity; lighthouse is
+  # advisory). Inner jobs only need contents: read; fork PRs skip the
+  # secret-dependent ones inside the called workflow.
+  astro:
+    if: github.event_name == 'push' || github.event.action != 'closed'
+    permissions:
+      contents: read
+    uses: ./.github/workflows/astro-ci.yml
+    secrets: inherit
+
   console:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     permissions:
@@ -64,6 +74,7 @@ jobs:
       - build-matrix
       - lint
       - test
+      - astro
       - console
       - screenshots
     runs-on: ubuntu-latest
