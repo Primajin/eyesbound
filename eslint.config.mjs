@@ -9,6 +9,7 @@ import xoReact from 'eslint-config-xo-react';
 const eslintConfig = [
 	globalIgnores([
 		'.github/agents/**',
+		'**/*.astro',
 		'__mocks__',
 		'__snapshots__',
 		'csp-utils.js',
@@ -33,6 +34,13 @@ const eslintConfig = [
 			...pluginJest.configs['flat/style'].rules,
 			'unicorn/prefer-global-this': 'off',
 			'unicorn/no-global-object-property-assignment': 'off',
+		},
+	},
+	{
+		files: ['astro.config.mjs', 'vitest.config.mjs'],
+		rules: {
+			'n/prefer-global/process': 'off',
+			'unicorn/no-top-level-side-effects': 'off',
 		},
 	},
 	{

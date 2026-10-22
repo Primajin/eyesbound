@@ -1,0 +1,69 @@
+---
+import '@fontsource/montserrat/latin-400.css';
+import '@fontsource/montserrat/latin-700.css';
+import '../../static/reset.css';
+import '../../static/global.css';
+
+import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
+
+import {defaultDescription, keywords} from '../constants/site.js';
+import {buildCanonicalUrl, buildTitle} from '../utils/seo.js';
+
+interface Props {
+	title?: string;
+	description?: string;
+	imageSource?: string;
+	coordinates?: number[];
+	dateTime?: string;
+}
+
+const {title = '', description = defaultDescription, imageSource = '', coordinates = [], dateTime = ''} = Astro.props;
+const site = Astro.site ?? new URL(Astro.url.origin);
+const canonical = buildCanonicalUrl(Astro.url.pathname, site);
+const fullTitle = buildTitle(title, siteName);
+const hasCoordinates = coordinates.length > 0;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<script is:inline src="/theme-init.js"></script>
+		<title>{fullTitle}</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="canonical" href={canonical}>
+		<meta name="title" content={fullTitle}>
+		<meta name="description" content={description}>
+		<meta name="abstract" content={description}>
+		<meta name="keywords" content={keywords}>
+		<meta name="author" content="Jannis Hell">
+		<meta name="MobileOptimized" content="width">
+		<meta name="HandheldFriendly" content="true">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={fullTitle}>
+		<meta property="og:description" content={description}>
+		<meta property="og:url" content={canonical}>
+		{imageSource && <meta property="og:image" content={imageSource}>}
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@helljannis">
+		<meta name="twitter:creator" content="@helljannis">
+		<meta name="twitter:title" content={fullTitle}>
+		<meta name="twitter:description" content={description}>
+		{imageSource && <meta name="twitter:image" content={imageSource}>}
+		{hasCoordinates && <meta name="geo.position" content={coordinates.join(';')}>}
+		{hasCoordinates && <meta name="ICBM" content={coordinates.join(', ')}>}
+		{dateTime && <meta name="date" content={dateTime}>}
+		<meta name="application-name" content={siteName}>
+		<meta name="msapplication-TileColor" content="#000000">
+		<meta name="msapplication-TileImage" content="/metro-tile.png">
+		<meta name="msapplication-starturl" content={site.href}>
+		<meta name="msapplication-square70x70logo" content="/tiny_70x70.png">
+		<meta name="msapplication-square150x150logo" content="/square_150x150.png">
+		<meta name="msapplication-wide310x150logo" content="/wide_310x150.png">
+		<meta name="msapplication-square310x310logo" content="/large_310x310.png">
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

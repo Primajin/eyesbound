@@ -1,6 +1,6 @@
 # 0002. Test strategy and offline support for the Astro migration
 
-- Status: Proposed
+- Status: Accepted (2026-10-22, owner approved recommendations)
 - Date: 2026-10-22
 - Deciders: Jannis Hell (pending)
 - Related: issue #987 (Gatsby to Astro migration), CSP strategy ADR (pending)

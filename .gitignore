@@ -53,6 +53,7 @@ typings/
 
 # dotenv environment variable files
 .env.*
+!.env.example
 
 # gatsby files
 .cache/
@@ -73,3 +74,10 @@ yarn-error.log
 
 # test results
 junit.xml
+
+# astro files
+dist/
+.astro/
+
+# wrangler
+.wrangler/

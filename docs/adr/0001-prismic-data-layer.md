@@ -1,6 +1,6 @@
 # 0001. Prismic data layer: replace gatsby-source-prismic with @prismicio/client
 
-- Status: Proposed
+- Status: Accepted (2026-10-22, owner approved recommendations)
 - Date: 2026-10-22
 - Spike: S0a, Gatsby to Astro migration ([#987](https://github.com/Primajin/eyesbound/issues/987))
 

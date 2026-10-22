@@ -1,6 +1,6 @@
 # 0003. CSP, headers and trailing slashes on Cloudflare (Workers static assets)
 
-- Status: Proposed
+- Status: Accepted (2026-10-22, owner approved recommendations)
 - Date: 2026-10-22
 - Deciders: Jannis Hell (pending)
 - Spike: S0b, Gatsby to Astro migration ([#987](https://github.com/Primajin/eyesbound/issues/987))
@@ -61,7 +61,7 @@ Verified behaviour of `_headers` on Workers static assets (see "Behaviour observ
 
 ### 2. STRICT policy (all non-map routes)
 
-```
+```text
 default-src 'none'; script-src 'self' __INLINE_SCRIPT_HASHES__; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 ```
 
@@ -75,7 +75,7 @@ Assumptions that must be enforced by build settings and the Playwright smoke sui
 
 ### 3. MAP policy (`/worldmap/*` and `/picture/:uid/`)
 
-```
+```text
 default-src 'none'; script-src 'self' https://maps.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com 'unsafe-eval' blob: __INLINE_SCRIPT_HASHES__; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.google.com data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 ```
 
@@ -98,11 +98,11 @@ The role shrinks but does not fully disappear.
 
 ### 5. Other headers (all routes)
 
-```
+```text
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 X-Content-Type-Options: nosniff
 Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 ```
 
 - **HSTS.** Observed on the live site: `max-age=31536000` only. `gatsby-config.js` asks for `includeSubDomains; preload`, but the live response does not show that. Start with `max-age=31536000; includeSubDomains`. Adding `preload` is effectively irreversible, so it needs an explicit human decision. The header is only meaningful on the custom domain, not on `workers.dev`.
@@ -191,16 +191,16 @@ Estimate to check at build time: 239 pages plus Astro's generated image variants
 2. Test `_redirects` 301 rules against `html_handling`, `not_found_handling: "404-page"`, and the `X-Robots-Tag` rule.
 3. Cutover, DNS, HSTS preload and CSP enforcement need explicit human confirmation.
 
-## Proposed `public/_headers` (do not commit from this spike)
+## Proposed `public/_headers`
 
-```
+```text
 # All routes: STRICT
 /*
   Content-Security-Policy: default-src 'none'; script-src 'self' __INLINE_SCRIPT_HASHES__; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 
 # Hashed build output: cache forever, no CSP (not documents)
 /_astro/*
