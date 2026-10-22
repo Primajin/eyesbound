@@ -227,7 +227,7 @@ On a machine with a GPU, open `https://eyesbound-csp-spike.eyesbound.workers.dev
 - No inline script and no `style=""`: the map island is a bundled module (`site/scripts/map.js`). It builds the Maps URL with `loading=async` and a one-shot global callback, then uses `importLibrary` and `AdvancedMarkerElement`. Picture data is a JSON `data-pictures` attribute, not a script block.
 - The Maps script is requested only when the map element is within 200px of the viewport (`IntersectionObserver`). On picture pages the map is below the fold, so nothing from Google loads for visitors who do not scroll there. The worldmap is the page, so it loads at once.
 - One map per theme, the second one created on the first theme switch (a `mapId` cannot change after creation).
-- The key is `GATSBY_G_MAPS`, declared in `astro.config.mjs` as a public client variable. A real build without it fails; fixture builds (`PRISMIC_FIXTURES=1`) tolerate its absence and the island then marks the element `data-map-error`.
+- The key is `MAPS_API_KEY`, declared in `astro.config.mjs` as a public client variable. A real build without it fails; fixture builds (`PRISMIC_FIXTURES=1`) tolerate its absence and the island then marks the element `data-map-error`.
 
 ### Lighthouse, deployed spike URL, mobile preset
 

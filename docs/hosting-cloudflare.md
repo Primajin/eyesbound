@@ -21,7 +21,7 @@ Configured by you in the Cloudflare dashboard (Workers & Pages, the worker, Sett
 | Name | Kind | Value |
 |---|---|---|
 | `PRISMIC_ACCESS_TOKEN` | secret | Prismic Content API token (same as the GitHub secret) |
-| `GATSBY_G_MAPS` | secret-ish (ships in the bundle, must be referrer-restricted) | Google Maps JS key |
+| `MAPS_API_KEY` | secret-ish (ships in the bundle, must be referrer-restricted) | Google Maps JS key |
 | `PRISMIC_REPO_NAME` | variable, optional | defaults to `eyesbound` |
 | `GATSBY_SERVER_URL` | variable | public origin used for canonical URLs and sitemap, e.g. `https://eyesbound.com` (production) |
 | `GATSBY_SITE_NAME` | variable, optional | defaults to `EYESBOUND` |
@@ -29,7 +29,7 @@ Configured by you in the Cloudflare dashboard (Workers & Pages, the worker, Sett
 
 ### Option B: GitHub Actions + wrangler (template only, intentionally not a live workflow)
 
-Needs GitHub **repository secrets** that you create: `CLOUDFLARE_API_TOKEN` (API token, template "Edit Cloudflare Workers", scoped to the single account), `CLOUDFLARE_ACCOUNT_ID`, plus `PRISMIC_ACCESS_TOKEN` and `GATSBY_G_MAPS`. Copy this to `.github/workflows/deploy.yml` only at cutover, after review. Pin `cloudflare/wrangler-action` to the SHA of its current release when you do (look it up; the placeholder below must not be committed as is).
+Needs GitHub **repository secrets** that you create: `CLOUDFLARE_API_TOKEN` (API token, template "Edit Cloudflare Workers", scoped to the single account), `CLOUDFLARE_ACCOUNT_ID`, plus `PRISMIC_ACCESS_TOKEN` and `MAPS_API_KEY`. Copy this to `.github/workflows/deploy.yml` only at cutover, after review. Pin `cloudflare/wrangler-action` to the SHA of its current release when you do (look it up; the placeholder below must not be committed as is).
 
 ```yaml
 name: Deploy (Cloudflare Workers)
@@ -59,7 +59,7 @@ jobs:
       - run: npm run astro:build
         env:
           PRISMIC_ACCESS_TOKEN: ${{ secrets.PRISMIC_ACCESS_TOKEN }}
-          GATSBY_G_MAPS: ${{ secrets.GATSBY_G_MAPS }}
+          MAPS_API_KEY: ${{ secrets.MAPS_API_KEY || secrets.GATSBY_G_MAPS }}
           GATSBY_SERVER_URL: https://eyesbound.com
       - uses: cloudflare/wrangler-action@<FULL_SHA> # vX.Y.Z (pin before use)
         with:
@@ -77,7 +77,7 @@ Prismic webhook (Settings, Webhooks) must call a Workers Builds deploy hook (Opt
 GitHub (Settings, Secrets and variables, Actions), needed by `.github/workflows/astro-ci.yml`:
 
 - Secret `PRISMIC_ACCESS_TOKEN` (required for build and route parity)
-- Secret `GATSBY_G_MAPS` (the build reads it; already exists for the Gatsby CI)
+- Secret `MAPS_API_KEY` (the build reads it; new name, add it in Cloudflare. GitHub CI falls back to the existing `GATSBY_G_MAPS` secret until you add it there too)
 - Variable `PRISMIC_REPO_NAME` (optional, defaults to `eyesbound`)
 
 Not needed for Astro CI: `GPG_PRIVATE_KEY`, `PASSPHRASE`, `CODECOV_TOKEN` (legacy workflows only). Fork PRs get no secrets, so `build`, `e2e`, `lighthouse` and `route-parity` are skipped for them; Dependabot PRs use the separate Dependabot secret store, so add the same two secrets there or those PRs skip the real-data jobs too.

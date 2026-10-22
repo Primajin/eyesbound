@@ -1,6 +1,6 @@
 ---
 import {getImage} from 'astro:assets';
-import {GATSBY_G_MAPS as apiKey} from 'astro:env/client';
+import {MAPS_API_KEY as apiKey} from 'astro:env/client';
 
 import {centerOfGermany} from '../constants/map.js';
 import {isUsingFixtures, routes} from '../lib/prismic.js';
@@ -25,7 +25,7 @@ if (pictures.length === 0) {
 }
 
 if (!apiKey && !isUsingFixtures()) {
-	throw new Error('GATSBY_G_MAPS is missing. Set it for a real build (the maps key is public and referrer-restricted), or set PRISMIC_FIXTURES=1 for a local fixture build.');
+	throw new Error('MAPS_API_KEY is missing. Set it for a real build (the maps key is public and referrer-restricted), or set PRISMIC_FIXTURES=1 for a local fixture build.');
 }
 
 const infoImage = async picture => {
