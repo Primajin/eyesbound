@@ -34,6 +34,8 @@ const hasCoordinates = coordinates.length > 0;
 		<meta charset="utf-8">
 		<script is:inline src="/theme-init.js"></script>
 		<script is:inline src="/lang-init.js"></script>
+		<link rel="manifest" href="/manifest.webmanifest">
+		{import.meta.env.PROD && <script is:inline src="/register-sw.js" defer></script>}
 		<link rel="preload" href={montserrat400} as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href={montserrat700} as="font" type="font/woff2" crossorigin>
 		<title>{fullTitle}</title>

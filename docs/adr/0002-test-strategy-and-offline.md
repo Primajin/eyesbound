@@ -85,7 +85,7 @@ Chosen: **web manifest + minimal precache service worker**, with no new runtime 
 - `public/manifest.webmanifest` and pre-generated icons (from `static/logo.png`) replace `gatsby-plugin-manifest`, keeping the same name, colours, `display: standalone` and `purpose: any maskable` icon.
 - A small hand-written `public/sw.js` precaches the self-hosted Montserrat 400/700 font files, the logo/icons and the global CSS, using cache-first for those versioned assets only. HTML and Prismic images are not cached; navigation is network-only, so there is no stale-content risk.
 - `public/sw.js` is served at the same path as the old Gatsby Workbox worker, so existing visitors update to it automatically. On `activate` it deletes the old Workbox/Gatsby caches and calls `clients.claim()`.
-- The precache list is generated at build time (hashed asset names from the Astro build) by a small build step; `_headers` sets `Cache-Control: no-cache` on `/sw.js`.
+- Astro hashes asset filenames, so there is no install-time precache list: fonts, CSS and icons are cached cache-first on first use; `_headers` sets `Cache-Control: no-cache` on `/sw.js`.
 - Registration lives in an external script file (not inline) so it needs no CSP hash; it must be verified that Astro does not inline it.
 - The Lighthouse PWA badge is retired from the README because Lighthouse no longer reports that category. This is a product decision for the owner to confirm.
 

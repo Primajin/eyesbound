@@ -76,7 +76,7 @@ Assumptions that must be enforced by build settings and the Playwright smoke sui
 ### 3. MAP policy (`/worldmap/*` and `/picture/:uid/`)
 
 ```text
-default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 ```
 
 This is the final policy, narrowed from the first proposal by the S9 render test (see "S9 results" below). No inline-script hash is needed: the map island is an external module and the Maps API is loaded through a script element.
@@ -213,7 +213,7 @@ Per-entry result of the MAP policy (each reduction was tested enforced and as re
 | `img-src` `*.gstatic.com`, `*.ggpht.com`, `*.google.com`, `*.googleusercontent.com` | not requested, dropped (these are Street View and Places photo hosts, both unused) |
 | `img-src blob:`, `connect-src blob:` | not needed for raster, kept unverified (vector tiles are decoded from blobs) |
 | `connect-src https://*.googleapis.com` | needed (`maps.googleapis.com`, `mapsresources-pa.googleapis.com`) |
-| `worker-src blob:` | **needed even for raster**: the API creates blob workers, and removing it gives `worker-src` violations. The first proposal had `'self' blob:`, `'self'` is not needed |
+| `worker-src 'self' blob:` | **needed even for raster**: the API creates blob workers, and removing it gives `worker-src` violations. The first proposal had `'self' blob:`, `'self'` is not needed |
 | `font-src 'self'` | needed for the self-hosted Montserrat (an early test run without it produced violations, which also shows the check is live) |
 
 So the policy shrank from five Google wildcard hosts in four directives to `maps.googleapis.com`, `maps.gstatic.com`, `*.googleapis.com`, `fonts.googleapis.com` and `fonts.gstatic.com`.
@@ -267,12 +267,12 @@ SEO 69 is the `noindex` header on `workers.dev` (the `is-crawlable` audit), not 
 # Map routes: replace STRICT with MAP (detach first, otherwise two CSP headers are sent)
 /worldmap/*
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 # Placeholder form matches /picture/<uid>/ only, so the /picture/ listing keeps STRICT
 /picture/:uid/
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 # Keep workers.dev hostnames out of search results (untested)
 https://:version.:subdomain.workers.dev/*
