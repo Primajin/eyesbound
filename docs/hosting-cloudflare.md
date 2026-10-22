@@ -12,6 +12,8 @@ Status: draft for issue #987. Nothing in this document has been executed. Backgr
 | Non-production branch deploy | `npx wrangler versions upload` |
 | Node | 24 (set build variable `NODE_VERSION=24`; the package needs >= 22.4) |
 
+Changing these settings does not re-run an old build: use "Retry build" in the dashboard or push a commit. `npm run build` is still the Gatsby build until cutover, so the dashboard build command must stay `npm run astro:build`.
+
 Note: `npm run build` is still the Gatsby build until cutover. Use `astro:build` for Astro, or rename scripts in the cutover PR and then update the commands above.
 
 ### Option A (recommended): Workers Builds (Git integration)
