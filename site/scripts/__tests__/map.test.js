@@ -9,6 +9,7 @@ import {
 } from 'vitest';
 
 import {mapIdDark, mapIdLight} from '../../constants/map.js';
+import {consentKey, hasConsent, revokeConsent} from '../map-consent.js';
 import {
 	buildApiUrl,
 	createInfoContent,
@@ -33,10 +34,12 @@ const flush = () => new Promise(resolve => {
 	setTimeout(resolve, 0);
 });
 
+const consentPanel = '<div data-map-consent hidden><button type="button">Load map</button></div>';
+
 const setupDom = ({infoWindow = true, key = 'test-key', data = pictures} = {}) => {
 	document.head.replaceChildren();
 	document.documentElement.dataset.theme = 'light';
-	document.body.innerHTML = `<div data-map ${infoWindow ? 'data-info-window' : ''} data-api-key="${key}" data-latitude="51.1" data-longitude="10.4" data-zoom="5"></div>`;
+	document.body.innerHTML = `<div data-map ${infoWindow ? 'data-info-window' : ''} data-api-key="${key}" data-latitude="51.1" data-longitude="10.4" data-zoom="5">${consentPanel}</div>`;
 	const container = document.querySelector('[data-map]');
 	container.dataset.pictures = JSON.stringify(data);
 	return container;
@@ -189,6 +192,7 @@ describe('initMaps', () => {
 	beforeEach(() => {
 		FakeObserver.instances.length = 0;
 		window.IntersectionObserver = FakeObserver;
+		window.localStorage.setItem(consentKey, 'granted');
 	});
 
 	test('does not load the Maps API until the element is near the viewport', async () => {
@@ -354,6 +358,70 @@ describe('initMaps', () => {
 		initMaps(document, {load: async () => fakeGoogle().maps});
 		window.gm_authFailure();
 		expect(container.dataset.mapError !== undefined).toBe(true);
+		error.mockRestore();
+	});
+});
+
+describe('initMaps without consent', () => {
+	beforeEach(() => {
+		FakeObserver.instances.length = 0;
+		window.IntersectionObserver = FakeObserver;
+		revokeConsent(window);
+		window.localStorage.clear();
+	});
+
+	test('shows the consent panel and requests nothing until the button is clicked', async () => {
+		const container = setupDom();
+		const load = vi.fn(async () => fakeGoogle().maps);
+		initMaps(document, {load});
+		await flush();
+		const panel = container.querySelector('[data-map-consent]');
+		expect(panel.hidden).toBe(false);
+		expect(FakeObserver.instances).toHaveLength(0);
+		expect(load).not.toHaveBeenCalled();
+		expect(window.localStorage.getItem(consentKey)).toBeNull();
+
+		panel.querySelector('button').click();
+		await flush();
+		expect(window.localStorage.getItem(consentKey)).toBe('granted');
+		expect(container.querySelector('[data-map-consent]')).toBeNull();
+		expect(document.activeElement).toBe(container);
+		expect(load).toHaveBeenCalledWith(document, 'test-key');
+		expect(container.dataset.mapReady).toBe('');
+	});
+
+	test('still lets the visitor load the map for this page view when storage is unavailable', async () => {
+		const storage = vi.spyOn(window, 'localStorage', 'get').mockImplementation(() => {
+			throw new Error('denied');
+		});
+		const container = setupDom();
+		const load = vi.fn(async () => fakeGoogle().maps);
+		initMaps(document, {load});
+		expect(hasConsent(window)).toBe(false);
+		container.querySelector('button').click();
+		await flush();
+		expect(hasConsent(window)).toBe(true);
+		expect(load).toHaveBeenCalledTimes(1);
+		storage.mockRestore();
+	});
+
+	test('flags the map and loads nothing when the consent panel is missing', () => {
+		const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+		const container = setupDom();
+		container.querySelector('[data-map-consent]').remove();
+		const load = vi.fn();
+		initMaps(document, {load});
+		expect(container.dataset.mapError).toBe('');
+		expect(load).not.toHaveBeenCalled();
+		error.mockRestore();
+	});
+
+	test('flags the map when the panel has no button', () => {
+		const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+		const container = setupDom();
+		container.querySelector('button').remove();
+		initMaps(document, {load: vi.fn()});
+		expect(container.dataset.mapError).toBe('');
 		error.mockRestore();
 	});
 });

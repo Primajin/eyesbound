@@ -13,6 +13,9 @@ test.use({baseURL: liveUrl, launchOptions: {args: ['--use-angle=gl', '--use-gl=a
 const watch = async (page, {reportOnly} = {}) => {
 	const violations = [];
 	const problems = [];
+	await page.addInitScript(() => {
+		localStorage.setItem('eyesbound.mapConsent', 'granted');
+	});
 	await page.exposeFunction('reportViolation', description => {
 		violations.push(description);
 	});

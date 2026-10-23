@@ -12,11 +12,6 @@ if (pictures.length === 0) {
 ---
 
 <Base title={t('navigation.worldmap', 'en')}>
-	<Fragment slot="head">
-		<link rel="preconnect" href="https://maps.googleapis.com">
-		<link rel="preconnect" href="https://mapsresources-pa.googleapis.com" crossorigin>
-		<link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
-	</Fragment>
 	<main>
 		<h1 id="map-label" class="visually-hidden"><T key="navigation.worldmap" /></h1>
 		<Map pictures={pictures} hasInfoWindow labelledBy="map-label" fullscreen />

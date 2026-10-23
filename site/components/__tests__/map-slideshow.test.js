@@ -81,6 +81,18 @@ describe('Map', () => {
 		}]);
 	});
 
+	test('renders a hidden consent panel inside the map with a privacy link and a button, in both languages', async () => {
+		vi.stubEnv('PRISMIC_FIXTURES', '1');
+		const html = await render(Map, props);
+		const panel = /<div[^>]*data-map-consent[^>]*>[\s\S]*?<\/button>/v.exec(html)[0];
+		expect(panel).toContain(' hidden');
+		expect(panel).toContain('href="/imprint/#privacy-policy"');
+		expect(panel).toContain('data-lang="en" lang="en">Load map<');
+		expect(panel).toContain('data-lang="de" lang="de">Karte laden<');
+		expect(panel).toContain('type="button"');
+		expect(html).not.toMatch(/\sstyle="|googleapis|gstatic/v);
+	});
+
 	test('honours center, zoom, fullscreen and the info window', async () => {
 		vi.stubEnv('PRISMIC_FIXTURES', '1');
 		const html = await render(Map, {

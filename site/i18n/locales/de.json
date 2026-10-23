@@ -34,5 +34,34 @@
     "title": "404 - Seite nicht gefunden",
     "message": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
     "home": "Zur Startseite"
+  },
+  "map": {
+    "consent": {
+      "text": "Beim Laden dieser Karte werden Daten, zum Beispiel Ihre IP-Adresse, an Google übertragen. Google kann sie außerhalb der EU verarbeiten.",
+      "privacy": "Datenschutzerklärung",
+      "load": "Karte laden"
+    }
+  },
+  "privacy": {
+    "withdraw": {
+      "button": "Kartenzustimmung widerrufen",
+      "done": "Kartenzustimmung widerrufen. Vor dem Laden einer Karte wird erneut gefragt."
+    },
+    "cloudflare": {
+      "heading": "11. Hosting durch Cloudflare",
+      "operator": "Diese Website wird über Cloudflare Workers und statische Assets ausgeliefert. Der Dienst wird von Cloudflare, Inc., USA, und gegebenenfalls von deren EU-Gesellschaft in Irland betrieben.",
+      "data": "Beim Aufruf einer Seite erhält Cloudflare technische Daten wie Ihre IP-Adresse, den Zeitpunkt der Anfrage und den User-Agent (Angaben zu Ihrem Browser und Betriebssystem). Cloudflare verarbeitet diese Daten in unserem Auftrag als Auftragsverarbeiter, um die Website auszuliefern und vor Missbrauch zu schützen.",
+      "basis": "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse ist eine sichere, schnelle und zuverlässige Website. Daten können in Drittländer übermittelt werden, insbesondere in die USA. Diese Übermittlungen beruhen auf dem EU-US Data Privacy Framework oder auf Standardvertragsklauseln.",
+      "more": "Weitere Informationen finden Sie in der Datenschutzerklärung von Cloudflare:"
+    },
+    "maps": {
+      "heading": "12. Google Maps",
+      "operator": "Diese Website kann Karten von Google Maps anzeigen. Für Besucher im Europäischen Wirtschaftsraum und in der Schweiz ist Anbieter die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“).",
+      "data": "Karten werden nicht automatisch geladen. Erst wenn Sie auf „Karte laden“ klicken, verbindet sich Ihr Browser mit Servern von Google. Google erhält dann Daten wie Ihre IP-Adresse, Angaben zu Ihrem Browser und Gerät sowie den angezeigten Kartenausschnitt. Google kann diese Daten in den USA oder anderen Drittländern verarbeiten.",
+      "basis": "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch den Klick auf „Karte laden“ erteilen. Übermittlungen in Drittländer beruhen auf dem EU-US Data Privacy Framework oder auf Standardvertragsklauseln. Beim Laden der Karte kann Google zudem Informationen in Ihrem Browser speichern oder auslesen; siehe die Datenschutzerklärung von Google.",
+      "storage": "Damit wir nicht erneut fragen müssen, merkt sich Ihr Browser Ihre Einwilligung im lokalen Speicher (Local Storage) unter dem Schlüssel „eyesbound.mapConsent“. Wir setzen dafür kein Cookie, und der Eintrag wird nicht an uns übertragen. Er bleibt bestehen, bis Sie Ihre Einwilligung widerrufen oder Ihre Browserdaten löschen.",
+      "withdraw": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt.",
+      "more": "Weitere Informationen finden Sie in der Datenschutzerklärung von Google:"
+    }
   }
 }

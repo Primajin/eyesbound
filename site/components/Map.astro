@@ -3,6 +3,7 @@ import {getImage} from 'astro:assets';
 import {MAPS_API_KEY as apiKey} from 'astro:env/client';
 
 import {centerOfGermany} from '../constants/map.js';
+import T from './T.astro';
 import {isUsingFixtures, routes} from '../lib/prismic.js';
 import {planImage} from '../utils/image.js';
 import '../styles/map.css';
@@ -63,6 +64,11 @@ const data = await Promise.all(pictures.map(async picture => ({
 	data-zoom={zoom}
 	data-info-window={hasInfoWindow ? '' : undefined}
 >
+	<div class="consent" data-map-consent hidden>
+		<p><T key="map.consent.text" /></p>
+		<p><a href="/imprint/#privacy-policy"><T key="map.consent.privacy" /></a></p>
+		<button type="button"><T key="map.consent.load" /></button>
+	</div>
 </div>
 
 <script>
@@ -81,6 +87,40 @@ const data = await Promise.all(pictures.map(async picture => ({
 		block-size: 100dvh;
 		inset: 0;
 		position: fixed;
+	}
+
+	.consent {
+		align-items: center;
+		border: 1px solid var(--foreground);
+		flex-direction: column;
+		gap: 1rem;
+		inset: 0;
+		justify-content: center;
+		padding: 1rem;
+		position: absolute;
+		text-align: center;
+	}
+
+	.consent:not([hidden]) {
+		display: flex;
+	}
+
+	.consent p {
+		margin: 0;
+		max-inline-size: 40rem;
+	}
+
+	.consent a {
+		text-decoration: underline;
+	}
+
+	.consent button {
+		background: var(--foreground);
+		color: var(--background);
+		cursor: pointer;
+		min-block-size: var(--control-size);
+		padding: 0 1.5rem;
+		text-transform: uppercase;
 	}
 
 	.map :global(.map-layer) {

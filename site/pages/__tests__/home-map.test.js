@@ -86,13 +86,12 @@ describe('worldmap page', () => {
 		expect(pictures.some(({uid, image}) => uid === 'no-image' && image === null)).toBe(true);
 	});
 
-	test('has a main landmark and preconnects to the Google origins in the head', async () => {
+	test('has a main landmark and does not contact any Google origin before consent', async () => {
 		const html = await render(Worldmap, '/worldmap/');
 		expect(html).toContain('<main>');
 		const head = html.slice(0, html.indexOf('</head>'));
-		for (const origin of ['https://maps.googleapis.com', 'https://mapsresources-pa.googleapis.com', 'https://maps.gstatic.com']) {
-			expect(head).toContain(`<link rel="preconnect" href="${origin}"`);
-		}
+		expect(head).not.toMatch(/preconnect|dns-prefetch|googleapis|gstatic/v);
+		expect(html).toContain('data-map-consent');
 	});
 
 	test('emits no inline script or style attributes (strict CSP)', async () => {

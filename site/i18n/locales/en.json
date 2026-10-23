@@ -34,5 +34,34 @@
     "title": "404 - Page Not Found",
     "message": "The page you are looking for does not exist or has been moved.",
     "home": "Return to Home"
+  },
+  "map": {
+    "consent": {
+      "text": "Loading this map transfers data, for example your IP address, to Google. Google may process it outside the EU.",
+      "privacy": "Privacy policy",
+      "load": "Load map"
+    }
+  },
+  "privacy": {
+    "withdraw": {
+      "button": "Forget map consent",
+      "done": "Map consent withdrawn. The map will ask again before loading."
+    },
+    "cloudflare": {
+      "heading": "11. Hosting by Cloudflare",
+      "operator": "This website is delivered through Cloudflare Workers and static assets. The service is operated by Cloudflare, Inc., USA, and, where applicable, by its EU entity in Ireland.",
+      "data": "When a page is called up, Cloudflare receives technical data such as your IP address, the time of the request and the user agent (information about your browser and operating system). Cloudflare processes this data on our behalf as a processor, to deliver the website and to protect it against misuse.",
+      "basis": "The legal basis is Art. 6(1)(f) GDPR. Our legitimate interest is a secure, fast and reliable website. Data may be transferred to third countries, in particular the USA. Such transfers are based on the EU-US Data Privacy Framework or on standard contractual clauses.",
+      "more": "More information is available in the privacy policy of Cloudflare:"
+    },
+    "maps": {
+      "heading": "12. Google Maps",
+      "operator": "This website can show maps provided by Google Maps. For visitors in the European Economic Area and Switzerland the provider is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland (\"Google\").",
+      "data": "Maps are not loaded automatically. Only after you click \"Load map\" does your browser connect to Google servers. Google then receives data such as your IP address, information about your browser and device, and the map section you are viewing. Google may process this data in the USA or other third countries.",
+      "basis": "The legal basis is your consent under Art. 6(1)(a) GDPR, which you give by clicking \"Load map\". Transfers to third countries are based on the EU-US Data Privacy Framework or on standard contractual clauses. When the map is loaded, Google may also store or read information in your browser; see the privacy policy of Google.",
+      "storage": "So that we do not have to ask you again, your browser remembers your consent in its local storage under the key \"eyesbound.mapConsent\". We set no cookie for this, and the entry is not sent to us. It stays until you withdraw your consent or clear your browser data.",
+      "withdraw": "You can withdraw your consent at any time with effect for the future. The lawfulness of the processing carried out until then is not affected.",
+      "more": "More information is available in the privacy policy of Google:"
+    }
   }
 }

@@ -1,4 +1,5 @@
 import {mapIdByTheme, mapIdDark, mapIdLight} from '../constants/map.js';
+import {grantConsent, hasConsent} from './map-consent.js';
 
 const apiUrl = 'https://maps.googleapis.com/maps/api/js';
 const callbackName = 'eyesboundMapsReady';
@@ -197,8 +198,26 @@ const whenVisible = (win, container, callback) => {
 	observer.observe(container);
 };
 
+const askConsent = (root, container, onGranted) => {
+	const panel = container.querySelector('[data-map-consent]');
+	const button = panel?.querySelector('button');
+	if (!button) {
+		fail(container, new Error('The map has no consent panel.'));
+		return;
+	}
+
+	panel.hidden = false;
+	button.addEventListener('click', () => {
+		grantConsent(root.defaultView);
+		panel.remove();
+		container.tabIndex = -1;
+		container.focus();
+		onGranted();
+	});
+};
+
 /**
- Wires every `[data-map]`: the Maps API is requested only when the element is (nearly) visible, and one map per theme is created lazily.
+ Wires every `[data-map]`. Nothing is requested from Google until the visitor consents: without stored consent the map's own consent panel is shown, and a click on its button loads the API. With consent the API is requested only when the element is (nearly) visible. One map per theme is created lazily.
  @param {Document} root Document to act on.
  @param {{load?: typeof loadGoogleMaps}} [options] Loader override for tests.
  */
@@ -212,6 +231,11 @@ export const initMaps = (root, {load = loadGoogleMaps} = {}) => {
 	};
 
 	for (const container of root.querySelectorAll('[data-map]')) {
-		whenVisible(root.defaultView, container, () => start(root, container, load));
+		const begin = () => start(root, container, load);
+		if (hasConsent(root.defaultView)) {
+			whenVisible(root.defaultView, container, begin);
+		} else {
+			askConsent(root, container, begin);
+		}
 	}
 };

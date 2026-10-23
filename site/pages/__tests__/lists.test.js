@@ -105,13 +105,24 @@ describe('static pages', () => {
 		expect(html).toContain('<title>Imprint &amp; Contact | ');
 		expect(html).toContain('data-lang="de" lang="de">Kontakt &amp; Impressum<');
 		expect(html).toContain('Friedrich-Wilhelm-Platz 2');
-		expect(html).not.toMatch(/imprint\.\w+/v);
+		expect(html).not.toMatch(/imprint\.(?!astro)\w+/v);
 		for (const {groups: {attributes}} of html.matchAll(/<a (?<attributes>[^>]*target="_blank"[^>]*)>/gv)) {
 			expect(attributes).toContain('rel="noreferrer"');
 		}
 
 		expect(html).not.toMatch(/<script(?![^>]*\ssrc=)[^>]*>/v);
 		expect(html).not.toMatch(/\sstyle="/v);
+	});
+
+	test('imprint documents Cloudflare and Google Maps in both languages and offers the withdraw control', async () => {
+		const html = await render(Imprint, '/imprint/');
+		expect(html).toMatch(/<h4 id="privacy-policy"/v);
+		expect(html).toContain('data-lang="en" lang="en">12. Google Maps<');
+		expect(html).toContain('data-lang="de" lang="de">11. Hosting durch Cloudflare<');
+		expect(html).toContain('href="https://www.cloudflare.com/privacypolicy/"');
+		expect(html).toContain('href="https://policies.google.com/privacy"');
+		expect(html).toMatch(/<button[^>]*data-map-consent-revoke[^>]*>/v);
+		expect(html).not.toMatch(/privacy\.(?:withdraw|cloudflare|maps)\.\w+/v);
 	});
 
 	test('404 page links home and has no inline script or style attributes', async () => {
