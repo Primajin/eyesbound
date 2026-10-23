@@ -50,7 +50,7 @@ Repository **variable** `PREVIEW_PROVIDER=cloudflare` turns on previews, console
 
 ### Cutover record (executed 2026-10-23)
 
-- Registrar is Squarespace Domains. DNSSEC was switched off there before the nameserver change (a DS record at the registrar without matching keys at the new DNS host breaks resolution); it can be re-enabled later from Cloudflare.
+- Registrar is Squarespace Domains. DNSSEC was switched off there before the nameserver change (a DS record at the registrar without matching keys at the new DNS host breaks resolution); it was re-enabled afterwards in Cloudflare with the DS record added at the registrar (key tag 2371, algorithm 13, digest type 2) and validation confirmed with `dig +dnssec` (`ad` flag). If DNSSEC is ever turned off again, remove the DS record at the registrar first, then disable it in Cloudflare.
 - The zone moved to Cloudflare (Free plan). Nameservers: `hassan.ns.cloudflare.com`, `olga.ns.cloudflare.com`.
 - Google Workspace mail records were copied unchanged and kept DNS-only (grey cloud): 5 MX records, SPF (`v=spf1 include:_spf.google.com a:hell-yeah.de ~all`), DKIM `google._domainkey`, DMARC (`p=reject`), `google-site-verification`, the `mail` CNAME to `ghs.googlehosted.com` and `_domainconnect`.
 - `eyesbound.com` and `www.eyesbound.com` are attached as Workers custom domains. A Redirect Rule sends `www` to the apex with `301`. Always Use HTTPS is on. HSTS comes only from `site/public/_headers` (`max-age=31536000; includeSubDomains`, no preload).
