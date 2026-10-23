@@ -1,14 +1,13 @@
 name: "CI · Screenshots"
 
-# Preview source is switched by the repository variable PREVIEW_PROVIDER:
-#   unset / netlify (default): wait for the Netlify deploy check (Gatsby era).
-#   cloudflare: use `preview-url` from the `preview` job of ci.yml.
+# Runs against the Cloudflare preview URL (`preview-url` from the `preview` job of ci.yml),
+# and only once the repository variable PREVIEW_PROVIDER is set to cloudflare.
 
 on:
   workflow_call:
     inputs:
       preview-url:
-        description: Cloudflare preview URL (used only when PREVIEW_PROVIDER=cloudflare)
+        description: Cloudflare preview URL
         type: string
         required: false
         default: ''
@@ -18,30 +17,14 @@ permissions: {}
 jobs:
   screenshots:
     # Same condition as the caller job in ci.yml.
-    if: vars.PREVIEW_PROVIDER != 'cloudflare' || inputs.preview-url != ''
+    if: vars.PREVIEW_PROVIDER == 'cloudflare' && inputs.preview-url != ''
     runs-on: ubuntu-latest
     name: Get screenshots of picture page
     permissions:
-      checks: read # fountainhead/action-wait-for-check lists the check runs of the commit (netlify path)
       contents: write # checkout, and screenshots-ci-action uploads the release assets
       pull-requests: write # screenshots-ci-action posts and edits the PR comment
     steps:
-      - name: Wait for Pages changed to neutral
-        if: vars.PREVIEW_PROVIDER != 'cloudflare'
-        uses: fountainhead/action-wait-for-check@5a908a24814494009c4bb27c242ea38c93c593be # v1.2.0
-        id: wait-for-Netlify
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          checkName: 'Pages changed - eyesbound'
-      - name: Get Preview URL and generate screenshot after Netlify check done
-        if: vars.PREVIEW_PROVIDER != 'cloudflare' && steps.wait-for-Netlify.outputs.conclusion == 'neutral'
-        uses: jakepartusch/wait-for-netlify-action@f1e137043864b9ab9034ae3a5adc1c108e3f1a48 # v1.4
-        id: waitFor200
-        with:
-          site_name: 'eyesbound'
       - name: Wait for the Cloudflare preview to answer
-        if: vars.PREVIEW_PROVIDER == 'cloudflare'
         env:
           PREVIEW_URL: ${{ inputs.preview-url }}
         run: curl --fail --silent --show-error --location --output /dev/null --retry 10 --retry-delay 3 --retry-all-errors "$PREVIEW_URL/picture/"
@@ -52,7 +35,7 @@ jobs:
       - name: screenshots-ci-action
         uses: Primajin/screenshots-ci-action@9042a4f85ea2cc2d18b7dfc787146b91690817e1 # v4.1.1
         with:
-          url: ${{ vars.PREVIEW_PROVIDER == 'cloudflare' && inputs.preview-url || steps.waitFor200.outputs.url }}/picture/
+          url: ${{ inputs.preview-url }}/picture/
           release-id: 357373231
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

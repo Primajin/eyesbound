@@ -1,7 +1,7 @@
 import {describe, expect, test} from 'vitest';
 
-import de from '../../../src/i18n/locales/de.json';
-import en from '../../../src/i18n/locales/en.json';
+import de from '../locales/de.json';
+import en from '../locales/en.json';
 import {t} from '../index.js';
 
 const flatten = (object, prefix = '') => Object.entries(object).flatMap(([key, value]) => (

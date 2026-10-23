@@ -1,5 +1,5 @@
 /**
- Same key and JSON-boolean format as src/hooks/use-theme-preference.js, so existing users keep their choice.
+ Same key and JSON-boolean format as the pre-Astro site, so existing users keep their choice.
  */
 export const STORAGE_KEY = 'userPrefersDark';
 
@@ -25,7 +25,7 @@ export function readStoredPreference(storage) {
 }
 
 /**
- Persists the preference; fails silently like the Gatsby hook.
+ Persists the preference; fails silently (private mode, blocked storage).
  @param {Pick<Storage, 'setItem'>} [storage] Storage to write to
  @param {boolean} isDark True to persist dark, false to persist light
  @returns {boolean} Whether it was persisted

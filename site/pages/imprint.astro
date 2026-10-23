@@ -1,7 +1,7 @@
 ---
-import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
+import {SITE_NAME as siteName} from 'astro:env/server';
 
-import badge from '../../static/a-design-award-winner-2016-silver-2x.png?url';
+import badge from '../assets/a-design-award-winner-2016-silver-2x.png?url';
 import MainWrapper from '../components/MainWrapper.astro';
 import T from '../components/T.astro';
 import {t} from '../i18n/index.js';
@@ -184,18 +184,18 @@ import Base from '../layouts/Base.astro';
 	}
 
 	.icon-cc {
-		background-image: url('../../static/creative-commons/cc.svg');
+		background-image: url('../assets/creative-commons/cc.svg');
 	}
 
 	.icon-cc-by {
-		background-image: url('../../static/creative-commons/by.svg');
+		background-image: url('../assets/creative-commons/by.svg');
 	}
 
 	.icon-cc-nc-eu {
-		background-image: url('../../static/creative-commons/nc-eu.svg');
+		background-image: url('../assets/creative-commons/nc-eu.svg');
 	}
 
 	.icon-cc-sa {
-		background-image: url('../../static/creative-commons/sa.svg');
+		background-image: url('../assets/creative-commons/sa.svg');
 	}
 </style>

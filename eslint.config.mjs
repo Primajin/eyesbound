@@ -1,7 +1,5 @@
-import {fixupConfigRules} from '@eslint/compat';
 import {globalIgnores} from 'eslint/config';
 import pluginJest from 'eslint-plugin-jest';
-import xoReact from 'eslint-config-xo-react';
 
 /**
 @type {import('xo').FlatXoConfig}
@@ -10,27 +8,16 @@ const eslintConfig = [
 	globalIgnores([
 		'.github/agents/**',
 		'**/*.astro',
-		'__mocks__',
-		'__snapshots__',
-		'csp-utils.js',
-		'gatsby-config.js',
-		'gatsby-node.js',
-		'jest-preprocess.js',
-		'jest.config.js',
-		'loadershim.js',
 		'package-lock.json',
 		// Classic pre-paint scripts copied verbatim to dist/ (not bundled); theme-init.js is tested in site/scripts/__tests__/theme.test.js
 		'site/public/**',
 	]),
-	// Only the base `xo/react` block's `files` is narrowed to `.js`/`.jsx` (this repo has no `.mjs`/`.cjs`/`.ts` sources
-	// besides this config file itself). The `xo/react/typescript` block must keep its own `**/*.{ts,tsx,mts,cts}`
-	// glob — it carries `@eslint-react/no-leaked-conditional-rendering`, a type-aware rule that throws when applied
-	// to a file with no TypeScript parser/project configured, which broadening its `files` to `.js`/`.jsx` would do.
-	...fixupConfigRules(xoReact().map(config => config.name === 'xo/react' ? {...config, files: ['**/*.{js,jsx}']} : config)),
 	{
-		files: ['**/*.test.{js,jsx}'],
+		// Tests run on Vitest; the plugin only supplies its test-style rules (Vitest mirrors the Jest API), hence the pinned version.
+		files: ['**/*.test.js'],
 		...pluginJest.configs['flat/recommended'],
 		...pluginJest.configs['flat/style'],
+		settings: {jest: {version: 30}},
 		rules: {
 			...pluginJest.configs['flat/recommended'].rules,
 			...pluginJest.configs['flat/style'].rules,
@@ -46,22 +33,15 @@ const eslintConfig = [
 		},
 	},
 	{
-		files: ['src/i18n/config.js'],
-		rules: {
-			'unicorn/no-top-level-side-effects': 'off',
-		},
-	},
-	{
 		files: ['package.json'],
 		rules: {
-			// `xo@5`'s bundled `eslint-config-xo` now lints `package.json` and wants `"type": "module"` set. Flipping
-			// that would switch the whole package (Gatsby config files, Jest, etc.) from CommonJS to ESM resolution —
-			// out of scope for this lint-tooling version bump; left as a deliberate follow-up, not fixed here.
+			// `xo@5`'s bundled `eslint-config-xo` lints `package.json` and wants `"type": "module"`. Flipping it
+			// would also switch `.ncurc` (CommonJS) to ESM resolution; left as a deliberate follow-up.
 			'package-json/prefer-type-module': 'off',
 		},
 	},
 	{
-		files: ['**/*.{js,jsx}'],
+		files: ['**/*.js'],
 		rules: {
 			'import-x/order': [
 				'error',
@@ -75,19 +55,6 @@ const eslintConfig = [
 				},
 			],
 			'n/prefer-global/process': 'off',
-			// `react/require-default-props` had no `eslint-config-xo-react@0.32.0` successor: `@eslint-react/eslint-plugin`
-			// dropped `eslint-plugin-react` (and its legacy propTypes/defaultProps rules) entirely in favor of rules
-			// scoped to React idioms (hooks, JSX, DOM). See https://github.com/xojs/eslint-config-xo-react/issues/42.
-			'@eslint-react/dom-no-unknown-property': [
-				'error',
-				{
-					requireDataLowercase: true,
-					ignore: [
-						'css',
-						'fill',
-					],
-				},
-			],
 			'unicorn/filename-case': [
 				'error',
 				{

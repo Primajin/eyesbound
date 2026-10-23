@@ -1,5 +1,5 @@
 /*
- Design tokens (converted from src/utils/theming.js, static/global.css and src/styles/button.js).
+ Design tokens (converted from the pre-Astro theming, global and button styles).
 
  Theme resolution order:
  1. [data-theme] on <html>, set pre-paint by /theme-init.js and by the ThemeSwitcher

@@ -1,5 +1,5 @@
-import de from '../../src/i18n/locales/de.json';
-import en from '../../src/i18n/locales/en.json';
+import de from './locales/de.json';
+import en from './locales/en.json';
 
 export const languages = ['en', 'de'];
 export const defaultLanguage = 'en';

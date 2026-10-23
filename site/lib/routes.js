@@ -25,7 +25,7 @@ export const routes = {
 };
 
 /**
-Lists every route the site generates, matching gatsby-node.js (with trailing slashes).
+Lists every route the site generates, identical to the pre-Astro URLs (with trailing slashes).
  @param {{pictures: {uid: string}[], categories: {uid: string}[], series: {uid: string}[], tags: {uid: string}[]}} documents Normalised documents.
  @returns {string[]} Sorted unique paths.
  */

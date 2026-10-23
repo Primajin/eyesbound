@@ -3,6 +3,7 @@
 - Status: Accepted (2026-10-22, owner approved recommendations)
 - Date: 2026-10-22
 - Spike: S0a, Gatsby to Astro migration ([#987](https://github.com/Primajin/eyesbound/issues/987))
+- Note: the Gatsby files named below were removed afterwards ([ADR 0004](0004-gatsby-removal.md)); `src/schemas/*.json` now lives in `prismic/`.
 
 ## Context
 
@@ -10,7 +11,7 @@ The Gatsby site gets its content from the Prismic repository `eyesbound` through
 
 ### What the current site queries
 
-Custom types (`src/schemas/*.json`):
+Custom types (`src/schemas/*.json`, now `prismic/*.json`):
 
 | Type | Fields |
 |---|---|

@@ -13,36 +13,15 @@ on:
 permissions: {}
 
 jobs:
-  build:
-    if: github.event_name == 'push' || github.event.action != 'closed'
-    permissions:
-      contents: read
-    uses: ./.github/workflows/_build.yml
-    secrets: inherit
-
-  build-matrix:
-    if: github.event.action != 'closed' && contains(github.event.pull_request.labels.*.name, 'dependabot')
-    permissions:
-      contents: read
-    uses: ./.github/workflows/_build-matrix.yml
-    secrets: inherit
-
   lint:
     if: github.event_name == 'push' || github.event.action != 'closed'
     permissions: write-all
     uses: ./.github/workflows/_lint.yml
     secrets: inherit
 
-  test:
-    if: github.event_name == 'push' || github.event.action != 'closed'
-    permissions:
-      contents: read
-    uses: ./.github/workflows/_test.yml
-    secrets: inherit
-
-  # Astro site checks (lint, unit, build, e2e, route parity; lighthouse is
-  # advisory). Inner jobs only need contents: read; fork PRs skip the
-  # secret-dependent ones inside the called workflow.
+  # Site checks (lint, unit, build, e2e, route parity; lighthouse is advisory).
+  # Inner jobs only need contents: read; fork PRs skip the secret-dependent ones
+  # inside the called workflow.
   astro:
     if: github.event_name == 'push' || github.event.action != 'closed'
     permissions:
@@ -123,14 +102,14 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
   # Same `if` as the internals of the called workflow (a skipped internal job
-  # would otherwise report success). With PREVIEW_PROVIDER=cloudflare they need
-  # the preview URL, and are skipped when there is none (fork PRs, missing
-  # secrets, failed deploy). `!cancelled()` lets them run although `preview` is
-  # skipped when the provider is netlify.
+  # would otherwise report success). They need the preview URL, so they only run
+  # once PREVIEW_PROVIDER=cloudflare and are skipped when there is none (fork
+  # PRs, missing secrets, failed deploy). `!cancelled()` lets them evaluate
+  # although `preview` is skipped.
   console:
     if: >-
       !cancelled() && github.event_name == 'pull_request' && github.event.action != 'closed' &&
-      (vars.PREVIEW_PROVIDER != 'cloudflare' || needs.preview.outputs.url != '')
+      vars.PREVIEW_PROVIDER == 'cloudflare' && needs.preview.outputs.url != ''
     needs: preview
     permissions:
       pull-requests: write
@@ -142,10 +121,9 @@ jobs:
   screenshots:
     if: >-
       !cancelled() && github.event_name == 'pull_request' && github.event.action != 'closed' &&
-      (vars.PREVIEW_PROVIDER != 'cloudflare' || needs.preview.outputs.url != '')
+      vars.PREVIEW_PROVIDER == 'cloudflare' && needs.preview.outputs.url != ''
     needs: preview
     permissions:
-      checks: read
       contents: write
       pull-requests: write
     uses: ./.github/workflows/_screenshots.yml
@@ -157,10 +135,7 @@ jobs:
     name: All checks green
     if: always()
     needs:
-      - build
-      - build-matrix
       - lint
-      - test
       - astro
       - preview
       - deploy-production

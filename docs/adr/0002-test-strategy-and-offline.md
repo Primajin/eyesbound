@@ -4,6 +4,7 @@
 - Date: 2026-10-22
 - Deciders: Jannis Hell (pending)
 - Related: issue #987 (Gatsby to Astro migration), CSP strategy ADR (pending)
+- Note: the Jest and Gatsby files named below were removed afterwards ([ADR 0004](0004-gatsby-removal.md)); `npm test` is Vitest.
 
 ## Context
 

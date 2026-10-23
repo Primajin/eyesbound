@@ -63,7 +63,11 @@ jobs:
           cache: npm
       - run: npm ci
       # Unit tests use fixtures and stub env themselves; no secrets needed.
-      - run: npm run test:astro:coverage
+      - run: npm run coverage
+      - uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        if: ${{ !cancelled() }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
         with:
@@ -102,7 +106,7 @@ jobs:
             astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
             astro-${{ runner.os }}-
       - name: Build
-        run: npm run astro:build
+        run: npm run build
         env:
           PRISMIC_ACCESS_TOKEN: ${{ secrets.PRISMIC_ACCESS_TOKEN }}
           PRISMIC_REPO_NAME: ${{ vars.PRISMIC_REPO_NAME || 'eyesbound' }}

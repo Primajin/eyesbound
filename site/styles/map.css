@@ -1,4 +1,4 @@
-/* Google Maps chrome, ported from src/components/molecules/map.jsx. Selectors target markup the Maps API injects. */
+/* Google Maps chrome, ported from the pre-Astro map component. Selectors target markup the Maps API injects. */
 
 .gm-style * {
 	font-family: Montserrat, sans-serif !important;

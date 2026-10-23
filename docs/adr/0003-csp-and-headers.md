@@ -4,6 +4,7 @@
 - Date: 2026-10-22
 - Deciders: Jannis Hell (pending)
 - Spike: S0b, Gatsby to Astro migration ([#987](https://github.com/Primajin/eyesbound/issues/987))
+- Note: the Gatsby and Netlify files named below were removed afterwards ([ADR 0004](0004-gatsby-removal.md)).
 - Related: [0001](0001-prismic-data-layer.md) (same-origin images, trailing-slash parity), [0002](0002-test-strategy-and-offline.md) (csp-utils.js fate, service worker)
 
 ## Context

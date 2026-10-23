@@ -1,4 +1,4 @@
-/* Element defaults, ported 1:1 from static/global.css. Tokens live in tokens.css. */
+/* Element defaults, ported 1:1 from the pre-Astro global.css. Tokens live in tokens.css. */
 
 body {
 	background: var(--background);

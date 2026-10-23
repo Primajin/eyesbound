@@ -1,13 +1,13 @@
 ---
 import '../styles/fonts.css';
-import '../../static/reset.css';
+import '../styles/reset.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import '../styles/i18n.css';
 import montserrat400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
 import montserrat700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
 
-import {GATSBY_SITE_NAME as siteName} from 'astro:env/server';
+import {SITE_NAME as siteName} from 'astro:env/server';
 
 import Header from '../components/Header.astro';
 import {defaultDescription, keywords} from '../constants/site.js';

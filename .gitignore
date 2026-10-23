@@ -55,10 +55,6 @@ typings/
 .env.*
 !.env.example
 
-# gatsby files
-.cache/
-/public
-
 # Mac files
 .DS_Store
 
@@ -71,9 +67,6 @@ yarn-error.log
 
 # IDEA
 .idea
-
-# test results
-junit.xml
 
 # astro files
 dist/

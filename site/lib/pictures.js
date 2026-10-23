@@ -71,7 +71,7 @@ export const sortPictures = pictures => pictures.toSorted((a, b) => {
 });
 
 /**
-Sorts titled documents by title ascending in code point order (what Gatsby's GraphQL sort did, so "Dänemark" follows "Dresden" and "digital" follows "Zons"); untitled ones come last, ties by uid.
+Sorts titled documents by title ascending in code point order (the order of the previous GraphQL sort, so "Dänemark" follows "Dresden" and "digital" follows "Zons"); untitled ones come last, ties by uid.
  @param {object[]} items Normalised documents in any order.
  @returns {object[]} Copy of the list, A to Z.
  */

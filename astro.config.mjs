@@ -1,4 +1,3 @@
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import {defineConfig, envField} from 'astro/config';
 import dotenv from 'dotenv';
@@ -6,7 +5,8 @@ import dotenv from 'dotenv';
 const defaultSiteUrl = 'https://eyesbound.com';
 dotenv.config({path: ['.env.local', '.env'], quiet: true});
 
-const siteUrl = process.env.GATSBY_SERVER_URL ?? defaultSiteUrl;
+// Absent or blank SITE_URL falls back to the production origin (documented in .env.example).
+const siteUrl = process.env.SITE_URL?.trim() || defaultSiteUrl;
 
 export default defineConfig({
 	site: siteUrl,
@@ -21,10 +21,10 @@ export default defineConfig({
 	image: {
 		domains: ['images.prismic.io'],
 	},
-	integrations: [react(), sitemap()],
+	integrations: [sitemap()],
 	env: {
 		schema: {
-			GATSBY_SITE_NAME: envField.string({context: 'server', access: 'public', default: 'EYESBOUND'}),
+			SITE_NAME: envField.string({context: 'server', access: 'public', default: 'EYESBOUND'}),
 			PRISMIC_REPO_NAME: envField.string({context: 'server', access: 'public', default: 'eyesbound'}),
 			MAPS_API_KEY: envField.string({context: 'client', access: 'public', optional: true}),
 			PRISMIC_ACCESS_TOKEN: envField.string({context: 'server', access: 'secret', optional: true}),
