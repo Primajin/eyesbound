@@ -1,8 +1,9 @@
 name: "CI · Deploy to Cloudflare Workers"
 
 # Uploads the `dist` artifact built by astro-ci.yml in the SAME run (no rebuild)
-# to the Worker `eyesbound` (wrangler.jsonc, static assets). Called from ci.yml
-# only after the `astro` gate job passed.
+# to the Worker `eyesbound` (wrangler.jsonc, static assets). Preview mode is called
+# from astro-ci.yml right after its `build` job (not after the slow e2e/Lighthouse
+# jobs); production mode from ci.yml / content-deploy.yml after the whole gate.
 #   mode=preview     -> `wrangler versions upload --preview-alias pr-<n>` (not
 #                       promoted to production; reachable at the alias URL).
 #   mode=production  -> `wrangler deploy` (ci.yml keeps this caller disabled

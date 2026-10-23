@@ -6,20 +6,46 @@ name: Astro CI
 # workflow_dispatch stays for manual runs. Third-party actions are pinned to a
 # full commit SHA. First-party actions/* are pinned too, version in a comment.
 # When called, `github.event*` is the caller's event, so the fork guards below
-# keep working; the caller must grant contents: read and pass `secrets: inherit`.
+# keep working; the caller must pass `secrets: inherit` and grant contents: write
+# and pull-requests: write (a nested reusable call, `screenshots`, may not ask for
+# more than its caller allows; inner jobs still declare their own, smaller scopes).
+#
+# Job graph (everything that can run in parallel does; the preview does not wait
+# for the slow checks):
+#   t=0:      lint, unit, route-parity, build
+#   build ->  e2e (3 shards), lighthouse (3 URLs, advisory), preview (PR only)
+#   preview-> preview-comment, console, screenshots (PR only)
+#   all of the above (except lighthouse and the comment) -> astro-green
 
 on:
   workflow_call:
+    inputs:
+      run-route-parity:
+        description: Compare Prismic routes with the live sitemap (migration check; content-deploy.yml turns it off)
+        type: boolean
+        required: false
+        default: true
+  # Same input here: without it `inputs.run-route-parity` is null on a manual run,
+  # and `null != false` is false in expressions (both coerce to 0), which would
+  # silently skip route parity.
   workflow_dispatch:
+    inputs:
+      run-route-parity:
+        description: Compare Prismic routes with the live sitemap
+        type: boolean
+        required: false
+        default: true
 
 # Least privilege: nothing by default, each job grants what it needs.
 permissions: {}
 
 # In a called workflow `github.workflow` is the CALLER's name, so a group that
 # reuses it could collide with the caller's own group; use a literal prefix.
-# Only superseded PR runs are cancelled; runs on main always finish.
+# Only superseded PR runs are cancelled; runs on main always finish. The event
+# name keeps content-deploy runs (repository_dispatch) out of the group of push
+# runs on main, so neither replaces the other's pending run.
 concurrency:
-  group: astro-ci-${{ github.event.pull_request.number || github.ref }}
+  group: astro-ci-${{ github.event.pull_request.number || format('{0}-{1}', github.event_name, github.ref) }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
@@ -78,9 +104,8 @@ jobs:
 
   build:
     name: Astro build (real Prismic data)
-    # Fail early and cheaply: lint and unit tests need no build, so the 6 minute
-    # real-data build (and e2e/lighthouse behind it) only starts once they pass.
-    needs: [ lint, unit ]
+    # Deliberately NOT behind lint/unit: everything starts at t=0 for the fastest
+    # PR feedback. A failing lint wastes a build, but `astro-green` still fails.
     # Forks get no secrets, so the real-data build cannot run for them.
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
@@ -125,12 +150,17 @@ jobs:
           if-no-files-found: error
 
   e2e:
-    name: Playwright e2e (chromium)
+    name: Playwright e2e (chromium, shard ${{ matrix.shard }}/3)
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
       contents: read
+    strategy:
+      # Let every shard report instead of cancelling its siblings.
+      fail-fast: false
+      matrix:
+        shard: [ 1, 2, 3 ]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -144,21 +174,31 @@ jobs:
         with:
           name: dist
           path: dist/
+      - name: Read the Playwright version
+        id: pw
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Cache Playwright browsers
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}
+      # On a cache hit the browser download is skipped; the OS packages (apt) are
+      # still installed because they are not part of the cache.
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       # playwright.config.mjs starts `astro preview` against the downloaded dist/.
-      - run: npx playwright test
+      - run: npx playwright test --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ failure() }}
         with:
-          name: playwright-traces
+          name: playwright-traces-${{ matrix.shard }}
           path: test-results/
           if-no-files-found: ignore
           retention-days: 7
 
   route-parity:
     name: Route parity vs live sitemap
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    if: (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && inputs.run-route-parity != false
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -179,14 +219,29 @@ jobs:
           PRISMIC_REPO_NAME: ${{ vars.PRISMIC_REPO_NAME || 'eyesbound' }}
 
   lighthouse:
-    name: Lighthouse CI (mobile, budgets 100, non-blocking)
+    name: Lighthouse CI (${{ matrix.name }}, mobile, budgets 100, non-blocking)
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     # Non-blocking until promoted: enforced here, not just by convention.
     continue-on-error: true
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        # One runner per URL (5 runs, median each) instead of 3 URLs in sequence.
+        # The `detail` entry resolves the first /picture/<slug>/ from the sitemap.
+        include:
+          - name: home
+            path: /
+            config: lighthouserc.json
+          - name: picture
+            path: /picture/
+            config: lighthouserc.json
+          - name: detail
+            path: detail
+            config: lighthouserc.detail.json
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -201,51 +256,139 @@ jobs:
           name: dist
           path: dist/
       - name: Run Lighthouse CI
-        # Pinned CLI via npx only (no repo dependency). lighthouserc.json holds
-        # the mobile settings, 5 runs (median) and the 100 budgets; it serves
-        # dist/ with `astro preview`. URLs: home, listing and the first detail page.
+        # Pinned CLI via npx only (no repo dependency). The configs hold the mobile
+        # settings, 5 runs (median) and the budgets; they serve dist/ with
+        # `astro preview`. lighthouserc.json is used for home and listing.
         # The detail page embeds Google Maps, whose key is referrer-restricted: on
         # http://localhost Google rejects it and logs console errors, so only that
-        # run skips `errors-in-console` (maps are covered by the e2e job) and allows
-        # performance >= 0.98 because the Maps embed makes shared runners noisy.
+        # run uses lighthouserc.detail.json (it keeps `errors-in-console` and the
+        # relaxed budgets apart from the lists; maps are covered by the e2e job).
+        env:
+          URL_PATH: ${{ matrix.path }}
+          CONFIG: ${{ matrix.config }}
+          NAME: ${{ matrix.name }}
         run: |
-          detail="$(grep -o '/picture/[^/<]*/' dist/sitemap-0.xml | head -n 1)"
-          test -n "$detail"
-          status=0
+          path="$URL_PATH"
+          if [ "$NAME" = detail ]; then
+            path="$(grep -o '/picture/[^/<]*/' dist/sitemap-0.xml | head -n 1)"
+            test -n "$path"
+          fi
           npx --yes @lhci/cli@0.15.1 autorun \
-            --collect.url=http://localhost:4323/ \
-            --collect.url=http://localhost:4323/picture/ \
-            --upload.outputDir=.lighthouseci/lists || status=1
-          npx --yes @lhci/cli@0.15.1 autorun \
-            --collect.url="http://localhost:4323${detail}" \
-            --config=lighthouserc.detail.json \
-            --upload.outputDir=.lighthouseci/detail || status=1
-          exit "$status"
+            --config="$CONFIG" \
+            --collect.url="http://localhost:4323${path}" \
+            --upload.outputDir=".lighthouseci/${NAME}"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
         with:
-          name: lighthouse-reports
+          name: lighthouse-reports-${{ matrix.name }}
           path: .lighthouseci/
           # upload-artifact skips dot-directories by default, which dropped the whole report
           include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 7
 
+  # Cloudflare preview, straight after the build: it only needs the dist artifact,
+  # not the e2e/lighthouse results (it is not production). Same-repo PRs only
+  # (Renovate and Dependabot included), once the owner sets PREVIEW_PROVIDER=cloudflare.
+  # Fork PRs never get secrets and never reach this job. Never runs for push,
+  # repository_dispatch (content-deploy.yml) or workflow_dispatch.
+  # Not pull_request_target: the job runs the PR's own (same-repo) workflow file.
+  preview:
+    name: Cloudflare preview
+    if: >-
+      github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      vars.PREVIEW_PROVIDER == 'cloudflare' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    needs: build
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_deploy-cloudflare.yml
+    with:
+      mode: preview
+      pr-number: ${{ github.event.pull_request.number }}
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # Sticky PR comment with the preview URL (also in the `preview` job summary and
+  # its `url` output). Dependabot PRs get a read-only GITHUB_TOKEN regardless of
+  # the grant below, so this job is best-effort: `continue-on-error` keeps a 403
+  # from failing the run (it is not in `astro-green` either).
+  preview-comment:
+    name: Preview comment (best-effort)
+    if: ${{ !cancelled() && needs.preview.outputs.url != '' }}
+    needs: preview
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 5
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Create or update the sticky comment
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          URL: ${{ needs.preview.outputs.url }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          marker='<!-- eyesbound-cloudflare-preview -->'
+          body="$(printf '%s\n**Cloudflare preview:** %s\n\nCommit `%s`. Updated on every push.' "$marker" "$URL" "${HEAD_SHA:0:7}")"
+          id="$(gh api --paginate "repos/${REPO}/issues/${PR_NUMBER}/comments" \
+            --jq "[.[] | select(.user.login==\"github-actions[bot]\" and (.body | contains(\"${marker}\")))] | first | .id // empty" | head -n 1)"
+          if [ -n "$id" ]; then
+            gh api -X PATCH "repos/${REPO}/issues/comments/${id}" -f body="$body" > /dev/null
+          else
+            gh api -X POST "repos/${REPO}/issues/${PR_NUMBER}/comments" -f body="$body" > /dev/null
+          fi
+
+  # Same `if` as the internals of the called workflow (a skipped internal job
+  # would otherwise report success). They need the preview URL, so they start as
+  # soon as the preview exists (not after e2e/lighthouse) and are skipped when
+  # there is none (not a PR, PREVIEW_PROVIDER unset, fork PR, missing secrets,
+  # failed deploy). `!cancelled()` lets them evaluate although `preview` is skipped.
+  console:
+    if: >-
+      !cancelled() && github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      vars.PREVIEW_PROVIDER == 'cloudflare' && needs.preview.outputs.url != ''
+    needs: preview
+    permissions:
+      pull-requests: write
+    uses: ./.github/workflows/_console.yml
+    with:
+      preview-url: ${{ needs.preview.outputs.url }}
+    secrets: inherit
+
+  screenshots:
+    if: >-
+      !cancelled() && github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      vars.PREVIEW_PROVIDER == 'cloudflare' && needs.preview.outputs.url != ''
+    needs: preview
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: ./.github/workflows/_screenshots.yml
+    with:
+      preview-url: ${{ needs.preview.outputs.url }}
+    secrets: inherit
+
   astro-green:
     name: Astro checks green
     if: always()
-    needs: [ lint, unit, build, e2e, route-parity, lighthouse ]
+    needs: [ lint, unit, build, e2e, route-parity, preview, console, screenshots ]
     runs-on: ubuntu-latest
     permissions: {}
     steps:
       - name: Fail if a required job failed or was cancelled
         shell: bash
-        # `lighthouse` is deliberately excluded (non-blocking); skipped jobs
-        # (fork PRs without secrets) are tolerated.
+        # `lighthouse` and `preview-comment` are deliberately not listed (advisory
+        # / best-effort); skipped jobs (fork PRs without secrets, PREVIEW_PROVIDER
+        # unset, non-PR events) are tolerated.
         run: |
-          results="${{ join(needs.*.result, ' ') }} "
-          echo "Results: ${results}(lighthouse is advisory: ${{ needs.lighthouse.result }})"
-          for r in "${{ needs.lint.result }}" "${{ needs.unit.result }}" "${{ needs.build.result }}" "${{ needs.e2e.result }}" "${{ needs.route-parity.result }}"; do
+          results="${{ join(needs.*.result, ' ') }}"
+          echo "Results: ${results}"
+          for r in $results; do
             if [ "$r" = "failure" ] || [ "$r" = "cancelled" ]; then
               echo "::error::A required Astro job did not pass (result=$r)."
               exit 1
