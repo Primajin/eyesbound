@@ -1,6 +1,6 @@
 # **Datenschutzerklärung**
 
-Es freut uns sehr, dass Sie sich für unsere Organisation interessieren. Der Schutz Ihrer personenbezogenen Daten ist unserer Geschäftsleitung besonders wichtig. Sie können unsere Webseiten nutzen, ohne uns dabei personenbezogene Daten preiszugeben. Sofern Sie jedoch speziellere Dienste über unsere Webseiten, andere Internetauftritte, Applikationen und Social Media Seiten von uns eingeschlossen, in Anspruch nehmen möchten, müssen wir gegebenenfalls Ihre personenbezogenen Daten verarbeiten. Sofern wir Daten über Sie verarbeiten möchten und wir uns auf keine andere Rechtsgrundlage berufen können, fragen wir Sie immer zuerst nach Ihrer Einwilligung.
+Es freut uns sehr, dass Sie sich für unsere Organisation interessieren. Der Schutz Ihrer personenbezogenen Daten ist unserer Geschäftsleitung besonders wichtig. Sie können unsere Webseiten nutzen, ohne uns dabei personenbezogene Daten preiszugeben. Sofern Sie jedoch speziellere Dienste über unsere Webseiten, andere Internetauftritte und Applikationen von uns eingeschlossen, in Anspruch nehmen möchten, müssen wir gegebenenfalls Ihre personenbezogenen Daten verarbeiten. Sofern wir Daten über Sie verarbeiten möchten und wir uns auf keine andere Rechtsgrundlage berufen können, fragen wir Sie immer zuerst nach Ihrer Einwilligung.
 
 Wir halten uns beim Umgang mit Ihren personenbezogenen Daten (wie Name, Adresse, E-Mail oder Telefonnummer) stets an die geltenden Datenschutzgesetze. Mit dieser Datenschutzerklärung informieren wir Sie darüber, welche Daten wir verarbeiten. Außerdem erfahren Sie in dieser Datenschutzerklärung, welche Betroffenenrechte Sie haben.
 
@@ -170,7 +170,7 @@ Sofern eine der oben genannten Voraussetzungen gegeben ist und eine betroffene P
 
 f) Recht auf Datenübertragbarkeit
 
-Jede betroffene Person hat das Recht, die sie betreffenden personenbezogenen Daten, welche durch die betroffene Person einem Verantwortlichen bereitgestellt wurden, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten. Sie hat außerdem das Recht, diese Daten einem anderen Verantwortlichen ohne Behinderung durch den Verantwortlichen, dem die personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern die Verarbeitung auf der Einwilligung gemäß Art. 6 (1) (a) DS-GVO oder Art. 9 (2) (a) DS-GVO oder auf einem Vertrag gemäß Art. 6 (1) (b) DS-GVO beruht und die Verarbeitung mithilfe automatisierter Verfahren erfolgt, sofern die Verarbeitung nicht für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, welche dem Verantwortlichen übertragen wurde.
+Jede betroffene Person hat das Recht, die sie betreffenden personenbezogenen Daten, welche durch die betroffene Person einem Verantwortlichen bereitgestellt wurden, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten. Sie hat außerdem das Recht, diese Daten einem anderen Verantwortlichen ohne Behinderung durch den Verantwortlichen, dem die personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern die Verarbeitung auf der Einwilligung gemäß Art. 6 (1) (a) DS-GVO oder Art. 9 (2) (a) DS-GVO beruht und die Verarbeitung mithilfe automatisierter Verfahren erfolgt, sofern die Verarbeitung nicht für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, welche dem Verantwortlichen übertragen wurde.
 
 Ferner hat die betroffene Person bei der Ausübung ihres Rechts auf Datenübertragbarkeit gemäß Art. 20 (1) DS-GVO das Recht, zu erwirken, dass die personenbezogenen Daten direkt von einem Verantwortlichen an einen anderen Verantwortlichen übermittelt werden, soweit dies technisch machbar ist und sofern hiervon nicht die Rechte und Freiheiten anderer Personen beeinträchtigt werden.
 
@@ -202,7 +202,7 @@ Möchte eine betroffene Person dieses Recht in Anspruch nehmen, kann sie sich hi
 
 ## **7. Allgemeiner Zweck der Verarbeitung, Kategorien verarbeiteter Daten und Kategorien von Empfängern**
 
-Allgemeiner Zweck der Verarbeitung personenbezogener Daten ist die Abwicklung sämtlicher Vorgänge, die den Verantwortlichen, Kunden, Interessenten, Geschäftspartner oder sonstige vertragliche oder vorvertragliche Beziehungen zwischen den genannten Gruppen (im weitesten Sinne) oder gesetzliche Pflichten des Verantwortlichen betreffen. Dieser allgemeine Zweck gilt, wenn keine spezifischeren Zwecke für eine konkrete Verarbeitung angegeben sind.
+Allgemeiner Zweck der Verarbeitung personenbezogener Daten ist die Abwicklung sämtlicher Vorgänge, die den Verantwortlichen oder gesetzliche Pflichten des Verantwortlichen betreffen. Dieser allgemeine Zweck gilt, wenn keine spezifischeren Zwecke für eine konkrete Verarbeitung angegeben sind.
 
 Die Kategorien von Empfängern der personenbezogenen Daten sind öffentliche Stellen, externe Stellen, interne Verarbeitung, konzerninterne Verarbeitung und sonstige Stellen.
 
@@ -212,21 +212,17 @@ Eine Liste unserer Auftragsverarbeiter und der Datenempfänger in Drittländer s
 
 Art. 6 (1) (a) DS-GVO dient als Rechtsgrundlage für Verarbeitungsvorgänge, bei denen wir eine Einwilligung für einen bestimmten Verarbeitungszweck einholen. Unterliegen wir einer rechtlichen Verpflichtung durch welche eine Verarbeitung von personenbezogenen Daten erforderlich wird, wie beispielsweise zur Erfüllung steuerlicher Pflichten, so basiert die Verarbeitung auf Art. 6 (1) (c) DS-GVO.
 
-In seltenen Fällen könnte die Verarbeitung von personenbezogenen Daten erforderlich werden, um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen. Dies wäre beispielsweise der Fall, wenn ein Besucher in unserem Betrieb verletzt werden würde und daraufhin sein Name, sein Alter, seine Krankenkassendaten oder sonstige lebenswichtige Informationen an einen Arzt, ein Krankenhaus oder sonstige Dritte weitergegeben werden müssten. Dann würde die Verarbeitung auf Art. 6 (1) (d) DS-GVO beruhen.
+In seltenen Fällen könnte die Verarbeitung von personenbezogenen Daten erforderlich werden, um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen. Dann würde die Verarbeitung auf Art. 6 (1) (d) DS-GVO beruhen.
 
 Wenn die Verarbeitung für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, die dem Verantwortlichen übertragen wurde, ist die Rechtsgrundlage Art. 6 (1) (e) DS-GVO.
 
-Letztlich könnten Verarbeitungsvorgänge auf Art. 6 (1) (f) DS-GVO beruhen. Auf dieser Rechtsgrundlage basieren Verarbeitungsvorgänge, die von keiner der vorgenannten Rechtsgrundlagen erfasst werden, wenn die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich ist, sofern die Interessen, Grundrechte und Grundfreiheiten der betroffenen Person nicht überwiegen. Solche Verarbeitungsvorgänge sind uns insbesondere deshalb gestattet, weil sie durch den Europäischen Gesetzgeber besonders erwähnt wurden. Er vertrat insoweit die Auffassung, dass ein berechtigtes Interesse beispielsweise anzunehmen sein könnte, wenn die betroffene Person ein Kunde des Verantwortlichen ist (Erwägungsgrund 47 Satz 2 DS-GVO).
+Letztlich könnten Verarbeitungsvorgänge auf Art. 6 (1) (f) DS-GVO beruhen. Auf dieser Rechtsgrundlage basieren Verarbeitungsvorgänge, die von keiner der vorgenannten Rechtsgrundlagen erfasst werden, wenn die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich ist, sofern die Interessen, Grundrechte und Grundfreiheiten der betroffenen Person nicht überwiegen.
 
-## **9. Berechtigte Interessen an der Verarbeitung, die von dem Verantwortlichen oder einem Dritten verfolgt werden**
+## **9. Dauer, für die die personenbezogenen Daten gespeichert werden**
 
-Basiert die Verarbeitung personenbezogener Daten auf Art. 6 (1) (f) DS-GVO, und sind keine spezifischeren berechtigten Interessen angegeben, ist unser berechtigtes Interesse die Durchführung unserer Geschäftstätigkeit zugunsten des Wohlergehens unseres Personals und unserer Anteilseigner.
+Das Kriterium für die Dauer der Speicherung von personenbezogenen Daten ist die jeweilige gesetzliche Aufbewahrungsfrist. Sofern keine gesetzliche Aufbewahrungsfrist besteht, ist das Kriterium die interne Aufbewahrungsfrist. Nach Ablauf der Frist werden die entsprechenden Daten routinemäßig gelöscht. Dies gilt insbesondere für alle Verarbeitungen, bei denen keine spezifischeren Kriterien festgelegt wurden.
 
-## **10. Dauer, für die die personenbezogenen Daten gespeichert werden**
-
-Das Kriterium für die Dauer der Speicherung von personenbezogenen Daten ist die jeweilige gesetzliche Aufbewahrungsfrist. Sofern keine gesetzliche Aufbewahrungsfrist besteht, ist das Kriterium die vertragliche oder interne Aufbewahrungsfrist. Nach Ablauf der Frist werden die entsprechenden Daten routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind. Dies gilt insbesondere für alle Verarbeitungen, bei denen keine spezifischeren Kriterien festgelegt wurden.
-
-## **11. Bestehen einer automatisierten Entscheidungsfindung**
+## **10. Bestehen einer automatisierten Entscheidungsfindung**
 
 Als verantwortungsbewusstes Unternehmen verzichten wir normalerweise auf eine automatische Entscheidungsfindung oder ein Profiling. Falls wir in Ausnahmefällen eine automatische Entscheidungsfindung oder ein Profiling durchführen, informieren wir die betroffene Person entweder gesondert oder über einen Unterpunkt in unserer Datenschutzerklärung (hier auf unserer Webseite). In diesem Fall gilt folgendes:
 
@@ -236,7 +232,7 @@ In den in Art. 22 (2) (a) und (c) DS-GVO genannten Fällen treffen wir angemesse
 
 Aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für die betroffene Person werden gegebenenfalls in dieser Datenschutzerklärung aufgeführt.
 
-## **12. Empfänger in einem Drittland und geeignete oder angemessene Garantien und die Möglichkeit, wie eine Kopie von ihnen zu erhalten ist, oder wo sie verfügbar sind.**
+## **11. Empfänger in einem Drittland und geeignete oder angemessene Garantien und die Möglichkeit, wie eine Kopie von ihnen zu erhalten ist, oder wo sie verfügbar sind.**
 
 Gemäß Art. 46 (1) DS-GVO darf der Verantwortliche oder ein Auftragsverarbeiter nur dann personenbezogene Daten an ein Drittland übermitteln, wenn der Verantwortliche oder der Auftragsverarbeiter geeignete Garantien vorgesehen hat und sofern den betroffenen Personen durchsetzbare Rechte und wirksame Rechtsbehelfe zur Verfügung stehen. Geeignete Garantien können, ohne dass es hierzu einer besonderen Genehmigung einer Aufsichtsbehörde bedarf, durch Standarddatenschutzklauseln abgebildet werden, Art. 46 (2) (c) DS-GVO.
 
@@ -248,11 +244,11 @@ In allen Fällen, in denen die Europäische Kommission, oder eine Regierung oder
 
 Jede betroffene Person kann eine Kopie der Rahmenwerke von uns erhalten. Zudem sind die Rahmenwerke auch im Amtsblatt der Europäischen Union oder in den publizierten Gesetzesmaterialien oder auf den Webseiten von Datenschutz-Aufsichtsbehörden oder anderen Behörden oder Institutionen verfügbar.
 
-## **13. Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde**
+## **12. Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde**
 
 Als Verantwortlicher sind wir verpflichtet, dem Betroffenen das Bestehen eines Beschwerderechts bei einer Aufsichtsbehörde mitzuteilen. Das Beschwerderecht wird in Art. 77 (1) DS-GVO geregelt. Nach dieser Vorschrift hat jede betroffene Person unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres Aufenthaltsorts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes, wenn die betroffene Person der Ansicht ist, dass die Verarbeitung der sie betreffenden personenbezogenen Daten gegen die Datenschutz-Grundverordnung verstößt. Das Beschwerderecht wurde durch den unionalen Gesetzgeber ausschließlich dahingehend beschränkt, dass es nur gegenüber einer einzigen Aufsichtsbehörde ausgeübt werden kann (Erwägungsgrund 141 Satz 1 DS-GVO). Diese Regelung soll Doppelbeschwerden in gleicher Sache durch die gleiche betroffene Person vermeiden. Sofern sich eine betroffene Person über uns beschweren möchte, wird deshalb darum gebeten, dass nur eine einzige Aufsichtsbehörde kontaktiert wird.
 
-## **14. Datenschutzbestimmungen zu Einsatz und Verwendung von Cloudflare**
+## **13. Datenschutzbestimmungen zu Einsatz und Verwendung von Cloudflare**
 
 Cloudflare bietet eine breite Palette an Diensten zur Verbesserung der Sicherheit, Leistung und Zuverlässigkeit von Webseiten und Webanwendungen. Zu den Kernfunktionen gehören DDoS-Schutz, Webanwendungs-Firewall, Content Delivery Network Dienste, sichere DNS-Dienste und mehr. Durch den Einsatz von Cloudflare können wir unsere Online-Präsenz vor Cyberangriffen schützen, die Ladegeschwindigkeit unserer Webseite verbessern und die allgemeine Verfügbarkeit unserer Dienste sicherstellen.
 
@@ -268,7 +264,7 @@ Die Kriterien für die Festlegung der Dauer, für die die personenbezogenen Date
 
 Weitere Informationen und die geltenden Datenschutzbestimmungen von Cloudflare, Inc. können unter [https://www.cloudflare.com](https://www.cloudflare.com) abgerufen werden.
 
-## **15. Datenschutzbestimmungen zu Einsatz und Verwendung von Google Maps**
+## **14. Datenschutzbestimmungen zu Einsatz und Verwendung von Google Maps**
 
 Google Maps ist ein umfangreicher Kartierungs- und Navigationsdienst der Google LLC, der es Nutzern ermöglicht, Karten anzusehen, Routen zu planen und lokale Geschäfte sowie Dienstleistungen zu finden. Durch die Bereitstellung detaillierter geografischer Informationen unterstützt Google Maps Menschen weltweit bei der Orientierung und Navigation im Alltag. Der Dienst bietet Funktionen wie Satellitenbilder, Straßenansichten, Verkehrsbedingungen in Echtzeit und die Möglichkeit, Orte zu bewerten und zu rezensieren.
 

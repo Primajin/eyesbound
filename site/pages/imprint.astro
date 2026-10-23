@@ -44,6 +44,8 @@ const licenses = [
 			<PolicyDocument lang={lang}>
 				<Content />
 				<Fragment slot="consent">
+					<h3 class="policy-heading">{t('privacy.settings.heading', lang)}</h3>
+					<p>{t('privacy.settings.text', lang)}</p>
 					<h3 class="policy-heading">{t('privacy.maps.heading', lang)}</h3>
 					<p>{t('privacy.maps.data', lang)}</p>
 					<p>{t('privacy.maps.storage', lang)}</p>

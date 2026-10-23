@@ -58,6 +58,10 @@
       "button": "Forget map consent",
       "done": "Map consent withdrawn. The map will ask again before loading."
     },
+    "settings": {
+      "heading": "Settings stored in your browser",
+      "text": "This site stores a few settings in your browser's local storage: the colour theme you chose, the language you chose and, if you gave it, your choice for loading the map; these entries only remember your settings on your own device, are not sent to us, set no cookies and can be deleted at any time in your browser settings."
+    },
     "maps": {
       "heading": "Google Maps: consent and withdrawal",
       "data": "Maps are not loaded automatically. Only after you click \"Load map\" does your browser connect to Google servers. Google then receives data such as your IP address, information about your browser and device, and the map section you are viewing. Google may process this data in the USA or other third countries.",

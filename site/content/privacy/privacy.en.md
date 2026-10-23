@@ -1,6 +1,6 @@
 # **Privacy Policy**
 
-We are pleased that you are interested in our organization. The protection of your Personal Data is particularly important to our management. As a rule, you can use our websites without disclosing any Personal Data to us. However, if you wish to use more specific services via our websites, including our other websites, applications and social media pages, we may have to process your Personal Data. If we wish to process data about you and we cannot rely on any other legal basis, we will always ask you for your Consent first.
+We are pleased that you are interested in our organization. The protection of your Personal Data is particularly important to our management. As a rule, you can use our websites without disclosing any Personal Data to us. However, if you wish to use more specific services via our websites, including our other websites and applications, we may have to process your Personal Data. If we wish to process data about you and we cannot rely on any other legal basis, we will always ask you for your Consent first.
 
 We always comply with applicable data protection laws when handling your Personal Data (such as name, address, email or telephone number). With this Privacy Policy, we inform you about which data we process. This Privacy Policy also explains to you what rights you have as a Data Subject.
 
@@ -170,7 +170,7 @@ If one of the aforementioned conditions is met, and a Data Subject wishes to req
 
 f) Right to data portability
 
-Each Data Subject has the right to receive the Personal Data concerning him or her, which he or she has provided to a Controller, in a structured, commonly used and machine-readable format. He or she also has the right to transmit those data to another Controller without hindrance from the Controller to which the Personal Data have been provided, where Processing is based on Consent pursuant to Art. 6 (1) (a) GDPR or Art. 9 (2) (a) GDPR or on a contract pursuant to Art. 6 (1) (b) GDPR and the Processing is carried out by automated means, unless the Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the Controller.
+Each Data Subject has the right to receive the Personal Data concerning him or her, which he or she has provided to a Controller, in a structured, commonly used and machine-readable format. He or she also has the right to transmit those data to another Controller without hindrance from the Controller to which the Personal Data have been provided, where Processing is based on Consent pursuant to Art. 6 (1) (a) GDPR or Art. 9 (2) (a) GDPR and the Processing is carried out by automated means, unless the Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the Controller.
 
 Furthermore, in exercising their right to data portability pursuant to Art. 20 (1) GDPR, the Data Subject has the right to have the Personal Data transmitted directly from one Controller to another, where technically feasible and provided that this does not adversely affect the rights and freedoms of others.
 
@@ -202,7 +202,7 @@ If a Data Subject wishes to exercise this right, he or she may contact us at any
 
 ## **7. General purpose of Processing, categories of processed data and categories of recipients**
 
-The general purpose of processing Personal Data is the handling of all activities relating to the Controller, customers, interested parties, business partners or other contractual or pre-contractual relationships between the aforementioned groups (in the broadest sense) or legal obligations of the Controller. This general purpose applies if no more specific purposes for specific Processing are specified.
+The general purpose of processing Personal Data is the handling of all activities relating to the Controller or legal obligations of the Controller. This general purpose applies if no more specific purposes for specific Processing are specified.
 
 The categories of recipients of Personal Data are public bodies, external bodies, internal processing, intragroup processing and other bodies.
 
@@ -212,21 +212,17 @@ A list of our Processors and data recipients in third countries and, if applicab
 
 Art. 6 (1) (a) GDPR serves as the legal basis for Processing operations for which we obtain Consent for a specific Processing purpose. If we are subject to a legal obligation which requires the Processing of Personal Data, such as for the fulfillment of tax obligations, Processing is based on Art. 6 (1) (c) GDPR.
 
-In rare cases, it may be necessary to process Personal Data to protect the vital interests of the Data Subject or another natural person. This would be the case, for example, if a visitor were injured in our organisation and their name, age, health insurance data or other vital information would have to be passed on to a doctor, hospital or other Third Party. The Processing would then be based on Art. 6 (1) (d) GDPR.
+In rare cases, it may be necessary to process Personal Data to protect the vital interests of the Data Subject or another natural person. The Processing would then be based on Art. 6 (1) (d) GDPR.
 
 If the Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the Controller, the legal basis is Art. 6 (1) (e) GDPR.
 
-Ultimately, Processing operations could be based on Art. 6 (1) (f) GDPR. This legal basis is used for Processing operations which are not covered by any of the abovementioned legal grounds, if Processing is necessary for the purposes of the legitimate interests pursued by our organisation or by a Third Party, except where such interests are overridden by the interests or fundamental rights and freedoms of the Data Subject which require protection of Personal Data. We are permitted to carry out such Processing operations in particular because they have been specifically mentioned by the European legislator. In this respect, it took the view that a legitimate interest could be assumed, for example, if the Data Subject is a customer of the Controller (Recital 47 Sentence 2 GDPR).
+Ultimately, Processing operations could be based on Art. 6 (1) (f) GDPR. This legal basis is used for Processing operations which are not covered by any of the abovementioned legal grounds, if Processing is necessary for the purposes of the legitimate interests pursued by our organisation or by a Third Party, except where such interests are overridden by the interests or fundamental rights and freedoms of the Data Subject which require protection of Personal Data.
 
-## **9. Legitimate interests in Processing pursued by the Controller or a Third Party**
+## **9. Duration for which the Personal Data is stored**
 
-If the Processing of Personal Data is based on Art. 6 (1) (f) GDPR and no more specific legitimate interests are stated, our legitimate interest is the performance of our business activities for the benefit of the well-being of our staff and our shareholders.
+The criterion for the duration of the storage of Personal Data is the respective statutory retention period. If there is no statutory retention period, the criterion is the internal retention period. After this period has expired, the corresponding data is routinely deleted. This applies in particular to all Processing operations for which no more specific criteria have been defined.
 
-## **10. Duration for which the Personal Data is stored**
-
-The criterion for the duration of the storage of Personal Data is the respective statutory retention period. If there is no statutory retention period, the criterion is the contractual or internal retention period. After this period has expired, the corresponding data is routinely deleted if it is no longer required to fulfill or initiate a contract. This applies in particular to all Processing operations for which no more specific criteria have been defined.
-
-## **11. Existence of automated decision-making**
+## **10. Existence of automated decision-making**
 
 As a responsible company, we do not normally use automated decision-making or Profiling. If, in exceptional cases, we carry out automated decision-making or Profiling, we will inform the Data Subject either separately or via a sub-item in our Privacy Policy (here on our website). In this case, the following applies:
 
@@ -236,7 +232,7 @@ In the cases referred to in Art. 22 (2) (a) and (c) GDPR, we shall implement sui
 
 Meaningful information on the logic involved and the scope and intended effects of such Processing for the Data Subject will be provided in this Privacy Policy where applicable.
 
-## **12. Recipients in a third country and appropriate or adequate safeguards and how to obtain a copy of them or where they are available.**
+## **11. Recipients in a third country and appropriate or adequate safeguards and how to obtain a copy of them or where they are available.**
 
 According to Art. 46 (1) GDPR, the Controller or Processor may only transfer Personal Data to a third country if the Controller or Processor has provided appropriate safeguards and if enforceable rights and effective legal remedies are available to the Data Subjects. Appropriate safeguards can be provided by standard contractual clauses without the need for special approval from a supervisory authority, Art. 46 (2) (c) GDPR.
 
@@ -248,11 +244,11 @@ In all cases where the European Commission, or a government or competent authori
 
 Any Data Subject can obtain a copy of the frameworks from us. In addition, the frameworks are also available in the Official Journal of the European Union or in the published legal materials or on the websites of data protection supervisory authorities or other authorities or institutions.
 
-## **13. Right to lodge a complaint with a data protection supervisory authority**
+## **12. Right to lodge a complaint with a data protection supervisory authority**
 
 As the Controller, we are obliged to inform the Data Subject of the existence of the right to lodge a complaint with a supervisory authority. The right to lodge a complaint is regulated in Art. 77 (1) GDPR. According to this provision, without prejudice to any other administrative or judicial remedy, every Data Subject has the right to lodge a complaint with a supervisory authority, in particular in the Member State of his or her habitual residence, place of work or place of the alleged infringement if the Data Subject considers that the Processing of Personal Data relating to him or her infringes the General Data Protection Regulation. The right to lodge a complaint has been restricted by the EU legislator to the effect that it can only be exercised with a single supervisory authority (Recital 141 Sentence 1 GDPR). This provision is intended to avoid duplicate complaints in the same matter by the same Data Subject. If a Data Subject wishes to complain about us, it is therefore requested that only one supervisory authority is contacted.
 
-## **14. Data protection provisions about the application and use of Cloudflare**
+## **13. Data protection provisions about the application and use of Cloudflare**
 
 Cloudflare offers a wide range of services to improve the security, performance and reliability of websites and web applications. Core features include DDoS protection, web application firewall, content delivery network services, secure DNS services and more. By using Cloudflare, we can protect our online presence from cyber-attacks, improve the loading speed of our website and ensure the overall availability of our services.
 
@@ -268,7 +264,7 @@ The criteria for determining the duration for which the Personal Data is process
 
 Further information and the applicable data protection provisions of Cloudflare, Inc. can be found at [https://www.cloudflare.com](https://www.cloudflare.com).
 
-## **15. Data protection provisions about the application and use of Google Maps**
+## **14. Data protection provisions about the application and use of Google Maps**
 
 Google Maps is a comprehensive mapping and navigation service provided by Google LLC that allows users to view maps, plan routes and find local businesses and services. By providing detailed geographical information, Google Maps helps people around the world to find their way around and navigate in everyday life. The service offers features such as satellite images, street views, real-time traffic conditions and the ability to rate and review places.
 

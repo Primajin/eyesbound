@@ -58,6 +58,10 @@
       "button": "Kartenzustimmung widerrufen",
       "done": "Kartenzustimmung widerrufen. Vor dem Laden einer Karte wird erneut gefragt."
     },
+    "settings": {
+      "heading": "Im Browser gespeicherte Einstellungen",
+      "text": "Diese Website speichert einige Einstellungen im lokalen Speicher (Local Storage) Ihres Browsers: das von Ihnen gewählte Farbschema, die von Ihnen gewählte Sprache und, sofern erteilt, Ihre Entscheidung zum Laden der Karte; diese Einträge dienen nur dazu, Ihre Einstellungen auf Ihrem eigenen Gerät zu merken, werden nicht an uns übertragen, setzen keine Cookies und können jederzeit in den Browsereinstellungen gelöscht werden."
+    },
     "maps": {
       "heading": "Google Maps: Einwilligung und Widerruf",
       "data": "Karten werden nicht automatisch geladen. Erst wenn Sie auf „Karte laden“ klicken, verbindet sich Ihr Browser mit Servern von Google. Google erhält dann Daten wie Ihre IP-Adresse, Angaben zu Ihrem Browser und Gerät sowie den angezeigten Kartenausschnitt. Google kann diese Daten in den USA oder anderen Drittländern verarbeiten.",

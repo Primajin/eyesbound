@@ -163,7 +163,11 @@ describe('static pages', () => {
 			expect(sections[lang].match(/<h3 id="\d+-/gv), lang).toHaveLength(numberedHeadings('en').length);
 			expect(sections[lang], lang).not.toContain('<h1');
 			expect(sections[lang], lang).not.toContain('<h2');
-			expect(sections[lang].indexOf(text.maps), lang).toBeLessThan(sections[lang].indexOf(t('privacy.maps.heading', lang)));
+			const at = needle => sections[lang].indexOf(needle);
+			const [settingsHeading, settingsText, mapsHeading] = [t('privacy.settings.heading', lang), escape(t('privacy.settings.text', lang)), t('privacy.maps.heading', lang)];
+			expect(at(text.maps), lang).toBeLessThan(at(settingsHeading));
+			expect(at(settingsHeading), lang).toBeLessThan(at(settingsText));
+			expect(at(settingsText), lang).toBeLessThan(at(mapsHeading));
 			expect(sections[lang].indexOf(t('privacy.maps.heading', lang)), lang).toBeLessThan(sections[lang].indexOf(text.closing));
 			const subsection = sections[lang].slice(sections[lang].indexOf(t('privacy.maps.heading', lang)), sections[lang].indexOf(text.closing));
 			expect(subsection, lang).not.toMatch(/Art\.|GDPR|DSGVO|legal basis|Rechtsgrundlage/v);
@@ -197,6 +201,19 @@ describe('static pages', () => {
 		expect(english.length).toBeGreaterThan(0);
 		expect(english).toEqual(english.map((_, index) => index + 1));
 		expect(numberedHeadings('de')).toEqual(english);
+	});
+
+	test('the generated policies keep none of the customer, staff, shareholder or social media wording', () => {
+		const removed = {
+			en: ['social media', 'customer', 'business partners', 'shareholders', 'injured', 'Recital 47'],
+			de: ['Social Media', 'Kunde', 'Geschäftspartner', 'Anteilseigner', 'verletzt', 'Erwägungsgrund 47'],
+		};
+		for (const [lang, phrases] of Object.entries(removed)) {
+			const source = readFileSync(policyPath(lang), 'utf8');
+			for (const phrase of phrases) {
+				expect(source, `${lang}: ${phrase}`).not.toContain(phrase);
+			}
+		}
 	});
 
 	test('the imprint publishes no street address, postcode or phone number', async () => {
