@@ -104,47 +104,73 @@ Lint no longer gates the build (a failing lint wastes one build, the gate still 
 
 ## 7. Publish in Prismic, rebuild and deploy (content-deploy)
 
-Flow: Prismic webhook, then the relay Worker `worker/prismic-relay/`, then GitHub `repository_dispatch` (`event_type: prismic-publish`), then `.github/workflows/content-deploy.yml`: gates (lint, unit, real-data build, e2e) and `_deploy-cloudflare.yml` in production mode. Route parity is not run there: it compares Prismic with the live sitemap and would fail whenever a page is added or removed.
+Flow: Prismic webhook, then the relay Worker `worker/prismic-relay/`, then a GitHub `workflow_dispatch` on `.github/workflows/content-deploy.yml` (ref `main`), which runs the gates (lint, unit, real-data build, e2e) and `_deploy-cloudflare.yml` in production mode. Route parity is not run there: it compares Prismic with the live sitemap and would fail whenever a page is added or removed.
 
 Behaviour of the workflow:
 
-- Production deploy is off by default. Switch: repository variable `PRODUCTION_DEPLOY_ENABLED` = `true` (the same one `deploy-production` in `ci.yml` uses). While it is not `true`, a `repository_dispatch` run skips every job; a manual `workflow_dispatch` (Actions, Content deploy, Run workflow) runs the gates as a dry run and never deploys.
-- It activates only after the workflow file is on `main`: `repository_dispatch` always runs the default branch's copy. Until the PR is merged, dispatches do nothing.
+- The gates always run (they are cheap). The production deploy runs only when the repository variable `PRODUCTION_DEPLOY_ENABLED` is `true` (the same switch `deploy-production` in `ci.yml` uses) and the run is on `refs/heads/main`. A manual run from another branch is therefore a dry run.
+- `workflow_dispatch` only runs from a branch that contains the workflow file. The relay uses `main`, so the pipeline works after the PR is merged; before that, dispatches to `main` fail with 404 (the relay answers 502).
+- Start by hand: Actions, Content deploy, Run workflow.
 - Concurrency group `content-deploy`, `cancel-in-progress: false`: a running deploy is never cancelled; GitHub keeps one pending run and replaces older pending ones, so a burst of publishes becomes the running build plus one follow-up that sees the latest content.
-- Security: the payload is never read (no `client_payload` anywhere), every job that runs here holds at most `contents: read` (the `astro` caller grants `contents: write` / `pull-requests: write` only as the ceiling for the PR-only nested jobs, which are skipped on this event), actions are SHA-pinned in the called workflows. Anyone who can trigger it already has write access to the repository (or holds the PAT).
+- Security: no inputs and no payload are read, every job that runs here holds at most `contents: read` (the `astro` caller grants `contents: write` / `pull-requests: write` only as the ceiling for the PR-only nested jobs, which are skipped on this event), actions are SHA-pinned in the called workflows.
+- Blast radius of the relay token: it has only `Actions: Read and write`, so a leaked token can start and cancel workflow runs of this repository. It cannot push code, change workflows, or read secrets. Worst case is extra builds (and, with the switch on, a redeploy of what is on `main`).
 
 ### Why a relay (what was verified)
 
-Verified against https://prismic.io/docs/webhooks (fetched): the payload is fixed JSON (`type` `api-update` or `test-trigger`, `masterRef`, `documents`, `releases`, `tags`, `domain`, `apiUrl`, `secret`), the only authentication field documented is the `secret` in that body, anything other than a 200 response counts as failure (retry every 10 minutes, 5 times, then the webhook is disabled). The docs mention neither custom headers nor a custom body. Not verified (no mention, and I could not open the dashboard): whether Settings, Webhooks has a "Headers" field. Even if it has, a direct call to GitHub fails for two reasons that do not depend on headers: GitHub requires `event_type` in the body (422 without it) and replies `204`, which Prismic treats as a failure and eventually disables the webhook. Hence the relay.
+Verified against https://prismic.io/docs/webhooks (fetched): the payload is fixed JSON (`type` `api-update` or `test-trigger`, `masterRef`, `documents`, `releases`, `tags`, `domain`, `apiUrl`, `secret`), the only authentication field documented is the `secret` in that body, anything other than a 200 response counts as failure (retry every 10 minutes, 5 times, then the webhook is disabled). The docs mention neither custom headers nor a custom body. Not verified (I could not open the dashboard): whether Settings, Webhooks has a "Headers" field. Even if it has, a direct call to GitHub does not fit: GitHub needs `{"ref": ...}` in the body and an `Authorization` header, and it answers 204 (or 200 on newer API versions); Prismic treats 204 as a failure and eventually disables the webhook. Hence the relay.
 
-Trade-off: the no-relay path would have saved one free Worker to maintain, but it cannot work with Prismic's fixed body. The relay also keeps the GitHub token out of Prismic: Prismic only holds a shared secret, the PAT lives in Cloudflare as a Worker secret.
+The relay also keeps the GitHub token out of Prismic: Prismic only holds a shared secret, the token lives in Cloudflare as a Worker secret.
+
+Relay environment: `GITHUB_REPO` (`Primajin/eyesbound`) and `GITHUB_REF` (`main`, also the default when unset) are plain vars in `worker/prismic-relay/wrangler.jsonc`; secrets `PRISMIC_WEBHOOK_SECRET` and `GITHUB_TOKEN` are set with `wrangler secret put`. The relay POSTs `{"ref":"main"}` to `https://api.github.com/repos/Primajin/eyesbound/actions/workflows/content-deploy.yml/dispatches`, treats any 2xx as success (200 to Prismic), and answers 502 on any other status or network error (logging only the status, never GitHub's body or the token).
+
+### Verified vs assumed
+
+- Verified: Prismic webhook behaviour (above); the relay code and its unit tests (all branches, 100% coverage); the workflow passes actionlint and parses.
+- Assumed, to be confirmed by you: that **Actions: Read and write** is the exact fine-grained permission for "Create a workflow dispatch event" (the GitHub docs page could not be confirmed). Verify: if the dispatch answers 403, the response header `x-accepted-github-permissions` names what the endpoint needs; add that permission (and only that) to the token. Also assumed: the exact labels in the GitHub, Cloudflare and Prismic dashboards below (taken from memory, they may be worded slightly differently), and that GitHub answers 204 or 200 (the relay accepts any 2xx).
 
 ### Owner steps (nothing here is done for you)
 
-1. **GitHub token.** github.com, Settings, Developer settings, Personal access tokens, Fine-grained tokens, Generate new token. Resource owner: you. Repository access: **Only select repositories**, `Primajin/eyesbound` only. Repository permissions: **Contents: Read and write** (GitHub documents this as the permission for "Create a repository dispatch event"; Metadata read is added automatically). No other permission. Set an expiry (see below). A classic token would need the broad `repo` scope, so prefer the fine-grained one. Please re-check the permission name in the GitHub REST docs for repository dispatch when you create it; I could not confirm it in this session beyond my own knowledge.
-2. **Shared secret.** Generate a long random string, for example `openssl rand -hex 32`.
-3. **Deploy the relay** (by hand, free plan, not done by CI), from `worker/prismic-relay/`:
+1. **Create the GitHub token.** github.com, your avatar, Settings, Developer settings, Personal access tokens, Fine-grained tokens, Generate new token.
+   1. Token name: `eyesbound-prismic-relay`.
+   2. Resource owner: yourself (the owner of `Primajin/eyesbound`).
+   3. Expiration: custom, at most one year out. Write the date down (step 12).
+   4. Repository access: **Only select repositories**, choose `Primajin/eyesbound` and nothing else.
+   5. Repository permissions: **Actions: Read and write**. Nothing else (Metadata: Read-only is added automatically). No account permissions.
+   6. Generate token and copy it once (it starts with `github_pat_`).
+2. **Test the token against GitHub** (needs the PR merged, otherwise 404). Replace the placeholder; do not keep a real token in shell history (prefix the command with a space, or use a throwaway shell):
    ```sh
-   npx wrangler@4.152.0 secret put PRISMIC_WEBHOOK_SECRET   # paste the shared secret
-   npx wrangler@4.152.0 secret put GITHUB_TOKEN             # paste the PAT
-   npx wrangler@4.152.0 deploy
+   curl -sS -i -X POST https://api.github.com/repos/Primajin/eyesbound/actions/workflows/content-deploy.yml/dispatches \
+     -H "Accept: application/vnd.github+json" \
+     -H "Authorization: Bearer <GITHUB_PAT>" \
+     -H "X-GitHub-Api-Version: 2022-11-28" \
+     -d '{"ref":"main"}'
+   # expect: any 2xx (204 historically, 200 on newer versions); a run appears in the Actions tab
+   # 403: read the response header x-accepted-github-permissions, it names the permission the token lacks
+   # 404: the workflow file is not on main yet, or the token cannot see the repository
    ```
-   Note the URL `https://eyesbound-prismic-relay.<account-subdomain>.workers.dev`.
-4. **Prismic webhook.** Prismic repository, Settings, Webhooks, create: URL = the relay URL, Secret = the shared secret, triggers = page published and page unpublished (releases and tags are not needed). Or with the CLI: `npx prismic webhook create <relay-url> --trigger documentsPublished --trigger documentsUnpublished` (then set the secret in the dashboard). Use the "Test trigger" button: the relay answers 200 and does not dispatch.
-5. **Merge the PR** so `content-deploy.yml` is on `main`.
-6. **Test the pipeline end to end** with the placeholder commands below. A dispatch run shows as `Content deploy (Prismic publish)` in the Actions tab; with the switch off it finishes with all jobs skipped.
-7. **Switch production deploys on** only at cutover (section 3, step 3): variable `PRODUCTION_DEPLOY_ENABLED` = `true`, plus the Cloudflare secrets from section 2.
-
-Test the GitHub side directly (replace the placeholder; never paste a real token into a shared place or shell history you keep):
-
-```sh
-curl -sS -i -X POST https://api.github.com/repos/Primajin/eyesbound/dispatches \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer <GITHUB_PAT>" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  -d '{"event_type":"prismic-publish"}'
-# expect: HTTP/2 204
-```
+3. **Create the shared secret:** `openssl rand -hex 32`. Copy the output; you paste it twice (step 5 and step 8).
+4. **Log in to the right Cloudflare account**, the same `primajin` account the site is deployed to: `cd worker/prismic-relay && npx wrangler@4.152.0 whoami`. If it shows another account or none, run `npx wrangler@4.152.0 login` and pick the primajin account in the browser.
+5. **Store the secrets** (still in `worker/prismic-relay/`; each command prompts, paste the value, nothing is echoed):
+   ```sh
+   npx wrangler@4.152.0 secret put PRISMIC_WEBHOOK_SECRET   # the shared secret from step 3
+   npx wrangler@4.152.0 secret put GITHUB_TOKEN             # the token from step 1
+   ```
+   If wrangler says the Worker does not exist yet, accept creating it, or do step 6 first and repeat this step.
+6. **Deploy the relay** (by hand, free plan, not done by CI): `npx wrangler@4.152.0 deploy`.
+7. **Note the relay URL** printed by the deploy: `https://eyesbound-prismic-relay.<account-subdomain>.workers.dev`.
+8. **Prismic webhook.** Prismic repository, Settings, Webhooks, Create a webhook:
+   - URL: the relay URL from step 7.
+   - Secret: the shared secret from step 3.
+   - Triggers: page published and page unpublished (releases and tags are not needed).
+   - Leave any header field empty. Save (the webhook is enabled).
+9. **Test trigger.** In the webhook's detail view click "Test trigger". Expected: HTTP 200 in the log, and no run in the Actions tab (the relay does not dispatch for tests).
+10. **Real publish test.** Publish a small change to a page in Prismic. Expected within seconds: a run `Content deploy (Prismic publish)` in the Actions tab; until `PRODUCTION_DEPLOY_ENABLED` is `true` it runs the gates only and does not deploy.
+11. **Read the Prismic webhook logs:** Settings, Webhooks, open the webhook, Logs (or the log link). Each call shows the status the relay returned: 200 is fine, 401 means the secrets differ, 502 means GitHub refused (token expired, missing permission, workflow not on `main`, see the Cloudflare Worker logs in the dashboard under the Worker, Logs, which contain only the GitHub status). Repeated failures disable the webhook; re-enable it after fixing the cause.
+12. **Record the token expiry** so `token-expiry.yml` can warn you:
+    ```sh
+    gh variable set RELAY_TOKEN_EXPIRES --body <YYYY-MM-DD of step 1.3> --repo Primajin/eyesbound
+    ```
+13. **Switch production deploys on** only at cutover (section 3, step 3): variable `PRODUCTION_DEPLOY_ENABLED` = `true`, plus the Cloudflare secrets from section 2.
 
 Test the relay (shape of Prismic's call; `<RELAY_URL>` and `<SHARED_SECRET>` are placeholders):
 
@@ -156,7 +182,7 @@ curl -sS -i -X POST <RELAY_URL> -H "Content-Type: application/json" \
 
 ### Token expiry and rotation
 
-A fine-grained PAT has a mandatory expiry (maximum one year; "no expiration" may be blocked by policy). When it expires, GitHub answers 401, the relay answers 502, Prismic retries 5 times over about 50 minutes and then **disables the webhook**: publishes silently stop reaching production. Mitigation: put a calendar reminder two weeks before expiry (GitHub also emails a warning), and check Prismic's webhook logs (Settings, Webhooks, Logs) when the site looks stale. Rotate: create a new token with the same scope, run `npx wrangler@4.152.0 secret put GITHUB_TOKEN` in `worker/prismic-relay/` (no redeploy needed), then delete the old token. Rotate the shared secret the same way: `secret put PRISMIC_WEBHOOK_SECRET`, then update the secret in the Prismic webhook. If Prismic disabled the webhook, re-enable it in the dashboard after fixing the token. A manual rebuild is always possible via Actions, Content deploy, Run workflow.
+A fine-grained PAT has a mandatory expiry (maximum one year). When it expires, GitHub answers 401, the relay answers 502, Prismic retries 5 times over about 50 minutes and then **disables the webhook**: publishes silently stop reaching production. Mitigation: put a calendar reminder two weeks before expiry (GitHub also emails a warning), and check Prismic's webhook logs (Settings, Webhooks, Logs) when the site looks stale. Rotate: create a new token with the same scope (Actions: Read and write, only `Primajin/eyesbound`), run `npx wrangler@4.152.0 secret put GITHUB_TOKEN` in `worker/prismic-relay/` (no redeploy needed), then delete the old token. Rotate the shared secret the same way: `secret put PRISMIC_WEBHOOK_SECRET`, then update the secret in the Prismic webhook. If Prismic disabled the webhook, re-enable it in the dashboard after fixing the token. A manual rebuild is always possible via Actions, Content deploy, Run workflow.
 
 The workflow `token-expiry.yml` checks this every Monday: it reads the repository variable `RELAY_TOKEN_EXPIRES` (the token's expiry date as `YYYY-MM-DD`) and fails, and opens an issue titled "Rotate the GitHub token of the Prismic relay", when the variable is missing or the date is 21 days away or less. Set the variable when you create the token, and update it after every rotation:
 

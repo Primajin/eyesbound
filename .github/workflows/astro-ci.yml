@@ -42,7 +42,7 @@ permissions: {}
 # In a called workflow `github.workflow` is the CALLER's name, so a group that
 # reuses it could collide with the caller's own group; use a literal prefix.
 # Only superseded PR runs are cancelled; runs on main always finish. The event
-# name keeps content-deploy runs (repository_dispatch) out of the group of push
+# name keeps content-deploy runs (workflow_dispatch) out of the group of push
 # runs on main, so neither replaces the other's pending run.
 concurrency:
   group: astro-ci-${{ github.event.pull_request.number || format('{0}-{1}', github.event_name, github.ref) }}
@@ -291,7 +291,7 @@ jobs:
   # not the e2e/lighthouse results (it is not production). Same-repo PRs only
   # (Renovate and Dependabot included), once the owner sets PREVIEW_PROVIDER=cloudflare.
   # Fork PRs never get secrets and never reach this job. Never runs for push,
-  # repository_dispatch (content-deploy.yml) or workflow_dispatch.
+  # workflow_dispatch (content-deploy.yml).
   # Not pull_request_target: the job runs the PR's own (same-repo) workflow file.
   preview:
     name: Cloudflare preview

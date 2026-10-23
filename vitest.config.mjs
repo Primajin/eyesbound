@@ -7,8 +7,8 @@ export default getViteConfig({
 		coverage: {
 			provider: 'v8',
 			reporter: ['text', 'html', 'lcov'],
-			include: ['site/**/*.{js,jsx,astro}'],
-			exclude: ['site/**/__tests__/**', 'site/public/**'],
+			include: ['site/**/*.{js,jsx,astro}', 'worker/**/*.js'],
+			exclude: ['site/**/__tests__/**', 'site/public/**', 'worker/**/*.test.js'],
 		},
 	},
 });

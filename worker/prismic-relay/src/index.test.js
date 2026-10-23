@@ -70,28 +70,59 @@ describe('prismic relay', () => {
 		expect(fetchMock).not.toHaveBeenCalled();
 	});
 
-	it('dispatches a fixed event and forwards nothing from the payload', async () => {
+	const payload = {
+		type: 'api-update',
+		secret: 'shared-secret',
+		documents: ['abc'],
+		domain: 'x',
+	};
+
+	it('dispatches the workflow on the configured ref and forwards nothing from the payload', async () => {
 		const fetchMock = vi.fn().mockResolvedValue(new Response(null, {status: 204}));
 		vi.stubGlobal('fetch', fetchMock);
-		const response = await call(post({
-			type: 'api-update',
-			secret: 'shared-secret',
-			documents: ['abc'],
-			domain: 'x',
-		}));
+		const response = await call(post(payload), {...env, GITHUB_REF: 'release'});
 		expect(response.status).toBe(200);
 		const [url, init] = fetchMock.mock.calls[0];
-		expect(url).toBe('https://api.github.com/repos/Primajin/eyesbound/dispatches');
+		expect(url).toBe('https://api.github.com/repos/Primajin/eyesbound/actions/workflows/content-deploy.yml/dispatches');
 		expect(init.method).toBe('POST');
 		expect(init.headers.authorization).toBe('Bearer github_pat_placeholder');
-		expect(JSON.parse(init.body)).toEqual({event_type: 'prismic-publish'}); // eslint-disable-line camelcase
+		expect(init.headers['x-github-api-version']).toBe('2022-11-28');
+		expect(JSON.parse(init.body)).toEqual({ref: 'release'});
 	});
 
-	it('answers 502 (so Prismic retries) when GitHub refuses, without leaking details', async () => {
-		vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('secret detail', {status: 401})));
-		vi.spyOn(console, 'error').mockImplementation(() => {});
-		const response = await call(post({type: 'api-update', secret: 'shared-secret'}));
+	it('defaults the ref to main', async () => {
+		const fetchMock = vi.fn().mockResolvedValue(new Response(null, {status: 204}));
+		vi.stubGlobal('fetch', fetchMock);
+		await call(post(payload));
+		expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual({ref: 'main'});
+	});
+
+	it.each([200, 201, 204, 299])('treats GitHub %i as success', async status => {
+		vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(status === 204 ? null : '{"workflow_run_id":1}', {status})));
+		const response = await call(post(payload));
+		expect(response.status).toBe(200);
+		expect(await response.json()).toEqual({message: 'Dispatched'});
+	});
+
+	it.each([300, 401, 403, 404, 422, 500])('answers 502 (so Prismic retries) for GitHub %i, without leaking details', async status => {
+		vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('secret detail', {status})));
+		const logged = vi.spyOn(console, 'error').mockImplementation(() => {});
+		const response = await call(post(payload));
+		const text = await response.text();
 		expect(response.status).toBe(502);
-		expect(await response.text()).not.toContain('secret detail');
+		expect(text).not.toContain('secret detail');
+		expect(text).not.toContain('github_pat_placeholder');
+		expect(JSON.stringify(logged.mock.calls)).not.toContain('github_pat_placeholder');
+		expect(JSON.stringify(logged.mock.calls)).toContain(String(status));
+	});
+
+	it('answers 502 on a network error without leaking the token', async () => {
+		vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('boom github_pat_placeholder')));
+		const logged = vi.spyOn(console, 'error').mockImplementation(() => {});
+		const response = await call(post(payload));
+		const text = await response.text();
+		expect(response.status).toBe(502);
+		expect(text).not.toContain('github_pat_placeholder');
+		expect(JSON.stringify(logged.mock.calls)).not.toContain('github_pat_placeholder');
 	});
 });

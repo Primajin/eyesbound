@@ -1,10 +1,10 @@
-// Prismic -> GitHub `repository_dispatch` relay (see README.md in this folder).
-// Prismic webhooks cannot send a custom body (GitHub requires `event_type`) and
-// expect HTTP 200 (GitHub answers 204), so this Worker translates between them.
+// Prismic -> GitHub `workflow_dispatch` relay (see README.md in this folder).
+// Prismic webhooks cannot send a custom body (GitHub requires `ref`) and
+// expect HTTP 200 (GitHub answers 204 or 200), so this Worker translates.
 // The GitHub token never leaves Cloudflare; Prismic only holds the shared secret.
 
 const maxBodyBytes = 65_536;
-const eventType = 'prismic-publish';
+const workflowFile = 'content-deploy.yml';
 const encoder = new TextEncoder();
 
 const respond = (status, message) => Response.json({message}, {
@@ -61,19 +61,26 @@ const handle = async (request, env) => {
 	}
 
 	// Nothing from the Prismic payload is forwarded to GitHub.
-	const response = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/dispatches`, {
-		method: 'POST',
-		headers: {
-			authorization: `Bearer ${env.GITHUB_TOKEN}`,
-			accept: 'application/vnd.github+json',
-			'content-type': 'application/json',
-			'x-github-api-version': '2022-11-28',
-			'user-agent': 'eyesbound-prismic-relay',
-		},
-		body: JSON.stringify({event_type: eventType}), // eslint-disable-line camelcase
-	});
+	let response;
+	try {
+		response = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/actions/workflows/${workflowFile}/dispatches`, {
+			method: 'POST',
+			headers: {
+				authorization: `Bearer ${env.GITHUB_TOKEN}`,
+				accept: 'application/vnd.github+json',
+				'content-type': 'application/json',
+				'x-github-api-version': '2022-11-28',
+				'user-agent': 'eyesbound-prismic-relay',
+			},
+			body: JSON.stringify({ref: env.GITHUB_REF || 'main'}),
+		});
+	} catch {
+		console.error('GitHub dispatch failed: network error');
+		return respond(502, 'GitHub dispatch failed');
+	}
 
-	if (response.status === 204) {
+	// 204 historically, 200 with run details on newer API versions.
+	if (response.status >= 200 && response.status < 300) {
 		return respond(200, 'Dispatched');
 	}
 

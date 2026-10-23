@@ -7,7 +7,8 @@
 	"workers_dev": true,
 	"preview_urls": false,
 	"vars": {
-		"GITHUB_REPO": "Primajin/eyesbound"
+		"GITHUB_REPO": "Primajin/eyesbound",
+		"GITHUB_REF": "main"
 	}
 	// Secrets (never in this file): PRISMIC_WEBHOOK_SECRET, GITHUB_TOKEN
 	// -> npx wrangler@4.152.0 secret put <NAME>
