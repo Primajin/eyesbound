@@ -110,7 +110,6 @@ describe('static pages', () => {
 		const html = await render(Imprint, '/imprint/');
 		expect(html).toContain('<title>Imprint &amp; Contact | ');
 		expect(html).toContain('data-lang="de" lang="de">Kontakt &amp; Impressum<');
-		expect(html).toContain('Friedrich-Wilhelm-Platz 2');
 		expect(html).not.toMatch(/imprint\.(?!astro)\w+/v);
 		for (const {groups: {attributes}} of html.matchAll(/<a (?<attributes>[^>]*target="_blank"[^>]*)>/gv)) {
 			expect(attributes).toContain('rel="noreferrer"');
@@ -150,8 +149,9 @@ describe('static pages', () => {
 
 		expect(html.match(/<span data-lang="en" lang="en">/gv)).toHaveLength(html.match(/<span data-lang="de" lang="de">/gv).length);
 		expect(html).toContain('Telefon</span>: 84183026');
+		expect(html).not.toContain('Friedrich-Wilhelm-Platz');
+		expect(html).not.toContain('12161');
 		expect(html).toContain('lang="de">Deutschland</span>');
-		expect(html).toContain('Friedrich-Wilhelm-Platz 2');
 		expect(html).toContain('data-title-de="Namensnennung');
 		expect(html).toContain('<p data-lang="de" lang="de"');
 		expect(html).not.toMatch(/(?:privacy|imprint)\.\w+\.\w+/v);

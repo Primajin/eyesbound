@@ -28,7 +28,6 @@ test.describe('imprint in German', () => {
 		await expect(page.getByText('Personenbezogene Daten sind alle Informationen').first()).toBeVisible();
 		await expect(page.locator('address')).toContainText('Telefon: 84183026');
 		await expect(page.locator('address')).toContainText('Deutschland');
-		await expect(page.locator('address')).toContainText('Friedrich-Wilhelm-Platz 2');
 		await expect(page.locator('i.icon-cc-nc-eu')).toHaveAttribute('title', /^Nicht kommerziell/v);
 
 		await expectNoEnglish(page);
