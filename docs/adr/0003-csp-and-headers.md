@@ -77,7 +77,7 @@ Assumptions that must be enforced by build settings and the Playwright smoke sui
 ### 3. MAP policy (`/worldmap/*` and `/picture/:uid/`)
 
 ```text
-default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: data: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 ```
 
 This is the final policy, narrowed from the first proposal by the S9 render test (see "S9 results" below). No inline-script hash is needed: the map island is an external module and the Maps API is loaded through a script element.
@@ -268,12 +268,12 @@ SEO 69 is the `noindex` header on `workers.dev` (the `is-crawlable` audit), not 
 # Map routes: replace STRICT with MAP (detach first, otherwise two CSP headers are sent)
 /worldmap/*
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: data: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 # Placeholder form matches /picture/<uid>/ only, so the /picture/ listing keeps STRICT
 /picture/:uid/
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: data: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 # Keep workers.dev hostnames out of search results (untested)
 https://:version.:subdomain.workers.dev/*
