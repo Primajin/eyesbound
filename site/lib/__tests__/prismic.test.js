@@ -34,6 +34,22 @@ describe('real mode', () => {
 		expect(getAllByType).not.toHaveBeenCalled();
 	});
 
+	test('uses the eyesbound repository when no name is configured', async () => {
+		vi.stubEnv('PRISMIC_ACCESS_TOKEN', 'test-token');
+		vi.stubEnv('PRISMIC_REPO_NAME', undefined);
+		const {getAllPictures} = await load();
+		await getAllPictures();
+		expect(createClient).toHaveBeenCalledWith('eyesbound', {accessToken: 'test-token'});
+	});
+
+	test('reads the repository name from PRISMIC_REPO_NAME', async () => {
+		vi.stubEnv('PRISMIC_ACCESS_TOKEN', 'test-token');
+		vi.stubEnv('PRISMIC_REPO_NAME', 'other-repo');
+		const {getAllPictures} = await load();
+		await getAllPictures();
+		expect(createClient).toHaveBeenCalledWith('other-repo', {accessToken: 'test-token'});
+	});
+
 	test('fetches each type once, with fetchLinks, and caches the result', async () => {
 		vi.stubEnv('PRISMIC_ACCESS_TOKEN', 'test-token');
 		const {getAllPictures, getHomepagePictures, getMapPictures, getRoutes} = await load();

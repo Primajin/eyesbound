@@ -273,6 +273,32 @@ describe('initMaps', () => {
 		expect(layers.map(layer => layer.hidden)).toEqual([false, true]);
 	});
 
+	test('a layer that finishes loading after the theme changed back does not take over', async () => {
+		const container = setupDom();
+		const {maps} = fakeGoogle();
+		initMaps(document, {load: async () => maps});
+		FakeObserver.instances[0].trigger(true);
+		await flush();
+
+		const {promise: gate, resolve: release} = Promise.withResolvers();
+		const importLibrary = maps.importLibrary.getMockImplementation();
+		maps.importLibrary.mockImplementation(async name => {
+			await gate;
+			return importLibrary(name);
+		});
+
+		document.documentElement.dataset.theme = 'dark';
+		await flush();
+		document.documentElement.dataset.theme = 'light';
+		await flush();
+		release();
+		await flush();
+		await flush();
+
+		const layers = [...container.querySelectorAll('.map-layer')];
+		expect(layers.map(layer => [layer.dataset.mapTheme, layer.hidden])).toEqual([['light', false], ['dark', true]]);
+	});
+
 	test('marks the element and logs when the key is missing, the script fails or the data is bad', async () => {
 		const error = vi.spyOn(console, 'error').mockImplementation(() => {});
 		const load = vi.fn(async () => fakeGoogle().maps);
@@ -301,6 +327,24 @@ describe('initMaps', () => {
 		expect(bad.dataset.mapError !== undefined).toBe(true);
 		expect(bad).not.toHaveProperty('dataset.mapReady');
 		expect(error).toHaveBeenCalledTimes(3);
+		error.mockRestore();
+	});
+
+	test('marks the element and logs when creating the map for a switched theme fails', async () => {
+		const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+		const container = setupDom();
+		const {maps} = fakeGoogle();
+		initMaps(document, {load: async () => maps});
+		FakeObserver.instances[0].trigger(true);
+		await flush();
+		expect(container.dataset.mapReady).toBe('');
+
+		maps.importLibrary.mockRejectedValue(new Error('quota'));
+		document.documentElement.dataset.theme = 'dark';
+		await flush();
+		await flush();
+		expect(container.dataset.mapError).toBe('');
+		expect(error).toHaveBeenCalledWith(new Error('quota'));
 		error.mockRestore();
 	});
 

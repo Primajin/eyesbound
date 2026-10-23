@@ -77,6 +77,11 @@ describe('content components', () => {
 		expect(html).toContain('href="/series/holland-8664-z.z.g./"');
 	});
 
+	test('List falls back to the uid for an untitled item', async () => {
+		const html = await render(List, {items: [{uid: 'bare', title: null}], type: {path: 'tag'}, title: 'Tags'});
+		expect(html).toContain('<a href="/tag/bare/">bare</a>');
+	});
+
 	test('Group wraps the list in main', async () => {
 		const html = await render(Group, {items: [{uid: 'x', title: 'X'}], type: {path: 'tag'}, plural: 'Tags'});
 		expect(html).toContain('<main');
@@ -149,6 +154,17 @@ describe('images', () => {
 		expect(html).toContain('href="/picture/a/"');
 		expect(html).toMatch(/<span class="missing"[^>]*>A<\/span>/v);
 		expect(html).not.toContain('<img');
+	});
+
+	test('Thumbnails name an untitled picture by its uid, with or without an image', async () => {
+		const untitled = {...picture, title: null};
+		const imageless = {
+			...untitled, uid: 'b', image: null, thumbnail: null,
+		};
+		const html = await render(Thumbnails, {pictures: [untitled, imageless], title: 'Floral', type: 'Category'});
+		expect(html).toContain('aria-label="a"');
+		expect(html).toContain('alt="A alt"');
+		expect(html).toMatch(/<span class="missing"[^>]*>b<\/span>/v);
 	});
 
 	test('Member wraps thumbnails in main', async () => {

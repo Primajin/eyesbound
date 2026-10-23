@@ -57,6 +57,20 @@ describe('initLanguageSwitcher', () => {
 		expect(root.documentElement.lang).toBe('en');
 	});
 
+	test('treats an unsupported html language as the default one', () => {
+		const {root, button} = setup('fr');
+		initLanguageSwitcher(root, {setItem: vi.fn()});
+		expect(button.title).toBe('Switch to German');
+	});
+
+	test('keeps the existing title when the button has none for the language', () => {
+		const {root, button} = setup('de');
+		button.title = 'Preset';
+		delete button.dataset.titleDe;
+		initLanguageSwitcher(root, {setItem: vi.fn()});
+		expect(button.title).toBe('Preset');
+	});
+
 	test('survives blocked storage', () => {
 		const {root, click} = setup();
 		initLanguageSwitcher(root, {

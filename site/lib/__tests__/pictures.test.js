@@ -46,6 +46,43 @@ describe('normalizePicture', () => {
 		expect(picture.category).toBeNull();
 	});
 
+	test('defaults absent image details and link data', () => {
+		const picture = normalizePicture({
+			uid: 'sparse',
+			data: {
+				image: {url: 'https://images.prismic.io/a.jpg'},
+				series: {uid: 's'},
+				coordinates: {latitude: 1},
+			},
+		});
+		expect(picture).toEqual({
+			uid: 'sparse',
+			title: null,
+			homepage: false,
+			datetime: null,
+			coordinates: null,
+			image: {
+				url: 'https://images.prismic.io/a.jpg', alt: '', width: null, height: null,
+			},
+			thumbnail: null,
+			category: null,
+			series: {uid: 's', title: null},
+			tags: [],
+		});
+	});
+
+	test('accepts a document without data', () => {
+		expect(normalizePicture({uid: 'bare'})).toMatchObject({
+			uid: 'bare', title: null, image: null, coordinates: null, tags: [],
+		});
+	});
+
+	test('names an unknown id when the document has neither uid nor id', () => {
+		expect(() => normalizePicture({})).toThrow('document (unknown id) has no uid');
+		expect(() => normalizePicture(undefined)).toThrow('document (unknown id) has no uid');
+		expect(() => normalizeTitled(undefined)).toThrow('Prismic  document (unknown id) has no uid');
+	});
+
 	test('throws without uid', () => {
 		expect(() => normalizePicture({id: 'abc', data: {}})).toThrow('abc');
 		expect(() => normalizeTitled({id: 'abc', type: 'tags'})).toThrow('tags document abc');
@@ -64,6 +101,11 @@ describe('sorting', () => {
 	test('breaks ties by uid', () => {
 		const same = [{uid: 'b', datetime: '2020-01-01T00:00:00+0000'}, {uid: 'a', datetime: '2020-01-01T00:00:00+0000'}];
 		expect(uids(sortPictures(same))).toEqual(['a', 'b']);
+	});
+
+	test('orders pictures with an unparsable date by uid', () => {
+		const items = [{uid: 'b', datetime: 'garbage'}, {uid: 'a', datetime: 'garbage'}];
+		expect(uids(sortPictures(items))).toEqual(['a', 'b']);
 	});
 
 	test('sorts by title ascending with untitled last', () => {

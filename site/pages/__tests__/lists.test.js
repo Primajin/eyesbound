@@ -87,10 +87,15 @@ describe('detail pages', () => {
 		expect(seriesHtml).toContain(`href="https://eyesbound.com/series/${series[0].params.uid}/"`);
 	});
 
-	test('an untitled document falls back to its uid', async () => {
-		const [{props}] = await categoryPaths();
-		const html = await render(CategoryPage, '/category/x/', {params: {uid: 'x'}, props: {item: {...props.item, uid: 'x', title: null}}});
-		expect(html).toContain('Category: x (0)');
+	test.each([
+		[CategoryPage, categoryPaths, 'category', 'Category'],
+		[SeriesPage, seriesPaths, 'series', 'Series'],
+		[TagPage, tagPaths, 'tag', 'Tag'],
+	])('%# an untitled %s document falls back to its uid in heading and title', async (page, getPaths, family, label) => {
+		const [{props}] = await getPaths();
+		const html = await render(page, `/${family}/x/`, {params: {uid: 'x'}, props: {item: {...props.item, uid: 'x', title: null}}});
+		expect(html).toContain(`${label}: x (0)`);
+		expect(html).toContain('<title>x | ');
 	});
 });
 

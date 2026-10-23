@@ -6,6 +6,7 @@ import {
 	detailPath,
 	diffRoutes,
 	parseSitemap,
+	routes,
 } from '../routes.js';
 
 const live = readFileSync(new URL('__fixtures__/live-routes.txt', new URL('../', import.meta.url)), 'utf8').split('\n').filter(Boolean);
@@ -55,6 +56,10 @@ describe('diffRoutes', () => {
 		expect(diffRoutes(['/a/', '/b/'], ['/b/', '/c/'])).toEqual({missing: ['/a/'], extra: ['/c/']});
 	});
 
+	test('sorts missing and extra routes', () => {
+		expect(diffRoutes(['/z/', '/a/'], ['/y/', '/b/'])).toEqual({missing: ['/a/', '/z/'], extra: ['/b/', '/y/']});
+	});
+
 	test('treats a trailing-slash difference as a failure', () => {
 		expect(diffRoutes(['/a/'], ['/a'])).toEqual({missing: ['/a/'], extra: ['/a']});
 	});
@@ -67,4 +72,11 @@ test('parseSitemap extracts pathnames', () => {
 
 test('detailPath keeps uids as they are', () => {
 	expect(detailPath({path: 'tag'}, 'a.b')).toBe('/tag/a.b/');
+});
+
+test('route helpers build trailing-slash detail paths per family and keep the uid unchanged', () => {
+	expect(routes.picture('holland-8664-z.z.g.')).toBe('/picture/holland-8664-z.z.g./');
+	expect(routes.category('floral')).toBe('/category/floral/');
+	expect(routes.series('shuttered')).toBe('/series/shuttered/');
+	expect(routes.tag('Infrared')).toBe('/tag/Infrared/');
 });

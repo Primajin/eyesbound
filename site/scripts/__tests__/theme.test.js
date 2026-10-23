@@ -149,6 +149,13 @@ describe('initThemeSwitcher', () => {
 		winListeners.storage({key: STORAGE_KEY});
 		expect(doc.documentElement.dataset.theme).toBe('dark');
 	});
+
+	test('storage events for unrelated keys leave the theme alone', () => {
+		const {doc, win, winListeners} = setup({systemDark: false});
+		win.localStorage.setItem(STORAGE_KEY, 'true');
+		winListeners.storage({key: 'somethingElse'});
+		expect(doc.documentElement.dataset.theme).toBe('light');
+	});
 });
 
 describe('public/theme-init.js', () => {

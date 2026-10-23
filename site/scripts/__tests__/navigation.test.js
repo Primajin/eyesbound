@@ -47,3 +47,12 @@ test('Escape closes the menu and releases focus', () => {
 	expect(nav.classList.contains('open')).toBe(false);
 	expect(document.activeElement).not.toBe(link);
 });
+
+test('other keys leave the open menu and its focus alone', () => {
+	const {nav, button, link} = setup();
+	button.click();
+	link.focus();
+	document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Tab'}));
+	expect(nav.classList.contains('open')).toBe(true);
+	expect(document.activeElement).toBe(link);
+});

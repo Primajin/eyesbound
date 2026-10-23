@@ -86,6 +86,41 @@ describe('picture page', () => {
 		expect(html).not.toMatch(/\sstyle="/v);
 	});
 
+	test('renders a bare picture without optional sections', async () => {
+		const {props} = paths.find(({props}) => props.item.uid === 'exoplanet');
+		const item = {
+			...props.item, title: null, datetime: null, coordinates: null, category: null, series: null, tags: [],
+		};
+		const html = await container.renderToString(Page, {params: {uid: 'exoplanet'}, props: {item}, request: new Request('https://eyesbound.com/picture/exoplanet/')});
+		const main = html.slice(html.indexOf('<main'));
+		expect(main).not.toContain('<h1');
+		expect(main).not.toContain('class="details"');
+		expect(main).not.toContain('class="taxonomy"');
+		expect(html).not.toContain('data-map');
+		expect(html).not.toContain('name="date"');
+		expect(html).not.toContain('name="geo.position"');
+		expect(html).toContain('<title>EYESBOUND</title>');
+		expect(html).toContain('<meta name="description" content="Portfolio Website');
+		expect(html).toMatch(/<img[^>]*alt="Exoplanet"/v);
+	});
+
+	test('falls back to uids for untitled links and lists tags in the description', async () => {
+		const {props} = paths.find(({props}) => props.item.uid === 'exoplanet');
+		const item = {
+			...props.item,
+			title: null,
+			category: {uid: 'cat', title: null},
+			series: {uid: 'ser', title: null},
+			tags: [{uid: 'one', title: null}, {uid: 'two', title: 'Two'}],
+		};
+		const html = await container.renderToString(Page, {params: {uid: 'exoplanet'}, props: {item}, request: new Request('https://eyesbound.com/picture/exoplanet/')});
+		expect(html).toMatch(/<a href="\/category\/cat\/"[^>]*>cat<\/a>/v);
+		expect(html).toMatch(/<a href="\/series\/ser\/"[^>]*>ser<\/a>/v);
+		expect(html).toContain('<a href="/tag/one/">one</a> | <a href="/tag/two/">Two</a>');
+		expect(html).toContain('<meta name="description" content="Tags: one Two">');
+		expect(html).toContain('<meta name="date" content="2020-05-01T10:00:00+0000">');
+	});
+
 	test('fails loudly for a picture without an image', async () => {
 		const {props} = paths[0];
 		await expect(container.renderToString(Page, {params: {uid: 'x'}, props: {item: {...props.item, image: null}}})).rejects.toThrow('has no image');

@@ -96,6 +96,13 @@ describe('initSlideshows', () => {
 		expect(current()).toEqual(['false', 'false', 'true']);
 	});
 
+	test('ignores slides that scroll out of view', () => {
+		const {slides} = setup();
+		initSlideshows(document);
+		FakeObserver.instances[0].callback([{isIntersecting: false, target: slides[2]}]);
+		expect(current()).toEqual(['true', 'false', 'false']);
+	});
+
 	test('autoplays, and pauses while hovered or focused', () => {
 		const {slideshow, scroller} = setup();
 		initSlideshows(document, {interval: 1000});
@@ -141,6 +148,17 @@ describe('initSlideshows', () => {
 
 		vi.advanceTimersByTime(5000);
 		expect(scroller.scrollTo).not.toHaveBeenCalled();
+	});
+
+	test('keeps running when reduced motion changes without being on', () => {
+		const {scroller, listeners} = setup();
+		initSlideshows(document, {interval: 1000});
+		for (const listener of listeners) {
+			listener();
+		}
+
+		vi.advanceTimersByTime(1000);
+		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
 	});
 
 	test('a single slide never autoplays', () => {
