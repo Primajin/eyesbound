@@ -61,7 +61,6 @@
     "maps": {
       "heading": "Google Maps: Einwilligung und Widerruf",
       "data": "Karten werden nicht automatisch geladen. Erst wenn Sie auf „Karte laden“ klicken, verbindet sich Ihr Browser mit Servern von Google. Google erhält dann Daten wie Ihre IP-Adresse, Angaben zu Ihrem Browser und Gerät sowie den angezeigten Kartenausschnitt. Google kann diese Daten in den USA oder anderen Drittländern verarbeiten.",
-      "basis": "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch den Klick auf „Karte laden“ erteilen. Übermittlungen in Drittländer beruhen auf dem EU-US Data Privacy Framework oder auf Standardvertragsklauseln. Beim Laden der Karte kann Google zudem Informationen in Ihrem Browser speichern oder auslesen; siehe die Datenschutzerklärung von Google.",
       "storage": "Damit wir nicht erneut fragen müssen, merkt sich Ihr Browser Ihre Einwilligung im lokalen Speicher (Local Storage) unter dem Schlüssel „eyesbound.mapConsent“. Wir setzen dafür kein Cookie, und der Eintrag wird nicht an uns übertragen. Er bleibt bestehen, bis Sie Ihre Einwilligung widerrufen oder Ihre Browserdaten löschen.",
       "withdraw": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt."
     }

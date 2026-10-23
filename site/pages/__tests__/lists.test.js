@@ -28,6 +28,7 @@ const flatten = (object, prefix = '') => Object.entries(object).flatMap(([key, v
 
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll('\'', '&#39;');
 const policyPath = lang => new URL(`../../content/privacy/privacy.${lang}.md`, import.meta.url);
+const numberedHeadings = lang => readFileSync(policyPath(lang), 'utf8').matchAll(/^## \*\*(?<number>\d+)\. /gmv).map(match => Number(match.groups.number)).toArray();
 const policies = {
 	en: {
 		opening: 'We are pleased that you are interested in our organization.',
@@ -158,13 +159,14 @@ describe('static pages', () => {
 			expect(sections[lang], lang).toContain(text.cloudflare);
 			expect(sections[lang], lang).toContain(text.maps);
 			expect(sections[lang], lang).toContain(text.closing);
-			expect(sections[lang], lang).toContain('href="mailto:privacy@eyesbound.com"');
-			expect(sections[lang].match(/<h3 id="\d+-/gv), lang).toHaveLength(16);
+			expect(sections[lang], lang).toContain('href="mailto:admin@eyesbound.com"');
+			expect(sections[lang].match(/<h3 id="\d+-/gv), lang).toHaveLength(numberedHeadings('en').length);
 			expect(sections[lang], lang).not.toContain('<h1');
 			expect(sections[lang], lang).not.toContain('<h2');
 			expect(sections[lang].indexOf(text.maps), lang).toBeLessThan(sections[lang].indexOf(t('privacy.maps.heading', lang)));
 			expect(sections[lang].indexOf(t('privacy.maps.heading', lang)), lang).toBeLessThan(sections[lang].indexOf(text.closing));
-			expect(sections[lang], lang).toContain(escape(t('privacy.maps.basis', lang)));
+			const subsection = sections[lang].slice(sections[lang].indexOf(t('privacy.maps.heading', lang)), sections[lang].indexOf(text.closing));
+			expect(subsection, lang).not.toMatch(/Art\.|GDPR|DSGVO|legal basis|Rechtsgrundlage/v);
 			expect(sections[lang], lang).toContain(escape(t('privacy.withdraw.button', lang)));
 			expect(sections[lang], lang).toContain(escape(t('privacy.withdraw.done', lang)));
 		}
@@ -178,7 +180,23 @@ describe('static pages', () => {
 	test('external policy links open safely', async () => {
 		const html = await render(Imprint, '/imprint/');
 		expect(html).toContain('<a href="https://www.cloudflare.com" target="_blank" rel="noreferrer">');
-		expect(html).toContain('<a href="mailto:privacy@eyesbound.com">');
+		expect(html).toContain('<a href="mailto:admin@eyesbound.com">');
+	});
+
+	test('no policy link target ends in punctuation', async () => {
+		const html = await render(Imprint, '/imprint/');
+		const targets = html.matchAll(/<a href="(?<url>https?:[^"]*)"/gv).map(match => match.groups.url).toArray();
+		expect(targets.length).toBeGreaterThan(8);
+		for (const target of targets) {
+			expect(target).not.toMatch(/[\),.:;]$/v);
+		}
+	});
+
+	test('both generated policies number their sections 1 to n without gaps and in parallel', () => {
+		const english = numberedHeadings('en');
+		expect(english.length).toBeGreaterThan(0);
+		expect(english).toEqual(english.map((_, index) => index + 1));
+		expect(numberedHeadings('de')).toEqual(english);
 	});
 
 	test('the imprint publishes no street address, postcode or phone number', async () => {

@@ -1,10 +1,10 @@
 # **Privacy Policy**
 
-We are pleased that you are interested in our organization. The protection of your Personal Data is particularly important to our management. As a rule, you can use our websites without disclosing any Personal Data to us. However, if you wish to use more specific services via our websites, including our other websites, applications and social media pages, we may have to process your Personal Data. If we wish to process data about you and we cannot rely on any other legal basis, we will always ask you for your Consent first (e.g., via a cookie banner).
+We are pleased that you are interested in our organization. The protection of your Personal Data is particularly important to our management. As a rule, you can use our websites without disclosing any Personal Data to us. However, if you wish to use more specific services via our websites, including our other websites, applications and social media pages, we may have to process your Personal Data. If we wish to process data about you and we cannot rely on any other legal basis, we will always ask you for your Consent first.
 
 We always comply with applicable data protection laws when handling your Personal Data (such as name, address, email or telephone number). With this Privacy Policy, we inform you about which data we process. This Privacy Policy also explains to you what rights you have as a Data Subject.
 
-We have taken various technical and organizational measures to protect your data on our websites in the best possible way. Nevertheless, there are always risks on the internet and complete protection is not possible. For this reason, you can also transmit your Personal Data to us by other means, for example by telephone, if you prefer.
+We have taken various technical and organizational measures to protect your data on our websites in the best possible way. Nevertheless, there are always risks on the internet and complete protection is not possible. For this reason, you can also transmit your Personal Data to us by other means, if you prefer.
 
 This Privacy Policy is not only intended to fulfill the obligations under GDPR and to comply with the law of the Member States of the European Union (EU) and the European Economic Area (EEA). This Privacy Policy is also intended to comply with legislation such as UK data protection laws (UK-GDPR), Swiss Federal Data Protection Act and Swiss Data Protection Ordinance (DSG, DSV), California Consumer Privacy Act (CCPA/CPRA), China's Personal Information Protection Law (PIPL), Delaware Personal Data Privacy Act (DPDPA), Tennessee Information Protection Act (TIPA), Minnesota Consumer Data Privacy Act (MCDPA), Iowa Act Relating to Consumer Data Protection (ICDPA), Maryland Online Data Privacy Act (MODPA), Nebraska Data Privacy Act (NDPA), New Hampshire Consumer Data Privacy Law (SB255), New Jersey Data Privacy Law (SB332), South Carolina Consumer Privacy Bill (House Bill 4696) and other global data protection regulations and shall be interpreted accordingly. The following Privacy Policy shall be interpreted for each country, state or federal state in such a way that the terms and legal bases used correspond to the terms and legal bases used in the respective state or federal state.
 
@@ -70,7 +70,7 @@ The Controller within the meaning of the General Data Protection Regulation, oth
 
 Jannis Hell
 
-eMail: privacy@eyesbound.com
+eMail: admin@eyesbound.com
 
 Website: eyesbound.com
 
@@ -78,13 +78,13 @@ Website: eyesbound.com
 
 Our websites collect a range of general data and information each time the websites are accessed by a Data Subject or an automated system. This general data and information are stored in the log files of the respective server. Among other things, the (1) browser types and versions used, (2) the operating system used by the accessing system, (3) the website from which an accessing system accesses our websites (so-called referrer), (4) the sub-websites which are accessed via an accessing system on our websites, (5) the date and time of access to the website, (6) an internet protocol address (IP address), (7) the internet service provider of the accessing system and (8) other similar data and information used for security purposes in the event of attacks on our information technology systems can be recorded.
 
-When using this general data and information, we generally do not draw any conclusions about the Data Subject. Rather, this information is required to (1) correctly deliver the content of our websites, (2) optimize the content of our websites and the advertising for them, (3) ensure the long-term functionality of our information technology systems and the technology of our websites and (4) provide law enforcement authorities with the information necessary for criminal prosecution in the event of a cyber-attack. This anonymously collected data and information is therefore evaluated by us both statistically and with the aim of increasing data protection and data security in our organisation to ultimately ensure an optimal level of protection for the Personal Data processed by us. The data of the server log files are stored separately from all Personal Data provided by a Data Subject.
+When using this general data and information, we generally do not draw any conclusions about the Data Subject. Rather, this information is required to (1) correctly deliver the content of our websites, (2) optimize the content of our websites, (3) ensure the long-term functionality of our information technology systems and the technology of our websites and (4) provide law enforcement authorities with the information necessary for criminal prosecution in the event of a cyber-attack. This anonymously collected data and information is therefore evaluated by us both statistically and with the aim of increasing data protection and data security in our organisation to ultimately ensure an optimal level of protection for the Personal Data processed by us. The data of the server log files are stored separately from all Personal Data provided by a Data Subject.
 
 The purpose of processing is to avert danger and ensure IT security, as well as the aforementioned purposes. The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest is the protection of our information technology systems. The log files are deleted after the stated purposes have been achieved.
 
 ## **4. Contact possibility via the website and other data transfers and your Consent**
 
-Our website contains information that enables quick electronic contact with our organisation as well as direct communication with us, which also includes a general address of the so-called electronic mail (email address) and possibly a telephone number. If a Data Subject contacts us by email, via a contact form, via an input form or in any other way, the Personal Data transmitted by the Data Subject will be stored automatically. This Personal Data transmitted to us on a voluntary basis by a Data Subject is processed for the purposes of usage or contacting the Data Subject.
+Our website contains information that enables quick electronic contact with our organisation as well as direct communication with us, which also includes a general address of the so-called electronic mail (email address). If a Data Subject contacts us by email or in any other way, the Personal Data transmitted by the Data Subject will be stored automatically. This Personal Data transmitted to us on a voluntary basis by a Data Subject is processed for the purposes of usage or contacting the Data Subject.
 
 We obtain your Consent for the transmission, storage and Processing of your contact data and inquiries and for contacting you in accordance with Art. 6 (1) (a) GDPR and Art. 49 (1) (1) (a) GDPR as follows:
 
@@ -182,8 +182,6 @@ Each Data Subject has the right to object, on grounds relating to his or her par
 
 In the event of an objection, we will no longer process the Personal Data unless we can demonstrate compelling legitimate grounds for the Processing which override the interests, rights and freedoms of the Data Subject or for the establishment, exercise or defense of legal claims.
 
-If we process Personal Data for direct marketing purposes, the Data Subject shall have the right to object at any time to Processing of Personal Data concerning him or her for such marketing. This also applies to Profiling insofar as it is associated with such direct advertising. If the Data Subject objects to us to the Processing for direct marketing purposes, we will no longer process the Personal Data for these purposes.
-
 In addition, the Data Subject has the right, on grounds relating to his or her particular situation, to object to Processing of Personal Data concerning him or her by us for scientific or historical research purposes, or for statistical purposes pursuant to Article 89(1) of the GDPR, unless the Processing is necessary for the performance of a task carried out for reasons of public interest.
 
 If a Data Subject wishes to exercise this right, he or she may contact us at any time. The Data Subject is also free, in the context of the use of information society services, and notwithstanding Directive 2002/58/EC, to exercise his or her right to object by automated means using technical specifications.
@@ -206,13 +204,13 @@ If a Data Subject wishes to exercise this right, he or she may contact us at any
 
 The general purpose of processing Personal Data is the handling of all activities relating to the Controller, customers, interested parties, business partners or other contractual or pre-contractual relationships between the aforementioned groups (in the broadest sense) or legal obligations of the Controller. This general purpose applies if no more specific purposes for specific Processing are specified.
 
-The categories of Personal Data that we process are customer data, prospective customer data, employee data (including applicant data) and supplier data. The categories of recipients of Personal Data are public bodies, external bodies, internal processing, intragroup processing and other bodies.
+The categories of recipients of Personal Data are public bodies, external bodies, internal processing, intragroup processing and other bodies.
 
 A list of our Processors and data recipients in third countries and, if applicable, international organizations is either published on our website or can be requested from us free of charge.
 
 ## **8. Legal basis for the Processing**
 
-Art. 6 (1) (a) GDPR serves as the legal basis for Processing operations for which we obtain Consent for a specific Processing purpose. If the Processing of Personal Data is necessary for the performance of a contract to which the Data Subject is party, as is the case, for example, when Processing operations are necessary for the supply of goods or to provide any other service or consideration, Processing is based on Art. 6 (1) (b) GDPR. The same applies to such Processing operations that are necessary to carry out pre-contractual measures, for example in cases of inquiries about our products or services. If we are subject to a legal obligation which requires the Processing of Personal Data, such as for the fulfillment of tax obligations, Processing is based on Art. 6 (1) (c) GDPR.
+Art. 6 (1) (a) GDPR serves as the legal basis for Processing operations for which we obtain Consent for a specific Processing purpose. If we are subject to a legal obligation which requires the Processing of Personal Data, such as for the fulfillment of tax obligations, Processing is based on Art. 6 (1) (c) GDPR.
 
 In rare cases, it may be necessary to process Personal Data to protect the vital interests of the Data Subject or another natural person. This would be the case, for example, if a visitor were injured in our organisation and their name, age, health insurance data or other vital information would have to be passed on to a doctor, hospital or other Third Party. The Processing would then be based on Art. 6 (1) (d) GDPR.
 
@@ -220,23 +218,15 @@ If the Processing is necessary for the performance of a task carried out in the 
 
 Ultimately, Processing operations could be based on Art. 6 (1) (f) GDPR. This legal basis is used for Processing operations which are not covered by any of the abovementioned legal grounds, if Processing is necessary for the purposes of the legitimate interests pursued by our organisation or by a Third Party, except where such interests are overridden by the interests or fundamental rights and freedoms of the Data Subject which require protection of Personal Data. We are permitted to carry out such Processing operations in particular because they have been specifically mentioned by the European legislator. In this respect, it took the view that a legitimate interest could be assumed, for example, if the Data Subject is a customer of the Controller (Recital 47 Sentence 2 GDPR).
 
-## **9. Legitimate interests in Processing pursued by the Controller or a Third Party and direct marketing**
+## **9. Legitimate interests in Processing pursued by the Controller or a Third Party**
 
 If the Processing of Personal Data is based on Art. 6 (1) (f) GDPR and no more specific legitimate interests are stated, our legitimate interest is the performance of our business activities for the benefit of the well-being of our staff and our shareholders.
-
-We may send you direct advertising about our own goods or services that are similar to the goods or services you have requested, commissioned or purchased. You may object to direct advertising at any time (e.g. by email). You will not incur any costs other than the transmission costs according to the basic rates. The Processing of Personal Data for direct marketing purposes is based on Art. 6 (1) (f) GDPR. The legitimate interest is direct marketing.
-
-Our messages and newsletters may also constitute direct marketing communications within the meaning of Article 13(2) of EU Directive 2002/58 (Directive on privacy and electronic communications) and the national law resulting from the Directive, provided that we have obtained your electronic and other contact information in connection with the sale of a service or product, which includes the creation of a free user account that allows you, among other things, to access free content on our websites and publications (newsletters, etc.), provided that we advertise similar products or services through direct marketing, so that direct marketing is also permissible without consent (see ECJ, judgment of November 13, 2025, Case C 654/23). In such cases, you can refuse the use of your contact information at any time free of charge.
 
 ## **10. Duration for which the Personal Data is stored**
 
 The criterion for the duration of the storage of Personal Data is the respective statutory retention period. If there is no statutory retention period, the criterion is the contractual or internal retention period. After this period has expired, the corresponding data is routinely deleted if it is no longer required to fulfill or initiate a contract. This applies in particular to all Processing operations for which no more specific criteria have been defined.
 
-## **11. Legal or contractual provisions for the provision of Personal Data; necessity for the conclusion of the contract; obligation of the Data Subject to provide the Personal Data; possible consequences of non-provision**
-
-We would like to inform you that the provision of Personal Data is partly required by law (e.g., tax regulations) or may also result from contractual obligations (e.g., information on the contractual partner). Sometimes it may be necessary for a contract to be concluded for a Data Subject to provide us with Personal Data that must subsequently be processed by us. For example, Data Subjects are obliged to provide us with Personal Data if our organisation concludes a contract with them. Failure to provide Personal Data would mean that the contract with the Data Subject could not be concluded. The Data Subject must contact us before providing Personal Data. We will inform the Data Subject on a case-by-case basis whether the provision of the Personal Data is required by law or contract or is necessary for the conclusion of the contract, whether there is an obligation to provide the Personal Data and what the consequences would be if the Personal Data were not provided.
-
-## **12. Existence of automated decision-making**
+## **11. Existence of automated decision-making**
 
 As a responsible company, we do not normally use automated decision-making or Profiling. If, in exceptional cases, we carry out automated decision-making or Profiling, we will inform the Data Subject either separately or via a sub-item in our Privacy Policy (here on our website). In this case, the following applies:
 
@@ -246,7 +236,7 @@ In the cases referred to in Art. 22 (2) (a) and (c) GDPR, we shall implement sui
 
 Meaningful information on the logic involved and the scope and intended effects of such Processing for the Data Subject will be provided in this Privacy Policy where applicable.
 
-## **13. Recipients in a third country and appropriate or adequate safeguards and how to obtain a copy of them or where they are available.**
+## **12. Recipients in a third country and appropriate or adequate safeguards and how to obtain a copy of them or where they are available.**
 
 According to Art. 46 (1) GDPR, the Controller or Processor may only transfer Personal Data to a third country if the Controller or Processor has provided appropriate safeguards and if enforceable rights and effective legal remedies are available to the Data Subjects. Appropriate safeguards can be provided by standard contractual clauses without the need for special approval from a supervisory authority, Art. 46 (2) (c) GDPR.
 
@@ -258,11 +248,11 @@ In all cases where the European Commission, or a government or competent authori
 
 Any Data Subject can obtain a copy of the frameworks from us. In addition, the frameworks are also available in the Official Journal of the European Union or in the published legal materials or on the websites of data protection supervisory authorities or other authorities or institutions.
 
-## **14. Right to lodge a complaint with a data protection supervisory authority**
+## **13. Right to lodge a complaint with a data protection supervisory authority**
 
 As the Controller, we are obliged to inform the Data Subject of the existence of the right to lodge a complaint with a supervisory authority. The right to lodge a complaint is regulated in Art. 77 (1) GDPR. According to this provision, without prejudice to any other administrative or judicial remedy, every Data Subject has the right to lodge a complaint with a supervisory authority, in particular in the Member State of his or her habitual residence, place of work or place of the alleged infringement if the Data Subject considers that the Processing of Personal Data relating to him or her infringes the General Data Protection Regulation. The right to lodge a complaint has been restricted by the EU legislator to the effect that it can only be exercised with a single supervisory authority (Recital 141 Sentence 1 GDPR). This provision is intended to avoid duplicate complaints in the same matter by the same Data Subject. If a Data Subject wishes to complain about us, it is therefore requested that only one supervisory authority is contacted.
 
-## **15. Data protection provisions about the application and use of Cloudflare**
+## **14. Data protection provisions about the application and use of Cloudflare**
 
 Cloudflare offers a wide range of services to improve the security, performance and reliability of websites and web applications. Core features include DDoS protection, web application firewall, content delivery network services, secure DNS services and more. By using Cloudflare, we can protect our online presence from cyber-attacks, improve the loading speed of our website and ensure the overall availability of our services.
 
@@ -272,13 +262,13 @@ The company that operates the service and thus the recipient of personal data is
 
 Purposes for which the Personal Data is to be processed and the legal basis for the Processing: The purpose of processing is the use of services to secure and optimize websites and web applications. Processing is based on Art. 6 (1) (f) GDPR, whereby our legitimate interest lies in ensuring the security, performance and reliability of our online presence.
 
-The company that operates the service is based in a third country, namely the USA. Transfers to third countries may be based on the conclusion of Standard Contractual Clauses or other suitable or appropriate safeguards referred to in Art. 46 (2) GDPR. The company that operates the service may be a certified member of one or more of the data privacy frameworks. You can find more information at [https://www.dataprivacyframework.gov/list.](https://www.dataprivacyframework.gov/list.) You can request a copy of the suitable or appropriate safeguards from us.
+The company that operates the service is based in a third country, namely the USA. Transfers to third countries may be based on the conclusion of Standard Contractual Clauses or other suitable or appropriate safeguards referred to in Art. 46 (2) GDPR. The company that operates the service may be a certified member of one or more of the data privacy frameworks. You can find more information at [https://www.dataprivacyframework.gov/list](https://www.dataprivacyframework.gov/list). You can request a copy of the suitable or appropriate safeguards from us.
 
 The criteria for determining the duration for which the Personal Data is processed are the contractual relationship between us and the company that operates the service or statutory or contractual retention periods. The provision of Personal Data is not required by law or contract, nor is it necessary for the conclusion of a contract. You are not obliged to provide us or the company that operates the service with Personal Data. However, if you do not provide it, you may not be able to use our services or those of the company operating the service.
 
-Further information and the applicable data protection provisions of Cloudflare, Inc. can be found at [https://www.cloudflare.com.](https://www.cloudflare.com.)
+Further information and the applicable data protection provisions of Cloudflare, Inc. can be found at [https://www.cloudflare.com](https://www.cloudflare.com).
 
-## **16. Data protection provisions about the application and use of Google Maps**
+## **15. Data protection provisions about the application and use of Google Maps**
 
 Google Maps is a comprehensive mapping and navigation service provided by Google LLC that allows users to view maps, plan routes and find local businesses and services. By providing detailed geographical information, Google Maps helps people around the world to find their way around and navigate in everyday life. The service offers features such as satellite images, street views, real-time traffic conditions and the ability to rate and review places.
 
@@ -288,10 +278,10 @@ The company that operates the service and thus the recipient of personal data is
 
 Purposes for which the Personal Data is to be processed and the legal basis for the Processing: The purpose of processing is the use and optimization of the mapping and navigation service. Processing is based on Art. 6 (1) (f) GDPR, whereby our legitimate interest lies in the provision and use of an efficient, user-friendly and precise navigation service.
 
-The company that operates the service is located in a third country, namely in the USA. Transfers to third countries may be based on the conclusion of Standard Contractual Clauses or other suitable or appropriate safeguards referred to in Art. 46 (2) GDPR. The company that operates the service may be a certified member of one or more of the data privacy frameworks. You can find more information at [https://www.dataprivacyframework.gov/list.](https://www.dataprivacyframework.gov/list.) You can request a copy of the suitable or appropriate safeguards from us.
+The company that operates the service is located in a third country, namely in the USA. Transfers to third countries may be based on the conclusion of Standard Contractual Clauses or other suitable or appropriate safeguards referred to in Art. 46 (2) GDPR. The company that operates the service may be a certified member of one or more of the data privacy frameworks. You can find more information at [https://www.dataprivacyframework.gov/list](https://www.dataprivacyframework.gov/list). You can request a copy of the suitable or appropriate safeguards from us.
 
 The criteria for determining the duration for which the Personal Data is processed are the contractual relationship between us and the company that operates the service or statutory or contractual retention periods. The provision of Personal Data is not required by law or contract, nor is it necessary for the conclusion of a contract. You are not obliged to provide us or the company that operates the service with Personal Data. However, if you do not provide it, you may not be able to use our services or those of the company operating the service.
 
-Further information and the applicable data protection provisions of Google Maps can be found at [https://policies.google.com/privacy.](https://policies.google.com/privacy.)
+Further information and the applicable data protection provisions of Google Maps can be found at [https://policies.google.com/privacy](https://policies.google.com/privacy).
 
 This privacy policy was created using a generator developed with the support of [media law attorneys](https://www.wbs.legal/), [data protection consultants](https://dg-datenschutz.de/), and the [ISO 27001 certification body](https://cert-authority.com/).

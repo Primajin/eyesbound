@@ -61,7 +61,6 @@
     "maps": {
       "heading": "Google Maps: consent and withdrawal",
       "data": "Maps are not loaded automatically. Only after you click \"Load map\" does your browser connect to Google servers. Google then receives data such as your IP address, information about your browser and device, and the map section you are viewing. Google may process this data in the USA or other third countries.",
-      "basis": "The legal basis is your consent under Art. 6(1)(a) GDPR, which you give by clicking \"Load map\". Transfers to third countries are based on the EU-US Data Privacy Framework or on standard contractual clauses. When the map is loaded, Google may also store or read information in your browser; see the privacy policy of Google.",
       "storage": "So that we do not have to ask you again, your browser remembers your consent in its local storage under the key \"eyesbound.mapConsent\". We set no cookie for this, and the entry is not sent to us. It stays until you withdraw your consent or clear your browser data.",
       "withdraw": "You can withdraw your consent at any time with effect for the future. The lawfulness of the processing carried out until then is not affected."
     }
