@@ -1,0 +1,4 @@
+[
+	{"id": "cat-1", "uid": "architecture", "type": "category", "data": {"title": "Architecture"}},
+	{"id": "cat-2", "uid": "abstract", "type": "category", "data": {"title": "Abstract"}}
+]

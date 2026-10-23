@@ -1,0 +1,112 @@
+---
+import {SITE_NAME as siteName} from 'astro:env/server';
+
+import badge from '../assets/a-design-award-winner-2016-silver-2x.png?url';
+import MainWrapper from '../components/MainWrapper.astro';
+import PolicyDocument from '../components/PolicyDocument.astro';
+import PostalAddress from '../components/PostalAddress.astro';
+import T from '../components/T.astro';
+import {Content as policyDe} from '../content/privacy/privacy.de.md';
+import {Content as policyEn} from '../content/privacy/privacy.en.md';
+import {localizedTitle, t} from '../i18n/index.js';
+import Base from '../layouts/Base.astro';
+
+const policies = [
+	{lang: 'en', Content: policyEn},
+	{lang: 'de', Content: policyDe},
+];
+const licenses = [
+	{icon: 'icon-cc', key: 'imprint.license.cc'},
+	{icon: 'icon-cc-by', key: 'imprint.license.by'},
+	{icon: 'icon-cc-nc-eu', key: 'imprint.license.nc'},
+	{icon: 'icon-cc-sa', key: 'imprint.license.sa'},
+];
+---
+
+<Base title={t('imprint.metaTitle', 'en')}>
+	<MainWrapper>
+		<h1><T key="imprint.pageTitle" /></h1>
+		<address>{siteName}<br>Jannis Hell<br><PostalAddress /></address>
+		<p>
+			<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank' rel='noreferrer'>
+				{licenses.map(({icon, key}) => <i class={icon} {...localizedTitle(key)}><T key={key} /></i>)}
+			</a>
+		</p>
+		<h2><T key="imprint.design" /></h2>
+		<p>Julia Hell<br><a href='https://www.julia-hell.com' target='_blank' rel='noreferrer'>https://www.julia-hell.com</a></p>
+		<p>
+			<a href='https://competition.adesignaward.com/design.php?ID=45698' target='_blank' rel='noreferrer'>
+				<img alt='A Design Award 2016 - Silver' height='237' src={badge} width='150'>
+			</a>
+		</p>
+		<h2 id="privacy-policy" class="policy-heading"><T key="imprint.privacyPolicy" /></h2>
+		{policies.map(({lang, Content}) => (
+			<PolicyDocument lang={lang}>
+				<Content />
+				<Fragment slot="consent">
+					<h3 class="policy-heading">{t('privacy.settings.heading', lang)}</h3>
+					<p>{t('privacy.settings.text', lang)}</p>
+					<h3 class="policy-heading">{t('privacy.maps.heading', lang)}</h3>
+					<p>{t('privacy.maps.data', lang)}</p>
+					<p>{t('privacy.maps.storage', lang)}</p>
+					<p>{t('privacy.maps.withdraw', lang)}</p>
+					<p>
+						<button type="button" class="withdraw" data-map-consent-revoke>{t('privacy.withdraw.button', lang)}</button>
+						<span role="status" data-map-consent-done hidden>{t('privacy.withdraw.done', lang)}</span>
+					</p>
+				</Fragment>
+			</PolicyDocument>
+		))}
+	</MainWrapper>
+</Base>
+
+<script>
+	import '../scripts/consent-init.js';
+</script>
+
+<style>
+	.policy-heading {
+		font-size: 100%;
+		text-transform: none;
+	}
+
+	.withdraw {
+		background: none;
+		color: inherit;
+		cursor: pointer;
+		padding: 0;
+		text-decoration: underline;
+	}
+
+	[data-map-consent-done] {
+		margin-inline-start: 1rem;
+	}
+
+	i {
+		background: transparent center center no-repeat;
+		display: inline-block;
+		height: 64px;
+		margin: 0 -5px;
+		overflow: hidden;
+		text-indent: -999em;
+		transform: scale(0.75);
+		vertical-align: middle;
+		width: 64px;
+	}
+
+	.icon-cc {
+		background-image: url('../assets/creative-commons/cc.svg');
+	}
+
+	.icon-cc-by {
+		background-image: url('../assets/creative-commons/by.svg');
+	}
+
+	.icon-cc-nc-eu {
+		background-image: url('../assets/creative-commons/nc-eu.svg');
+	}
+
+	.icon-cc-sa {
+		background-image: url('../assets/creative-commons/sa.svg');
+	}
+</style>

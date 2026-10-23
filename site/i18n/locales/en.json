@@ -1,0 +1,90 @@
+{
+  "navigation": {
+    "menu": "Menu",
+    "overview": "Overview",
+    "contact": "Contact",
+    "worldmap": "Worldmap"
+  },
+  "picture": {
+    "category": "Category",
+    "series": "Series",
+    "tags": "Tags",
+    "captured": "Captured",
+    "location": "Location"
+  },
+  "imprint": {
+    "pageTitle": "Contact & Imprint",
+    "metaTitle": "Imprint & Contact",
+    "design": "Design:",
+    "privacyPolicy": "Privacy Policy",
+    "address": {
+      "email": "Email",
+      "website": "Website",
+      "country": "Germany"
+    },
+    "license": {
+      "cc": "Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)",
+      "by": "Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.",
+      "nc": "NonCommercial — You may not use the material for commercial purposes.",
+      "sa": "ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original."
+    }
+  },
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "english": "English",
+    "german": "German"
+  },
+  "accessibility": {
+    "nextSlide": "Next slide",
+    "previousSlide": "Previous slide",
+    "toggleFullscreen": "Toggle fullscreen",
+    "switchTheme": "Switch theme"
+  },
+  "notFound": {
+    "metaTitle": "404 - Page Not Found",
+    "title": "404 - Page Not Found",
+    "message": "The page you are looking for does not exist or has been moved.",
+    "home": "Return to Home"
+  },
+  "map": {
+    "consent": {
+      "text": "Loading this map transfers data, for example your IP address, to Google. Google may process it outside the EU.",
+      "privacy": "Privacy policy",
+      "load": "Load map"
+    }
+  },
+  "privacy": {
+    "withdraw": {
+      "button": "Forget map consent",
+      "done": "Map consent withdrawn. The map will ask again before loading."
+    },
+    "settings": {
+      "heading": "Settings stored in your browser",
+      "text": "This site stores a few settings in your browser's local storage: the colour theme you chose, the language you chose and, if you gave it, your choice for loading the map; these entries only remember your settings on your own device, are not sent to us, set no cookies and can be deleted at any time in your browser settings."
+    },
+    "maps": {
+      "heading": "Google Maps: consent and withdrawal",
+      "data": "Maps are not loaded automatically. Only after you click \"Load map\" does your browser connect to Google servers. Google then receives data such as your IP address, information about your browser and device, and the map section you are viewing. Google may process this data in the USA or other third countries.",
+      "storage": "So that we do not have to ask you again, your browser remembers your consent in its local storage under the key \"eyesbound.mapConsent\". We set no cookie for this, and the entry is not sent to us. It stays until you withdraw your consent or clear your browser data.",
+      "withdraw": "You can withdraw your consent at any time with effect for the future. The lawfulness of the processing carried out until then is not affected."
+    }
+  },
+  "assetTypes": {
+    "category": {
+      "name": "Category",
+      "plural": "Categories"
+    },
+    "picture": {
+      "name": "Picture",
+      "plural": "Pictures"
+    },
+    "series": {
+      "name": "Series",
+      "plural": "Series"
+    },
+    "tag": {
+      "name": "Tag",
+      "plural": "Tags"
+    }
+  }
+}

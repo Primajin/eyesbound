@@ -1,0 +1,77 @@
+---
+import FullscreenIcon from './icons/Fullscreen.astro';
+import FullscreenExitIcon from './icons/FullscreenExit.astro';
+import T from './T.astro';
+
+interface Props {
+	/** CSS selector of the element that goes fullscreen */
+	selector: string;
+}
+
+const {selector} = Astro.props;
+---
+
+<button type="button" class="fullscreen" data-fullscreen-toggle={selector} aria-pressed="false">
+	<span class="visually-hidden"><T key="accessibility.toggleFullscreen" /></span>
+	<span class="enter"><FullscreenIcon /></span>
+	<span class="exit"><FullscreenExitIcon /></span>
+</button>
+
+<script>
+	import {initFullscreen} from '../scripts/fullscreen.js';
+
+	initFullscreen(document);
+</script>
+
+<style>
+	.fullscreen {
+		align-items: center;
+		background-color: var(--foreground);
+		color: var(--background);
+		cursor: pointer;
+		display: flex;
+		height: var(--control-size);
+		inset-block-start: 0;
+		inset-inline-end: 0;
+		justify-content: center;
+		opacity: 1;
+		padding: 0;
+		position: fixed;
+		transition: background-color var(--theme-duration), color var(--theme-duration), opacity var(--theme-duration);
+		width: var(--control-size);
+		z-index: var(--z-controls);
+	}
+
+	.fullscreen:hover {
+		background: var(--background);
+		color: var(--foreground);
+	}
+
+	.fullscreen:focus-visible {
+		outline: 2px solid var(--background);
+		outline-offset: -4px;
+	}
+
+	.fullscreen:hover:focus-visible {
+		outline-color: var(--foreground);
+	}
+
+	.fullscreen :global(svg) {
+		fill: currentcolor;
+		height: var(--control-size);
+		width: var(--control-size);
+	}
+
+	.exit,
+	:global(:root[data-fullscreen]) .enter {
+		display: none;
+	}
+
+	:global(:root[data-fullscreen]) .exit {
+		display: block;
+	}
+
+	:global(:root[data-fullscreen]) .fullscreen:not(:hover, :focus-visible) {
+		opacity: 0.65;
+	}
+</style>

@@ -1,0 +1,17 @@
+---
+import {detailPath} from '../lib/routes.js';
+
+import T from './T.astro';
+
+interface Props {
+	items: {uid: string; title: string | null}[];
+	type: {path: string};
+}
+
+const {items, type} = Astro.props;
+---
+
+<h1><T key={`assetTypes.${type.path}.plural`} /> ({items.length})</h1>
+<ul>
+	{items.map(({uid, title: itemTitle}) => <li><a href={detailPath(type, uid)}>{itemTitle ?? uid}</a></li>)}
+</ul>

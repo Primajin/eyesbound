@@ -13,62 +13,54 @@ on:
 permissions: {}
 
 jobs:
-  build:
-    if: github.event_name == 'push' || github.event.action != 'closed'
-    permissions:
-      contents: read
-    uses: ./.github/workflows/_build.yml
-    secrets: inherit
-
-  build-matrix:
-    if: github.event.action != 'closed' && contains(github.event.pull_request.labels.*.name, 'dependabot')
-    permissions:
-      contents: read
-    uses: ./.github/workflows/_build-matrix.yml
-    secrets: inherit
-
   lint:
     if: github.event_name == 'push' || github.event.action != 'closed'
     permissions: write-all
     uses: ./.github/workflows/_lint.yml
     secrets: inherit
 
-  test:
+  # Site checks (lint, unit, build, e2e, route parity; lighthouse is advisory)
+  # and, for same-repo PRs, the Cloudflare preview, its comment, console logs and
+  # screenshots (started right after the build, see astro-ci.yml). Fork PRs skip
+  # the secret-dependent inner jobs. The write scopes are only the CEILING the
+  # nested `screenshots` (contents) and `console`/comment (pull-requests) jobs
+  # may request; every inner job declares its own, smaller grant.
+  astro:
     if: github.event_name == 'push' || github.event.action != 'closed'
     permissions:
-      contents: read
-    uses: ./.github/workflows/_test.yml
-    secrets: inherit
-
-  console:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    permissions:
-      pull-requests: write
-    uses: ./.github/workflows/_console.yml
-    secrets: inherit
-
-  screenshots:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    permissions:
-      checks: read
       contents: write
       pull-requests: write
-    uses: ./.github/workflows/_screenshots.yml
+    uses: ./.github/workflows/astro-ci.yml
     secrets: inherit
+
+  # PRODUCTION deploy: DISABLED until the repository variable
+  # PRODUCTION_DEPLOY_ENABLED is 'true' (the same switch gates content-deploy.yml).
+  # Needs the same gate as the preview.
+  deploy-production:
+    name: Cloudflare production deploy (needs PRODUCTION_DEPLOY_ENABLED)
+    if: ${{ vars.PRODUCTION_DEPLOY_ENABLED == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: astro
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_deploy-cloudflare.yml
+    with:
+      mode: production
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
   all-green:
     name: All checks green
     if: always()
     needs:
-      - build
-      - build-matrix
       - lint
-      - test
-      - console
-      - screenshots
+      - astro
+      - deploy-production
     runs-on: ubuntu-latest
     permissions: {}
     steps:
+      # `astro` aggregates its inner jobs (e2e shards, preview, console,
+      # screenshots, ...) through `astro-green`, whose failure fails the caller.
       - name: Fail if any required job failed or was cancelled
         shell: bash
         run: |

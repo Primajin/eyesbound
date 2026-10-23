@@ -1,0 +1,153 @@
+name: "CI · Deploy to Cloudflare Workers"
+
+# Uploads the `dist` artifact built by astro-ci.yml in the SAME run (no rebuild)
+# to the Worker `eyesbound` (wrangler.jsonc, static assets). Preview mode is called
+# from astro-ci.yml right after its `build` job (not after the slow e2e/Lighthouse
+# jobs); production mode from ci.yml / content-deploy.yml after the whole gate.
+#   mode=preview     -> `wrangler versions upload --preview-alias pr-<n>` (not
+#                       promoted to production; reachable at the alias URL).
+#   mode=production  -> `wrangler deploy` (ci.yml keeps this caller disabled
+#                       until cutover).
+# wrangler is pinned to an exact version via npx (no repo dependency). Renovate
+# does not see this pin; bump WRANGLER_VERSION by hand.
+
+on:
+  workflow_call:
+    inputs:
+      mode:
+        description: preview or production
+        type: string
+        required: true
+      pr-number:
+        description: Pull request number (preview mode only)
+        type: string
+        required: false
+        default: ''
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: false
+      CLOUDFLARE_ACCOUNT_ID:
+        required: false
+    outputs:
+      url:
+        description: Preview URL (empty if nothing was deployed or in production mode)
+        value: ${{ jobs.deploy.outputs.url }}
+
+permissions: {}
+
+env:
+  WRANGLER_VERSION: '4.152.0'
+  NODE_VERSION: '24'
+
+jobs:
+  deploy:
+    name: ${{ inputs.mode == 'production' && 'Deploy production' || 'Deploy preview' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    # One upload per PR at a time; production never cancelled mid-deploy.
+    concurrency:
+      group: cloudflare-${{ inputs.mode }}-${{ inputs.pr-number || github.ref }}
+      cancel-in-progress: ${{ inputs.mode == 'preview' }}
+    outputs:
+      url: ${{ steps.upload.outputs.url }}
+    steps:
+      - name: Check inputs and secrets
+        id: check
+        shell: bash
+        env:
+          MODE: ${{ inputs.mode }}
+          PR_NUMBER: ${{ inputs.pr-number }}
+          HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+          HAS_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+        run: |
+          case "$MODE" in
+            preview) [[ "$PR_NUMBER" =~ ^[0-9]+$ ]] || { echo "::error::pr-number must be numeric"; exit 1; } ;;
+            production) ;;
+            *) echo "::error::mode must be preview or production"; exit 1 ;;
+          esac
+          if [ "$HAS_TOKEN" != "true" ] || [ "$HAS_ACCOUNT" != "true" ]; then
+            if [ "$MODE" = "production" ]; then
+              echo "::error::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID missing."
+              exit 1
+            fi
+            # Dependabot reads the separate Dependabot secret store; PRs there
+            # have none until the owner adds them.
+            echo "::warning::CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not available to this run (Dependabot secret store?). Preview skipped."
+            echo "### Preview skipped" >> "$GITHUB_STEP_SUMMARY"
+            echo "Cloudflare secrets are not available to this run. Add them in the repository AND Dependabot secret stores." >> "$GITHUB_STEP_SUMMARY"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - if: steps.check.outputs.ready == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - if: steps.check.outputs.ready == 'true'
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - if: steps.check.outputs.ready == 'true'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+
+      - name: Sanity check dist
+        if: steps.check.outputs.ready == 'true'
+        run: |
+          test -f dist/index.html
+          echo "files in dist: $(find dist -type f | wc -l) (Workers static assets limit: 20000)"
+
+      - name: Upload preview version
+        id: upload
+        if: steps.check.outputs.ready == 'true' && inputs.mode == 'preview'
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR_NUMBER: ${{ inputs.pr-number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          out="$RUNNER_TEMP/wrangler-output.ndjson"
+          log="$RUNNER_TEMP/wrangler.log"
+          export WRANGLER_OUTPUT_FILE_PATH="$out"
+          npx --yes "wrangler@${WRANGLER_VERSION}" versions upload \
+            --preview-alias "pr-${PR_NUMBER}" \
+            --message "PR #${PR_NUMBER} ${HEAD_SHA:0:7}" 2>&1 | tee "$log"
+          # Prefer wrangler's structured output; fall back to scraping the log.
+          # The workers.dev account subdomain comes from there, never hardcoded.
+          url=""
+          if [ -s "$out" ]; then
+            url="$(jq -r 'select(.type=="version-upload") | .preview_alias_url // empty' "$out" | tail -n 1)"
+          fi
+          if [ -z "$url" ]; then
+            url="$(grep -Eo "https://pr-${PR_NUMBER}-eyesbound\.[a-z0-9-]+\.workers\.dev" "$log" | tail -n 1 || true)"
+          fi
+          url="${url%/}"
+          # Validate before it reaches outputs / comments.
+          if ! [[ "$url" =~ ^https://pr-${PR_NUMBER}-eyesbound\.[a-z0-9-]+\.workers\.dev$ ]]; then
+            echo "::error::Could not determine the preview alias URL from wrangler output (got '${url}'). Is preview_urls enabled for the Worker?"
+            exit 1
+          fi
+          echo "url=${url}" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Cloudflare preview"
+            echo ""
+            echo "${url}"
+            echo ""
+            echo "Alias \`pr-${PR_NUMBER}\`, commit \`${HEAD_SHA:0:7}\`. Uses the dist artifact of this run (no rebuild)."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Deploy production
+        if: steps.check.outputs.ready == 'true' && inputs.mode == 'production'
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: npx --yes "wrangler@${WRANGLER_VERSION}" deploy

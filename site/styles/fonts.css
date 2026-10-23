@@ -1,0 +1,41 @@
+/*
+ Self-hosted Montserrat (same files as @fontsource/montserrat latin-400/700, woff2 only), font-display: swap like the live site.
+ "optional" kept the system fallback for the whole page view whenever the file missed its ~100ms window, so the menu and
+ headings randomly rendered in the wrong face. The metric-matched fallback below keeps the swap from moving the layout (CLS 0).
+ The overrides are Montserrat's hhea metrics (ascent 968, descent 251, unitsPerEm 1000) divided by the size-adjust factor, which is the measured Montserrat/Arial width ratio per weight.
+*/
+@font-face {
+	font-display: swap;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../../node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../../node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+	ascent-override: 85.78%;
+	descent-override: 22.24%;
+	font-family: 'Montserrat Fallback';
+	font-weight: 400;
+	line-gap-override: 0%;
+	size-adjust: 112.85%;
+	src: local('Arial'), local('Liberation Sans'), local('Helvetica Neue'), local('Helvetica');
+}
+
+@font-face {
+	ascent-override: 87.68%;
+	descent-override: 22.73%;
+	font-family: 'Montserrat Fallback';
+	font-weight: 700;
+	line-gap-override: 0%;
+	size-adjust: 110.4%;
+	src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Helvetica Neue Bold'), local('Helvetica Bold');
+}

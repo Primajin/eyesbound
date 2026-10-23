@@ -1,0 +1,17 @@
+---
+import {languages} from '../i18n/index.js';
+
+interface Props {
+	datetime: string;
+}
+
+const {datetime} = Astro.props;
+const date = new Date(datetime);
+if (Number.isNaN(date.getTime())) {
+	throw new TypeError(`Invalid datetime "${datetime}"`);
+}
+
+const format = (lang: string) => date.toLocaleDateString(lang, {year: 'numeric', month: 'long', day: '2-digit', timeZone: 'UTC'});
+---
+
+<time datetime={date.toISOString()}>{languages.map(lang => <span data-lang={lang} lang={lang}>{format(lang)}</span>)}</time>

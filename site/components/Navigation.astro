@@ -1,0 +1,116 @@
+---
+import {AssetTypes} from '../constants/asset-types.js';
+import {detailPath, listPath} from '../lib/routes.js';
+import T from './T.astro';
+
+const {CATEGORY, PICTURE, SERIES} = AssetTypes;
+const links = [
+	{href: listPath(PICTURE), key: 'navigation.overview'},
+	{href: detailPath(SERIES, 'shuttered'), label: '»Shuttered«'},
+	{href: detailPath(CATEGORY, 'architecture'), label: 'Architecture'},
+	{href: detailPath(CATEGORY, 'environment'), label: 'Environment'},
+	{href: detailPath(CATEGORY, 'floral'), label: 'Floral'},
+	{href: detailPath(CATEGORY, 'light'), label: 'Light'},
+	{href: '/worldmap/', key: 'navigation.worldmap'},
+	{href: '/imprint/', key: 'navigation.contact'},
+];
+---
+
+<nav class="navigation" data-navigation>
+	<button type="button" aria-expanded="false"><T key="navigation.menu" /></button>
+	<ul>
+		{links.map(({href, key, label}) => <li><a href={href}>{key ? <T key={key} /> : label}</a></li>)}
+	</ul>
+</nav>
+
+<script>
+	import {initNavigation} from '../scripts/navigation.js';
+
+	initNavigation(document);
+</script>
+
+<style>
+	.navigation {
+		display: flex;
+		flex-direction: column-reverse;
+		inset-block-start: 100px;
+		inset-inline-start: 0;
+		line-height: 40px;
+		opacity: 1;
+		outline: 0;
+		position: fixed;
+		text-align: center;
+		transform: translateY(calc(-100% + 40px));
+		transition: transform var(--theme-duration), opacity var(--theme-duration);
+		user-select: none;
+		width: 180px;
+		z-index: 9;
+	}
+
+	/* Open on click (class) and, without JS, while the menu button or a link has keyboard focus */
+	.navigation.open,
+	.navigation:focus-within {
+		transform: translateY(0);
+	}
+
+	/* Closed links are hidden from pointers, tab order and assistive tech; they sit behind the logo */
+	ul {
+		background-color: var(--foreground);
+		color: var(--background);
+		transition: visibility 0s var(--theme-duration);
+		visibility: hidden;
+	}
+
+	.navigation.open ul,
+	.navigation:focus-within ul {
+		transition-delay: 0s;
+		visibility: visible;
+	}
+
+	:global(:root[data-fullscreen]) .navigation {
+		opacity: 0;
+	}
+
+	li {
+		transition: opacity var(--theme-duration);
+	}
+
+	li:hover {
+		opacity: 0.666;
+	}
+
+	button {
+		background-color: var(--background);
+		color: var(--foreground);
+		display: block;
+		margin: 0;
+		padding: 0;
+		transition: background-color var(--theme-duration), color var(--theme-duration);
+		width: 100%;
+	}
+
+	button:hover {
+		background: var(--foreground);
+		color: var(--background);
+	}
+
+	.navigation.open button {
+		cursor: default;
+	}
+
+	.navigation.open button:hover {
+		background-color: var(--background);
+		color: var(--foreground);
+	}
+
+	button,
+	li {
+		cursor: pointer;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	a {
+		display: block;
+	}
+</style>

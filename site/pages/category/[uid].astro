@@ -1,0 +1,15 @@
+---
+import Member from '../../components/Member.astro';
+import Base from '../../layouts/Base.astro';
+import {getPicturesByCategory, getStaticPathsFor} from '../../lib/prismic.js';
+
+export const getStaticPaths = () => getStaticPathsFor('category');
+
+const {item} = Astro.props;
+const title = item.title ?? item.uid;
+const pictures = await getPicturesByCategory(item.uid);
+---
+
+<Base title={title}>
+	<Member pictures={pictures} typeKey="assetTypes.category.name" title={title} />
+</Base>

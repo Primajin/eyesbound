@@ -1,0 +1,520 @@
+[
+	{
+		"id": "pic-exoplanet",
+		"uid": "exoplanet",
+		"type": "picture",
+		"data": {
+			"title": "Exoplanet",
+			"homepage": true,
+			"series": {
+				"link_type": "Document"
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-2",
+				"type": "category",
+				"uid": "abstract",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Abstract"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document",
+						"id": "tag-1",
+						"type": "tags",
+						"uid": "infrared",
+						"tags": [],
+						"lang": "en-us",
+						"data": {
+							"title": "Infrared"
+						}
+					}
+				}
+			],
+			"datetime": "2020-05-01T10:00:00+0000",
+			"coordinates": {
+				"latitude": 0,
+				"longitude": 0
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/exoplanet.jpg?auto=compress,format",
+				"alt": "Exoplanet",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/exoplanet.jpg?auto=compress,format&w=280",
+					"alt": "Exoplanet",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-zirkuszelt",
+		"uid": "zirkuszelt",
+		"type": "picture",
+		"data": {
+			"title": "Zirkuszelt",
+			"homepage": true,
+			"series": {
+				"link_type": "Document",
+				"id": "ser-2",
+				"type": "series",
+				"uid": "berlin",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Berlin"
+				}
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-1",
+				"type": "category",
+				"uid": "architecture",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Architecture"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document",
+						"id": "tag-2",
+						"type": "tags",
+						"uid": "hdr",
+						"tags": [],
+						"lang": "en-us",
+						"data": {
+							"title": "HDR"
+						}
+					}
+				}
+			],
+			"datetime": "2021-06-01T10:00:00+0000",
+			"coordinates": {
+				"latitude": 52.52,
+				"longitude": 13.4
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/zirkuszelt.jpg?auto=compress,format",
+				"alt": "Zirkuszelt",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/zirkuszelt.jpg?auto=compress,format&w=280",
+					"alt": "Zirkuszelt",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-holland-8664-z.z.g.",
+		"uid": "holland-8664-z.z.g.",
+		"type": "picture",
+		"data": {
+			"title": "Holland Z.Z.G.",
+			"homepage": true,
+			"series": {
+				"link_type": "Document",
+				"id": "ser-1",
+				"type": "series",
+				"uid": "holland",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Holland"
+				}
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-1",
+				"type": "category",
+				"uid": "architecture",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Architecture"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document",
+						"id": "tag-2",
+						"type": "tags",
+						"uid": "hdr",
+						"tags": [],
+						"lang": "en-us",
+						"data": {
+							"title": "HDR"
+						}
+					}
+				},
+				{
+					"tag": {
+						"link_type": "Document",
+						"id": "tag-1",
+						"type": "tags",
+						"uid": "infrared",
+						"tags": [],
+						"lang": "en-us",
+						"data": {
+							"title": "Infrared"
+						}
+					}
+				}
+			],
+			"datetime": "2019-03-01T10:00:00+0000",
+			"coordinates": {
+				"latitude": 52.1,
+				"longitude": 5.1
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/holland-8664-z.z.g..jpg?auto=compress,format",
+				"alt": "Holland Z.Z.G.",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/holland-8664-z.z.g..jpg?auto=compress,format&w=280",
+					"alt": "Holland Z.Z.G.",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-no-date",
+		"uid": "no-date",
+		"type": "picture",
+		"data": {
+			"title": "No date",
+			"homepage": false,
+			"series": {
+				"link_type": "Document"
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-2",
+				"type": "category",
+				"uid": "abstract",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Abstract"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document"
+					}
+				}
+			],
+			"datetime": null,
+			"coordinates": {},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/no-date.jpg?auto=compress,format",
+				"alt": "No date",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/no-date.jpg?auto=compress,format&w=280",
+					"alt": "No date",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-home-4",
+		"uid": "home-4",
+		"type": "picture",
+		"data": {
+			"title": "Home 4",
+			"homepage": true,
+			"series": {
+				"link_type": "Document",
+				"id": "ser-2",
+				"type": "series",
+				"uid": "berlin",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Berlin"
+				}
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-1",
+				"type": "category",
+				"uid": "architecture",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Architecture"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document"
+					}
+				}
+			],
+			"datetime": "2022-01-04T10:00:00+0000",
+			"coordinates": {
+				"latitude": 52.52,
+				"longitude": 13.4
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/home-4.jpg?auto=compress,format",
+				"alt": "Home 4",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/home-4.jpg?auto=compress,format&w=280",
+					"alt": "Home 4",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-home-5",
+		"uid": "home-5",
+		"type": "picture",
+		"data": {
+			"title": "Home 5",
+			"homepage": true,
+			"series": {
+				"link_type": "Document",
+				"id": "ser-2",
+				"type": "series",
+				"uid": "berlin",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Berlin"
+				}
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-2",
+				"type": "category",
+				"uid": "abstract",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Abstract"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document",
+						"id": "tag-2",
+						"type": "tags",
+						"uid": "hdr",
+						"tags": [],
+						"lang": "en-us",
+						"data": {
+							"title": "HDR"
+						}
+					}
+				}
+			],
+			"datetime": "2022-01-05T10:00:00+0000",
+			"coordinates": {
+				"latitude": 52.52,
+				"longitude": 13.4
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/home-5.jpg?auto=compress,format",
+				"alt": "Home 5",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/home-5.jpg?auto=compress,format&w=280",
+					"alt": "Home 5",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-home-6",
+		"uid": "home-6",
+		"type": "picture",
+		"data": {
+			"title": "Home 6",
+			"homepage": true,
+			"series": {
+				"link_type": "Document",
+				"id": "ser-1",
+				"type": "series",
+				"uid": "holland",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Holland"
+				}
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-1",
+				"type": "category",
+				"uid": "architecture",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Architecture"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document"
+					}
+				}
+			],
+			"datetime": "2022-01-06T10:00:00+0000",
+			"coordinates": {
+				"latitude": 52.52,
+				"longitude": 13.4
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/home-6.jpg?auto=compress,format",
+				"alt": "Home 6",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/home-6.jpg?auto=compress,format&w=280",
+					"alt": "Home 6",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-home-7",
+		"uid": "home-7",
+		"type": "picture",
+		"data": {
+			"title": "Home 7",
+			"homepage": true,
+			"series": {
+				"link_type": "Document"
+			},
+			"category": {
+				"link_type": "Document"
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document"
+					}
+				}
+			],
+			"datetime": "2022-01-07T10:00:00+0000",
+			"coordinates": {
+				"latitude": 52.5,
+				"longitude": 13.3
+			},
+			"image": {
+				"url": "https://images.prismic.io/eyesbound/home-7.jpg?auto=compress,format",
+				"alt": "Home 7",
+				"dimensions": {
+					"width": 1500,
+					"height": 1000
+				},
+				"thumbnail": {
+					"url": "https://images.prismic.io/eyesbound/home-7.jpg?auto=compress,format&w=280",
+					"alt": "Home 7",
+					"dimensions": {
+						"width": 280,
+						"height": 187
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "pic-no-image",
+		"uid": "no-image",
+		"type": "picture",
+		"data": {
+			"title": "No image",
+			"homepage": false,
+			"series": {
+				"link_type": "Document"
+			},
+			"category": {
+				"link_type": "Document",
+				"id": "cat-2",
+				"type": "category",
+				"uid": "abstract",
+				"tags": [],
+				"lang": "en-us",
+				"data": {
+					"title": "Abstract"
+				}
+			},
+			"tags": [
+				{
+					"tag": {
+						"link_type": "Document"
+					}
+				}
+			],
+			"datetime": "2018-01-01T10:00:00+0000",
+			"coordinates": {
+				"latitude": 0,
+				"longitude": 13.4
+			},
+			"image": {}
+		}
+	}
+]

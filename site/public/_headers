@@ -1,0 +1,35 @@
+# All routes: STRICT
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# Hashed build output: cache forever, no CSP (not documents)
+/_astro/*
+  ! Content-Security-Policy
+  Cache-Control: public, max-age=31536000, immutable
+
+# Service worker: always revalidate
+/sw.js
+  Cache-Control: no-cache
+
+# Web manifest: explicit type, independent of the platform's extension mapping
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+
+# Map routes: replace STRICT with MAP (detach first, otherwise two CSP headers are sent).
+# 'unsafe-eval' and the blob: entries in img-src/connect-src are unverified: they cover the WebGL vector renderer, which no headless browser here can run (ADR 0003).
+/worldmap/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+
+# Placeholder form matches /picture/<uid>/ only, so the /picture/ listing keeps STRICT
+/picture/:uid/
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://maps.googleapis.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' blob: https://*.googleapis.com; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+
+# Keep workers.dev hostnames out of search results (untested)
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

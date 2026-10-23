@@ -1,0 +1,109 @@
+---
+import {getImage} from 'astro:assets';
+
+import Fullscreen from '../../components/Fullscreen.astro';
+import LocalizedDate from '../../components/LocalizedDate.astro';
+import MainWrapper from '../../components/MainWrapper.astro';
+import Map from '../../components/Map.astro';
+import PictureImage from '../../components/PictureImage.astro';
+import T from '../../components/T.astro';
+import TagLinks from '../../components/TagLinks.astro';
+import {t} from '../../i18n/index.js';
+import Base from '../../layouts/Base.astro';
+import {getStaticPathsFor} from '../../lib/prismic.js';
+import {hasLocation} from '../../lib/pictures.js';
+import {routes} from '../../lib/routes.js';
+import {planImage} from '../../utils/image.js';
+
+export const getStaticPaths = () => getStaticPathsFor('picture');
+
+const {item} = Astro.props;
+const {category, coordinates, datetime, image, series, tags, title, uid} = item;
+if (!image) {
+	throw new TypeError(`Picture "${uid}" has no image.`);
+}
+
+const shareImage = planImage(image, 1200, title ?? '');
+const {src: shareSource} = await getImage({
+	src: shareImage.src,
+	alt: shareImage.alt,
+	width: shareImage.width,
+	height: shareImage.height,
+	format: 'jpeg',
+});
+const description = tags.length > 0 ? `${t('picture.tags', 'en')}: ${tags.map(tag => tag.title ?? tag.uid).join(' ')}` : undefined;
+const shortCoordinates = hasLocation(coordinates) ? [coordinates.latitude, coordinates.longitude].map(value => value.toFixed(5)) : [];
+---
+
+<Base
+	title={title ?? ''}
+	description={description}
+	imageSource={new URL(shareSource, Astro.site).href}
+	coordinates={shortCoordinates.map(Number)}
+	dateTime={datetime ?? ''}
+>
+	<Fullscreen selector="[data-fullscreen-target]" />
+	<MainWrapper>
+		{title && <h1>{title}</h1>}
+		<section>
+			{category && <h2 class="taxonomy"><T key="picture.category" />: <a href={routes.category(category.uid)}>{category.title ?? category.uid}</a></h2>}
+			{series && <h2 class="taxonomy"><T key="picture.series" />: <a href={routes.series(series.uid)}>{series.title ?? series.uid}</a></h2>}
+			<figure class="cropped-photo" data-fullscreen-target>
+				<PictureImage image={image} title={title ?? uid} displayWidth={1072} sizes="(min-width: 1200px) 1072px, 90vw" priority />
+			</figure>
+			{(tags.length > 0 || datetime || shortCoordinates.length > 0) && (
+				<div class="details">
+					{tags.length > 0 && <div><T key="picture.tags" />: <TagLinks tags={tags} /></div>}
+					{datetime && <div><T key="picture.captured" />: <LocalizedDate datetime={datetime} /></div>}
+					{shortCoordinates.length > 0 && <div><T key="picture.location" />: {shortCoordinates.join(' | ')}</div>}
+				</div>
+			)}
+			{shortCoordinates.length > 0 && (
+				<>
+					<span id="map-label" class="visually-hidden"><T key="picture.location" /></span>
+					<Map pictures={[item]} center={coordinates} zoom={11} labelledBy="map-label" />
+				</>
+			)}
+		</section>
+	</MainWrapper>
+</Base>
+
+<style>
+	.taxonomy {
+		font-size: 110%;
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+
+	.details {
+		margin: 20px 0;
+	}
+
+	.details > div {
+		padding: 10px;
+	}
+
+	figure:fullscreen {
+		align-items: center;
+		background: var(--background);
+		display: flex;
+		justify-content: center;
+	}
+
+	figure:fullscreen :global(img) {
+		height: 100%;
+		object-fit: contain;
+		width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.details {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.details > div:not(:first-of-type) {
+			border-inline-start: 1px solid var(--foreground);
+		}
+	}
+</style>

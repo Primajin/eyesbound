@@ -1,0 +1,90 @@
+{
+  "navigation": {
+    "menu": "Menü",
+    "overview": "Übersicht",
+    "contact": "Kontakt",
+    "worldmap": "Weltkarte"
+  },
+  "picture": {
+    "category": "Kategorie",
+    "series": "Serie",
+    "tags": "Schlagwörter",
+    "captured": "Aufgenommen",
+    "location": "Ort"
+  },
+  "imprint": {
+    "pageTitle": "Kontakt & Impressum",
+    "metaTitle": "Impressum & Kontakt",
+    "design": "Design:",
+    "privacyPolicy": "Datenschutzerklärung",
+    "address": {
+      "email": "E-Mail",
+      "website": "Website",
+      "country": "Deutschland"
+    },
+    "license": {
+      "cc": "Namensnennung - Nicht kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-NC-SA 4.0)",
+      "by": "Namensnennung — Sie müssen angemessene Urheber- und Rechteangaben machen, einen Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie oder Ihre Nutzung besonders.",
+      "nc": "Nicht kommerziell — Sie dürfen das Material nicht für kommerzielle Zwecke nutzen.",
+      "sa": "Weitergabe unter gleichen Bedingungen — Wenn Sie das Material remixen, verändern oder anderweitig direkt darauf aufbauen, dürfen Sie Ihre Beiträge nur unter derselben Lizenz wie das Original verbreiten."
+    }
+  },
+  "language": {
+    "switchTo": "Wechseln zu {{language}}",
+    "english": "Englisch",
+    "german": "Deutsch"
+  },
+  "accessibility": {
+    "nextSlide": "Nächstes Bild",
+    "previousSlide": "Vorheriges Bild",
+    "toggleFullscreen": "Vollbild umschalten",
+    "switchTheme": "Design wechseln"
+  },
+  "notFound": {
+    "metaTitle": "404 - Seite nicht gefunden",
+    "title": "404 - Seite nicht gefunden",
+    "message": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "home": "Zur Startseite"
+  },
+  "map": {
+    "consent": {
+      "text": "Beim Laden dieser Karte werden Daten, zum Beispiel Ihre IP-Adresse, an Google übertragen. Google kann sie außerhalb der EU verarbeiten.",
+      "privacy": "Datenschutzerklärung",
+      "load": "Karte laden"
+    }
+  },
+  "privacy": {
+    "withdraw": {
+      "button": "Kartenzustimmung widerrufen",
+      "done": "Kartenzustimmung widerrufen. Vor dem Laden einer Karte wird erneut gefragt."
+    },
+    "settings": {
+      "heading": "Im Browser gespeicherte Einstellungen",
+      "text": "Diese Website speichert einige Einstellungen im lokalen Speicher (Local Storage) Ihres Browsers: das von Ihnen gewählte Farbschema, die von Ihnen gewählte Sprache und, sofern erteilt, Ihre Entscheidung zum Laden der Karte; diese Einträge dienen nur dazu, Ihre Einstellungen auf Ihrem eigenen Gerät zu merken, werden nicht an uns übertragen, setzen keine Cookies und können jederzeit in den Browsereinstellungen gelöscht werden."
+    },
+    "maps": {
+      "heading": "Google Maps: Einwilligung und Widerruf",
+      "data": "Karten werden nicht automatisch geladen. Erst wenn Sie auf „Karte laden“ klicken, verbindet sich Ihr Browser mit Servern von Google. Google erhält dann Daten wie Ihre IP-Adresse, Angaben zu Ihrem Browser und Gerät sowie den angezeigten Kartenausschnitt. Google kann diese Daten in den USA oder anderen Drittländern verarbeiten.",
+      "storage": "Damit wir nicht erneut fragen müssen, merkt sich Ihr Browser Ihre Einwilligung im lokalen Speicher (Local Storage) unter dem Schlüssel „eyesbound.mapConsent“. Wir setzen dafür kein Cookie, und der Eintrag wird nicht an uns übertragen. Er bleibt bestehen, bis Sie Ihre Einwilligung widerrufen oder Ihre Browserdaten löschen.",
+      "withdraw": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt."
+    }
+  },
+  "assetTypes": {
+    "category": {
+      "name": "Kategorie",
+      "plural": "Kategorien"
+    },
+    "picture": {
+      "name": "Bild",
+      "plural": "Bilder"
+    },
+    "series": {
+      "name": "Serie",
+      "plural": "Serien"
+    },
+    "tag": {
+      "name": "Schlagwort",
+      "plural": "Schlagwörter"
+    }
+  }
+}

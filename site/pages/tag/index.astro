@@ -1,0 +1,14 @@
+---
+import Group from '../../components/Group.astro';
+import {AssetTypes} from '../../constants/asset-types.js';
+import {t} from '../../i18n/index.js';
+import Base from '../../layouts/Base.astro';
+import {getTags} from '../../lib/prismic.js';
+
+const {path} = AssetTypes.TAG;
+const items = await getTags();
+---
+
+<Base title={t('assetTypes.tag.plural', 'en')}>
+	<Group items={items} type={{path}} />
+</Base>

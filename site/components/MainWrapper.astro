@@ -1,0 +1,17 @@
+<main class="main-wrapper">
+	<slot />
+</main>
+
+<style>
+	.main-wrapper {
+		margin: 170px auto 100px;
+		padding: 0 1.5rem;
+		width: clamp(16rem, 90vw, 70rem);
+	}
+
+	.main-wrapper :global(h1),
+	.main-wrapper :global(h3) {
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+</style>

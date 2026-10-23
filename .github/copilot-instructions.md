@@ -1,7 +1,7 @@
 # Copilot Instructions for Eyesbound
 
 ## Project Overview
-Eyesbound is a Gatsby-based website for a Berlin-based photographer, built with React and emotion-styled components. The project follows atomic design principles and prioritizes code quality, test coverage, and web performance standards.
+Eyesbound is an Astro website for a Berlin-based photographer, with content from Prismic, hosted on Cloudflare Workers static assets. It prioritizes code quality, test coverage, and web performance standards. The site used to run on Gatsby; see `docs/adr/0004-gatsby-removal.md`.
 
 ## Development Workflow
 
@@ -17,35 +17,32 @@ Eyesbound is a Gatsby-based website for a Berlin-based photographer, built with 
 - The project uses ESLint with XO config and follows strict code style rules
 - Key linting rules:
   - Import order with newlines between groups
-  - React-specific rules (no React in scope needed, require default props)
-  - Jest-specific rules for test files
-  - Unknown property exceptions for `css` and `fill` attributes (emotion/SVG)
+  - Tab indentation
+  - Jest-style rules for test files (tests themselves run on Vitest)
 
 ### 3. Testing and Coverage
-- **ALWAYS** run tests before committing changes: `npm test`
+- **ALWAYS** run tests before committing changes: `npm test` (Vitest)
 - Maintain or improve code coverage - never let it decrease
-- Test files use Jest with React Testing Library
-- Snapshot tests are used extensively
 - Run `npm run coverage` to generate coverage reports
-- Update snapshots only when intentional changes are made: `npm run test:update`
-- Follow existing test patterns in `__tests__` directories
+- Browser behaviour is covered by Playwright specs in `e2e/` (`npm run test:e2e`, needs a build)
+- Follow existing test patterns in `__tests__` directories beside the code
 
 ### 4. Build and Development
-- Use `npm run develop` or `npm start` to run the development server
-- Run `npm run build` to create production builds
-- The project uses Gatsby for static site generation
-- GraphQL is used for data queries
-- Clean builds with `npm run clean` if needed
+- Use `npm run dev` (or `npm start`) to run the development server
+- Run `npm run build` to create the production build in `dist/` (needs `PRISMIC_ACCESS_TOKEN` and `MAPS_API_KEY`, see `.env.example`)
+- Run `npm run preview` to serve `dist/`
+- Content is fetched from Prismic at build time with `@prismicio/client` (`site/lib`)
 
 ### 5. Code Structure
-- Follow atomic design principles:
-  - `src/components/atoms`: Small, non-dividable components
-  - `src/components/molecules`: Medium complexity components
-  - `src/components/organisms`: Complex, high-order components
-- Use emotion for CSS-in-JS styling
-- PropTypes are defined using custom type definitions in `src/types`
-- Helper functions go in `src/utils`
-- Templates in `src/templates` are used for Gatsby page generation
+- Source lives in `site/` (Astro `srcDir`):
+  - `site/pages`: file-based routes with the same URLs as the old site
+  - `site/components`, `site/layouts`: `.astro` markup
+  - `site/lib`: Prismic client, data mapping, route list
+  - `site/utils`, `site/constants`, `site/i18n`: helpers, constants, translations (`locales/{en,de}.json`)
+  - `site/scripts`: browser scripts (map, slideshow, navigation, theme)
+  - `site/styles`: plain CSS with custom properties
+  - `site/public`: files copied verbatim to `dist/` (`_headers`, manifest, service worker)
+- No CSS-in-JS and no UI framework; add one only after an architect decision
 
 ### 6. Performance and Web Standards
 Focus on maintaining excellent Lighthouse scores:
@@ -53,14 +50,12 @@ Focus on maintaining excellent Lighthouse scores:
 - **Accessibility**: Target 97%+
 - **Best Practices**: Target 100%
 - **SEO**: Target 100%
-- **Progressive Web App (PWA)**: Target 100%
 
 Key considerations:
-- Optimize images using gatsby-plugin-image
-- Maintain PWA features (offline support, manifest)
+- Images: explicit width and height, responsive `srcset`, lazy loading below the fold
+- Keep the manifest and service worker (ADR 0002)
 - Follow accessibility best practices (semantic HTML, ARIA labels, keyboard navigation)
 - Keep bundle sizes minimal
-- Use lazy loading where appropriate
 
 ### 7. Git and Commits
 - Write clear, concise commit messages
@@ -69,17 +64,15 @@ Key considerations:
 - Use `.gitignore` to exclude unnecessary files
 
 ### 8. Common Patterns
-- React components use hooks and functional components
-- No need to import React in JSX files (configured in linting)
-- Use emotion's css prop for styling
-- GraphQL queries are defined in page/template files
-- Use Helmet for meta tags and SEO
+- `.astro` components for static markup; plain scripts for interactivity
+- Missing Prismic data renders a defined fallback or fails the build, never a happy-looking default
+- Title, description, canonical and Open Graph tags come from the base layout
 
 ### 9. Security and Best Practices
-- Never commit API keys or secrets (use `.env` files)
+- Never commit API keys or secrets (use `.env.local`, which is git-ignored)
 - Follow security best practices for dependencies
-- Keep dependencies up to date via dependabot
-- Use CSP headers (gatsby-plugin-csp)
+- Keep dependencies up to date via Renovate and Dependabot
+- CSP and other headers live in `site/public/_headers` (ADR 0003)
 
 ### 10. Documentation
 - Update README.md if adding new features or changing setup
@@ -90,18 +83,19 @@ Key considerations:
 ## Quick Reference Commands
 ```bash
 npm install           # Install dependencies
-npm start            # Start development server
-npm run lint         # Check code quality
-npm run lint:fix     # Fix linting issues
-npm test             # Run tests
-npm run coverage     # Generate coverage report
-npm run build        # Build for production
-npm run clean        # Clean build cache
+npm run dev           # Start development server
+npm run lint          # Check code quality
+npm run lint:fix      # Fix linting issues
+npm test              # Run unit tests
+npm run coverage      # Generate coverage report
+npm run build         # Build for production
+npm run preview       # Serve the production build
+npm run test:e2e      # Playwright e2e on dist/
 ```
 
 ## Important Notes
 - This is a private repository for a specific photography website
 - The project uses Prismic CMS for content management
 - Google Maps integration is used for location display
-- The site must maintain high Lighthouse scores and PWA standards
+- The site must maintain high Lighthouse scores
 - Code coverage must not decrease with new changes

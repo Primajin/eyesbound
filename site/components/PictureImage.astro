@@ -1,0 +1,33 @@
+---
+import {Picture} from 'astro:assets';
+
+import {planImage} from '../utils/image.js';
+
+interface Props {
+	image: {url: string; alt: string; width: number | null; height: number | null};
+	/** Used as alt text when Prismic has none */
+	title?: string;
+	/** Largest rendered width in CSS pixels */
+	displayWidth: number;
+	sizes: string;
+	/** The LCP image: eager and high fetch priority. Everything else is lazy. */
+	priority?: boolean;
+}
+
+const {image, title = '', displayWidth, sizes, priority = false} = Astro.props;
+const {src, alt, width, height, widths} = planImage(image, displayWidth, title);
+---
+
+<Picture
+	src={src}
+	alt={alt}
+	width={width}
+	height={height}
+	widths={widths}
+	sizes={sizes}
+	formats={['avif', 'webp']}
+	fallbackFormat="jpeg"
+	loading={priority ? 'eager' : 'lazy'}
+	fetchpriority={priority ? 'high' : 'auto'}
+	decoding={priority ? 'sync' : 'async'}
+/>

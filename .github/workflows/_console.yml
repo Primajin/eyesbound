@@ -1,33 +1,39 @@
 name: "CI · Console"
 
+# Runs against the Cloudflare preview URL (`preview-url` from the `preview` job of ci.yml),
+# and only once the repository variable PREVIEW_PROVIDER is set to cloudflare.
+
 on:
   workflow_call:
+    inputs:
+      preview-url:
+        description: Cloudflare preview URL
+        type: string
+        required: false
+        default: ''
+
+permissions: {}
 
 jobs:
   console:
+    # Same condition as the caller job in ci.yml.
+    if: vars.PREVIEW_PROVIDER == 'cloudflare' && inputs.preview-url != ''
     runs-on: ubuntu-latest
     name: Get console logs
     permissions:
       pull-requests: write
     steps:
-      - name: Wait for Pages changed to neutral
-        uses: fountainhead/action-wait-for-check@v1.2.0
-        id: wait-for-Netlify
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          checkName: 'Pages changed - eyesbound'
-      - name: Get Preview URL after Netlify check done
-        if: steps.wait-for-Netlify.outputs.conclusion == 'neutral'
-        uses: jakepartusch/wait-for-netlify-action@v1.4
-        id: waitFor200
-        with:
-          site_name: 'eyesbound'
+      - name: Wait for the Cloudflare preview to answer
+        env:
+          PREVIEW_URL: ${{ inputs.preview-url }}
+        run: curl --fail --silent --show-error --location --output /dev/null --retry 10 --retry-delay 3 --retry-all-errors "$PREVIEW_URL/"
       - name: Checkout code
-        uses: actions/checkout@v7
-      - name: Use WebApp Console Log Action
-        uses: Primajin/webapp-console-log-action@v2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          webapp-url: ${{ steps.waitFor200.outputs.url }}
+          persist-credentials: false
+      - name: Use WebApp Console Log Action
+        uses: Primajin/webapp-console-log-action@94159a1a173934a0d47c6d9eecbbadf1852c7b6f # v2.0.0
+        with:
+          webapp-url: ${{ inputs.preview-url }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

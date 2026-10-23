@@ -1,0 +1,19 @@
+---
+import Map from '../components/Map.astro';
+import T from '../components/T.astro';
+import {t} from '../i18n/index.js';
+import Base from '../layouts/Base.astro';
+import {getMapPictures} from '../lib/prismic.js';
+
+const pictures = await getMapPictures();
+if (pictures.length === 0) {
+	throw new Error('No pictures with coordinates: the worldmap would be empty.');
+}
+---
+
+<Base title={t('navigation.worldmap', 'en')}>
+	<main>
+		<h1 id="map-label" class="visually-hidden"><T key="navigation.worldmap" /></h1>
+		<Map pictures={pictures} hasInfoWindow labelledBy="map-label" fullscreen />
+	</main>
+</Base>

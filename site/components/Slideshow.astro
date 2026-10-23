@@ -1,0 +1,240 @@
+---
+import {routes} from '../lib/routes.js';
+import PictureImage from './PictureImage.astro';
+import T from './T.astro';
+
+interface Props {
+	pictures: {uid: string; title: string | null; image: any; thumbnail: any}[];
+}
+
+const {pictures} = Astro.props;
+if (pictures.length === 0) {
+	throw new TypeError('Slideshow rendered without pictures.');
+}
+---
+
+<section class="slideshow" data-slideshow>
+	<ul class="slides" data-slides tabindex="0">
+		{pictures.map(({uid, title, image}, index) => (
+			<li class="slide">
+				<a href={routes.picture(uid)}>
+					<PictureImage image={image} title={title ?? uid} displayWidth={1500} sizes="100vw" priority={index === 0} />
+				</a>
+			</li>
+		))}
+	</ul>
+	<div class="fade" data-fade aria-hidden="true"></div>
+	{pictures.length > 1 && (
+		<>
+			<button type="button" class="arrow previous" data-slide="previous">
+				<span class="visually-hidden"><T key="accessibility.previousSlide" /></span>
+				<span aria-hidden="true">«</span>
+			</button>
+			<button type="button" class="arrow next" data-slide="next">
+				<span class="visually-hidden"><T key="accessibility.nextSlide" /></span>
+				<span aria-hidden="true">»</span>
+			</button>
+		</>
+	)}
+	<ol class="indicators">
+		{pictures.map(({uid, title, image, thumbnail}, index) => (
+			<li>
+				<button type="button" class="indicator" data-slide-to={index} aria-current={index === 0 ? 'true' : 'false'} aria-label={title ?? uid} title={title ?? uid}>
+					<PictureImage image={thumbnail ?? image} title={title ?? uid} displayWidth={50} sizes="50px" />
+					<span class="caption" aria-hidden="true">{title ?? uid}</span>
+				</button>
+			</li>
+		))}
+	</ol>
+</section>
+
+<script>
+	import '../scripts/slideshow-init.js';
+</script>
+
+<style>
+	.slideshow {
+		block-size: 100dvh;
+		inline-size: 100%;
+		position: relative;
+	}
+
+	.slides {
+		block-size: 100%;
+		display: flex;
+		margin: 0;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		padding: 0;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+	}
+
+	.slides::-webkit-scrollbar {
+		display: none;
+	}
+
+	.slide {
+		flex: 0 0 100%;
+		list-style: none;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+	}
+
+	.slide a {
+		block-size: 100%;
+		box-sizing: border-box;
+		display: block;
+		padding-block-end: 50px;
+	}
+
+	.slide :global(img) {
+		block-size: 100%;
+		display: block;
+		inline-size: 100%;
+		object-fit: cover;
+	}
+
+	.fade {
+		display: none;
+		inset-block: 0 50px;
+		inset-inline: 0;
+		pointer-events: none;
+		position: absolute;
+	}
+
+	.fade[data-state] {
+		display: block;
+		opacity: 0;
+	}
+
+	.fade[data-state='in'] {
+		opacity: 1;
+		transition: opacity 0.9s ease;
+	}
+
+	.fade :global(picture),
+	.fade :global(img) {
+		block-size: 100%;
+		display: block;
+		inline-size: 100%;
+		object-fit: cover;
+	}
+
+	.arrow {
+		background: var(--foreground);
+		block-size: 180px;
+		color: var(--background);
+		cursor: pointer;
+		font-size: 2rem;
+		font-weight: 700;
+		inline-size: 40px;
+		inset-block-start: 50%;
+		padding: 0;
+		position: fixed;
+		text-align: center;
+		transform: translateY(-50%);
+		transition: background-color var(--theme-duration), color var(--theme-duration), opacity var(--theme-duration);
+		z-index: 5;
+	}
+
+	.previous {
+		inset-inline-start: 0;
+	}
+
+	.next {
+		inset-inline-end: 0;
+	}
+
+	.arrow:hover {
+		background: var(--background);
+		color: var(--foreground);
+	}
+
+	.arrow:focus-visible {
+		outline: 2px solid var(--background);
+		outline-offset: -4px;
+	}
+
+	.arrow:hover:focus-visible {
+		outline-color: var(--foreground);
+	}
+
+	:global(:root[data-fullscreen]) .arrow:not(:hover, :focus-visible) {
+		opacity: 0.65;
+	}
+
+	.indicators {
+		align-items: center;
+		background: var(--foreground);
+		block-size: 50px;
+		border-block-start: 2px solid var(--background);
+		box-sizing: border-box;
+		display: flex;
+		inline-size: 100%;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+		justify-content: safe center;
+		margin: 0;
+		overflow-x: auto;
+		padding: 0;
+		position: absolute;
+		scrollbar-width: none;
+		z-index: 1;
+	}
+
+	.indicators li {
+		flex: none;
+		list-style: none;
+		margin-inline-start: 5px;
+	}
+
+	.indicator {
+		background: none;
+		cursor: pointer;
+		display: block;
+		padding: 0;
+	}
+
+	.indicator :global(img) {
+		aspect-ratio: 7360 / 4912;
+		block-size: auto;
+		border: 2px solid transparent;
+		display: block;
+		inline-size: 50px;
+		object-fit: cover;
+		transition: border-color 0.25s;
+	}
+
+	.indicator[aria-current='true'] :global(img),
+	.indicator:hover :global(img) {
+		border-color: var(--background);
+	}
+
+	.caption {
+		color: var(--background);
+		display: none;
+		font-weight: 700;
+		inset-block-end: 15px;
+		inset-inline-end: 20px;
+		opacity: 0;
+		position: absolute;
+		text-transform: uppercase;
+		transition: opacity var(--theme-duration);
+	}
+
+	.indicator[aria-current='true'] .caption {
+		opacity: 1;
+	}
+
+	@media (min-width: 768px) {
+		.caption {
+			display: block;
+		}
+
+		.arrow {
+			font-size: 1rem;
+			inline-size: 20px;
+		}
+	}
+</style>

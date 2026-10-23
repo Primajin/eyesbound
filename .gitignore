@@ -53,10 +53,7 @@ typings/
 
 # dotenv environment variable files
 .env.*
-
-# gatsby files
-.cache/
-public
+!.env.example
 
 # Mac files
 .DS_Store
@@ -71,5 +68,16 @@ yarn-error.log
 # IDEA
 .idea
 
-# test results
-junit.xml
+# astro files
+dist/
+.astro/
+
+# wrangler
+.wrangler/
+
+# playwright
+test-results/
+playwright-report/
+
+# Lighthouse CI reports
+.lighthouseci/

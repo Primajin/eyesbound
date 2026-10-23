@@ -9,54 +9,96 @@
 [![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ![Image of Eyesbound Website with A Design Award](docs/eyesbound-award.png)
+
+Website for a Berlin based photographer: a static [Astro](https://astro.build) site with content from [Prismic](https://prismic.io), served from Cloudflare Workers static assets.
+
 ## Development
 
-Create a `.env.development` file with the following content:
+Requires Node.js >= 22.4 and npm (no yarn or pnpm).
+
+```shell
+npm install
+```
+
+Create a `.env.local` file (git-ignored; `.env.example` lists every variable):
 
 ```dotenv
-GATSBY_API_KEY=Permanent Accesstoken from https://eyesbound.prismic.io/settings/apps/
-GATSBY_G_MAPS=localhost key from https://console.cloud.google.com/apis/credentials?project=valiant-broker-141207
+PRISMIC_ACCESS_TOKEN=Permanent access token from https://eyesbound.prismic.io/settings/apps/
+MAPS_API_KEY=Google Maps browser key that allows http://localhost:* as referrer
 ```
 
 Then run
 
-```shell script
-npm start
+```shell
+npm run dev
 ```
 
-You can now view eyesbound in the browser.
+and open `http://localhost:4321/`.
 
-```text
-http://localhost:8000/
-```
+### Environment variables
 
-View GraphiQL, an in-browser IDE, to explore your site's data and schema
+| Variable | Required | Fallback when absent | Notes |
+|---|---|---|---|
+| `PRISMIC_ACCESS_TOKEN` | yes (real build) | none, `npm run build` fails | Build-time secret, never `PUBLIC_`-prefixed |
+| `MAPS_API_KEY` | yes (real build) | none, `npm run build` fails | Ships to the browser; restrict it by HTTP referrer |
+| `PRISMIC_REPO_NAME` | no | `eyesbound` | Prismic repository |
+| `SITE_URL` | no | `https://eyesbound.com` (also when blank) | Canonical URLs and sitemap, no trailing slash |
+| `SITE_NAME` | no | `EYESBOUND` | Used in titles and the logo |
 
-```text
-http://localhost:8000/___graphql
-```
+`PRISMIC_FIXTURES=1` builds from the local fixtures in `site/lib/__fixtures__` instead of the Prismic API (used by unit tests; the fixtures deliberately include a picture without an image, so a full fixture build fails on it).
 
-Copy the json from each custom type (e.g. `https://eyesbound.prismic.io/masks/category.json/`) to `src/schemas`.<br>
-For better code-completion in Webstorm go to GraphQL tab and click on "Get GraphQL Schema from Endpoint"<br>
-This will update the `schema.graphql` file and offer better code completion when working with queries.<br>
+## Scripts
 
-`gatsby-node.js` allows for generating routes / pages based on queries. Use the templates in `src/templates` for generation.
-
-Furthermore, reusable components are stored in `src/components` in an atomic design structure.
+| Command | What it does |
+|---|---|
+| `npm run dev` (`npm start`) | Astro dev server |
+| `npm run build` | Checks the variables (`scripts/check-env.mjs`), then `astro build` into `dist/` |
+| `npm run preview` | Serves `dist/` (needs a build first) |
+| `npm test` | Vitest, one run |
+| `npm run coverage` | Vitest with V8 coverage (`coverage/`, text, html and lcov) |
+| `npm run test:e2e` | Playwright against `astro preview` on `dist/` (needs a build first; install browsers once with `npx playwright install chromium`) |
+| `npm run lint` / `lint:fix` | XO |
 
 ## Structure
+
 ```text
-src
-├───components      All HTML components go here
-│   ├───atoms       All tiny / non dividable components
-│   │   └───icons   SVG icons that need to be rendered as <svg> (not as image)
-│   ├───molecules   All medium complex components
-│   └───organisms   All complex and high order components
-├───constants       Constants (You don't say!)
-├───pages           Single static pages
-├───schemas         GraphQL definitions and schemas
-├───styles          emotion CSS in JS files (normal .css files live in /static)
-├───templates       Top level templates that get rendered via Gatsby using GraphQL
-├───types           TS style proptypes
-└───utils           Often used helper functions
+site                 Astro source (srcDir)
+├───assets           Images and SVGs imported by pages (design award badge, Creative Commons icons)
+├───components       .astro components; icons/ holds inline SVGs
+├───constants        Asset types (route segments), map and site constants
+├───i18n             Translation lookup, language switcher, locales/{en,de}.json
+├───layouts          Base layout (head, SEO, theme and language bootstrap)
+├───lib              Prismic client and data mapping, route list; __fixtures__ for tests
+├───pages            File-based routes, same URLs as the old site
+├───public           Copied verbatim to dist/: _headers (CSP), manifest, sw.js, icons, robots.txt
+├───scripts          Browser scripts (map, slideshow, navigation, theme, fullscreen)
+├───styles           Plain CSS with custom properties (tokens.css)
+└───utils            Image and SEO helpers
+prismic              Prismic custom type definitions (reference copy, JSON)
+e2e                  Playwright specs
+scripts              Build tooling (check-env.mjs, route-parity.mjs)
+docs                 ADRs, hosting and cutover runbook
 ```
+
+Tests sit in `__tests__` directories beside the code (`*.test.js`).
+
+Custom types: copy the JSON of a type (e.g. `https://eyesbound.prismic.io/masks/category.json/`) to `prismic/` when it changes in Prismic.
+
+## Testing
+
+Unit tests run on Vitest with Astro's Vite config, `.astro` components through Astro's container API. Browser behaviour (CSP, map, slideshow, service worker) is covered by Playwright specs in `e2e/`. `node scripts/route-parity.mjs` compares the generated routes with the live sitemap. See [ADR 0002](docs/adr/0002-test-strategy-and-offline.md).
+
+## Deployment
+
+GitHub Actions builds once and deploys that `dist/` to Cloudflare Workers static assets; previews get an alias per pull request. Setup, secrets, cutover and rollback: [docs/hosting-cloudflare.md](docs/hosting-cloudflare.md).
+
+## Architecture decision records
+
+- [0001 Prismic data layer](docs/adr/0001-prismic-data-layer.md)
+- [0002 Test strategy and offline support](docs/adr/0002-test-strategy-and-offline.md)
+- [0003 CSP and headers](docs/adr/0003-csp-and-headers.md)
+- [0004 Gatsby removal](docs/adr/0004-gatsby-removal.md)
+
+## Migration note
+
+The site used to be built with Gatsby and deployed on Netlify. That code is removed, see [ADR 0004](docs/adr/0004-gatsby-removal.md); older commits and ADRs still describe it.

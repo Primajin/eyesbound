@@ -1,0 +1,60 @@
+name: Content deploy (Prismic publish)
+
+# Rebuilds the site from fresh Prismic data and deploys it to production when the
+# owner publishes in Prismic. Prismic -> worker/prismic-relay -> GitHub
+# `workflow_dispatch` on this file (ref main) -> this workflow. It can also be
+# started by hand: Actions, Content deploy, Run workflow.
+# See docs/hosting-cloudflare.md, section 7.
+#
+# workflow_dispatch only runs from a branch that contains this file. The relay
+# uses `main`, so the pipeline works once this file is merged.
+#
+# Security: the workflow takes no inputs and reads no event payload (never put
+# such values in a `run:` step). It can only be started by callers with write
+# access to this repository (or a token with Actions: Read and write).
+#
+# The gates (build, e2e) always run. Production deploys stay OFF until the
+# repository variable PRODUCTION_DEPLOY_ENABLED is 'true' (same switch as
+# `deploy-production` in ci.yml) and the run is on main.
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+# One run at a time, never cancelling a running deploy. GitHub keeps at most one
+# PENDING run per group and replaces an older pending run with a newer one, so a
+# burst of webhooks collapses into the running build plus a single follow-up
+# build that starts after it and sees the latest content.
+concurrency:
+  group: content-deploy
+  cancel-in-progress: false
+
+jobs:
+  # Same gates as production except route parity: that check compares Prismic
+  # with the LIVE sitemap (a migration check), which would fail whenever the
+  # owner adds or removes a page. Lint, unit, build, e2e still run.
+  astro:
+    name: Gates (fresh Prismic data)
+    # Ceiling for the PR-only nested jobs of astro-ci.yml (preview, console,
+    # screenshots); they are skipped here (event is not pull_request).
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: ./.github/workflows/astro-ci.yml
+    with:
+      run-route-parity: false
+    secrets: inherit
+
+  deploy-production:
+    name: Cloudflare production deploy
+    if: ${{ vars.PRODUCTION_DEPLOY_ENABLED == 'true' && github.ref == 'refs/heads/main' }}
+    needs: astro
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_deploy-cloudflare.yml
+    with:
+      mode: production
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
