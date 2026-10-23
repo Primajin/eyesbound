@@ -7,6 +7,8 @@ import {
 	test,
 } from 'vitest';
 
+import en from '../../i18n/locales/en.json';
+import {t} from '../../i18n/index.js';
 import {getCategories, getPicturesByCategory} from '../../lib/prismic.js';
 import NotFound from '../404.astro';
 import CategoryList from '../category/index.astro';
@@ -17,6 +19,10 @@ import SeriesList from '../series/index.astro';
 import SeriesPage, {getStaticPaths as seriesPaths} from '../series/[uid].astro';
 import TagList from '../tag/index.astro';
 import TagPage, {getStaticPaths as tagPaths} from '../tag/[uid].astro';
+
+const flatten = (object, prefix = '') => Object.entries(object).flatMap(([key, value]) => (
+	typeof value === 'object' && value !== null ? flatten(value, `${prefix}${key}.`) : [`${prefix}${key}`]
+));
 
 let container;
 const previous = process.env.PRISMIC_FIXTURES;
@@ -62,7 +68,7 @@ describe('list pages', () => {
 	])('%# %s list links to trailing-slash detail pages', async (page, family, title, href) => {
 		const html = await render(page, `/${family}/`);
 		expect(html).toContain(`<link rel="canonical" href="https://eyesbound.com/${family}/">`);
-		expect(html).toMatch(new RegExp(String.raw`<h1[^>]*>${title} \(\d+\)</h1>`, 'v'));
+		expect(html).toMatch(new RegExp(String.raw`<h1[^>]*><span data-lang="en" lang="en">${title}</span><span data-lang="de" lang="de">[^<]+</span> \(\d+\)</h1>`, 'v'));
 		expect(html).toContain(`href="${href}`);
 	});
 });
@@ -72,7 +78,7 @@ describe('detail pages', () => {
 		const [category] = await getCategories();
 		const pictures = await getPicturesByCategory(category.uid);
 		const html = await renderDetail(CategoryPage, categoryPaths, 'category', category.uid);
-		expect(html).toContain(`Category: ${category.title} (${pictures.length})`);
+		expect(html).toContain(`lang="de">Kategorie</span>: ${category.title} (${pictures.length})`);
 		expect(html.match(/<li[^>]*><a href="\/picture\/[^"]+\/" aria-label/gv) ?? []).toHaveLength(pictures.length);
 		expect(html).toContain(`<link rel="canonical" href="https://eyesbound.com/category/${category.uid}/">`);
 	});
@@ -82,19 +88,19 @@ describe('detail pages', () => {
 		const tags = await tagPaths();
 		const seriesHtml = await renderDetail(SeriesPage, seriesPaths, 'series', series[0].params.uid);
 		const tagHtml = await renderDetail(TagPage, tagPaths, 'tag', tags[0].params.uid);
-		expect(seriesHtml).toContain('Series: ');
-		expect(tagHtml).toContain('Tag: ');
+		expect(seriesHtml).toContain('lang="de">Serie</span>: ');
+		expect(tagHtml).toContain('lang="de">Schlagwort</span>: ');
 		expect(seriesHtml).toContain(`href="https://eyesbound.com/series/${series[0].params.uid}/"`);
 	});
 
 	test.each([
-		[CategoryPage, categoryPaths, 'category', 'Category'],
-		[SeriesPage, seriesPaths, 'series', 'Series'],
-		[TagPage, tagPaths, 'tag', 'Tag'],
+		[CategoryPage, categoryPaths, 'category', 'Kategorie'],
+		[SeriesPage, seriesPaths, 'series', 'Serie'],
+		[TagPage, tagPaths, 'tag', 'Schlagwort'],
 	])('%# an untitled %s document falls back to its uid in heading and title', async (page, getPaths, family, label) => {
 		const [{props}] = await getPaths();
 		const html = await render(page, `/${family}/x/`, {params: {uid: 'x'}, props: {item: {...props.item, uid: 'x', title: null}}});
-		expect(html).toContain(`${label}: x (0)`);
+		expect(html).toContain(`lang="de">${label}</span>: x (0)`);
 		expect(html).toContain('<title>x | ');
 	});
 });
@@ -116,13 +122,53 @@ describe('static pages', () => {
 
 	test('imprint documents Cloudflare and Google Maps in both languages and offers the withdraw control', async () => {
 		const html = await render(Imprint, '/imprint/');
-		expect(html).toMatch(/<h4 id="privacy-policy"/v);
+		expect(html).toMatch(/<h2 id="privacy-policy"/v);
 		expect(html).toContain('data-lang="en" lang="en">12. Google Maps<');
 		expect(html).toContain('data-lang="de" lang="de">11. Hosting durch Cloudflare<');
 		expect(html).toContain('href="https://www.cloudflare.com/privacypolicy/"');
 		expect(html).toContain('href="https://policies.google.com/privacy"');
 		expect(html).toMatch(/<button[^>]*data-map-consent-revoke[^>]*>/v);
 		expect(html).not.toMatch(/privacy\.(?:withdraw|cloudflare|maps)\.\w+/v);
+	});
+
+	test('every imprint text exists in English and German and the German side has no English-only block', async () => {
+		const html = await render(Imprint, '/imprint/');
+		const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll('\'', '&#39;');
+		const keys = [
+			...flatten(en.privacy).map(key => `privacy.${key}`),
+			...flatten(en.imprint.address).map(key => `imprint.address.${key}`),
+			...flatten(en.imprint.license).map(key => `imprint.license.${key}`),
+			'imprint.pageTitle',
+			'imprint.design',
+			'imprint.privacyPolicy',
+		].filter(key => !key.endsWith('Url'));
+		for (const key of keys) {
+			for (const lang of ['en', 'de']) {
+				expect(html, `${key} (${lang})`).toContain(escape(t(key, lang, {siteName: 'EYESBOUND'})));
+			}
+		}
+
+		expect(html.match(/<span data-lang="en" lang="en">/gv)).toHaveLength(html.match(/<span data-lang="de" lang="de">/gv).length);
+		expect(html).toContain('Telefon</span>: 84183026');
+		expect(html).toContain('lang="de">Deutschland</span>');
+		expect(html).toContain('Friedrich-Wilhelm-Platz 2');
+		expect(html).toContain('data-title-de="Namensnennung');
+		expect(html).toContain('<p data-lang="de" lang="de"');
+		expect(html).not.toMatch(/(?:privacy|imprint)\.\w+\.\w+/v);
+		expect(html).not.toContain('{{');
+	});
+
+	test('imprint headings never skip a level and keep the privacy policy anchor', async () => {
+		const html = await render(Imprint, '/imprint/');
+		const levels = html.matchAll(/<h(?<level>[1-6])[\s>]/gv).map(match => Number(match.groups.level)).toArray();
+		expect(levels[0]).toBe(1);
+		for (const [index, level] of levels.entries()) {
+			if (index > 0) {
+				expect(level, `heading ${index}`).toBeLessThanOrEqual(levels[index - 1] + 1);
+			}
+		}
+
+		expect(html).toMatch(/<h2 id="privacy-policy"/v);
 	});
 
 	test('404 page links home and has no inline script or style attributes', async () => {

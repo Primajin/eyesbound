@@ -7,12 +7,17 @@ export const storageKey = 'userLanguage';
 
 const dictionaries = {en, de};
 
-const resolve = (dictionary, key) => {
+const lookup = (dictionary, key) => {
 	let value = dictionary;
 	for (const part of key.split('.')) {
 		value = value !== null && typeof value === 'object' ? value[part] : undefined;
 	}
 
+	return value;
+};
+
+const resolve = (dictionary, key) => {
+	const value = lookup(dictionary, key);
 	return typeof value === 'string' ? value : undefined;
 };
 
@@ -42,3 +47,27 @@ export const t = (key, lang, parameters = {}) => {
 		return String(parameters[name]);
 	});
 };
+
+/**
+ Counts the entries of a list translation (a JSON array) so templates can render every item. Throws when the key is not a list or the languages disagree on its length.
+ @param {string} key - Dot separated key of an array, e.g. `privacy.s5.b.list`.
+ @returns {number} The number of items.
+ */
+export const tCount = key => {
+	const lengths = languages.map(lang => {
+		const value = lookup(dictionaries[lang], key);
+		return Array.isArray(value) ? value.length : -1;
+	});
+	if (lengths[0] < 1 || new Set(lengths).size !== 1) {
+		throw new Error(`"${key}" is not a list with the same length in every language`);
+	}
+
+	return lengths[0];
+};
+
+/**
+ Attributes for an element whose `title` follows the language switcher without duplicating DOM: the English title, plus both titles as data attributes that `initLanguageSwitcher` applies.
+ @param {string} key - Dot separated key of the title text.
+ @returns {{title: string, 'data-title-en': string, 'data-title-de': string}} Attributes to spread onto the element.
+ */
+export const localizedTitle = key => ({title: t(key, 'en'), 'data-title-en': t(key, 'en'), 'data-title-de': t(key, 'de')});

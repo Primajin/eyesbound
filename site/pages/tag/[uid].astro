@@ -1,17 +1,15 @@
 ---
 import Member from '../../components/Member.astro';
-import {AssetTypes} from '../../constants/asset-types.js';
 import Base from '../../layouts/Base.astro';
 import {getPicturesByTag, getStaticPathsFor} from '../../lib/prismic.js';
 
 export const getStaticPaths = () => getStaticPathsFor('tag');
 
-const {name} = AssetTypes.TAG;
 const {item} = Astro.props;
 const title = item.title ?? item.uid;
 const pictures = await getPicturesByTag(item.uid);
 ---
 
 <Base title={title}>
-	<Member pictures={pictures} name={name} title={title} />
+	<Member pictures={pictures} typeKey="assetTypes.tag.name" title={title} />
 </Base>

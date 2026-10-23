@@ -1,19 +1,21 @@
 ---
 import {routes} from '../lib/routes.js';
 import PictureImage from './PictureImage.astro';
+import T from './T.astro';
 
 interface Props {
 	pictures: {uid: string; title: string | null; image: any; thumbnail: any}[];
 	title: string;
-	type: string;
+	/** Locale key of the label before the title, e.g. `assetTypes.category.name` */
+	typeKey: string;
 }
 
 // The first thumbnail is the LCP element on every viewport (top of the first row), so it must not be lazy.
 // The Prismic thumbnail is only 280px wide: too small for high-density screens, so the full image (resized by imgix) is preferred.
-const {pictures, title, type} = Astro.props;
+const {pictures, title, typeKey} = Astro.props;
 ---
 
-<h1>{type}: {title} ({pictures.length})</h1>
+<h1><T key={typeKey} />: {title} ({pictures.length})</h1>
 <ul class="thumbnails cropped-photo">
 	{pictures.map(({uid, title: pictureTitle, image, thumbnail}, index) => (
 		<li>

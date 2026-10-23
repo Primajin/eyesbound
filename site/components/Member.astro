@@ -4,13 +4,13 @@ import Thumbnails from './Thumbnails.astro';
 
 interface Props {
 	pictures: {uid: string; title: string | null; image: any; thumbnail: any}[];
-	name: string;
+	typeKey: string;
 	title: string;
 }
 
-const {pictures, name, title} = Astro.props;
+const {pictures, typeKey, title} = Astro.props;
 ---
 
 <MainWrapper>
-	<Thumbnails pictures={pictures} title={title} type={name} />
+	<Thumbnails pictures={pictures} title={title} typeKey={typeKey} />
 </MainWrapper>

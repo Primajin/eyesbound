@@ -71,6 +71,16 @@ describe('initLanguageSwitcher', () => {
 		expect(button.title).toBe('Preset');
 	});
 
+	test('also retitles other elements that carry both titles', () => {
+		const icon = {title: 'x', dataset: {titleEn: 'Attribution', titleDe: 'Namensnennung'}};
+		const button = {
+			dataset: {}, addEventListener() {},
+		};
+		const root = {documentElement: {lang: 'de'}, querySelectorAll: selector => [selector === '[data-language-switcher]' ? button : icon]};
+		initLanguageSwitcher(root, {setItem: vi.fn()});
+		expect(icon.title).toBe('Namensnennung');
+	});
+
 	test('survives blocked storage', () => {
 		const {root, click} = setup();
 		initLanguageSwitcher(root, {
