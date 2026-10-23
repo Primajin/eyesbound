@@ -110,7 +110,7 @@ jobs:
         env:
           PRISMIC_ACCESS_TOKEN: ${{ secrets.PRISMIC_ACCESS_TOKEN }}
           PRISMIC_REPO_NAME: ${{ vars.PRISMIC_REPO_NAME || 'eyesbound' }}
-          MAPS_API_KEY: ${{ secrets.MAPS_API_KEY || secrets.GATSBY_G_MAPS }}
+          MAPS_API_KEY: ${{ secrets.MAPS_API_KEY }}
       - name: Assert output looks sane
         run: |
           test -f dist/index.html

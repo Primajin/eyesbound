@@ -30,7 +30,7 @@ Prismic webhook: Workers Builds deploy hooks no longer exist after disconnecting
 GitHub (Settings, Secrets and variables, Actions), needed by `.github/workflows/astro-ci.yml`:
 
 - Secret `PRISMIC_ACCESS_TOKEN` (required for build and route parity)
-- Secret `MAPS_API_KEY` (the build reads it; new name. `astro-ci.yml` still falls back to the old `GATSBY_G_MAPS` secret until you add `MAPS_API_KEY`; then remove `|| secrets.GATSBY_G_MAPS` there and delete the old secret)
+- Secret `MAPS_API_KEY` (the build reads it; add it to the repository and Dependabot secrets and to the Cloudflare build variables)
 - Variable `PRISMIC_REPO_NAME` (optional, defaults to `eyesbound`)
 - Optional: `SITE_URL` and `SITE_NAME` are read from the environment at build time and default to `https://eyesbound.com` and `EYESBOUND`; no CI setting is needed
 - Optional: secret `CODECOV_TOKEN` (coverage upload in the `unit` job; without it the upload step only logs)
@@ -81,7 +81,7 @@ Deploy jobs: see section 1 (`preview`, `preview-comment`, `deploy-production` in
 ## 6. Remaining owner steps after the Gatsby removal
 
 1. Run the `git rm` commands listed in the PR description (the files named in ADR 0004), then delete the legacy ignore block at the top of `eslint.config.mjs`, commit and push.
-2. Add the repository (and Dependabot) secret `MAPS_API_KEY`; afterwards remove `|| secrets.GATSBY_G_MAPS` from `astro-ci.yml` and delete the secrets `GATSBY_G_MAPS` and `GATSBY_API_KEY`.
+2. Delete the leftover secrets `GATSBY_G_MAPS` and `GATSBY_API_KEY` from the repository and Dependabot stores (nothing reads them any more).
 3. Local files: rename variables in your untracked `.env.local` if it still has `GATSBY_*` names (`SITE_URL`, `SITE_NAME`; the token and key names did not change), and delete the old `.env.development` / `.env.production`.
 4. In the required status checks of the branch protection keep only `All checks green`; no check is named after the removed jobs (`build`, `build-matrix`, `test`).
 5. Netlify: disable its build for this repository when you decide to (dashboard), after the rollback window.

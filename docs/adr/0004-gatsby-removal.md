@@ -41,5 +41,5 @@ Codecov: coverage upload moved into the `unit` job of `astro-ci.yml` (Vitest wri
 - One toolchain: `npm run dev/build/preview/test/coverage/lint`.
 - Older ADRs (0001 to 0003) describe the Gatsby state in their context sections; they are historical and are not rewritten.
 - The Netlify site is not touched by this change; its configuration lived in Gatsby plugins and the dashboard, so the repository no longer carries any of it.
-- The `GATSBY_G_MAPS` secret fallback stays in `astro-ci.yml` until the repository secret `MAPS_API_KEY` exists (see [hosting-cloudflare.md](../hosting-cloudflare.md)).
+- The `GATSBY_G_MAPS` fallback was removed from `astro-ci.yml` once `MAPS_API_KEY` existed in the repository and Dependabot secret stores (see [hosting-cloudflare.md](../hosting-cloudflare.md)).
 - Git history keeps the removed files, so a rollback is a revert.
