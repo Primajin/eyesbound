@@ -148,7 +148,8 @@ describe('static pages', () => {
 		}
 
 		expect(html.match(/<span data-lang="en" lang="en">/gv)).toHaveLength(html.match(/<span data-lang="de" lang="de">/gv).length);
-		expect(html).toContain('Telefon</span>: 84183026');
+		expect(html).toContain('E-Mail</span>: admin@eyesbound.com');
+		expect(html).not.toContain('84183026');
 		expect(html).not.toContain('Friedrich-Wilhelm-Platz');
 		expect(html).not.toContain('12161');
 		expect(html).toContain('lang="de">Deutschland</span>');
