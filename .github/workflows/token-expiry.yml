@@ -1,0 +1,55 @@
+name: Relay token expiry
+
+# Weekly reminder for the GitHub token behind the Prismic relay Worker
+# (docs/hosting-cloudflare.md, section 7). The token lives only in Cloudflare, so
+# its expiry date is kept in the repository variable RELAY_TOKEN_EXPIRES
+# (YYYY-MM-DD). The job fails, and opens an issue, when that date is missing,
+# malformed, or less than WARN_DAYS away. Scheduled runs only start from the
+# default branch, so this takes effect after the merge.
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  check:
+    name: Relay token not expiring soon
+    if: github.repository_owner == 'Primajin'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    env:
+      EXPIRES: ${{ vars.RELAY_TOKEN_EXPIRES }}
+      WARN_DAYS: '21'
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Check the expiry date
+        shell: bash
+        run: |
+          title="Rotate the GitHub token of the Prismic relay"
+
+          report() {
+            echo "::error::$1"
+            if [ -z "$(gh issue list --repo "$REPO" --state open --search "$title in:title" --json number --jq '.[0].number')" ]; then
+              gh issue create --repo "$REPO" --title "$title" \
+                --body "$1 Steps: docs/hosting-cloudflare.md, section 7 (rotation). Afterwards set the repository variable RELAY_TOKEN_EXPIRES to the new expiry date (YYYY-MM-DD)."
+            fi
+            exit 1
+          }
+
+          if ! [[ "$EXPIRES" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            report "The repository variable RELAY_TOKEN_EXPIRES is missing or not a YYYY-MM-DD date."
+          fi
+
+          expires_at="$(date -u -d "$EXPIRES" +%s)"
+          days_left="$(( (expires_at - $(date -u +%s)) / 86400 ))"
+          echo "Relay token expires on $EXPIRES ($days_left days left, warning at $WARN_DAYS)."
+
+          if [ "$days_left" -le "$WARN_DAYS" ]; then
+            report "The GitHub token of the Prismic relay expires on $EXPIRES ($days_left days left). Publishes stop reaching production once it has expired."
+          fi

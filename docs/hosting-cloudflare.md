@@ -157,3 +157,11 @@ curl -sS -i -X POST <RELAY_URL> -H "Content-Type: application/json" \
 ### Token expiry and rotation
 
 A fine-grained PAT has a mandatory expiry (maximum one year; "no expiration" may be blocked by policy). When it expires, GitHub answers 401, the relay answers 502, Prismic retries 5 times over about 50 minutes and then **disables the webhook**: publishes silently stop reaching production. Mitigation: put a calendar reminder two weeks before expiry (GitHub also emails a warning), and check Prismic's webhook logs (Settings, Webhooks, Logs) when the site looks stale. Rotate: create a new token with the same scope, run `npx wrangler@4.152.0 secret put GITHUB_TOKEN` in `worker/prismic-relay/` (no redeploy needed), then delete the old token. Rotate the shared secret the same way: `secret put PRISMIC_WEBHOOK_SECRET`, then update the secret in the Prismic webhook. If Prismic disabled the webhook, re-enable it in the dashboard after fixing the token. A manual rebuild is always possible via Actions, Content deploy, Run workflow.
+
+The workflow `token-expiry.yml` checks this every Monday: it reads the repository variable `RELAY_TOKEN_EXPIRES` (the token's expiry date as `YYYY-MM-DD`) and fails, and opens an issue titled "Rotate the GitHub token of the Prismic relay", when the variable is missing or the date is 21 days away or less. Set the variable when you create the token, and update it after every rotation:
+
+```bash
+gh variable set RELAY_TOKEN_EXPIRES --body 2027-10-22 --repo Primajin/eyesbound
+```
+
+The date is kept by hand because the token itself lives only in Cloudflare. Scheduled workflows only run from the default branch, so the check starts working after the merge.
