@@ -95,53 +95,12 @@ if (pictures.length === 0) {
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
-		.slides {
-			scroll-behavior: smooth;
+		.slide a {
+			transition: opacity 0.45s ease-in-out;
 		}
 
-		/*
-		 Progressive enhancement (scroll-driven animations): turns the horizontal scroll into the live site's cross-fade.
-		 Each slide's link is pinned to the viewport while its slide scrolls past and fades with its visibility;
-		 the snap box (the li) is never transformed, so scroll snapping is unaffected.
-		*/
-		@supports (animation-timeline: view(inline)) {
-			.slide {
-				view-timeline: --slide inline;
-			}
-
-			.slide a {
-				animation-fill-mode: both;
-				animation-name: cross-fade;
-				animation-timeline: --slide;
-				animation-timing-function: linear;
-			}
-		}
-	}
-
-	@keyframes cross-fade {
-		0% {
+		.slides[data-fade='out'] .slide a {
 			opacity: 0;
-			pointer-events: none;
-			transform: translateX(-100%);
-		}
-
-		49.9% {
-			pointer-events: none;
-		}
-
-		50% {
-			opacity: 1;
-			pointer-events: auto;
-		}
-
-		50.1% {
-			pointer-events: none;
-		}
-
-		100% {
-			opacity: 0;
-			pointer-events: none;
-			transform: translateX(100%);
 		}
 	}
 

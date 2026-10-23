@@ -74,18 +74,39 @@ describe('initSlideshows', () => {
 		vi.useRealTimers();
 	});
 
-	test('next, previous and indicators scroll the snap container, wrapping around', () => {
+	test('next, previous and indicators fade out, jump instantly and wrap around', () => {
 		const {slideshow, scroller} = setup();
 		initSlideshows(document, {interval: 1000});
 		const click = selector => slideshow.querySelector(selector).dispatchEvent(new Event('click'));
 
 		click('[data-slide="next"]');
-		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 1000, behavior: 'smooth'});
+		expect(scroller.dataset.fade).toBe('out');
+		expect(current()).toEqual(['false', 'true', 'false']);
+		expect(scroller.scrollTo).not.toHaveBeenCalled();
+		vi.advanceTimersByTime(450);
+		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 1000, behavior: 'instant'});
+		expect(scroller.dataset.fade).toBeUndefined();
 		click('[data-slide="previous"]');
+		vi.advanceTimersByTime(450);
 		click('[data-slide="previous"]');
-		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 2000, behavior: 'smooth'});
+		vi.advanceTimersByTime(450);
+		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 2000, behavior: 'instant'});
 		click('[data-slide-to="1"]');
-		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 1000, behavior: 'smooth'});
+		vi.advanceTimersByTime(450);
+		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 1000, behavior: 'instant'});
+	});
+
+	test('a newer navigation completes the fade in progress and then fades to its own target', () => {
+		const {slideshow, scroller} = setup();
+		initSlideshows(document, {interval: 100_000});
+		const click = selector => slideshow.querySelector(selector).dispatchEvent(new Event('click'));
+		click('[data-slide-to="1"]');
+		vi.advanceTimersByTime(200);
+		click('[data-slide-to="2"]');
+		vi.advanceTimersByTime(450);
+		expect(scroller.scrollTo).toHaveBeenCalledTimes(2);
+		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 2000, behavior: 'instant'});
+		expect(scroller.dataset.fade).toBeUndefined();
 	});
 
 	test('marks the indicator of the slide that scrolls into view as current', () => {
@@ -103,39 +124,108 @@ describe('initSlideshows', () => {
 		expect(current()).toEqual(['true', 'false', 'false']);
 	});
 
-	test('autoplays, and pauses while hovered or focused', () => {
-		const {slideshow, scroller} = setup();
+	test('autoplays by fading to the next slide and wraps from the last to the first', () => {
+		const {scroller} = setup();
 		initSlideshows(document, {interval: 1000});
-		vi.advanceTimersByTime(1000);
-		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
-
-		slideshow.dispatchEvent(new Event('pointerenter'));
-		vi.advanceTimersByTime(3000);
-		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
-		slideshow.dispatchEvent(new Event('pointerleave'));
-		slideshow.dispatchEvent(new Event('focusin'));
-		vi.advanceTimersByTime(3000);
-		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
-		slideshow.dispatchEvent(new Event('focusout'));
-		vi.advanceTimersByTime(1000);
-		expect(scroller.scrollTo).toHaveBeenCalledTimes(2);
+		vi.advanceTimersByTime(1450);
+		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 1000, behavior: 'instant'});
+		vi.advanceTimersByTime(2000 + 450);
+		expect(scroller.scrollTo).toHaveBeenLastCalledWith({left: 0, behavior: 'instant'});
 	});
 
-	test.each(['pointerdown', 'keydown', 'wheel', 'touchstart'])('stops for good after %s', name => {
+	test('skips autoplay steps while the tab is hidden', () => {
+		const {scroller} = setup();
+		const hidden = vi.spyOn(document, 'hidden', 'get').mockReturnValue(true);
+		initSlideshows(document, {interval: 1000});
+		vi.advanceTimersByTime(3000);
+		expect(scroller.scrollTo).not.toHaveBeenCalled();
+		hidden.mockReturnValue(false);
+		vi.advanceTimersByTime(1450);
+		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
+		hidden.mockRestore();
+	});
+
+	test('is not paused by hover alone', () => {
 		const {slideshow, scroller} = setup();
 		initSlideshows(document, {interval: 1000});
-		slideshow.dispatchEvent(new Event(name));
+		slideshow.dispatchEvent(new Event('pointerenter'));
+		slideshow.dispatchEvent(new Event('mouseover'));
+		vi.advanceTimersByTime(1450);
+		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
+	});
+
+	test.each(['pointerdown', 'keydown', 'wheel', 'touchstart', 'click', 'focusin'])('stops for good after %s', name => {
+		const {slideshow, scroller} = setup();
+		initSlideshows(document, {interval: 1000});
+		slideshow.dispatchEvent(new Event(name, {bubbles: true}));
 		vi.advanceTimersByTime(10_000);
 		expect(scroller.scrollTo).not.toHaveBeenCalled();
 	});
 
-	test('never autoplays with reduced motion and jumps instead of animating', () => {
+	test.each([
+		['pointerdown', '[data-slides]'],
+		['touchstart', '[data-slides]'],
+		['wheel', '[data-slides]'],
+		['keydown', '[data-slide="next"]'],
+		['focusin', '[data-slide="previous"]'],
+		['pointerdown', '[data-slide-to="2"]'],
+		['focusin', '[data-slide-to="1"]'],
+	])('stops for good after %s bubbling from %s', (name, selector) => {
+		const {slideshow, scroller} = setup();
+		initSlideshows(document, {interval: 1000});
+		slideshow.querySelector(selector).dispatchEvent(new Event(name, {bubbles: true}));
+		vi.advanceTimersByTime(10_000);
+		expect(scroller.scrollTo).not.toHaveBeenCalled();
+	});
+
+	test('stops after keyboard input while nothing in the slideshow has focus', () => {
+		const {scroller} = setup();
+		initSlideshows(document, {interval: 1000});
+		document.body.dispatchEvent(new Event('keydown', {bubbles: true}));
+		vi.advanceTimersByTime(10_000);
+		expect(scroller.scrollTo).not.toHaveBeenCalled();
+	});
+
+	test('stays stopped after hover, blur and later movement', () => {
+		const {slideshow, scroller} = setup();
+		initSlideshows(document, {interval: 1000});
+		slideshow.dispatchEvent(new Event('pointerdown', {bubbles: true}));
+		slideshow.dispatchEvent(new Event('pointerleave'));
+		slideshow.dispatchEvent(new Event('focusout'));
+		vi.advanceTimersByTime(10_000);
+		expect(scroller.scrollTo).not.toHaveBeenCalled();
+	});
+
+	test('an interaction during an autoplay fade completes the jump and stops', () => {
+		const {slideshow, scroller} = setup();
+		initSlideshows(document, {interval: 1000});
+		vi.advanceTimersByTime(1000);
+		expect(scroller.dataset.fade).toBe('out');
+		slideshow.dispatchEvent(new Event('touchstart', {bubbles: true}));
+		expect(scroller.scrollTo).toHaveBeenCalledWith({left: 1000, behavior: 'instant'});
+		expect(scroller.dataset.fade).toBeUndefined();
+		vi.advanceTimersByTime(10_000);
+		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
+	});
+
+	test('a click on an arrow still navigates although it stops autoplay', () => {
+		const {slideshow, scroller} = setup();
+		initSlideshows(document, {interval: 1000});
+		slideshow.querySelector('[data-slide="next"]').dispatchEvent(new Event('click', {bubbles: true}));
+		vi.advanceTimersByTime(450);
+		expect(scroller.scrollTo).toHaveBeenCalledWith({left: 1000, behavior: 'instant'});
+		vi.advanceTimersByTime(10_000);
+		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
+	});
+
+	test('never autoplays with reduced motion and jumps at once without fading', () => {
 		const {slideshow, scroller} = setup({reduced: true});
 		initSlideshows(document, {interval: 1000});
 		vi.advanceTimersByTime(10_000);
 		expect(scroller.scrollTo).not.toHaveBeenCalled();
 		slideshow.querySelector('[data-slide="next"]').dispatchEvent(new Event('click'));
-		expect(scroller.scrollTo).toHaveBeenCalledWith({left: 1000, behavior: 'auto'});
+		expect(scroller.scrollTo).toHaveBeenCalledWith({left: 1000, behavior: 'instant'});
+		expect(scroller.dataset.fade).toBeUndefined();
 	});
 
 	test('stops when reduced motion is switched on while running', () => {
@@ -157,7 +247,7 @@ describe('initSlideshows', () => {
 			listener();
 		}
 
-		vi.advanceTimersByTime(1000);
+		vi.advanceTimersByTime(1450);
 		expect(scroller.scrollTo).toHaveBeenCalledTimes(1);
 	});
 
