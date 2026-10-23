@@ -1,6 +1,6 @@
 # Hosting on Cloudflare (Workers static assets) and cutover runbook
 
-Status: draft for issue #987. Gatsby code, packages and Netlify workflows are removed from the repository ([ADR 0004](adr/0004-gatsby-removal.md)); the Cloudflare steps below have not been executed. Background: [ADR 0003](adr/0003-csp-and-headers.md). The target is an assets-only Cloudflare Worker (not classic Pages); `wrangler.jsonc` is already in the repo root.
+Status: draft for issue #987. Gatsby code, packages and Netlify workflows are removed from the repository ([ADR 0004](adr/0004-gatsby-removal.md)); the cutover was executed on 2026-10-23 (see the record in section 3) and Netlify is retired. Background: [ADR 0003](adr/0003-csp-and-headers.md). The target is an assets-only Cloudflare Worker (not classic Pages); `wrangler.jsonc` is already in the repo root.
 
 ## 1. Build and deploy flow (decided: build in GitHub CI, deploy from GitHub Actions)
 
@@ -48,6 +48,17 @@ Repository **variable** `PREVIEW_PROVIDER=cloudflare` turns on previews, console
 
 ## 3. Cutover runbook (all steps need human confirmation)
 
+### Cutover record (executed 2026-10-23)
+
+- Registrar is Squarespace Domains. DNSSEC was switched off there before the nameserver change (a DS record at the registrar without matching keys at the new DNS host breaks resolution); it can be re-enabled later from Cloudflare.
+- The zone moved to Cloudflare (Free plan). Nameservers: `hassan.ns.cloudflare.com`, `olga.ns.cloudflare.com`.
+- Google Workspace mail records were copied unchanged and kept DNS-only (grey cloud): 5 MX records, SPF (`v=spf1 include:_spf.google.com a:hell-yeah.de ~all`), DKIM `google._domainkey`, DMARC (`p=reject`), `google-site-verification`, the `mail` CNAME to `ghs.googlehosted.com` and `_domainconnect`.
+- `eyesbound.com` and `www.eyesbound.com` are attached as Workers custom domains. A Redirect Rule sends `www` to the apex with `301`. Always Use HTTPS is on. HSTS comes only from `site/public/_headers` (`max-age=31536000; includeSubDomains`, no preload).
+- Checked with `curl --resolve eyesbound.com:443:<cloudflare ip>` while local resolvers still returned the old address.
+- Map pages: the strict CSP needed `data:` in the map `connect-src` (the label worker fetches `data:` URLs).
+- Netlify was retired after the cutover (see step 6); its DNS records and Maps referrers were removed.
+
+
 Preconditions: Astro CI green on the cutover PR, `node scripts/route-parity.mjs` reports "Route parity OK", Lighthouse reports reviewed, `/sw.js` kill-switch present in `dist/` (done, see below), CSP still in report-only or verified on preview.
 
 1. **Maps key referrers** (Google Cloud Console, Credentials, the browser key, HTTP referrers). Add before cutover, and already for previews: `https://*.primajin.workers.dev/*` (matches the Worker host `eyesbound.primajin.workers.dev` and the preview alias host `pr-<n>-eyesbound.primajin.workers.dev`; the subdomain `primajin` is the workers.dev subdomain of the Cloudflare account that holds the site), `https://eyesbound.com/*`, `https://www.eyesbound.com/*` if used. Remove the Netlify origins only after the rollback window closes. The ADR 0003 CSP follow-up (dropping `'unsafe-eval'`) also needs a test origin on this list.
@@ -55,18 +66,19 @@ Preconditions: Astro CI green on the cutover PR, `node scripts/route-parity.mjs`
 3. **Enable the production deploy** (no file edit): set the repository **variable** `PRODUCTION_DEPLOY_ENABLED` to `true` (Settings, Secrets and variables, Actions, Variables; this one switch enables `deploy-production` in `ci.yml` and `content-deploy.yml`; optionally add a protected `production` environment first), then push or merge to `main`, then verify on `workers.dev`: all routes, one `Content-Security-Policy` header per route (ADR 0003 warns about silent doubles), `/sw.js`, `404` page and status.
 4. **Move DNS to Cloudflare**: add the zone, copy existing records (mail/MX/TXT included), switch nameservers at the registrar, then attach `eyesbound.com` as the worker's custom domain. The lowered TTL applies to record changes; a nameserver change is bounded by the registrar's NS TTL, so allow for it.
 5. **Smoke test** on the real domain: home, `/picture/`, a detail page, `/worldmap/` (map must render with the key), sitemap, `robots.txt`.
-6. **Keep Netlify** deployed and untouched in its dashboard (do not delete the site; the repository no longer carries its config, so it keeps serving its last Gatsby deploy and must not be rebuilt from this branch) for at least 1-2 weeks as rollback. Do not let its builds stop receiving Prismic webhooks until you decide.
+6. **Netlify (done: retired)**. The original plan was to keep Netlify deployed and untouched in its dashboard (do not delete the site; the repository no longer carries its config, so it keeps serving its last Gatsby deploy and must not be rebuilt from this branch) as rollback. The owner decided to retire it completely right after a successful cutover, so there is no DNS rollback target any more.
 7. After stability: raise TTL back (e.g. 3600 s), decide separately on HSTS preload, switch CSP from report-only to enforcing.
 
 ### Rollback
 
-Repoint DNS (or the custom domain) back at Netlify: with the TTL still low this takes about 5 minutes to propagate. Nameserver moves back are slower, which is why Netlify stays live and why the record TTL is lowered first. Redeploying the previous worker version (`npx wrangler@4.152.0 rollback`) covers a bad release without DNS changes.
+Netlify is retired, so rollback means redeploying a previous worker version (`npx wrangler@4.152.0 rollback`), which needs no DNS change. A bad content change is fixed by republishing in Prismic.
 
 ## 4. Behaviour to know about
 
 - **Trailing slashes**: URLs are canonical with a trailing slash. Cloudflare answers slash-less requests with `307` (not Netlify's `301`) and this is not configurable via `html_handling`. Internal links, canonical, `og:url` and the sitemap must all use the slash form so nothing points at the redirecting URL. Search engines treat 307 as temporary; static `301` rules in `_redirects` are a possible mitigation, untested (ADR 0003 section 6).
 - **`/sw.js` kill-switch (required, done)**: implemented as `site/public/sw.js` (deletes all foreign caches on activate, then claims clients; caches only `/_astro/*` fonts and CSS plus icons, cache-first), registered by `site/public/register-sw.js` in production builds only, and `_headers` sets `Cache-Control: no-cache`. Covered by `site/scripts/__tests__/sw.test.js` and `e2e/sw.spec.js`. Background: returning visitors have the Gatsby Workbox service worker, which serves precached HTML. `/sw.js` must exist at cutover as a self-unregistering worker (or the replacement worker), served with `Cache-Control: no-cache`. Without it stale Gatsby pages can persist on returning devices. Verify with `curl -I https://eyesbound.com/sw.js` after the move.
 - **HSTS**: `max-age=31536000; includeSubDomains` goes live on the custom domain once DNS moves and is hard to undo for a year. Check that every subdomain of `eyesbound.com` serves HTTPS before cutover. Do not add `preload` without a separate explicit decision.
+- **Cloudflare script injection (Free plan)**: Cloudflare's JavaScript Detections injects a per-request inline script (`window.__CF$cv$params`, loads `/cdn-cgi/challenge-platform/scripts/jsd/main.js`). It cannot be switched off on the Free plan, and a per-request value cannot be allowed with a CSP hash, so the strict CSP blocked it and logged a console error. The fix is `Cache-Control: no-transform` on every response in `_headers`. That rule replaces the platform default `Cache-Control`, so `/*` also sets `public, max-age=0, must-revalidate`, and `/_astro/*` and `/sw.js` first detach it with `! Cache-Control` and then set their own value plus `no-transform`. If the script or the console error ever reappears, check this first (and any new Cloudflare bot or security feature).
 - **`workers.dev`** previews should carry `X-Robots-Tag: noindex` (ADR 0003, untested).
 - **Free-tier limit**: 20,000 asset files per version; CI prints the file count of `dist/` on each build.
 
@@ -99,8 +111,8 @@ Lint no longer gates the build (a failing lint wastes one build, the gate still 
 2. Delete the leftover secrets `GATSBY_G_MAPS` and `GATSBY_API_KEY` from the repository and Dependabot stores (nothing reads them any more).
 3. Local files: rename variables in your untracked `.env.local` if it still has `GATSBY_*` names (`SITE_URL`, `SITE_NAME`; the token and key names did not change), and delete the old `.env.development` / `.env.production`.
 4. In the required status checks of the branch protection keep only `All checks green`; no check is named after the removed jobs (`build`, `build-matrix`, `test`).
-5. Netlify: disable its build for this repository when you decide to (dashboard), after the rollback window.
-6. Cutover steps 1 to 7 above.
+5. Netlify: done. The site was retired after the cutover.
+6. Cutover steps 1 to 7 above: done (see the record in section 3).
 
 ## 7. Publish in Prismic, rebuild and deploy (content-deploy)
 
