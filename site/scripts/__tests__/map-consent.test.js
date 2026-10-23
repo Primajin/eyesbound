@@ -56,13 +56,13 @@ describe('consent storage', () => {
 });
 
 describe('initConsentRevoke', () => {
-	test('withdraws the consent on click and reveals the confirmation', () => {
-		document.body.innerHTML = '<button data-map-consent-revoke>x</button><span data-map-consent-done hidden></span>';
+	test('withdraws the consent on click and reveals the confirmation in every language', () => {
+		document.body.innerHTML = '<button data-map-consent-revoke>x</button><span data-map-consent-done hidden></span><span data-map-consent-done hidden></span>';
 		initConsentRevoke(document);
 		grantConsent(window);
 		document.querySelector('button').click();
 		expect(hasConsent(window)).toBe(false);
-		expect(document.querySelector('[data-map-consent-done]').hidden).toBe(false);
+		expect([...document.querySelectorAll('[data-map-consent-done]')].map(message => message.hidden)).toEqual([false, false]);
 	});
 
 	test('works without a confirmation element', () => {

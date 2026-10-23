@@ -37,16 +37,16 @@ export const revokeConsent = win => {
 };
 
 /**
- Wires the withdraw buttons (`[data-map-consent-revoke]`) and reveals the matching `[data-map-consent-done]` message once consent is withdrawn.
+ Wires the withdraw buttons (`[data-map-consent-revoke]`) and reveals the `[data-map-consent-done]` messages (one per language) once consent is withdrawn.
  @param {Document} root Document to act on.
  */
 export const initConsentRevoke = root => {
-	const done = root.querySelector('[data-map-consent-done]');
+	const messages = root.querySelectorAll('[data-map-consent-done]');
 	for (const button of root.querySelectorAll('[data-map-consent-revoke]')) {
 		button.addEventListener('click', () => {
 			revokeConsent(root.defaultView);
-			if (done) {
-				done.hidden = false;
+			for (const message of messages) {
+				message.hidden = false;
 			}
 		});
 	}

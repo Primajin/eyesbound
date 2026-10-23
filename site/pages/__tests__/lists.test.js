@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import {experimental_AstroContainer as AstroContainer} from 'astro/container';
 import {
 	afterAll,
@@ -7,6 +8,7 @@ import {
 	test,
 } from 'vitest';
 
+import de from '../../i18n/locales/de.json';
 import en from '../../i18n/locales/en.json';
 import {t} from '../../i18n/index.js';
 import {getCategories, getPicturesByCategory} from '../../lib/prismic.js';
@@ -23,6 +25,25 @@ import TagPage, {getStaticPaths as tagPaths} from '../tag/[uid].astro';
 const flatten = (object, prefix = '') => Object.entries(object).flatMap(([key, value]) => (
 	typeof value === 'object' && value !== null ? flatten(value, `${prefix}${key}.`) : [`${prefix}${key}`]
 ));
+
+const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll('\'', '&#39;');
+const policyPath = lang => new URL(`../../content/privacy/privacy.${lang}.md`, import.meta.url);
+const policies = {
+	en: {
+		opening: 'We are pleased that you are interested in our organization.',
+		cloudflare: 'Cloudflare offers a wide range of services to improve the security, performance and reliability of websites and web applications.',
+		maps: 'Google Maps is a comprehensive mapping and navigation service provided by Google LLC',
+		closing: 'This privacy policy was created using a generator developed with the support of',
+	},
+	de: {
+		opening: 'Es freut uns sehr, dass Sie sich für unsere Organisation interessieren.',
+		cloudflare: 'Cloudflare bietet eine breite Palette an Diensten zur Verbesserung der Sicherheit, Leistung und Zuverlässigkeit von Webseiten und Webanwendungen.',
+		maps: 'Google Maps ist ein umfangreicher Kartierungs- und Navigationsdienst der Google LLC',
+		closing: 'Die oben stehende Datenschutzerklärung wurde mit Unterstützung eines Generators erstellt',
+	},
+};
+// Assembled from fragments so this file does not itself contain the withheld address and phone data
+const withheld = [['Ber', 'ner'], ['Friedrich', '-Wilhelm'], ['8418', '3026'], ['122', '05'], ['121', '61']].map(parts => parts.join(''));
 
 let container;
 const previous = process.env.PRISMIC_FIXTURES;
@@ -119,44 +140,68 @@ describe('static pages', () => {
 		expect(html).not.toMatch(/\sstyle="/v);
 	});
 
-	test('imprint documents Cloudflare and Google Maps in both languages and offers the withdraw control', async () => {
+	test('imprint renders both generated privacy policies in language wrappers with the anchor and the withdraw control', async () => {
 		const html = await render(Imprint, '/imprint/');
-		expect(html).toMatch(/<h2 id="privacy-policy"/v);
-		expect(html).toContain('data-lang="en" lang="en">12. Google Maps<');
-		expect(html).toContain('data-lang="de" lang="de">11. Hosting durch Cloudflare<');
-		expect(html).toContain('href="https://www.cloudflare.com/privacypolicy/"');
-		expect(html).toContain('href="https://policies.google.com/privacy"');
-		expect(html).toMatch(/<button[^>]*data-map-consent-revoke[^>]*>/v);
-		expect(html).not.toMatch(/privacy\.(?:withdraw|cloudflare|maps)\.\w+/v);
-	});
-
-	test('every imprint text exists in English and German and the German side has no English-only block', async () => {
-		const html = await render(Imprint, '/imprint/');
-		const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll('\'', '&#39;');
-		const keys = [
-			...flatten(en.privacy).map(key => `privacy.${key}`),
-			...flatten(en.imprint.address).map(key => `imprint.address.${key}`),
-			...flatten(en.imprint.license).map(key => `imprint.license.${key}`),
-			'imprint.pageTitle',
-			'imprint.design',
-			'imprint.privacyPolicy',
-		].filter(key => !key.endsWith('Url'));
-		for (const key of keys) {
-			for (const lang of ['en', 'de']) {
-				expect(html, `${key} (${lang})`).toContain(escape(t(key, lang, {siteName: 'EYESBOUND'})));
-			}
+		expect(html.match(/<h2 id="privacy-policy"/gv)).toHaveLength(1);
+		expect(html.match(/id="privacy-policy"/gv)).toHaveLength(1);
+		const english = html.indexOf('<div class="policy" data-lang="en" lang="en"');
+		const german = html.indexOf('<div class="policy" data-lang="de" lang="de"');
+		expect(english).toBeGreaterThan(0);
+		expect(german).toBeGreaterThan(english);
+		const sections = {
+			en: html.slice(english, german),
+			de: html.slice(german),
+		};
+		for (const lang of ['en', 'de']) {
+			const text = policies[lang];
+			expect(sections[lang], lang).toContain(text.opening);
+			expect(sections[lang], lang).toContain(text.cloudflare);
+			expect(sections[lang], lang).toContain(text.maps);
+			expect(sections[lang], lang).toContain(text.closing);
+			expect(sections[lang], lang).toContain('href="mailto:privacy@eyesbound.com"');
+			expect(sections[lang].match(/<h3 id="\d+-/gv), lang).toHaveLength(16);
+			expect(sections[lang], lang).not.toContain('<h1');
+			expect(sections[lang], lang).not.toContain('<h2');
+			expect(sections[lang].indexOf(text.maps), lang).toBeLessThan(sections[lang].indexOf(t('privacy.maps.heading', lang)));
+			expect(sections[lang].indexOf(t('privacy.maps.heading', lang)), lang).toBeLessThan(sections[lang].indexOf(text.closing));
+			expect(sections[lang], lang).toContain(escape(t('privacy.maps.basis', lang)));
+			expect(sections[lang], lang).toContain(escape(t('privacy.withdraw.button', lang)));
+			expect(sections[lang], lang).toContain(escape(t('privacy.withdraw.done', lang)));
 		}
 
-		expect(html.match(/<span data-lang="en" lang="en">/gv)).toHaveLength(html.match(/<span data-lang="de" lang="de">/gv).length);
-		expect(html).toContain('E-Mail</span>: admin@eyesbound.com');
-		expect(html).not.toContain('84183026');
-		expect(html).not.toContain('Friedrich-Wilhelm-Platz');
-		expect(html).not.toContain('12161');
-		expect(html).toContain('lang="de">Deutschland</span>');
-		expect(html).toContain('data-title-de="Namensnennung');
-		expect(html).toContain('<p data-lang="de" lang="de"');
-		expect(html).not.toMatch(/(?:privacy|imprint)\.\w+\.\w+/v);
+		expect(html.match(/<button[^>]*data-map-consent-revoke[^>]*>/gv)).toHaveLength(2);
+		expect(html.match(/data-map-consent-done hidden/gv)).toHaveLength(2);
+		expect(html).not.toMatch(/privacy\.\w+\.\w+/v);
 		expect(html).not.toContain('{{');
+	});
+
+	test('external policy links open safely', async () => {
+		const html = await render(Imprint, '/imprint/');
+		expect(html).toContain('<a href="https://www.cloudflare.com" target="_blank" rel="noreferrer">');
+		expect(html).toContain('<a href="mailto:privacy@eyesbound.com">');
+	});
+
+	test('the imprint publishes no street address, postcode or phone number', async () => {
+		const html = await render(Imprint, '/imprint/');
+		const sources = [
+			html,
+			readFileSync(policyPath('en'), 'utf8'),
+			readFileSync(policyPath('de'), 'utf8'),
+			JSON.stringify(en),
+			JSON.stringify(de),
+		];
+		for (const source of sources) {
+			for (const forbidden of withheld) {
+				expect(source).not.toContain(forbidden);
+			}
+		}
+	});
+
+	test('the controller section keeps only name, privacy e-mail and website', async () => {
+		const html = await render(Imprint, '/imprint/');
+		expect(html).toContain('<p>Jannis Hell</p>');
+		expect(html).toContain('Website: eyesbound.com');
+		expect(html).not.toMatch(/(?:Phone|Tel)\.:/v);
 	});
 
 	test('imprint headings never skip a level and keep the privacy policy anchor', async () => {
@@ -170,6 +215,28 @@ describe('static pages', () => {
 		}
 
 		expect(html).toMatch(/<h2 id="privacy-policy"/v);
+	});
+
+	test('every remaining imprint text exists in English and German', async () => {
+		const html = await render(Imprint, '/imprint/');
+		const keys = [
+			...flatten(en.privacy).map(key => `privacy.${key}`),
+			...flatten(en.imprint.address).map(key => `imprint.address.${key}`),
+			...flatten(en.imprint.license).map(key => `imprint.license.${key}`),
+			'imprint.pageTitle',
+			'imprint.design',
+			'imprint.privacyPolicy',
+		].filter(key => !key.endsWith('Url'));
+		for (const key of keys) {
+			for (const lang of ['en', 'de']) {
+				expect(html, `${key} (${lang})`).toContain(escape(t(key, lang)));
+			}
+		}
+
+		expect(html.match(/<span data-lang="en" lang="en">/gv)).toHaveLength(html.match(/<span data-lang="de" lang="de">/gv).length);
+		expect(html).toContain('E-Mail</span>: admin@eyesbound.com');
+		expect(html).toContain('lang="de">Deutschland</span>');
+		expect(html).toContain('data-title-de="Namensnennung');
 	});
 
 	test('404 page links home and has no inline script or style attributes', async () => {

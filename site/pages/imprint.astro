@@ -3,13 +3,18 @@ import {SITE_NAME as siteName} from 'astro:env/server';
 
 import badge from '../assets/a-design-award-winner-2016-silver-2x.png?url';
 import MainWrapper from '../components/MainWrapper.astro';
+import PolicyDocument from '../components/PolicyDocument.astro';
 import PostalAddress from '../components/PostalAddress.astro';
 import T from '../components/T.astro';
-import TList from '../components/TList.astro';
-import {languages, localizedTitle, t} from '../i18n/index.js';
+import {Content as policyDe} from '../content/privacy/privacy.de.md';
+import {Content as policyEn} from '../content/privacy/privacy.en.md';
+import {localizedTitle, t} from '../i18n/index.js';
 import Base from '../layouts/Base.astro';
 
-const params = {siteName};
+const policies = [
+	{lang: 'en', Content: policyEn},
+	{lang: 'de', Content: policyDe},
+];
 const licenses = [
 	{icon: 'icon-cc', key: 'imprint.license.cc'},
 	{icon: 'icon-cc-by', key: 'imprint.license.by'},
@@ -35,152 +40,21 @@ const licenses = [
 			</a>
 		</p>
 		<h2 id="privacy-policy" class="policy-heading"><T key="imprint.privacyPolicy" /></h2>
-		<p><T key="privacy.intro.p1" params={params} /></p>
-		<p><T key="privacy.intro.p2" params={params} /></p>
-		<p><T key="privacy.intro.p3" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s1.title" /></h3>
-		<p><T key="privacy.s1.p1" params={params} /></p>
-		<p><T key="privacy.s1.p2" params={params} /></p>
-		<ul>
-			<li>
-				<h4><T key="privacy.s1.terms.a.title" /></h4>
-				<p><T key="privacy.s1.terms.a.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.b.title" /></h4>
-				<p><T key="privacy.s1.terms.b.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.c.title" /></h4>
-				<p><T key="privacy.s1.terms.c.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.d.title" /></h4>
-				<p><T key="privacy.s1.terms.d.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.e.title" /></h4>
-				<p><T key="privacy.s1.terms.e.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.f.title" /></h4>
-				<p><T key="privacy.s1.terms.f.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.g.title" /></h4>
-				<p><T key="privacy.s1.terms.g.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.h.title" /></h4>
-				<p><T key="privacy.s1.terms.h.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.i.title" /></h4>
-				<p><T key="privacy.s1.terms.i.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.j.title" /></h4>
-				<p><T key="privacy.s1.terms.j.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s1.terms.k.title" /></h4>
-				<p><T key="privacy.s1.terms.k.p1" params={params} /></p>
-			</li>
-		</ul>
-		<h3 class="policy-heading"><T key="privacy.s2.title" /></h3>
-		<p><T key="privacy.s2.p1" params={params} /></p>
-		<p>{siteName}<br><PostalAddress /></p>
-		<h3 class="policy-heading"><T key="privacy.s3.title" /></h3>
-		<p><T key="privacy.s3.p1" params={params} /></p>
-		<p><T key="privacy.s3.p2" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s4.title" /></h3>
-		<p><T key="privacy.s4.p1" params={params} /></p>
-		<p><T key="privacy.s4.p2" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s5.title" /></h3>
-		<ul>
-			<li>
-				<h4><T key="privacy.s5.a.title" /></h4>
-				<p><T key="privacy.s5.a.p1" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.b.title" /></h4>
-				<p><T key="privacy.s5.b.p1" params={params} /></p>
-				<TList key="privacy.s5.b.list" params={params} />
-				<p><T key="privacy.s5.b.p2" params={params} /></p>
-				<p><T key="privacy.s5.b.p3" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.c.title" /></h4>
-				<p><T key="privacy.s5.c.p1" params={params} /></p>
-				<p><T key="privacy.s5.c.p2" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.d.title" /></h4>
-				<p><T key="privacy.s5.d.p1" params={params} /></p>
-				<TList key="privacy.s5.d.list" params={params} />
-				<p><T key="privacy.s5.d.p2" params={params} /></p>
-				<p><T key="privacy.s5.d.p3" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.e.title" /></h4>
-				<p><T key="privacy.s5.e.p1" params={params} /></p>
-				<TList key="privacy.s5.e.list" params={params} />
-				<p><T key="privacy.s5.e.p2" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.f.title" /></h4>
-				<p><T key="privacy.s5.f.p1" params={params} /></p>
-				<p><T key="privacy.s5.f.p2" params={params} /></p>
-				<p><T key="privacy.s5.f.p3" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.g.title" /></h4>
-				<p><T key="privacy.s5.g.p1" params={params} /></p>
-				<p><T key="privacy.s5.g.p2" params={params} /></p>
-				<p><T key="privacy.s5.g.p3" params={params} /></p>
-				<p><T key="privacy.s5.g.p4" params={params} /></p>
-				<p><T key="privacy.s5.g.p5" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.h.title" /></h4>
-				<p><T key="privacy.s5.h.p1" params={params} /></p>
-				<p><T key="privacy.s5.h.p2" params={params} /></p>
-				<p><T key="privacy.s5.h.p3" params={params} /></p>
-			</li>
-			<li>
-				<h4><T key="privacy.s5.i.title" /></h4>
-				<p><T key="privacy.s5.i.p1" params={params} /></p>
-				<p><T key="privacy.s5.i.p2" params={params} /></p>
-			</li>
-		</ul>
-		<h3 class="policy-heading"><T key="privacy.s6.title" /></h3>
-		<p><T key="privacy.s6.p1" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s7.title" /></h3>
-		<p><T key="privacy.s7.p1" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s8.title" /></h3>
-		<p><T key="privacy.s8.p1" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s9.title" /></h3>
-		<p><T key="privacy.s9.p1" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.s10.title" /></h3>
-		<p><T key="privacy.s10.p1" params={params} /></p>
-		<h3 class="policy-heading"><T key="privacy.cloudflare.heading" /></h3>
-		<p><T key="privacy.cloudflare.operator" /></p>
-		<p><T key="privacy.cloudflare.data" /></p>
-		<p><T key="privacy.cloudflare.basis" /></p>
-		<p><T key="privacy.cloudflare.more" /> <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noreferrer'>https://www.cloudflare.com/privacypolicy/</a></p>
-		<h3 class="policy-heading"><T key="privacy.maps.heading" /></h3>
-		<p><T key="privacy.maps.operator" /></p>
-		<p><T key="privacy.maps.data" /></p>
-		<p><T key="privacy.maps.basis" /></p>
-		<p><T key="privacy.maps.storage" /></p>
-		<p><T key="privacy.maps.withdraw" /></p>
-		<p>
-			<button type="button" class="withdraw" data-map-consent-revoke><T key="privacy.withdraw.button" /></button>
-			<span role="status" data-map-consent-done hidden><T key="privacy.withdraw.done" /></span>
-		</p>
-		<p><T key="privacy.maps.more" /> <a href='https://policies.google.com/privacy' target='_blank' rel='noreferrer'>https://policies.google.com/privacy</a></p>
-		{languages.map(lang => (
-			<p data-lang={lang} lang={lang}>{t('privacy.generator.before', lang)}<a href={t('privacy.generator.associationUrl', lang)}>{t('privacy.generator.association', lang)}</a>{t('privacy.generator.middle', lang)}<a href={t('privacy.generator.lawyersUrl', lang)}>{t('privacy.generator.lawyers', lang)}</a>{t('privacy.generator.after', lang)}</p>
+		{policies.map(({lang, Content}) => (
+			<PolicyDocument lang={lang}>
+				<Content />
+				<Fragment slot="consent">
+					<h3 class="policy-heading">{t('privacy.maps.heading', lang)}</h3>
+					<p>{t('privacy.maps.data', lang)}</p>
+					<p>{t('privacy.maps.basis', lang)}</p>
+					<p>{t('privacy.maps.storage', lang)}</p>
+					<p>{t('privacy.maps.withdraw', lang)}</p>
+					<p>
+						<button type="button" class="withdraw" data-map-consent-revoke>{t('privacy.withdraw.button', lang)}</button>
+						<span role="status" data-map-consent-done hidden>{t('privacy.withdraw.done', lang)}</span>
+					</p>
+				</Fragment>
+			</PolicyDocument>
 		))}
 	</MainWrapper>
 </Base>

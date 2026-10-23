@@ -250,10 +250,10 @@ test.describe('withdrawing consent', () => {
 		await stubMaps(page);
 		await page.goto('/imprint/');
 		await page.evaluate(key => localStorage.setItem(key, 'granted'), consentKey);
-		await expect(page.locator('[data-map-consent-done]')).toBeHidden();
+		await expect(page.locator('[data-map-consent-done]:visible')).toBeHidden();
 
 		await page.getByRole('button', {name: 'Forget map consent'}).click();
-		await expect(page.locator('[data-map-consent-done]')).toBeVisible();
+		await expect(page.locator('[data-map-consent-done]:visible')).toBeVisible();
 		expect(await page.evaluate(key => localStorage.getItem(key), consentKey)).toBeNull();
 
 		await page.goto('/worldmap/');

@@ -2,7 +2,7 @@ import {describe, expect, test} from 'vitest';
 
 import de from '../locales/de.json';
 import en from '../locales/en.json';
-import {localizedTitle, t, tCount} from '../index.js';
+import {localizedTitle, t} from '../index.js';
 
 const flatten = (object, prefix = '') => Object.entries(object).flatMap(([key, value]) => (
 	typeof value === 'object' && value !== null ? flatten(value, `${prefix}${key}.`) : [`${prefix}${key}`]
@@ -32,20 +32,7 @@ describe('locale parity', () => {
 describe('German translations', () => {
 	test('no German text is just the English text, except proper names and shared terms', () => {
 		const untranslated = flatten(en).filter(key => t(key, 'de', {language: 'x', siteName: 'x'}) === t(key, 'en', {language: 'x', siteName: 'x'}) && !key.endsWith('Url'));
-		expect(untranslated.toSorted((a, b) => a.localeCompare(b))).toEqual(['imprint.address.website', 'imprint.design', 'privacy.maps.heading', 'privacy.s1.terms.e.title']);
-	});
-
-	test('lists have the same length in both languages', () => {
-		expect(tCount('privacy.s5.b.list')).toBe(8);
-		expect(tCount('privacy.s5.d.list')).toBe(6);
-		expect(tCount('privacy.s5.e.list')).toBe(4);
-	});
-});
-
-describe('tCount', () => {
-	test('throws for text that is not a list', () => {
-		expect(() => tCount('privacy.s5.b.title')).toThrow('is not a list');
-		expect(() => tCount('privacy.nope')).toThrow('is not a list');
+		expect(untranslated.toSorted((a, b) => a.localeCompare(b))).toEqual(['imprint.address.website', 'imprint.design']);
 	});
 });
 
