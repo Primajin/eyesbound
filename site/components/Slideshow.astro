@@ -23,6 +23,7 @@ if (pictures.length === 0) {
 			</li>
 		))}
 	</ul>
+	<div class="fade" data-fade aria-hidden="true"></div>
 	{pictures.length > 1 && (
 		<>
 			<button type="button" class="arrow previous" data-slide="previous">
@@ -94,14 +95,30 @@ if (pictures.length === 0) {
 		object-fit: cover;
 	}
 
-	@media (prefers-reduced-motion: no-preference) {
-		.slide a {
-			transition: opacity 0.45s ease-in-out;
-		}
+	.fade {
+		display: none;
+		inset-block: 0 50px;
+		inset-inline: 0;
+		pointer-events: none;
+		position: absolute;
+	}
 
-		.slides[data-fade='out'] .slide a {
-			opacity: 0;
-		}
+	.fade[data-state] {
+		display: block;
+		opacity: 0;
+	}
+
+	.fade[data-state='in'] {
+		opacity: 1;
+		transition: opacity 0.9s ease;
+	}
+
+	.fade :global(picture),
+	.fade :global(img) {
+		block-size: 100%;
+		display: block;
+		inline-size: 100%;
+		object-fit: cover;
 	}
 
 	.arrow {
