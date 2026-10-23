@@ -91,6 +91,16 @@ test.describe('picture detail page', () => {
 		await expect(firstLink).toBeVisible();
 	});
 
+	for (const width of [1440, 390]) {
+		test(`menu button meets the 24px target size at ${width}px`, async ({page}) => {
+			await page.setViewportSize({width, height: 900});
+			await page.goto(picturePath);
+			const box = await page.locator('nav button').boundingBox();
+			expect(box.height).toBeGreaterThanOrEqual(24);
+			expect(box.width).toBeGreaterThanOrEqual(24);
+		});
+	}
+
 	test('fullscreen toggle is wired', async ({page}) => {
 		await page.goto(picturePath);
 		const toggle = page.locator('[data-fullscreen-toggle]');
