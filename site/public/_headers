@@ -5,6 +5,8 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  # Stops Cloudflare from rewriting responses (it injects a per-request inline script that the strict CSP blocks)
+  Cache-Control: no-transform
 
 # Hashed build output: cache forever, no CSP (not documents)
 /_astro/*
