@@ -13,9 +13,9 @@
       "matchPackageNames": ["vitest", "/^@vitest\\//"]
     },
     {
-      "description": "Playwright test runner (browser build is installed in CI from the same version)",
+      "description": "Keep the Playwright test runner and preinstalled CI browsers on the same version",
       "groupName": "playwright",
-      "matchPackageNames": ["@playwright/test", "playwright", "playwright-core"]
+      "matchPackageNames": ["@playwright/test", "playwright", "playwright-core", "mcr.microsoft.com/playwright"]
     }
   ]
 }
