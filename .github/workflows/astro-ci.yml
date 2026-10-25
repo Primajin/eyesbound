@@ -153,9 +153,6 @@ jobs:
     name: Playwright e2e (chromium, shard ${{ matrix.shard }}/3)
     needs: build
     runs-on: ubuntu-latest
-    # Keep this tag aligned with @playwright/test (Renovate groups both updates).
-    container:
-      image: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 20
     permissions:
       contents: read
@@ -177,6 +174,18 @@ jobs:
         with:
           name: dist
           path: dist/
+      - name: Read the Playwright version
+        id: pw
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Cache Playwright browsers
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}
+      # On a cache hit the browser download is skipped; the OS packages (apt) are
+      # still installed because they are not part of the cache.
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
       # playwright.config.mjs starts `astro preview` against the downloaded dist/.
       - run: npx playwright test --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

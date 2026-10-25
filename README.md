@@ -88,8 +88,6 @@ Custom types: copy the JSON of a type (e.g. `https://eyesbound.prismic.io/masks/
 
 Unit tests run on Vitest with Astro's Vite config, `.astro` components through Astro's container API. Browser behaviour (CSP, map, slideshow, service worker) is covered by Playwright specs in `e2e/`. `node scripts/route-parity.mjs` compares the generated routes with the live sitemap. See [ADR 0002](docs/adr/0002-test-strategy-and-offline.md).
 
-CI runs the e2e shards in Microsoft's Playwright container, which includes Chromium and its OS dependencies; no browser installation or browser cache is needed. The image tag in `.github/workflows/astro-ci.yml` must match the locked `@playwright/test` version. Renovate groups these updates.
-
 ## Deployment
 
 GitHub Actions builds once and deploys that `dist/` to Cloudflare Workers static assets; previews get an alias per pull request. Setup, secrets, cutover and rollback: [docs/hosting-cloudflare.md](docs/hosting-cloudflare.md).
