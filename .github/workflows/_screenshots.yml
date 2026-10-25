@@ -25,9 +25,9 @@ jobs:
       pull-requests: write # screenshots-ci-action posts and edits the PR comment
     steps:
       - name: Wait for the Cloudflare preview to answer
-        env:
-          PREVIEW_URL: ${{ inputs.preview-url }}
-        run: curl --fail --silent --show-error --location --output /dev/null --retry 10 --retry-delay 3 --retry-all-errors "$PREVIEW_URL/picture/"
+        uses: Primajin/.github/actions/wait-for-url@e935eed2767688c725dc9dcbbbec1a3be4abf715 # v1.1.0
+        with:
+          url: ${{ inputs.preview-url }}/picture/
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
