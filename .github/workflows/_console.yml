@@ -32,7 +32,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Use WebApp Console Log Action
-        uses: Primajin/webapp-console-log-action@94159a1a173934a0d47c6d9eecbbadf1852c7b6f # v2.0.0
+        uses: Primajin/webapp-console-log-action@bac4bdbb512084fe14e28e27df2cb4ae5abe38be # v2.1.0
         with:
           webapp-url: ${{ inputs.preview-url }}
         env:
