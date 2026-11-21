@@ -33,7 +33,7 @@ jobs:
         with:
           persist-credentials: false
       - name: screenshots-ci-action
-        uses: Primajin/screenshots-ci-action@9042a4f85ea2cc2d18b7dfc787146b91690817e1 # v4.1.1
+        uses: Primajin/screenshots-ci-action@147ab4cd71e5460df13ecb8edf51f04422556b00 # v4.2.0
         with:
           url: ${{ inputs.preview-url }}/picture/
           release-id: 357373231
